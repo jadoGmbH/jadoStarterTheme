@@ -74,6 +74,18 @@ ul{
   }
 }
 
+#headerfixed{
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  z-index: 9999;
+  @include transition(top 300ms ease-out);
+
+  &.show{
+    top: 0;
+  }
+}
+
 .header {
   background-color: $dark;
 }

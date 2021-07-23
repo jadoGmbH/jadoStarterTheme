@@ -53,7 +53,7 @@ echo $sprachekurz; ?>">
 </head>
 <body <?php body_class(); ?>>
 <div id="container">
-    <header class="header">
+    <header id="headerfixed" class="header show">
         <div id="inner-header" class="wrap">
             <?php if (!is_front_page()) {
                 echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';

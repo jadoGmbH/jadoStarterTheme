@@ -47,30 +47,33 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('burger'), 'toggled-on');
         toggleClass(document.getElementById('site-navigation'), 'toggled-on');
     });
+
+
+    var header = document.getElementById('headerfixed');
+    var headerheight = header.clientHeight;
+    document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
+
+    var scrollableElement = document.body;
+    scrollableElement.addEventListener('wheel', checkScrollDirection);
+    function add_class_on_scroll() {
+        header.classList.add('show');
+    }
+    function remove_class_on_scroll() {
+        header.classList.remove('show');
+    }
+    function checkScrollDirection(event) {
+        if (checkScrollDirectionIsUp(event)) {
+            add_class_on_scroll();
+        } else {
+            remove_class_on_scroll();
+        }
+    }
+    function checkScrollDirectionIsUp(event) {
+        if (event.wheelDelta) {
+            return event.wheelDelta > 0;
+        }
+        return event.deltaY < 0;
+    }
 </script>
-<!-- Header scroll detection -->
-<!--
-<script src='/wp-includes/js/jquery/jquery.js'></script>
-<script>
-    jQuery(document).ready(function ($) {
-        var position = $(window).scrollTop();
-        $(window).scroll(function () {
-            var scroll = $(window).scrollTop();
-            if (scroll > position) {
-                $('header.header').removeClass('show');
-            } else {
-                $('header.header').addClass('show');
-            }
-            if (scroll < 20) {
-                if ($('header.header').hasClass('show')) {
-                } else {
-                    $('header.header').addClass('show');
-                }
-            }
-            position = scroll;
-        });
-    });
-</script>
--->
 </body>
 </html>
