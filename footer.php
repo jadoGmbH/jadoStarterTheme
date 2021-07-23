@@ -48,5 +48,29 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('site-navigation'), 'toggled-on');
     });
 </script>
+<!-- Header scroll detection -->
+<!--
+<script src='/wp-includes/js/jquery/jquery.js'></script>
+<script>
+    jQuery(document).ready(function ($) {
+        var position = $(window).scrollTop();
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll > position) {
+                $('header.header').removeClass('show');
+            } else {
+                $('header.header').addClass('show');
+            }
+            if (scroll < 20) {
+                if ($('header.header').hasClass('show')) {
+                } else {
+                    $('header.header').addClass('show');
+                }
+            }
+            position = scroll;
+        });
+    });
+</script>
+-->
 </body>
 </html>
