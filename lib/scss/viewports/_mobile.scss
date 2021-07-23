@@ -283,12 +283,14 @@ ul.nav {
 
 
     a, a:visited {
-      color: $link-color;
+      background-color: $link-color;
+      color: $white;
+      padding: 0 0.3em 0.2em 0.3em;
       text-decoration: none;
       @include transition(all 200ms ease-out);
 
       &:hover, &:focus {
-        color: $link-hover;
+        background-color: $link-hover;
         text-decoration: none;
       }
     }
