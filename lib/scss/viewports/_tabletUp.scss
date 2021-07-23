@@ -1,0 +1,111 @@
+/******************************************************************
+Stylesheet: Tablet & Small Desktop
+******************************************************************/
+
+
+$copysize: 1.5vw;
+$headlinesize: 4vw;
+
+$contentwidth: 80%;
+
+
+body{
+  font-size: 100%;
+}
+
+
+h1{
+  font-size: $headlinesize;
+}
+
+h2 {
+  font-size: $headlinesize - 0.4;
+}
+
+h3, h4 {
+  font-size: $headlinesize - 1;
+}
+
+
+
+.wrap {
+  width: $contentwidth;
+}
+
+#burger {
+  display: none;
+}
+
+#site-navigation {
+  max-height: 600px;
+}
+
+#description{
+  font-size: $copysize;
+}
+
+ul.nav {
+  border: 0;
+  background: $dark;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.footer-nav{
+    li{
+      a{
+        font-size: $copysize - 0.3;
+      }
+    }
+  }
+
+  li {
+    float: left;
+    position: relative;
+
+    &:first-child {
+      a {
+        padding-left: 0;
+      }
+    }
+
+    a {
+      font-size: $copysize;
+      border-bottom: 0;
+      padding: 0.75vw 2vw;
+    }
+  }
+}
+
+#content{
+  ul {
+    li{
+      padding: 0 0 1vw 2vw;
+
+      &:before{
+        width: 0.7vw;
+        height: 0.7vw;
+        top: 0.6vw;
+      }
+    }
+  }
+
+  .entry-content {
+    padding: 2vw;
+
+    p, ul, li {
+      font-size: $copysize;
+    }
+
+    p{
+      margin: 0 0 2vw;
+    }
+
+    img {
+      margin: 0 0 2vw 0;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

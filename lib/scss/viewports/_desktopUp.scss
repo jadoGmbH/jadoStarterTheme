@@ -1,0 +1,101 @@
+/******************************************************************
+Stylesheet: Desktop
+******************************************************************/
+
+
+$copysize: 16px;
+$headlinesize: 40px;
+
+body {
+  font-size: 100%;
+}
+
+
+
+.wrap {
+  width: 80%;
+  max-width: 1100px; // maximal width for layout!
+}
+
+.header, .footer {
+  padding: 2em 0;
+}
+
+#description{
+  font-size: $copysize;
+}
+
+#content {
+  margin-top: 2em;
+
+  .hentry {
+    margin-bottom: 3em;
+
+    header {
+      padding: 2em 0;
+    }
+  }
+}
+
+
+h1 {
+  font-size: $headlinesize;
+}
+
+h2 {
+  font-size: $headlinesize - 10;
+}
+
+h3, h4 {
+  font-size: $headlinesize - 20;
+}
+
+
+ul.nav {
+
+  &.footer-nav {
+    li {
+      a {
+        font-size: $copysize - 3;
+      }
+    }
+  }
+
+  li {
+
+    a {
+      font-size: $copysize;
+      padding: 0.75em 2em;
+    }
+  }
+}
+
+#content {
+  ul {
+    li {
+      padding: 0 0 1em 1.4em;
+
+      &:before {
+        width: 0.6em;
+        height: 0.6em;
+        top: 0.4em;
+      }
+    }
+  }
+
+  .entry-content {
+    padding: 2em;
+
+    p, ul, li {
+      font-size: $copysize;
+    }
+
+    p {
+      margin: 0 0 2em;
+    }
+
+    img {
+      margin: 0 0 2em 0;
+    }
+  }
+}
