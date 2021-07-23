@@ -26,7 +26,7 @@
             else : ?>
             <article id="post-not-found" class="hentry">
                 <header class="article-header">
-                    <h1>404, Seite nicht gefunden!</h1>
+                    <h1>404 - Site not found!</h1>
                 </header>
             </article>
         <?php endif; ?>

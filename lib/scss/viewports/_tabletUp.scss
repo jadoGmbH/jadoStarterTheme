@@ -97,6 +97,12 @@ ul.nav {
   .entry-content {
 
 
+    &.blog{
+      .post{
+        flex: 0 0 30%;
+      }
+    }
+
 
     p, ul, li, a {
       font-size: $copysize;
@@ -104,6 +110,12 @@ ul.nav {
 
     p{
       margin: 0 0 2vw;
+    }
+
+    h2{
+      a{
+        font-size: $headlinesize - 2;
+      }
     }
 
     img {

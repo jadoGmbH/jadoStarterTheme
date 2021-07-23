@@ -286,6 +286,30 @@ ul.nav {
 
   .entry-content {
 
+    &.blog{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .post{
+        flex: 0 0 45%;
+        border: 1px solid $maincolor;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 4em;
+
+        a.wp-block-button__link{
+          display: block;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
 
     a, a:visited {
       background-color: $link-color;
@@ -304,6 +328,16 @@ ul.nav {
         padding: 0.8em 1.5em;
         font-family: $headline;
         border-radius: 0;
+      }
+    }
+
+    h2{
+      a{
+        color: $white;
+        font-size: $headlinesize;
+        background-color: $link-color;
+        line-height: 1.2;
+        display: inline-block;
       }
     }
 
