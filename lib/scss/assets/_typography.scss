@@ -2,19 +2,22 @@
 Stylesheet: Typography
 ******************************************************************/
 
-/*  @font-face {
-      font-family: 'Font Name';
-      src: url('lib/fonts/font-name.woff') format('woff'),
-           url('lib/fonts/font-name.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap; //block, swap, fallback, auto, optional
-  }
-*/
+
+//please integrate google webfonts with the webfont helper:  https://google-webfonts-helper.herokuapp.com/fonts (only woff and woff2)
 
 
-$headline: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$copy: "Georgia", serif;
+@font-face {
+  font-family: 'Bree Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('../fonts/bree-serif-v10-latin-regular.woff2') format('woff2'),
+  url('../fonts/bree-serif-v10-latin-regular.woff') format('woff');
+}
+
+
+$copy: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headline: "Bree Serif", serif;
 
 
 h1, h2, h3, h4, p, li {
