@@ -89,9 +89,13 @@ ul{
 }
 
 .logolink{
+  span#logo{
+    opacity: 1;
+    @include transition(opacity 300ms ease-out);
+  }
   &:hover{
     span#logo{
-      color: $link-hover;
+      opacity: 0.5;
     }
   }
 }
@@ -107,6 +111,7 @@ span#logo {
 
   a {
     color: $white;
+    opacity: 1;
   }
 }
 
