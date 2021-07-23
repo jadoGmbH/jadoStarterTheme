@@ -13,6 +13,7 @@ Stylesheet: Typography
   src: local(''),
   url('../fonts/bree-serif-v10-latin-regular.woff2') format('woff2'),
   url('../fonts/bree-serif-v10-latin-regular.woff') format('woff');
+  font-display: swap; //fallback, optional, block, auto
 }
 
 
