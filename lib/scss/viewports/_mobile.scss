@@ -267,7 +267,7 @@ ul.nav {
   }
 
   .hentry {
-    background-color: $white;
+    //background-color: $white;
     margin-bottom: 3vw;
 
     header {
@@ -284,7 +284,6 @@ ul.nav {
   }
 
   .entry-content {
-    padding: 4vw;
 
 
     a, a:visited {
@@ -297,6 +296,11 @@ ul.nav {
       &:hover, &:focus {
         background-color: $link-hover;
         text-decoration: none;
+      }
+
+      &.wp-block-button__link{
+        padding: 0.8em 1.5em;
+        border-radius: 0;
       }
     }
 
