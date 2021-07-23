@@ -6,3 +6,11 @@ jQuery is deactivated and two functions are integrated in pure JavaScript in the
 Preview:
 
 https://wordpress.ja.do  (sorry only in german)
+
+License:
+
+https://en.wikipedia.org/wiki/WTFPL
+
+Except of the Font: 
+
+https://fonts.google.com/specimen/Bree+Serif#license
