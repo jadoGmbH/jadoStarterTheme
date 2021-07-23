@@ -11,7 +11,7 @@ echo $sprachekurz; ?>">
         <?php if (is_front_page()) {
             echo bloginfo('name');
         } else {
-            echo wp_title('–');
+            echo bloginfo('name') . '' . wp_title('–');
         }; ?>
     </title>
 
