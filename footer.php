@@ -48,18 +48,5 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('site-navigation'), 'toggled-on');
     });
 </script>
-<!--
-<script src='/wp-includes/js/jquery/jquery.js'></script>
-<script>
-    jQuery(document).ready(function ($) {
-        $('.container').on('click', function () {
-            $(this).addClass('offen');
-            $(this).children('.innerContainer').addClass('offen');
-            $('.container').not(this).removeClass('offen');
-            $('.container').not(this).children('.innerContainer').removeClass('offen');
-        });
-    });
-</script>
--->
 </body>
 </html>
