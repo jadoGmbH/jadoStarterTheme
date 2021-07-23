@@ -62,7 +62,6 @@ ul.nav {
   }
 
   li {
-
     a {
       font-size: $copysize;
       padding: 0.75em 2em;
@@ -85,7 +84,7 @@ ul.nav {
 
   .entry-content {
 
-    p, ul, li {
+    p, ul, li, a {
       font-size: $copysize;
     }
 

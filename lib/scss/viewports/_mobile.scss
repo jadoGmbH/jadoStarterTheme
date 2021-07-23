@@ -103,7 +103,7 @@ ul{
 
 span#logo {
   display: inline-block;
-  font-size: 300%;
+  font-size: 230%;
   width: auto;
   position: relative;
   color: $white;
@@ -127,7 +127,7 @@ span#logo {
 #burger {
   position: absolute;
   right: 5%;
-  top: 6vw;
+  top: 5vw;
   cursor: pointer;
   margin: 0;
   display: block;
@@ -289,6 +289,7 @@ ul.nav {
     a, a:visited {
       background-color: $link-color;
       color: $white;
+      font-size: $copysize;
       padding: 0 0.3em 0.2em 0.3em;
       text-decoration: none;
       @include transition(all 200ms ease-out);

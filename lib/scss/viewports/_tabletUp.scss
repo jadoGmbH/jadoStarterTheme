@@ -26,7 +26,10 @@ h3, h4 {
   font-size: $headlinesize - 1;
 }
 
+span#logo{
+  font-size: 300%;
 
+}
 
 .wrap {
   width: $contentwidth;
@@ -93,7 +96,9 @@ ul.nav {
 
   .entry-content {
 
-    p, ul, li {
+
+
+    p, ul, li, a {
       font-size: $copysize;
     }
 
