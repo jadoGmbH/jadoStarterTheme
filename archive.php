@@ -11,9 +11,9 @@
                                                   title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
                     </h3>
                     <p class="byline entry-meta vcard">
-                        <?php printf(__('Posted', 'bonestheme') . ' %1$s %2$s',
+                        <?php printf(__('Posted', 'jadotheme') . ' %1$s %2$s',
                             '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" >' . get_the_time(get_option('date_format')) . '</time>',
-                            '<span class="by">' . __('by', 'bonestheme') . '</span> <span class="entry-author author">' . get_the_author_link(get_the_author_meta('ID')) . '</span>'
+                            '<span class="by">' . __('by', 'jadotheme') . '</span> <span class="entry-author author">' . get_the_author_link(get_the_author_meta('ID')) . '</span>'
                         ); ?>
                     </p>
                 </header>
@@ -23,7 +23,6 @@
                 </section>
             </article>
         <?php endwhile;
-        //bones_page_navi();
             else : ?>
             <article id="post-not-found" class="hentry">
                 <header class="article-header">

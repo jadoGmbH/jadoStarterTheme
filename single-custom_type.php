@@ -23,14 +23,14 @@
                     <header class="article-header">
                         <h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
                         <p class="byline vcard"><?php
-                            printf(__('Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link(get_the_author_meta('ID')), get_the_term_list($post->ID, 'custom_cat', ' ', ', ', ''));
+                            printf(__('Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'jadotheme'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link(get_the_author_meta('ID')), get_the_term_list($post->ID, 'custom_cat', ' ', ', ', ''));
                             ?></p>
                     </header>
                     <section class="entry-content">
                         <?php
                         the_content();
 //                        wp_link_pages(array(
-//                            'before' => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'bonestheme') . '</span>',
+//                            'before' => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'jadotheme') . '</span>',
 //                            'after' => '</div>',
 //                            'link_before' => '<span>',
 //                            'link_after' => '</span>',
@@ -38,7 +38,7 @@
                         ?>
                     </section> <!-- end article section -->
                     <footer class="article-footer">
-                        <p class="tags"><?php echo get_the_term_list(get_the_ID(), 'custom_tag', '<span class="tags-title">' . __('Custom Tags:', 'bonestheme') . '</span> ', ', ') ?></p>
+                        <p class="tags"><?php echo get_the_term_list(get_the_ID(), 'custom_tag', '<span class="tags-title">' . __('Custom Tags:', 'jadotheme') . '</span> ', ', ') ?></p>
                     </footer>
                     <?php //comments_template(); ?>
                 </article>
