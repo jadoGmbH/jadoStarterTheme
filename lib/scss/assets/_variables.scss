@@ -25,12 +25,12 @@ Stylesheet: Variables
 
 $bgcolor: #e5e3dd;
 
-$dark: #3e3e20;
+$dark: #a1a111;
 $white: #ffffff;
 
-$contrast: #4cb3d4;
-$maincolor: #e2b219;
-$text-color:    $dark;
+$contrast: #E1F200;
+$maincolor: #109388;
+$text-color: #2b2913;
 
 $link-color:    $maincolor;
-$link-hover:    darken($link-color, 9%);
+$link-hover:    lighten($link-color, 9%);

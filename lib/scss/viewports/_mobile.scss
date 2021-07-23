@@ -23,6 +23,17 @@ body {
   font-size: $copysize;
 }
 
+a, a:visited {
+  color: $white;
+  text-decoration: none;
+  @include transition(all 200ms ease-out);
+
+  &:hover, &:focus {
+    color: $link-hover;
+    text-decoration: none;
+  }
+}
+
 p:empty {
   display:none;
 }
@@ -32,19 +43,6 @@ p:empty {
   margin: 0 auto;
 }
 
-a, a:visited {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover, &:focus {
-    color: $link-hover;
-    text-decoration: none;
-  }
-
-  &:link {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
-  }
-}
 
 h1, h2, h3, h4 {
   text-rendering: optimizelegibility;
@@ -101,11 +99,11 @@ ul{
 
 span#logo {
   display: inline-block;
-  font-size: 200%;
+  font-size: 300%;
   width: auto;
   position: relative;
   color: $white;
-  font-weight: bold;
+  font-weight: normal;
 
   a {
     color: $white;
@@ -114,9 +112,9 @@ span#logo {
 
 #description{
   display: block;
-  font-weight: bold;
+  font-weight: normal;
   margin-top: 1vw;
-  color: $maincolor;
+  color: $white;
   font-size: $copysize;
 }
 
@@ -124,7 +122,7 @@ span#logo {
 #burger {
   position: absolute;
   right: 5%;
-  top: 4vw;
+  top: 6vw;
   cursor: pointer;
   margin: 0;
   display: block;
@@ -284,6 +282,17 @@ ul.nav {
     padding: 4vw;
 
 
+    a, a:visited {
+      color: $link-color;
+      text-decoration: none;
+      @include transition(all 200ms ease-out);
+
+      &:hover, &:focus {
+        color: $link-hover;
+        text-decoration: none;
+      }
+    }
+
     /* fullscreen video embed */
 
     .wp-block-embed__wrapper {
@@ -315,6 +324,11 @@ ul.nav {
 
     p {
       margin: 0 0 2vw;
+
+      a{
+        font-weight: bold;
+        font-family: $headline;
+      }
     }
 
     img {
@@ -338,8 +352,8 @@ figure.wp-block-image{
   figcaption{
     margin-top: 0;
     text-align: center;
-    font-size: 70%;
-    opacity: 0.7;
+    font-size: 80%;
+    opacity: 0.6;
     font-style: italic;
   }
 }
@@ -357,7 +371,6 @@ figure.wp-block-image{
 
   .copyright{
     font-weight: bold;
-    text-transform: uppercase;
     color: $bgcolor;
     font-size: 70%;
   }

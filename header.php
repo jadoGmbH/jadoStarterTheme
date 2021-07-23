@@ -59,10 +59,10 @@ echo $sprachekurz; ?>">
                 echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';
             }; ?>
             <span id="logo"><?php bloginfo('name'); ?></span>
-            <span id="description"><?php bloginfo('description'); ?></span>
             <?php if (!is_front_page()) {
                 echo '</a>';
             }; ?>
+            <span id="description"><?php bloginfo('description'); ?></span>
             <div id="burger">
                 <div class="cheese c1"></div>
                 <div class="cheese c2"></div>
