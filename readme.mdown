@@ -15,6 +15,6 @@ License:
 
 https://en.wikipedia.org/wiki/WTFPL
 
-Except of the Font: 
+License Font: 
 
 https://fonts.google.com/specimen/Bree+Serif#license
