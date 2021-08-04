@@ -1,7 +1,7 @@
 # ja.do WordPress Starter Theme
 
-This is a slim starter Theme for WordPress, Gutenberg enabled but integrated in style.css, fully responsive and fast as hell. 
-jQuery is deactivated and two functions are integrated in pure JavaScript in the footer.php to get the burger-menu and to handle the header behavior (fixed header).
+This is a super slim and fast Starter Theme for WordPress, Gutenberg enabled - integrated in style.css and fully responsive. 
+jQuery is deactivated and two functions are integrated in pure JavaScript in the footer.php to get the burger-menu and the header behavior to work (sticky header).
 
 😎 Author:
 
