@@ -28,7 +28,7 @@ h3, h4 {
 
 span#logo{
   font-size: 300%;
-
+  margin-right: 0;
 }
 
 .wrap {
@@ -81,6 +81,12 @@ ul.nav {
   }
 }
 
+figure.wp-block-image{
+  figcaption{
+    font-size: $copysize - 0.5;
+  }
+}
+
 #content{
   ul {
     li{
@@ -123,5 +129,17 @@ ul.nav {
       max-width: 100%;
       height: auto;
     }
+  }
+}
+
+.footer{
+  .copyright{
+    font-size: $copysize - 0.5;
+  }
+
+  #inner-footer{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }

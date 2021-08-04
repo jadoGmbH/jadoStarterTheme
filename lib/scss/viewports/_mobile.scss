@@ -3,10 +3,12 @@ Stylesheet: Base Mobile
 ******************************************************************/
 
 
-$copysize: 3vw;
-$headlinesize: 5vw;
+$copysize: 4.1vw;
+$headlinesize: 6vw;
 
+$contentwidth: 84%;
 
+$burgerright: calc(100% - #{$contentwidth});
 
 body {
   font-family: $copy;
@@ -39,7 +41,7 @@ p:empty {
 }
 
 .wrap {
-  width: 92%;
+  width: $contentwidth;
   margin: 0 auto;
 }
 
@@ -103,12 +105,14 @@ ul{
 
 span#logo {
   display: inline-block;
-  font-size: 230%;
+  font-size: 220%;
+  line-height: 1.2;
   width: auto;
   font-family: $headline;
   position: relative;
   color: $white;
   font-weight: normal;
+  margin-right: 12vw;
 
   a {
     color: $white;
@@ -127,7 +131,7 @@ span#logo {
 
 #burger {
   position: absolute;
-  right: 5%;
+  right: calc(#{$burgerright} / 2);
   top: 5vw;
   cursor: pointer;
   margin: 0;
@@ -146,7 +150,7 @@ span#logo {
 
   .cheese {
     width: 12vw;
-    height: 0.6vw;
+    height: 0.8vw;
     border-radius: 1vw;
     margin-bottom: 2vw;
     background: $white;
@@ -163,7 +167,7 @@ span#logo {
       -o-transform: rotate(45deg);
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
-      top: 2.4vw;
+      top: 2.8vw;
     }
 
     .c3 {
@@ -408,7 +412,7 @@ figure.wp-block-image{
   figcaption{
     margin-top: 0;
     text-align: center;
-    font-size: 80%;
+    font-size: $copysize - 0.5;
     opacity: 0.6;
     font-style: italic;
   }
@@ -421,14 +425,15 @@ figure.wp-block-image{
 
   #inner-footer{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .copyright{
     font-weight: bold;
     color: $bgcolor;
-    font-size: 70%;
+    font-size: $copysize - 0.5;
   }
 }
 

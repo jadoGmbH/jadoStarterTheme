@@ -53,8 +53,8 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
     var headerheight = header.clientHeight;
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
 
-    var scrollableElement = document.body;
-    scrollableElement.addEventListener('wheel', checkScrollDirection);
+    window.addEventListener('wheel', checkScrollDirection);
+
     function add_class_on_scroll() {
         header.classList.add('show');
     }
@@ -69,10 +69,10 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         }
     }
     function checkScrollDirectionIsUp(event) {
-        if (event.wheelDelta) {
-            return event.wheelDelta > 0;
+        if (event.deltaY) {
+            return event.deltaY < 0;
         }
-        return event.deltaY < 0;
+        return event.deltaY > 0;
     }
 </script>
 </body>

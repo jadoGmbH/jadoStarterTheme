@@ -70,6 +70,13 @@ ul.nav {
   }
 }
 
+
+figure.wp-block-image{
+  figcaption{
+    font-size: $copysize - 0.5;
+  }
+}
+
 #content {
   ul {
     li {
@@ -105,3 +112,11 @@ ul.nav {
     }
   }
 }
+
+
+.footer{
+  .copyright{
+    font-size: $copysize - 0.5;
+  }
+}
+
