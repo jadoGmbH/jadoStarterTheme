@@ -7,14 +7,14 @@ jQuery is deactivated and two functions are integrated in pure JavaScript in the
 
 https://www.ja.do
 
-🤓 Preview:
+🖥 Preview:
 
 https://wordpress.ja.do
 
-🤪 License:
+📃 License:
 
 https://en.wikipedia.org/wiki/WTFPL
 
-🧐 License Font: 
+📃 License Font: 
 
 https://fonts.google.com/specimen/Bree+Serif#license
