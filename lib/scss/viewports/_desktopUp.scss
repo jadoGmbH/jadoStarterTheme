@@ -6,6 +6,11 @@ Stylesheet: Desktop
 $copysize: 16px;
 $headlinesize: 40px;
 
+$contentwidth: 80%;
+$maxcontentwidth: 1100px; // maximal width for layout!
+
+$innerpostgap: 20px;
+
 body {
   font-size: 100%;
 }
@@ -13,8 +18,8 @@ body {
 
 
 .wrap {
-  width: 80%;
-  max-width: 1100px; // maximal width for layout!
+  width: $contentwidth;
+  max-width: $maxcontentwidth;
 }
 
 .header, .footer {
@@ -102,7 +107,24 @@ figure.wp-block-image{
 
     h2{
       a{
-        font-size: $headlinesize - 10;
+        font-size: $headlinesize - 15;
+        padding: $innerpostgap;
+
+      }
+    }
+
+    &.blog{
+      .post{
+
+        .entry-meta{
+          padding-left: $innerpostgap;
+          padding-right: $innerpostgap;
+        }
+
+
+        .entry-content{
+          padding: $innerpostgap;
+        }
       }
     }
 

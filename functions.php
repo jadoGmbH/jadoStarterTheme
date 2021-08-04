@@ -46,11 +46,11 @@ function jado_remove_wp_ver_css_js($src)
 
 /** loading jquery */
 
-function jado_scripts_and_styles()
+function jado_loadjquery()
 {
     global $wp_styles;
     if (!is_admin()) {
-        //wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'jquery' );
     }
 }
 
@@ -81,7 +81,7 @@ function jado_start()
 {
     add_action('init', 'jado_head_cleanup');
     add_filter('the_generator', 'jado_rss_version');
-    add_action('wp_enqueue_scripts', 'jado_scripts_and_styles', 999);
+    //add_action('wp_enqueue_scripts', 'jado_loadjquery', 999);
     jado_theme_support();
     add_action('widgets_init', 'jado_register_sidebars');
 }

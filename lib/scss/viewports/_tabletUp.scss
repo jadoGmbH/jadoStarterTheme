@@ -8,6 +8,7 @@ $headlinesize: 4vw;
 
 $contentwidth: 80%;
 
+$innerpostgap: 5vw;
 
 body{
   font-size: 100%;
@@ -102,10 +103,19 @@ figure.wp-block-image{
 
   .entry-content {
 
-
     &.blog{
       .post{
         flex: 0 0 30%;
+
+        .entry-meta{
+          padding-left: $innerpostgap;
+          padding-right: $innerpostgap;
+        }
+
+        .entry-content{
+          padding: $innerpostgap;
+        }
+
       }
     }
 
@@ -120,7 +130,9 @@ figure.wp-block-image{
 
     h2{
       a{
-        font-size: $headlinesize - 2;
+        font-size: $headlinesize - 2.6;
+        padding: $innerpostgap;
+
       }
     }
 

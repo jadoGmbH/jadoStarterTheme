@@ -8,6 +8,8 @@ $headlinesize: 6vw;
 
 $contentwidth: 84%;
 
+$innerpostgap: 3vw;
+
 $burgerright: calc(100% - #{$contentwidth});
 
 body {
@@ -269,6 +271,7 @@ ul.nav {
 
   .byline{
     font-size: 70%;
+    margin-bottom: 0;
   }
 
   .hentry {
@@ -297,7 +300,7 @@ ul.nav {
       flex-wrap: wrap;
 
       .post{
-        flex: 0 0 45%;
+        flex: 0 0 100%;
         border: 1px solid $maincolor;
         display: inline-block;
         position: relative;
@@ -313,15 +316,16 @@ ul.nav {
         }
 
         .entry-meta{
-          padding: 0 1em;
+          padding-left: $innerpostgap;
+          padding-right: $innerpostgap;
+          margin-bottom: 0;
         }
 
         .entry-content{
-          padding: 1em;
+          padding: $innerpostgap;
         }
       }
     }
-
 
     a, a:visited {
       background-color: $link-color;
@@ -350,6 +354,7 @@ ul.nav {
         background-color: $link-color;
         line-height: 1.2;
         display: inline-block;
+        padding: $innerpostgap;
       }
     }
 

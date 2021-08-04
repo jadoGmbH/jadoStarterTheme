@@ -11,7 +11,7 @@ Stylesheet: Main Stylesheet
 	@import "viewports/tabletUp";
 }
 
-@media only screen and (min-width: 1100px) { // edit here for the maximum site wieth for scaling fonts/layout
+@media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
 	@import "viewports/desktopUp"; // deactivate if you like webdesign without scaling endless
 }
 

@@ -9,9 +9,9 @@
                            title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
                     </h2>
                     <p class="byline entry-meta vcard">
-                        <?php printf(__('Posted', 'jadotheme') . ' %1$s %2$s',
+                        <?php printf(__('', 'jadotheme') . ' %1$s %2$s',
                             '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" >' . get_the_time(get_option('date_format')) . '</time>',
-                            '<span class="entry-author author">' . get_the_author_link(get_the_author_meta('ID')) . '</span>'
+                            ''
                         ); ?>
                     </p>
                     <section class="entry-content">
