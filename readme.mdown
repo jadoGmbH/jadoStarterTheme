@@ -11,6 +11,10 @@ https://www.ja.do
 
 https://wordpress.ja.do
 
+🤷 FAQ:
+
+https://wordpress.ja.do
+
 📃 License:
 
 https://en.wikipedia.org/wiki/WTFPL
