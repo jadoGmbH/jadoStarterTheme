@@ -2,8 +2,7 @@
     <div id="content">
         <div id="inner-content" class="wrap">
             <div class="entry-content">
-                <a class="wp-block-button__link" href="<?php echo site_url() . '/blog/'; ?>">back</a>
-                <!-- change it to your index.php -->
+                <a class="wp-block-button__link back" href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">back</a>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
                         <section class="entry-content">
@@ -18,6 +17,8 @@
                     </article>
                 <?php endif; ?>
                 <?php //get_sidebar(); ?>
+                <a class="wp-block-button__link back" href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">back</a>
+
             </div>
         </div>
     </div>

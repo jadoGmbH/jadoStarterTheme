@@ -50,7 +50,7 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
 
 
     var header = document.getElementById('headerfixed');
-    var headerheight = header.clientHeight;
+    var headerheight = header.clientHeight + 80; //additional space to top
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
 
     window.addEventListener('wheel', checkScrollDirection);

@@ -246,7 +246,6 @@ ul.nav {
 }
 
 #content {
-  margin-top: 3vw;
 
   ul {
     list-style-type: none;
@@ -344,6 +343,10 @@ ul.nav {
         padding: 0.8em 1.5em;
         font-family: $headline;
         border-radius: 0;
+
+        &.back{
+          margin-bottom: 2em;
+        }
       }
     }
 

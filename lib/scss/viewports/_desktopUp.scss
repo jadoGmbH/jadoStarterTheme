@@ -31,17 +31,6 @@ body {
   margin-top: 1em;
 }
 
-#content {
-  margin-top: 2em;
-
-  .hentry {
-    margin-bottom: 3em;
-
-    header {
-      padding: 2em 0;
-    }
-  }
-}
 
 
 h1 {
@@ -92,6 +81,14 @@ figure.wp-block-image{
         height: 0.6em;
         top: 0.4em;
       }
+    }
+  }
+
+  .hentry {
+    margin-bottom: 3em;
+
+    header {
+      padding: 2em 0;
     }
   }
 
