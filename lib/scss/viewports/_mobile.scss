@@ -436,9 +436,9 @@ figure.wp-block-image{
   }
 
   .copyright{
-    font-weight: bold;
+    font-weight: normal;
     color: $bgcolor;
-    font-size: $copysize - 0.5;
+    font-size: $copysize - 0.75;
   }
 }
 
