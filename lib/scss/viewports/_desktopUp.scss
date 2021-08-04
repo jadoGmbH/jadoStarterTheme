@@ -3,7 +3,7 @@ Stylesheet: Desktop
 ******************************************************************/
 
 
-$copysize: 16px;
+$copysize: 18px;
 $headlinesize: 40px;
 
 $contentwidth: 80%;
@@ -53,7 +53,7 @@ h2 {
 }
 
 h3, h4 {
-  font-size: $headlinesize - 20;
+  font-size: $headlinesize - 12;
 }
 
 
@@ -97,7 +97,7 @@ figure.wp-block-image{
 
   .entry-content {
 
-    p, ul, li, a {
+    p, ul, li, a, pre {
       font-size: $copysize;
     }
 
