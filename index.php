@@ -15,7 +15,9 @@
                         ); ?>
                     </p>
                     <section class="entry-content">
-                        <?php the_excerpt_maxlength(150); // see functions.php ?>
+                        <p>
+                            <?php the_excerpt_maxlength(50); // see functions.php ?>
+                        </p>
                     </section>
                     <a href="<?php the_permalink() ?>" rel="bookmark" class="wp-block-button__link"
                        title="<?php the_title_attribute(); ?>">read more</a>

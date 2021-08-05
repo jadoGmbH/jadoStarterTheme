@@ -320,6 +320,10 @@ ul.nav {
         padding-bottom: 4em;
         margin-bottom: 1.2em;
 
+        p{
+          margin: 0;
+        }
+
         a.wp-block-button__link {
           display: block;
           position: absolute;
@@ -401,8 +405,12 @@ ul.nav {
       border: 0;
     }
 
-    p, ul, li, a, pre {
+    p, ul, li, a, pre, time {
       font-size: $copysize;
+    }
+
+    time{
+      color: $dark;
     }
 
     p {
