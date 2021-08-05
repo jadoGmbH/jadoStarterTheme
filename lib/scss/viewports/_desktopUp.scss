@@ -5,11 +5,11 @@ Stylesheet: Desktop
 
 $copysize: 18px;
 $headlinesize: 40px;
-
 $contentwidth: 80%;
 $maxcontentwidth: 1100px; // maximal width for layout!
-
 $innerpostgap: 20px;
+$boxshadow: 0 0 3em rgba(0,0,0,0.1), 0 0 0.6em rgba(0,0,0,0.5);
+
 
 body {
   font-size: 100%;
@@ -24,6 +24,10 @@ body {
 
 .header, .footer {
   padding: 2em 0;
+}
+
+.header{
+  box-shadow: $boxshadow;
 }
 
 #description{
@@ -72,6 +76,7 @@ figure.wp-block-image{
 }
 
 #content {
+  box-shadow: $boxshadow;
   ul {
     li {
       padding: 0 0 1em 1.4em;
@@ -85,7 +90,6 @@ figure.wp-block-image{
   }
 
   .hentry {
-    margin-bottom: 3em;
 
     header {
       padding: 2em 0;

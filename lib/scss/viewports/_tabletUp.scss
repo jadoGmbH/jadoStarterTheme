@@ -5,10 +5,10 @@ Stylesheet: Tablet & Small Desktop
 
 $copysize: 1.8vw;
 $headlinesize: 4vw;
-
 $contentwidth: 80%;
-
 $innerpostgap: 5vw;
+$boxshadow: 0 0 2vw rgba(0,0,0,0.1), 0 0 0.8vw rgba(0,0,0,0.3);
+
 
 body{
   font-size: 100%;
@@ -38,6 +38,11 @@ span#logo{
 
 #burger {
   display: none;
+}
+
+.header{
+  box-shadow: $boxshadow;
+
 }
 
 #site-navigation {
@@ -89,6 +94,8 @@ figure.wp-block-image{
 }
 
 #content{
+  box-shadow: $boxshadow;
+
   ul {
     li{
       padding: 0 0 1vw 2vw;

@@ -5,12 +5,11 @@ Stylesheet: Base Mobile
 
 $copysize: 4.1vw;
 $headlinesize: 6vw;
-
 $contentwidth: 84%;
-
 $innerpostgap: 3vw;
-
 $burgerright: calc(100% - #{$contentwidth});
+$boxshadow: 0 0 5vw rgba(0,0,0,0.1), 0 0 2vw rgba(0,0,0,0.4);
+
 
 body {
   font-family: $copy;
@@ -89,6 +88,7 @@ ul{
 }
 
 .header {
+ box-shadow: $boxshadow;
   background-color: $dark;
 }
 
@@ -246,6 +246,10 @@ ul.nav {
 }
 
 #content {
+  position: relative;
+  z-index: 2;
+  background-color: $bgcolor;
+  box-shadow: $boxshadow;
 
   ul {
     list-style-type: none;
@@ -275,7 +279,7 @@ ul.nav {
 
   .hentry {
     //background-color: $white;
-    margin-bottom: 3vw;
+    padding-bottom: 3vw;
 
     header {
       padding: 2vw 0;
@@ -430,6 +434,9 @@ figure.wp-block-image{
   clear: both;
   background-color: $dark;
   color: $bgcolor;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
 
   #inner-footer{
     display: flex;
