@@ -44,36 +44,43 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         element.className = classString;
     }
     document.getElementById('burger').addEventListener('click', function () {
-        toggleClass(document.getElementById('burger'), 'toggled-on');
-        toggleClass(document.getElementById('site-navigation'), 'toggled-on');
+        toggleClass(document.getElementById('burger'), 'toggledOn');
+        toggleClass(document.getElementById('site-navigation'), 'toggledOn');
     });
 
 
-    var header = document.getElementById('headerfixed');
-    var headerheight = header.clientHeight + 30; //additional space to top
+    const header = document.getElementById('headerfixed');
+    const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
 
-    window.addEventListener('wheel', checkScrollDirection);
+    const body = document.body;
+    const menu = document.querySelector(".header");
+    const scrollUp = "scrollUp";
+    const scrollDown = "scrollDown";
+    let lastScroll = 0;
 
-    function add_class_on_scroll() {
-        header.classList.add('show');
-    }
-    function remove_class_on_scroll() {
-        header.classList.remove('show');
-    }
-    function checkScrollDirection(event) {
-        if (checkScrollDirectionIsUp(event)) {
-            add_class_on_scroll();
-        } else {
-            remove_class_on_scroll();
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll <= 0) {
+            body.classList.remove(scrollUp);
+            return;
         }
-    }
-    function checkScrollDirectionIsUp(event) {
-        if (event.deltaY) {
-            return event.deltaY < 0;
+
+        if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+            body.classList.remove(scrollUp);
+            body.classList.add(scrollDown);
+        } else if (
+            currentScroll < lastScroll &&
+            body.classList.contains(scrollDown)
+        ) {
+            body.classList.remove(scrollDown);
+            body.classList.add(scrollUp);
         }
-        return event.deltaY > 0;
-    }
+        lastScroll = currentScroll;
+    });
+
+
+
 </script>
 </body>
 </html>

@@ -42,7 +42,6 @@ span#logo{
 
 .header{
   box-shadow: $boxshadow;
-
 }
 
 #site-navigation {
@@ -152,6 +151,7 @@ figure.wp-block-image{
 }
 
 .footer{
+  padding: 2vw 0;
   .copyright{
     font-size: $copysize - 0.75;
   }

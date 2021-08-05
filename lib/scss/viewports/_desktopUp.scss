@@ -22,7 +22,7 @@ body {
   max-width: $maxcontentwidth;
 }
 
-.header, .footer {
+.header {
   padding: 2em 0;
 }
 
@@ -138,6 +138,7 @@ figure.wp-block-image{
 
 
 .footer{
+  padding: 2em 0;
   .copyright{
     font-size: $copysize - 3;
   }
