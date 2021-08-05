@@ -318,6 +318,7 @@ ul.nav {
         display: inline-block;
         position: relative;
         padding-bottom: 4em;
+        margin-bottom: 1.2em;
 
         a.wp-block-button__link {
           display: block;
@@ -370,7 +371,7 @@ ul.nav {
         font-size: $headlinesize;
         background-color: $link-color;
         line-height: 1.2;
-        display: inline-block;
+        display: block;
         padding: $innerpostgap;
       }
     }
