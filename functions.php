@@ -408,5 +408,19 @@ function stop_heartbeat()
 }
 
 
+/**
+ *  Script style W3C-Correct
+ */
+
+
+add_action(
+    'after_setup_theme',
+    function() {
+        add_theme_support( 'html5', [ 'script', 'style' ] );
+    }
+);
+
+
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
