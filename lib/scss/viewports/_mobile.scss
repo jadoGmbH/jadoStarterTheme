@@ -221,12 +221,6 @@ span#logo {
   }
 
   li {
-    &.current-menu-item {
-      a {
-        color: $contrast;
-      }
-    }
-
     &:first-child {
       a {
         padding-left: 0;
@@ -250,6 +244,12 @@ span#logo {
       font-size: $copysize;
 
       &:hover {
+        color: $contrast;
+      }
+    }
+
+    &.current-menu-item, &.current_page_item {
+      a {
         color: $contrast;
       }
     }
