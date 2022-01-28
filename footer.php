@@ -48,7 +48,6 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('site-navigation'), 'toggledOn');
     });
 
-
     const header = document.getElementById('headerfixed');
     const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
@@ -78,9 +77,6 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         }
         lastScroll = currentScroll;
     });
-
-
-
 </script>
 </body>
 </html>

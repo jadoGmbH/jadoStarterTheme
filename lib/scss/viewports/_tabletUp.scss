@@ -7,15 +7,15 @@ $copysize: 1.8vw;
 $headlinesize: 4vw;
 $contentwidth: 80%;
 $innerpostgap: 5vw;
-$boxshadow: 0 0 2vw rgba(0,0,0,0.1), 0 0 0.8vw rgba(0,0,0,0.3);
+$boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
 
 
-body{
+body {
   font-size: 100%;
 }
 
 
-h1{
+h1 {
   font-size: $headlinesize;
 }
 
@@ -27,7 +27,7 @@ h3, h4 {
   font-size: $headlinesize - 1;
 }
 
-span#logo{
+span#logo {
   font-size: 300%;
   margin-right: 0;
 }
@@ -40,7 +40,7 @@ span#logo{
   display: none;
 }
 
-.header{
+.header {
   box-shadow: $boxshadow;
 }
 
@@ -48,11 +48,11 @@ span#logo{
   max-height: 600px;
 }
 
-#description{
+#description {
   font-size: $copysize;
 }
 
-ul.nav {
+.nav {
   border: 0;
   background: $dark;
   margin-top: 0;
@@ -60,9 +60,18 @@ ul.nav {
   justify-content: space-between;
   align-items: center;
 
-  &.footer-nav{
-    li{
-      a{
+  &.top-nav {
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  &.footer-nav {
+    li {
+      a {
         font-size: $copysize - 0.3;
       }
     }
@@ -86,20 +95,20 @@ ul.nav {
   }
 }
 
-figure.wp-block-image{
-  figcaption{
+figure.wp-block-image {
+  figcaption {
     font-size: $copysize - 0.5;
   }
 }
 
-#content{
+#content {
   box-shadow: $boxshadow;
 
   ul {
-    li{
+    li {
       padding: 0 0 1vw 2vw;
 
-      &:before{
+      &:before {
         width: 0.7vw;
         height: 0.7vw;
         top: 0.6vw;
@@ -109,16 +118,16 @@ figure.wp-block-image{
 
   .entry-content {
 
-    &.blog{
-      .post{
+    &.blog {
+      .post {
         flex: 0 0 32%;
 
-        .entry-meta{
+        .entry-meta {
           padding-left: $innerpostgap;
           padding-right: $innerpostgap;
         }
 
-        .entry-content{
+        .entry-content {
           padding: $innerpostgap;
         }
 
@@ -130,12 +139,12 @@ figure.wp-block-image{
       font-size: $copysize;
     }
 
-    p{
+    p {
       margin: 0 0 2vw;
     }
 
-    h2{
-      a{
+    h2 {
+      a {
         font-size: $headlinesize - 2.6;
         padding: $innerpostgap;
 
@@ -150,13 +159,14 @@ figure.wp-block-image{
   }
 }
 
-.footer{
+.footer {
   padding: 2vw 0;
-  .copyright{
+
+  .copyright {
     font-size: $copysize - 0.75;
   }
 
-  #inner-footer{
+  #inner-footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
