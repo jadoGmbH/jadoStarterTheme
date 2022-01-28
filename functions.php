@@ -284,19 +284,6 @@ add_filter('upload_mimes', 'ja_myme_types', 1, 1);
 
 
 
-
-
-/**  Disable gutenberg style in Front // It's inside /particials/_gutenberg.scss */
-
-function jado_deregistergutenberg_styles()
-{
-    wp_dequeue_style('wp-block-library');
-}
-add_action('wp_print_styles', 'jado_deregistergutenberg_styles', 100);
-
-
-
-
 /**  Gutenberg full width alignfull */
 
 function jadotheme_gutenwidth()

@@ -30,17 +30,17 @@ echo $sprachekurz; ?>">
     <meta property="og:url" content="<?php the_permalink(); ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?php the_title(); ?>"/>
-    <meta property="og:description" content="<?php the_excerpt(); ?>"/>
+    <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
     <meta property="og:image" content="<?php the_post_thumbnail_url('full'); ?>"/>
 
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:url" content="<?php the_permalink(); ?>">
     <meta name="twitter:title" content="<?php the_title(); ?>"/>
     <meta name="twitter:image" content="<?php the_post_thumbnail_url('large'); ?>">
-    <meta name="description" content="<?php the_excerpt(); ?>"/>
+    <meta name="description" content="<?php echo get_the_excerpt(); ?>"/>
 
     <?php
-    if ((strpos($_SERVER["HTTP_HOST"], 'local') !== false) || (strpos($_SERVER["HTTP_HOST"], 'ja.do') !== false)) {
+    if (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         $timestamp = 'style.css?v=' . date('His');
     }
     else {

@@ -12,6 +12,7 @@ $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
 
 
 body {
+
   font-family: $copy;
   line-height: 1.5;
   color: $text-color;
@@ -21,7 +22,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: relative !important;
   top: 0;
   font-size: $copysize;
 
