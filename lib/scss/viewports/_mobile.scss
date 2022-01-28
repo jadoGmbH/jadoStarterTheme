@@ -234,11 +234,10 @@ span#logo {
     }
 
     a {
-      font-family: $headline;
-      font-weight: bold;
+      font-family: $copy;
+      font-weight: normal;
       display: block;
       color: $white;
-      text-transform: uppercase;
       text-decoration: none;
       padding: 0.75vw 2vw 0.75vw 0;
       font-size: $copysize;
