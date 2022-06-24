@@ -3,6 +3,7 @@ Stylesheet: Variables
 ******************************************************************/
 
 
+/* @include transition(opacity 100ms ease-out); */
 @mixin transition($transition...) {
   $prefixes:      ("-webkit-", "" );
   @each $prefix in $prefixes {
@@ -25,7 +26,7 @@ Stylesheet: Variables
 
 
 
-// ja.do Color Theme
+// Color Theme 1
 $bgcolor: #e5e3dd;
 $dark: #a1a111;
 $white: #ffffff;
@@ -37,7 +38,7 @@ $link-hover:    lighten($link-color, 9%);
 
 
 /*
-// Bloody Color Theme
+// Color Theme 2 (red)
 $bgcolor: #D9CAB3;
 $dark: #5E0B15;
 $white: #ffffff;
@@ -49,7 +50,7 @@ $link-hover:    lighten($link-color, 9%);
 */
 
 /*
-// Maare Color Theme
+// Color Theme 3 (blue)
 $bgcolor: #c2d5d2;
 $dark: #133e62;
 $white: #ffffff;
