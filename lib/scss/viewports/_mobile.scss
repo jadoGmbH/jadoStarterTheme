@@ -210,6 +210,24 @@ span#logo {
 .nav {
   margin: 4vw 0 0 0;
 
+  &.menu-item-has-children{
+      .sub-menu{
+        position: absolute;
+        top: 3em;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      &.toggledOn{
+        .sub-menu{
+          max-height: 600px;
+          overflow: visible;
+        }
+      }
+    }
+
+
   &.footer-nav {
     margin: 0;
 

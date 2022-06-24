@@ -48,6 +48,20 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('site-navigation'), 'toggledOn');
     });
 
+
+
+    const subMenuElements = document.querySelectorAll('li.menu-item-has-children');
+    for (var i = 0; i < subMenuElements.length; i++) {
+        subMenuElements.item(i).onmouseover = function () {
+            this.classList.add('toggledOn');
+        }
+        subMenuElements.item(i).onmouseout = function () {
+            this.classList.remove('toggledOn');
+        }
+    }
+
+
+
     const header = document.getElementById('headerfixed');
     const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
