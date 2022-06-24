@@ -88,8 +88,6 @@ ul {
 }
 
 
-
-
 .header {
   box-shadow: $boxshadow;
   background-color: $dark;
@@ -210,24 +208,6 @@ span#logo {
 .nav {
   margin: 4vw 0 0 0;
 
-  &.menu-item-has-children{
-      .sub-menu{
-        position: absolute;
-        top: 3em;
-        flex-direction: column;
-        max-height: 0;
-        overflow: hidden;
-      }
-
-      &.toggledOn{
-        .sub-menu{
-          max-height: 600px;
-          overflow: visible;
-        }
-      }
-    }
-
-
   &.footer-nav {
     margin: 0;
 
@@ -238,7 +218,10 @@ span#logo {
     }
   }
 
+ 
+
   li {
+
     &:first-child {
       a {
         padding-left: 0;
@@ -250,6 +233,7 @@ span#logo {
         padding-right: 0;
       }
     }
+
 
     a {
       font-family: $copy;
@@ -338,7 +322,7 @@ span#logo {
         padding-bottom: 4em;
         margin-bottom: 1.2em;
 
-        p{
+        p {
           margin: 0;
         }
 
@@ -427,7 +411,7 @@ span#logo {
       font-size: $copysize;
     }
 
-    time{
+    time {
       color: $dark;
     }
 
@@ -449,7 +433,7 @@ span#logo {
   }
 }
 
-.wp-block-image .aligncenter{
+.wp-block-image .aligncenter {
   margin-left: 0;
   margin-right: 0;
 }

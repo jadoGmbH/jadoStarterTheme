@@ -50,7 +50,7 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
 
 
 
-    const subMenuElements = document.querySelectorAll('li.menu-item-has-children');
+    const subMenuElements = document.querySelectorAll('li.menu-item-has-children, li.page_item_has_children');
     for (var i = 0; i < subMenuElements.length; i++) {
         subMenuElements.item(i).onmouseover = function () {
             this.classList.add('toggledOn');
