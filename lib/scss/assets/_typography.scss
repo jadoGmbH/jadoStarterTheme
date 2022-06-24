@@ -20,11 +20,10 @@ Stylesheet: Typography
 $copy: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headline: "Bree Serif", serif;
 
-
 h1, h2, h3, h4, p, li {
-  -ms-word-wrap: break-word;
-  word-break: break-word;
-  word-wrap: break-word;
+  -ms-word-wrap: normal;
+  word-break: normal;
+  word-wrap: normal;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
