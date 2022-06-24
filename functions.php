@@ -409,5 +409,27 @@ add_action(
 
 
 
+/**
+ * WordPress 6.0 Colums Hack
+ */
+
+remove_filter( 'render_block', 'wp_render_layout_support_flag' );
+
+add_filter( 'render_block', function( $block_content, $block ) {
+    if ( $block['blockName'] === 'core/group' ) {
+        return $block_content;
+    }
+    if ( $block['blockName'] === 'core/columns' ) {
+        return $block_content;
+    }
+    if ( $block['blockName'] === 'core/column' ) {
+        return $block_content;
+    }
+    return wp_render_layout_support_flag( $block_content, $block );
+}, 10, 2 );
+
+
+
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
