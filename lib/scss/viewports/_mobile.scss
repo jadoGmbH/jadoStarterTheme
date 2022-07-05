@@ -388,29 +388,17 @@ span#logo {
       font-size: $copysize;
       padding: 0 0 0.2em 0;
       margin: 0 0.3em;
-      text-decoration: none;
+      //text-decoration: none;
       @include transition(all 200ms ease-out);
       position: relative;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-decoration-color: darken($contrast, 10%);
+      text-underline-offset: 3px;
 
-      &:after{
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: darken($contrast, 12%);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        @include transition(all 300ms ease-out);
-
-      }
 
       &:hover, &:focus {
-        text-decoration: none;
-
-        &:after{
-          height: 1.5em;
-        }
+        text-decoration-color: $contrast;
       }
 
        &.wp-block-button__link, &.button {
@@ -423,16 +411,8 @@ span#logo {
         display: block;
         text-align: center;
 
-        &:after{
-          display: none;
-        }
-
         &:hover{
           background-color: darken($link-color, 10%);
-
-          &:after{
-            display: none;
-          }
         }
 
         &.back {
