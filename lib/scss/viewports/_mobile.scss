@@ -271,23 +271,51 @@ span#logo {
   background-color: $bgcolor;
   box-shadow: $boxshadow;
 
-  ul {
-    list-style-type: none;
 
-    li {
-      padding: 0 0 1vw 3vw;
-      position: relative;
+  .page{
+    .entry-content{
+      ul {
+        list-style-type: none;
 
-      &:before {
-        content: '';
-        width: 1.1vw;
-        height: 1.1vw;
-        background: $maincolor;
-        border-radius: 50%;
-        position: absolute;
-        left: 0;
-        top: 2vw;
+        li {
+          padding: 0 0 1vw 3vw;
+          position: relative;
+
+          &:before {
+            content: '';
+            width: 1.1vw;
+            height: 1.1vw;
+            background: $maincolor;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 2vw;
+          }
+        }
       }
+
+      .woocommerce{
+        ul {
+          li {
+            padding: 0;
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  blockquote.wp-block-quote{
+    margin: 0;
+    padding: 0 3em;
+    border-left: 0.2em solid $maincolor;
+
+    p{
+      margin: 1em 0 2em 0;
+      font-style: italic;
     }
   }
 
@@ -356,26 +384,76 @@ span#logo {
     }
 
     a, a:visited {
-      background-color: $link-color;
-      color: $white;
+      color: $text-color;
       font-size: $copysize;
-      padding: 0 0.3em 0.2em 0.3em;
+      padding: 0 0 0.2em 0;
+      margin: 0 0.3em;
       text-decoration: none;
       @include transition(all 200ms ease-out);
+      position: relative;
 
-      &:hover, &:focus {
-        background-color: $link-hover;
-        text-decoration: none;
+      &:after{
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: darken($contrast, 12%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        @include transition(all 300ms ease-out);
+
       }
 
-      &.wp-block-button__link {
+      &:hover, &:focus {
+        text-decoration: none;
+
+        &:after{
+          height: 1.5em;
+        }
+      }
+
+       &.wp-block-button__link, &.button {
         padding: 0.8em 1.5em;
         font-family: $headline;
         border-radius: 0;
+        background-color: $link-color;
+        color: $white;
+        margin: 0;
+        display: block;
+        text-align: center;
+
+        &:after{
+          display: none;
+        }
+
+        &:hover{
+          background-color: darken($link-color, 10%);
+
+          &:after{
+            display: none;
+          }
+        }
 
         &.back {
           margin-bottom: 2em;
         }
+      }
+    }
+
+    button.button{
+      padding: 0.8em 1.5em;
+      font-family: $headline;
+      border-radius: 0;
+      background-color: $link-color;
+      color: $white;
+      margin: 0;
+      display: block;
+      text-align: center;
+      @include transition(all 300ms ease-out);
+
+      &:hover{
+        background-color: darken($link-color, 10%);
       }
     }
 
@@ -415,8 +493,13 @@ span#logo {
       border: 0;
     }
 
-    p, ul, li, a, pre, time {
+    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
       font-size: $copysize;
+    }
+
+    textarea{
+      border: none;
+      padding: 0.4em 0.8em;
     }
 
     time {
@@ -438,6 +521,10 @@ span#logo {
       height: auto;
     }
 
+    input{
+      padding: 0.4em 0.8em;
+    }
+
   }
 }
 
@@ -456,7 +543,6 @@ figure.alignfull {
 }
 
 figure.wp-block-image {
-
   figcaption {
     margin-top: 0;
     text-align: center;
@@ -488,6 +574,7 @@ figure.wp-block-image {
     font-size: $copysize - 0.75;
   }
 }
+
 
 
 .template {

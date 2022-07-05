@@ -160,9 +160,11 @@ figure.wp-block-image {
     }
 
 
-    p, ul, li, a, pre, time {
+    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
       font-size: $copysize;
     }
+
+
 
     p {
       margin: 0 0 2vw;
@@ -196,4 +198,9 @@ figure.wp-block-image {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+#coupon_code{
+  height: 100%;
+  display: inline-block;
 }

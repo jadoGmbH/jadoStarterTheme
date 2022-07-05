@@ -17,3 +17,6 @@ Stylesheet: Main Stylesheet
 @media print {
 	//@import "partials/print";
 }
+
+
+@import "assets/woocommerce"; // enable when using woocommerce

@@ -15,8 +15,6 @@ body {
   font-size: 100%;
 }
 
-
-
 .wrap {
   width: $contentwidth;
   max-width: $maxcontentwidth;
@@ -98,7 +96,7 @@ figure.wp-block-image{
 
   .entry-content {
 
-    p, ul, li, a, pre, time {
+    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
       font-size: $copysize;
     }
 

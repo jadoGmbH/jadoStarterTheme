@@ -46,7 +46,7 @@ Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; prelo
  ExpiresByType image/png "access plus 1 month"
  ExpiresByType image/x-icon "access plus 1 month"
  ExpiresByType font/woff "access plus 1 month"
-    ExpiresByType font/woff2 "access plus 1 month"
+ ExpiresByType font/woff2 "access plus 1 month"
  ExpiresByType font/eot "access plus 1 month"
  ExpiresByType font/otf "access plus 1 month"
 

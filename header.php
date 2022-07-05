@@ -39,7 +39,11 @@ echo $sprachekurz; ?>">
     <meta name="twitter:image" content="<?php the_post_thumbnail_url('large'); ?>">
     <meta name="description" content="<?php echo get_the_excerpt(); ?>"/>
 
-    <?php
+    <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+    <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
+    <?php endif; ?>
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+    <?php wp_head();
     if (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         $timestamp = 'style.css?v=' . date('His');
     }
@@ -47,12 +51,7 @@ echo $sprachekurz; ?>">
         $timestamp = 'style.css';
     }
     ?>
-    <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-    <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
-    <?php endif; ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/css/<?php echo $timestamp; ?>">
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <div id="container">
