@@ -4,15 +4,24 @@ Stylesheet: WooCommerce
 
 
 $bordercolor: #b9b5b3;
+$pricecolor: #5c8831;
+$warning: #dd4411;
+$infocolor: #4dcae0;
 
 #content {
   .entry-content {
     .woocommerce {
-
       table{
         a{
           margin: 0;
+          text-decoration: none;
+
         }
+      }
+
+      a{
+        text-decoration: none;
+
       }
 
       input{
@@ -59,21 +68,21 @@ $bordercolor: #b9b5b3;
       }
 
       a {
+
         &.woocommerce-LoopProduct-link {
           margin: 0;
           position: relative;
           width: 100%;
           display: inline-block;
+          text-decoration: none;
 
-          &:after {
-            display: none;
+          h2, span{
+
           }
         }
       }
 
-
       .woocommerce-product-gallery__image {
-
         > a {
           margin: 0;
         }
@@ -94,6 +103,8 @@ $bordercolor: #b9b5b3;
         a.button{
           position: absolute;
           right: 1em;
+          text-decoration: none;
+
         }
       }
 
@@ -140,11 +151,17 @@ $bordercolor: #b9b5b3;
 
 ul.products li.product .onsale {
   position: absolute;
+  background-color: $pricecolor;
+  color: $white;
   right: 3em;
   top: 3em;
   width: auto;
   display: inline-block;
   transform: rotate(-10deg);
+}
+
+bdi, ins{
+  text-decoration: none;
 }
 
 a.woocommerce-product-gallery__trigger {
@@ -162,7 +179,37 @@ a.woocommerce-product-gallery__trigger {
       border-top: 1px solid $bordercolor;
     }
   }
+
+  ul.products li.product .price{
+    color: $pricecolor;
+    text-decoration: none;
+  }
+
+  div.product p.price, .woocommerce div.product span.price{
+    color: $pricecolor;
+  }
+
+  p.stock{
+    &.in-stock{
+      color: $pricecolor;
+    }
+
+    &.out-of-stock{
+      color: $warning;
+    }
+  }
+
+
+  p.woocommerce-info{
+    border-top-color: $infocolor;
+
+    &:before{
+      color: $infocolor;
+    }
+
+  }
 }
+
 
 
 #add_payment_method .cart-collaterals .cart_totals tr td, #add_payment_method .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td, .woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-checkout .cart-collaterals .cart_totals tr td, .woocommerce-checkout .cart-collaterals .cart_totals tr th{
