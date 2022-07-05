@@ -270,7 +270,6 @@ span#logo {
   box-shadow: $boxshadow;
 
 
-  .page {
     .entry-content {
       ul {
         list-style-type: none;
@@ -281,13 +280,13 @@ span#logo {
 
           &:before {
             content: '';
-            width: 1.1vw;
-            height: 1.1vw;
+            width: 1.4vw;
+            height: 1.4vw;
             background: $maincolor;
             border-radius: 50%;
             position: absolute;
             left: 0;
-            top: 2vw;
+            top: 2.5vw;
           }
         }
       }
@@ -304,7 +303,7 @@ span#logo {
         }
       }
     }
-  }
+
 
   blockquote.wp-block-quote {
     margin: 0;
@@ -347,6 +346,17 @@ span#logo {
       justify-content: space-between;
       flex-direction: row;
       flex-wrap: wrap;
+
+
+      h2{
+        a{
+          margin: 0;
+
+          &:visited{
+            color: $white;
+          }
+        }
+      }
 
       .post {
         flex: 0 0 100%;

@@ -75,17 +75,7 @@ figure.wp-block-image{
 
 #content {
   box-shadow: $boxshadow;
-  ul {
-    li {
-      padding: 0 0 1em 1.4em;
 
-      &:before {
-        width: 0.6em;
-        height: 0.6em;
-        top: 0.4em;
-      }
-    }
-  }
 
   .hentry {
 
@@ -94,44 +84,60 @@ figure.wp-block-image{
     }
   }
 
-  .entry-content {
 
-    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
-      font-size: $copysize;
-    }
 
-    p {
-      margin: 0 0 2em;
-    }
+    .entry-content {
 
-    h2{
-      a{
-        font-size: $headlinesize - 15;
-        padding: $innerpostgap;
+      ul {
+        li {
+          padding: 0 0 1em 1.4em;
 
-      }
-    }
-
-    &.blog{
-      .post{
-
-        .entry-meta{
-          padding-left: $innerpostgap;
-          padding-right: $innerpostgap;
+          &:before {
+            width: 0.6em;
+            height: 0.6em;
+            top: 0.5em;
+          }
         }
+      }
 
+      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
+        font-size: $copysize;
+      }
 
-        .entry-content{
+      p {
+        margin: 0 0 2em;
+      }
+
+      h2{
+        a{
+          font-size: $headlinesize - 15;
           padding: $innerpostgap;
+
         }
+      }
+
+      &.blog{
+        .post{
+
+          .entry-meta{
+            padding-left: $innerpostgap;
+            padding-right: $innerpostgap;
+          }
+
+
+          .entry-content{
+            padding: $innerpostgap;
+          }
+        }
+      }
+
+
+      img {
+        margin: 0 0 2em 0;
       }
     }
 
 
-    img {
-      margin: 0 0 2em 0;
-    }
-  }
 }
 
 

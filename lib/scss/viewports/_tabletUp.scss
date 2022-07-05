@@ -67,10 +67,10 @@ span#logo {
       justify-content: flex-start;
     }
 
-    li{
+    li {
       &.menu-item-has-children, &.page_item_has_children {
-        li{
-          a{
+        li {
+          a {
             padding: .75em 1em;
           }
         }
@@ -129,62 +129,62 @@ figure.wp-block-image {
 #content {
   box-shadow: $boxshadow;
 
-  ul {
-    li {
-      padding: 0 0 1vw 2vw;
 
-      &:before {
-        width: 0.7vw;
-        height: 0.7vw;
-        top: 0.6vw;
-      }
-    }
-  }
 
-  .entry-content {
+    .entry-content {
 
-    &.blog {
-      .post {
-        flex: 0 0 32%;
+      ul {
+        li {
+          padding: 0 0 1vw 2vw;
 
-        .entry-meta {
-          padding-left: $innerpostgap;
-          padding-right: $innerpostgap;
+          &:before {
+            width: 0.7vw;
+            height: 0.7vw;
+            top: 1vw;
+          }
         }
+      }
 
-        .entry-content {
+      &.blog {
+        .post {
+          flex: 0 0 32%;
+
+          .entry-meta {
+            padding-left: $innerpostgap;
+            padding-right: $innerpostgap;
+          }
+
+          .entry-content {
+            padding: $innerpostgap;
+          }
+
+        }
+      }
+
+      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
+        font-size: $copysize;
+      }
+
+      p {
+        margin: 0 0 2vw;
+      }
+
+      h2 {
+        a {
+          font-size: $headlinesize - 2.6;
           padding: $innerpostgap;
+
         }
-
       }
-    }
 
-
-    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong {
-      font-size: $copysize;
-    }
-
-
-
-    p {
-      margin: 0 0 2vw;
-    }
-
-    h2 {
-      a {
-        font-size: $headlinesize - 2.6;
-        padding: $innerpostgap;
-
+      img {
+        margin: 0 0 2vw 0;
+        max-width: 100%;
+        height: auto;
       }
-    }
-
-    img {
-      margin: 0 0 2vw 0;
-      max-width: 100%;
-      height: auto;
     }
   }
-}
+
 
 .footer {
   padding: 2vw 0;
@@ -200,7 +200,7 @@ figure.wp-block-image {
   }
 }
 
-#coupon_code{
+#coupon_code {
   height: 100%;
   display: inline-block;
 }
