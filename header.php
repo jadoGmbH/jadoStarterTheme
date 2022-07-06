@@ -9,10 +9,10 @@ echo $sprachekurz; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
         <?php if (is_front_page()) {
-            echo bloginfo('name');
+            bloginfo('name');
         } else {
-            echo bloginfo('name') . '' . wp_title('–');
-        }; ?>
+            bloginfo('name') . '' . wp_title('–');
+        } ?>
     </title>
 
 <!--    <meta name="geo.position" content="47.9955;7.8522">-->
@@ -42,9 +42,8 @@ echo $sprachekurz; ?>">
     <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
     <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
     <?php endif; ?>
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
     <?php wp_head();
-    if (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
+    if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         $timestamp = 'style.css?v=' . date('His');
     }
     else {
@@ -59,11 +58,11 @@ echo $sprachekurz; ?>">
         <div id="inner-header" class="wrap">
             <?php if (!is_front_page()) {
                 echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';
-            }; ?>
+            } ?>
             <span id="logo"><?php bloginfo('name'); ?></span>
             <?php if (!is_front_page()) {
                 echo '</a>';
-            }; ?>
+            } ?>
             <span id="description"><?php bloginfo('description'); ?></span>
             <div id="burger">
                 <div class="cheese c1"></div>

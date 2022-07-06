@@ -13,7 +13,7 @@
                     <p class="byline entry-meta">
                         <?php printf(__('Posted %1$s by %2$s', 'jadotheme'),
                             '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" >' . get_the_time(get_option('date_format')) . '</time>',
-                            '<span class="by">by</span> <span class="entry-author author">' . get_the_author_link(get_the_author_meta('ID')) . '</span>'
+                            '<span class="by">by</span> <span class="entry-author author">' . get_the_author_link() . '</span>'
                         ); ?>
                     </p>
                 </header>

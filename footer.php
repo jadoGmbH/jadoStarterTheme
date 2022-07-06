@@ -15,7 +15,7 @@
 </footer>
 </div>
 <?php wp_footer();
-if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
+if  (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
     echo '<div class="template">';
     global $template;
     echo basename($template);
@@ -34,7 +34,7 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
         if (!element || !className) {
             return;
         }
-        var classString = element.className, nameIndex = classString.indexOf(className);
+        let classString = element.className, nameIndex = classString.indexOf(className);
         if (nameIndex == -1) {
             classString += ' ' + className;
         }
@@ -51,7 +51,7 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
 
 
     const subMenuElements = document.querySelectorAll('li.menu-item-has-children, li.page_item_has_children');
-    for (var i = 0; i < subMenuElements.length; i++) {
+    for (let i = 0; i < subMenuElements.length; i++) {
         subMenuElements.item(i).onmouseover = function () {
             this.classList.add('toggledOn');
         }
@@ -59,8 +59,6 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
             this.classList.remove('toggledOn');
         }
     }
-
-
 
     const header = document.getElementById('headerfixed');
     const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
@@ -78,7 +76,6 @@ if  (strpos($_SERVER["HTTP_HOST"], 'local') !== false) {
             body.classList.remove(scrollUp);
             return;
         }
-
         if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
             body.classList.remove(scrollUp);
             body.classList.add(scrollDown);
