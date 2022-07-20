@@ -24,7 +24,7 @@ echo $sprachekurz; ?>">
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <meta name="referrer" content="no-referrer"> <!-- disable when have password protected sites -->
+    <!--<meta name="referrer" content="no-referrer"> enable when not have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
 
     <meta property="og:url" content="<?php the_permalink(); ?>"/>
