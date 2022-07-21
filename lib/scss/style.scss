@@ -11,12 +11,11 @@ Stylesheet: Main Stylesheet
 }
 
 @media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
-	@import "viewports/desktopUp"; // deactivate if you like webdesign without scaling endless
+	@import "viewports/desktopUp"; // deactivate if you like web design without scaling endless viewports
 }
 
 @media print {
-	//@import "partials/print";
+	//@import "partials/print"; // enable for print design
 }
-
 
 //@import "assets/woocommerce"; // enable when using woocommerce
