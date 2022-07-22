@@ -429,6 +429,18 @@ add_filter( 'render_block', function( $block_content, $block ) {
 }, 10, 2 );
 
 
+/**
+ * disable XMLRPC
+ */
+
+
+function remove_xmlrpc_methods($methods) {
+    return array();
+}
+add_filter( 'xmlrpc_methods', 'remove_xmlrpc_methods' );
+
+
+
 
 
 
