@@ -8,7 +8,7 @@ $headlinesize: 4vw;
 $contentwidth: 80%;
 $innerpostgap: 5vw;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
-
+$borderradius: 0.5vw;
 
 body {
   font-size: 100%;
@@ -42,6 +42,13 @@ span#logo {
 
 .header {
   box-shadow: $boxshadow;
+
+  #inner-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 #site-navigation {
@@ -68,6 +75,7 @@ span#logo {
     }
 
     li {
+
       &.menu-item-has-children, &.page_item_has_children {
         li {
           a {
@@ -106,16 +114,12 @@ span#logo {
     float: left;
     position: relative;
 
-    &:first-child {
-      a {
-        padding-left: 0;
-      }
-    }
-
     a {
       font-size: $copysize;
-      border-bottom: 0;
       padding: 0.35vw 1vw;
+      border-radius: $borderradius;
+      margin: 0 0 0 1em;
+
     }
   }
 }
