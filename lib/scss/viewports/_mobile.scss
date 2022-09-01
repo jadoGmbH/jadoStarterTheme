@@ -136,9 +136,9 @@ span#logo {
 #description {
   display: block;
   font-weight: normal;
-  margin-top: 1vw;
   color: $white;
   font-size: $copysize;
+  margin-top: 1em;
 }
 
 
@@ -210,7 +210,7 @@ span#logo {
 .nav {
   margin: 4vw 0 0 0;
 
-  &.footer-nav {
+  &.footerNav {
     margin: 0;
 
     li {
