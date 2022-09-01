@@ -399,7 +399,7 @@ span#logo {
       text-decoration-thickness: 3px;
       text-decoration-color: darken($contrast, 10%);
       text-underline-offset: 3px;
-      
+
       &:hover, &:focus {
         text-decoration-color: $contrast;
       }
