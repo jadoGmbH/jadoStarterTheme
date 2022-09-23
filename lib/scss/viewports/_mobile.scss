@@ -9,6 +9,7 @@ $contentwidth: 84%;
 $innerpostgap: 3vw;
 $burgerright: calc(100% - #{$contentwidth});
 $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
+$borderradius: 0.7vw;
 
 
 body {
@@ -135,9 +136,9 @@ span#logo {
 #description {
   display: block;
   font-weight: normal;
-  margin-top: 1vw;
   color: $white;
   font-size: $copysize;
+  margin-top: 1em;
 }
 
 
@@ -209,7 +210,7 @@ span#logo {
 .nav {
   margin: 4vw 0 0 0;
 
-  &.footer-nav {
+  &.footerNav {
     margin: 0;
 
     li {
@@ -222,36 +223,32 @@ span#logo {
 
   li {
 
-    &:first-child {
-      a {
-        padding-left: 0;
-      }
-    }
-
-    &:last-child {
-      a {
-        padding-right: 0;
-      }
-    }
-
-
     a {
       font-family: $copy;
       font-weight: normal;
       display: block;
       color: $white;
+      margin: 0 0 1em 0;
       text-decoration: none;
-      padding: 0.75vw 2vw 0.75vw 0;
+      padding: 0.75vw 2vw;
+      border: 1px solid rgba($white, 0.5);
       font-size: $copysize;
+      border-radius: $borderradius;
 
       &:hover {
-        color: $contrast;
+        background-color: darken($dark, 5%);
+        color: $white;
       }
     }
 
     &.current-menu-item, &.current_page_item {
       a {
-        color: $contrast;
+        color: $white;
+        background-color: darken($dark, 5%);
+
+        &:hover{
+          cursor: default;
+        }
       }
     }
 
@@ -400,7 +397,6 @@ span#logo {
       color: $text-color;
       font-size: $copysize;
       padding: 0 0 0.2em 0;
-      margin: 0 0.3em;
       //text-decoration: none;
       @include transition(all 200ms ease-out);
       position: relative;
@@ -408,7 +404,6 @@ span#logo {
       text-decoration-thickness: 3px;
       text-decoration-color: darken($contrast, 10%);
       text-underline-offset: 3px;
-
 
       &:hover, &:focus {
         text-decoration-color: $contrast;

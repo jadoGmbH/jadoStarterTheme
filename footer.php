@@ -1,26 +1,32 @@
 <footer class="footer">
     <div id="inner-footer" class="wrap">
-        <p class="copyright">&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></p>
-        <nav id="footer-navigation">
-            <?php wp_nav_menu(array(
-                'container' => false,
-                'container_class' => 'menu',
-                'menu' => __('FooterMenu', 'jado'),
-                'menu_class' => 'nav footer-nav',
-                'theme_location' => 'FooterMenu',
-                'depth' => 0
-            )); ?>
-        </nav>
+        <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+            <?php
+            if (has_nav_menu('footerNav')) {
+                echo '<nav id="footer-navigation">';
+                wp_nav_menu(array(
+                    'container' => false,
+                    'container_class' => 'menu',
+                    'menu' => __('FooterNav', 'jado'),
+                    'menu_class' => 'nav footerNav',
+                    'theme_location' => 'footerNav',
+                    'depth' => 0
+                ));
+                echo '</nav>';
+            }
+            ?>
     </div>
 </footer>
 </div>
 <?php wp_footer();
-if  (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
+/*
+if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
     echo '<div class="template">';
     global $template;
     echo basename($template);
     echo '</div>';
 }
+*/
 ?>
 <!--<script async src="https://www.google-analytics.com/analytics.js"></script>-->
 <!--<script>-->
@@ -37,17 +43,16 @@ if  (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         let classString = element.className, nameIndex = classString.indexOf(className);
         if (nameIndex == -1) {
             classString += ' ' + className;
-        }
-        else {
+        } else {
             classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
         }
         element.className = classString;
     }
+
     document.getElementById('burger').addEventListener('click', function () {
         toggleClass(document.getElementById('burger'), 'toggledOn');
         toggleClass(document.getElementById('site-navigation'), 'toggledOn');
     });
-
 
 
     const subMenuElements = document.querySelectorAll('li.menu-item-has-children, li.page_item_has_children');

@@ -59,19 +59,12 @@ function jado_theme_support()
 {
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
-
     register_nav_menus(
         array(
-            'main-nav' => __('MainMenu', 'jado'),   // main nav in header
-            'footer-links' => __('FooterMenu', 'jado') // secondary nav in footer
+            'topMenu' => __('TopMenu', 'jado'),   // main nav in header
+            'footerNav' => __('FooterNav', 'jado') // secondary nav in footer
         )
     );
-
-    add_theme_support('html5', array(
-//		'comment-list',
-//		'search-form',
-//		'comment-form'
-    ));
 }
 
 
@@ -212,7 +205,7 @@ function custom_dashboard_information()
 
 /** custom Image size */
 
-add_image_size('jado-thumbnail', 550, 550);
+add_image_size('jado-thumbnail', 512, 512, true);
 
 
 

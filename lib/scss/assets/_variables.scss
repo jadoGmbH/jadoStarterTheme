@@ -27,36 +27,36 @@ Stylesheet: Variables
 
 
 // Color Theme 1
-$bgcolor: #e5e3dd;
-$dark: #a1a111;
-$white: #ffffff;
-$contrast: #E1F200;
-$maincolor: #3e6770;
-$text-color: #2b2913;
-$link-color:    $maincolor;
-$link-hover:    lighten($link-color, 9%);
+$bgcolor:     #e5e3dd;
+$dark:        #a1a111;
+$white:       #ffffff;
+$contrast:    #E1F200;
+$maincolor:   #3e6770;
+$text-color:  #2b2913;
+$link-color:  $maincolor;
+$link-hover:  lighten($link-color, 9%);
 
 
 /*
-// Color Theme 2 (red)
-$bgcolor: #D9CAB3;
-$dark: #5E0B15;
-$white: #ffffff;
-$contrast: #BC8034;
-$maincolor: #90323D;
-$text-color: #2b2913;
-$link-color:    $maincolor;
-$link-hover:    lighten($link-color, 9%);
+// Color Theme 2 (red - Bloody)
+$bgcolor:     #D9CAB3;
+$dark:        #5E0B15;
+$white:       #ffffff;
+$contrast:    #BC8034;
+$maincolor:   #90323D;
+$text-color:  #2b2913;
+$link-color:  $maincolor;
+$link-hover:  lighten($link-color, 9%);
 */
 
 /*
-// Color Theme 3 (blue)
-$bgcolor: #c2d5d2;
-$dark: #133e62;
-$white: #ffffff;
-$contrast: #96ACB7;
-$maincolor: #078b8f;
-$text-color: #073b52;
-$link-color:    $maincolor;
-$link-hover:    lighten($link-color, 9%);
+// Color Theme 3 (blue - Maare)
+$bgcolor:     #c2d5d2;
+$dark:        #133e62;
+$white:       #ffffff;
+$contrast:    #96ACB7;
+$maincolor:   #078b8f;
+$text-color:  #073b52;
+$link-color:  $maincolor;
+$link-hover:  lighten($link-color, 9%);
 */

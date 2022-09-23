@@ -8,7 +8,7 @@ $headlinesize: 4vw;
 $contentwidth: 80%;
 $innerpostgap: 5vw;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
-
+$borderradius: 0.5vw;
 
 body {
   font-size: 100%;
@@ -42,6 +42,18 @@ span#logo {
 
 .header {
   box-shadow: $boxshadow;
+
+  #inner-header{
+    display: flex;
+    flex-direction: column;
+
+    .flex{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 #site-navigation {
@@ -51,13 +63,14 @@ span#logo {
 
 #description {
   font-size: $copysize;
+  margin-top: 0;
 }
 
 .nav {
   border: 0;
   margin-top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   &.top-nav {
     ul {
@@ -68,6 +81,10 @@ span#logo {
     }
 
     li {
+      a{
+        margin: 1em 1em 0 0;
+      }
+
       &.menu-item-has-children, &.page_item_has_children {
         li {
           a {
@@ -94,7 +111,7 @@ span#logo {
     }
   }
 
-  &.footer-nav {
+  &.footerNav {
     li {
       a {
         font-size: $copysize - 0.3;
@@ -106,16 +123,12 @@ span#logo {
     float: left;
     position: relative;
 
-    &:first-child {
-      a {
-        padding-left: 0;
-      }
-    }
-
     a {
       font-size: $copysize;
-      border-bottom: 0;
-      padding: 0.35vw 1vw;
+      padding: 0.4vw 1.2vw;
+      border-radius: $borderradius;
+      margin: 0 0 0 1em;
+
     }
   }
 }

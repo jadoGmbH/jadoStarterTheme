@@ -9,7 +9,7 @@ $contentwidth: 80%;
 $maxcontentwidth: 1100px; // maximal width for layout!
 $innerpostgap: 20px;
 $boxshadow: 0 0 3em rgba(0,0,0,0.1), 0 0 0.6em rgba(0,0,0,0.5);
-
+$borderradius: 4px;
 
 body {
   font-size: 100%;
@@ -30,10 +30,7 @@ body {
 
 #description{
   font-size: $copysize;
-  margin-top: 1em;
 }
-
-
 
 h1 {
   font-size: $headlinesize;
@@ -50,7 +47,7 @@ h3, h4 {
 
 .nav {
 
-  &.footer-nav {
+  &.footerNav {
     li {
       a {
         font-size: $copysize - 3;
@@ -61,7 +58,8 @@ h3, h4 {
   li {
     a {
       font-size: $copysize;
-      padding: 0.75em 1em;
+      padding: 0.25em 0.75em;
+      border-radius: $borderradius;
     }
   }
 }
