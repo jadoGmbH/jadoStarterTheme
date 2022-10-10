@@ -4,7 +4,7 @@
     {
       "name" : "Process All Remaining Files and Folders",
       "stepType" : 1,
-      "uuidString" : "9F044249-8D12-4C86-8ECA-FDE795328B0C"
+      "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
   "creatorBuild" : "34408",
@@ -15,6 +15,12 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/_htaccess-compression.txt",
+      "oF" : 0
+    },
+    "\/.idea" : {
+      "ft" : 65536,
+      "oA" : 1,
+      "oAP" : "\/.idea",
       "oF" : 0
     },
     "\/404.php" : {
@@ -59,7 +65,7 @@
       "opt" : 0,
       "oT" : 1,
       "ou" : "lpckwebp-none",
-      "q" : 90,
+      "q" : 100,
       "rq" : 75
     },
     "\/footer.php" : {
@@ -468,7 +474,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -483,7 +489,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -498,7 +504,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -513,7 +519,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -528,7 +534,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -543,7 +549,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -558,7 +564,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -573,7 +579,7 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 10,
+      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -610,7 +616,7 @@
       "opt" : 0,
       "oT" : 1,
       "ou" : "lpckwebp-none",
-      "q" : 90,
+      "q" : 100,
       "rq" : 75
     },
     "\/search.php" : {
@@ -693,10 +699,10 @@
 
   },
   "projectAttributes" : {
-    "creationDate" : 683666634.00450301,
-    "displayValue" : "jadoStarterTheme",
-    "displayValueWasSetByUser" : 0,
-    "iconImageName" : "brackets-peach",
+    "creationDate" : 677755486.90347695,
+    "displayValue" : "bones",
+    "displayValueWasSetByUser" : 1,
+    "iconImageName" : "brackets-forest",
     "iconImageWasSetByUser" : 0
   },
   "projectSettings" : {
@@ -1643,7 +1649,7 @@
       },
       "no-underscore-dangle" : {
         "active" : 0,
-        "optionString" : "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false, 'enforceInClassFields': false, 'allowFunctionParams': true}"
+        "optionString" : "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false, 'allowFunctionParams': true}"
       },
       "no-unexpected-multiline" : {
         "active" : 1
@@ -1689,7 +1695,7 @@
       },
       "no-use-before-define" : {
         "active" : 0,
-        "optionString" : "{'functions': true, 'classes': true, 'variables': true, 'allowNamedExports': false}"
+        "optionString" : "{'functions': true, 'classes': true, 'variables': true}"
       },
       "no-useless-backreference" : {
         "active" : 1
@@ -1870,7 +1876,7 @@
       },
       "sort-keys" : {
         "active" : 0,
-        "optionString" : "'asc', {'caseSensitive': true, 'natural': false, 'minKeys': 2, 'allowLineSeparatedGroups': false}"
+        "optionString" : "'asc', {'caseSensitive': true, 'natural': false, 'minKeys': 2}"
       },
       "sort-vars" : {
         "active" : 0,
@@ -2111,7 +2117,7 @@
       "autoOutputPathReplace2" : "",
       "autoOutputPathStyle" : 0,
       "optimizerType" : 1,
-      "quality" : 90,
+      "quality" : 100,
       "webpOptimizationPresetUUID" : "lpckwebp-none",
       "webpRGBQuality" : 75
     },
@@ -2136,7 +2142,7 @@
       "autoOutputPathStyle" : 2,
       "compilerType" : 0,
       "cssoStyle" : 0,
-      "decimalPrecision" : 10,
+      "decimalPrecision" : 5,
       "emitCharset" : 1,
       "outputStyle" : 3,
       "purgeCSSStyle" : 0,
