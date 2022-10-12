@@ -10,6 +10,9 @@ New in 2.6: Navigation Optmisations
 New in 2.4: WooCommerce SCSS template
 
 
+⏱ Page Speed Online 100%:
+
+https://pagespeed.web.dev/report?url=https%3A%2F%2Fwordpress.ja.do%2F&form_factor=mobile
 
 😎 Author:
 
