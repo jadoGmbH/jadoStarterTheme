@@ -5,6 +5,8 @@ jQuery is deactivated and two functions are integrated in pure JavaScript in the
 
 New in 2.6: typography.scss optimised / title & other header.php optimizations
 
+New in 2.6: Navigation Optmisations
+
 New in 2.4: WooCommerce SCSS template
 
 
