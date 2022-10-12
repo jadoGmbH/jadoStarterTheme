@@ -1,20 +1,20 @@
 <!doctype html>
-
-<html lang="<?php
-$sprache = get_bloginfo('language');
-$sprachekurz = substr("$sprache", 0, 2);
-echo $sprachekurz; ?>">
+<html lang="<?php echo get_bloginfo('language'); ?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        <?php if (is_front_page()) {
-            bloginfo('name');
-        } else {
-            bloginfo('name') . '' . wp_title('–');
-        } ?>
-    </title>
-
+    <?php
+    $description = get_bloginfo("description");
+    if ($description != '') {
+        $descriptionstring = ' - ' . $description;
+    } else {
+        $descriptionstring = '';
+    }
+    if (is_front_page()) {
+        echo '<title>' . get_bloginfo("name") . $descriptionstring . '</title>';
+    } else {
+        echo '<title>' . get_bloginfo("name") . $descriptionstring . ' - ' . get_the_title() . '</title>';
+    } ?>
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -28,7 +28,6 @@ echo $sprachekurz; ?>">
     <?php if (has_post_thumbnail()) { ?>
         <meta property="og:image" content="<?php the_post_thumbnail_url('large'); ?>"/>
     <?php } ?>
-
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
         <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
     <?php endif; ?>
@@ -47,9 +46,9 @@ echo $sprachekurz; ?>">
             <div class="flex">
                 <?php if (!is_front_page()) {
                     echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';
-                } ?>
-                <span id="logo"><?php bloginfo('name'); ?></span>
-                <?php if (!is_front_page()) {
+                }
+                echo '<span id="logo">' . bloginfo('name') . '</span>';
+                if (!is_front_page()) {
                     echo '</a>';
                 } ?>
                 <span id="description"><?php bloginfo('description'); ?></span>

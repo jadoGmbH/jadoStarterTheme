@@ -9,11 +9,17 @@ $contentwidth: 80%;
 $innerpostgap: 5vw;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
 $borderradius: 0.5vw;
+$spaceafterblock: 3em;
+
 
 body {
   font-size: 100%;
 }
 
+
+h1, h2, h3, h4 {
+  margin: 0 0 $spaceafterblock 0;
+}
 
 h1 {
   font-size: $headlinesize;
@@ -43,11 +49,11 @@ span#logo {
 .header {
   box-shadow: $boxshadow;
 
-  #inner-header{
+  #inner-header {
     display: flex;
     flex-direction: column;
 
-    .flex{
+    .flex {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -81,7 +87,7 @@ span#logo {
     }
 
     li {
-      a{
+      a {
         margin: 1em 1em 0 0;
       }
 
@@ -128,7 +134,6 @@ span#logo {
       padding: 0.4vw 1.2vw;
       border-radius: $borderradius;
       margin: 0 0 0 1em;
-
     }
   }
 }
@@ -142,61 +147,78 @@ figure.wp-block-image {
 #content {
   box-shadow: $boxshadow;
 
+  .entry-content {
 
+    ul {
+      margin-bottom: $spaceafterblock;
 
-    .entry-content {
+      li {
+        padding: 0 0 1vw 2vw;
 
-      ul {
-        li {
-          padding: 0 0 1vw 2vw;
-
-          &:before {
-            width: 0.7vw;
-            height: 0.7vw;
-            top: 1vw;
-          }
+        &:before {
+          width: 0.7vw;
+          height: 0.7vw;
+          top: 1vw;
         }
-      }
-
-      &.blog {
-        .post {
-          flex: 0 0 32%;
-
-          .entry-meta {
-            padding-left: $innerpostgap;
-            padding-right: $innerpostgap;
-          }
-
-          .entry-content {
-            padding: $innerpostgap;
-          }
-
-        }
-      }
-
-      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $copysize;
-      }
-
-      p {
-        margin: 0 0 2vw;
-      }
-
-      h2 {
-        a {
-          font-size: $headlinesize - 2.6;
-          padding: $innerpostgap;
-
-        }
-      }
-
-      img {
-        margin: 0 0 2vw 0;
-        max-width: 100%;
-        height: auto;
       }
     }
+
+    &.blog {
+      .post {
+        flex: 0 0 32%;
+
+        .entry-meta {
+          padding-left: $innerpostgap;
+          padding-right: $innerpostgap;
+        }
+
+        .entry-content {
+          padding: $innerpostgap;
+        }
+
+      }
+    }
+
+    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
+      font-size: $copysize;
+    }
+
+    p {
+      margin: 0 0 2vw;
+    }
+
+    figure.wp-block-pullquote {
+      padding: 3vw 0;
+      margin-bottom: $spaceafterblock;
+
+      p {
+        font-size: $headlinesize;
+      }
+    }
+
+    pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery{
+      margin-bottom: $spaceafterblock;
+    }
+
+      h2 {
+      a {
+        font-size: $headlinesize - 2.6;
+        padding: $innerpostgap;
+
+      }
+    }
+
+    img {
+      margin: 0 0 2vw 0;
+      max-width: 100%;
+      height: auto;
+    }
   }
+
+  .wp-block-columns{
+    gap: 1.5em;
+  }
+}
 
 
 .footer {

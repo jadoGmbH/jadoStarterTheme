@@ -10,6 +10,8 @@ $maxcontentwidth: 1100px; // maximal width for layout!
 $innerpostgap: 20px;
 $boxshadow: 0 0 3em rgba(0,0,0,0.1), 0 0 0.6em rgba(0,0,0,0.5);
 $borderradius: 4px;
+$spaceafterblock: 50px;
+
 
 body {
   font-size: 100%;
@@ -30,6 +32,11 @@ body {
 
 #description{
   font-size: $copysize;
+}
+
+
+h1, h2, h3, h4 {
+  margin: 0 0 $spaceafterblock 0;
 }
 
 h1 {
@@ -87,6 +94,8 @@ figure.wp-block-image{
     .entry-content {
 
       ul {
+        margin-bottom: $spaceafterblock;
+
         li {
           padding: 0 0 1em 1.4em;
 
@@ -98,6 +107,7 @@ figure.wp-block-image{
         }
       }
 
+
       p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
         font-size: $copysize;
       }
@@ -105,6 +115,20 @@ figure.wp-block-image{
       p {
         margin: 0 0 2em;
       }
+
+
+      figure.wp-block-pullquote {
+        margin-bottom: $spaceafterblock;
+
+        p {
+          font-size: $headlinesize;
+        }
+      }
+
+      pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery{
+        margin-bottom: $spaceafterblock;
+      }
+
 
       h2{
         a{

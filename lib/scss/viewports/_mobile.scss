@@ -10,6 +10,7 @@ $innerpostgap: 3vw;
 $burgerright: calc(100% - #{$contentwidth});
 $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
 $borderradius: 0.7vw;
+$spaceafterblock: 3em;
 
 
 body {
@@ -64,7 +65,7 @@ h1, h2, h3, h4 {
   text-rendering: optimizelegibility;
   font-family: $headline;
   line-height: 1.2;
-  margin: 0 0 1em 0;
+  margin: 0 0 $spaceafterblock 0;
   font-weight: bold;
 }
 
@@ -269,6 +270,7 @@ span#logo {
   .entry-content {
     ul {
       list-style-type: none;
+      margin-bottom: $spaceafterblock;
 
       li {
         padding: 0 0 1vw 3vw;
@@ -287,9 +289,93 @@ span#logo {
       }
     }
 
+    figure.wp-block-pullquote{
+      border-top: 1px solid $text-color;
+      border-bottom: 1px solid $text-color;
+      padding: 3vw 0;
+      margin-bottom: $spaceafterblock;
+
+      p{
+        font-family: $headline;
+        font-size: $headlinesize;
+        margin-bottom: 1em;
+      }
+
+      cite{
+        opacity: 0.5;
+      }
+    }
+
+    pre.wp-block-code{
+      background-color: $text-color;
+      color: $white;
+      padding: 0.4em 0.8em;
+      margin-bottom: $spaceafterblock;
+    }
+
+    pre.wp-block-verse{
+      margin-bottom: $spaceafterblock;
+      font-style: italic;
+    }
+
+    .wp-block-columns{
+      margin-bottom: $spaceafterblock;
+    }
+
+    figure.wp-block-table{
+      margin-bottom: $spaceafterblock;
+
+      tbody{
+        border-bottom: 1px solid $text-color;
+        display: block;
+        background-color: $white;
+      }
+
+      figcaption{
+        text-align: center;
+        opacity: 0.5;
+        font-style: italic;
+        padding-top: 0.5em;
+      }
+      table{
+        display: block;
+        width: 100%;
+      }
+
+
+      tr{
+        border-top: 1px solid $text-color;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        td{
+          flex: 1;
+          padding: 0.4em;
+          border-right: 1px solid $text-color;
+
+          &:first-child{
+            border-left: 1px solid $text-color;
+          }
+
+          &:empty{
+            display: none;
+          }
+        }
+
+      }
+    }
+
     .wp-block-gallery {
       margin-left: 0;
       margin-right: 0;
+      margin-bottom: $spaceafterblock;
+
+      .wp-block-image{
+        img{
+          margin-bottom: 0;
+        }
+      }
     }
 
     .woocommerce {

@@ -2,7 +2,11 @@
 
 This is a super slim and fast Starter Theme for WordPress, Gutenberg enabled - integrated in style.css and fully responsive. 
 jQuery is deactivated and two functions are integrated in pure JavaScript in the footer.php to get the burger-menu and the header behavior to work (sticky header).
+
+New in 2.6: typography.scss optimised / title & other header.php optimizations
 New in 2.4: WooCommerce SCSS template
+
+
 
 😎 Author:
 
