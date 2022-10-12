@@ -246,7 +246,7 @@ span#logo {
         color: $white;
         background-color: darken($dark, 5%);
 
-        &:hover{
+        &:hover {
           cursor: default;
         }
       }
@@ -266,40 +266,44 @@ span#logo {
   background-color: $bgcolor;
   box-shadow: $boxshadow;
 
+  .entry-content {
+    ul {
+      list-style-type: none;
 
-    .entry-content {
-      ul {
-        list-style-type: none;
+      li {
+        padding: 0 0 1vw 3vw;
+        position: relative;
 
-        li {
-          padding: 0 0 1vw 3vw;
-          position: relative;
-
-          &:before {
-            content: '';
-            width: 1.4vw;
-            height: 1.4vw;
-            background: $maincolor;
-            border-radius: 50%;
-            position: absolute;
-            left: 0;
-            top: 2.5vw;
-          }
+        &:before {
+          content: '';
+          width: 1.4vw;
+          height: 1.4vw;
+          background: $maincolor;
+          border-radius: 50%;
+          position: absolute;
+          left: 0;
+          top: 2.5vw;
         }
       }
+    }
 
-      .woocommerce {
-        ul {
-          li {
-            padding: 0;
+    .wp-block-gallery {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
-            &:before {
-              display: none;
-            }
+    .woocommerce {
+      ul {
+        li {
+          padding: 0;
+
+          &:before {
+            display: none;
           }
         }
       }
     }
+  }
 
 
   blockquote.wp-block-quote {
@@ -345,11 +349,11 @@ span#logo {
       flex-wrap: wrap;
 
 
-      h2{
-        a{
+      h2 {
+        a {
           margin: 0;
 
-          &:visited{
+          &:visited {
             color: $white;
           }
         }
