@@ -4,13 +4,17 @@ Super slim & fast Starter Template (Theme) for WordPress, Gutenberg enabled - in
 jQuery is deactivated per default and two minimal functions are integrated in pure JavaScript (footer.php) to get the burger-menu and the header behavior to work (sticky header wich appears after scroll up).
 
 
-| Version | Features |
+| Version | Features & Optimizations |
 | ------- | ------- |
 | 2.6 | typography.scss optimised / title & other header.php optimizations |
 | 2.5 | Navigation Optmisations |
 | 2.4 | WooCommerce SCSS template |
 
 
+
+🖥 Preview:
+
+https://wordpress.ja.do
 
 ⏱ Page Speed Online 100%:
 
@@ -19,10 +23,6 @@ https://pagespeed.web.dev/report?url=https%3A%2F%2Fwordpress.ja.do%2F&form_facto
 😎 Author:
 
 https://www.ja.do
-
-🖥 Preview:
-
-https://wordpress.ja.do
 
 🤷 FAQ:
 
