@@ -17,6 +17,14 @@
       "oAP" : "\/_htaccess-compression.txt",
       "oF" : 0
     },
+    "\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.gitignore",
+      "oF" : 0
+    },
     "\/404.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -48,19 +56,6 @@
       "oA" : 0,
       "oAP" : "\/comments.php",
       "oF" : 0
-    },
-    "\/favicon.png" : {
-      "ft" : 32768,
-      "iS" : 213,
-      "oA" : 0,
-      "oAP" : "\/favicon.png",
-      "oF" : 0,
-      "oIPL" : 0,
-      "opt" : 0,
-      "oT" : 1,
-      "ou" : "lpckwebp-none",
-      "q" : 90,
-      "rq" : 75
     },
     "\/footer.php" : {
       "cB" : 0,
@@ -606,8 +601,8 @@
       "oA" : 0,
       "oAP" : "\/screenshot.png",
       "oF" : 0,
-      "oIPL" : 0,
-      "opt" : 0,
+      "oIPL" : 1,
+      "opt" : 1,
       "oT" : 1,
       "ou" : "lpckwebp-none",
       "q" : 90,
