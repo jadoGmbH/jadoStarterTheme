@@ -6,6 +6,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 2.7 | gutenberg CSS integrated in style.css |
 | 2.6 | typography.scss optimised / title & other header.php optimizations |
 | 2.5 | Navigation Optmisations |
 | 2.4 | WooCommerce SCSS template |
