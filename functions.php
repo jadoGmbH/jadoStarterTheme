@@ -206,7 +206,7 @@ function custom_dashboard_information()
 
 /** custom Image size */
 
-add_image_size('ogimage', 1500, 1500, array('center', 'center'));
+add_image_size('ogimage', 1200, 630, array('center', 'center'));
 
 
 /** disable RSS Feed   */
