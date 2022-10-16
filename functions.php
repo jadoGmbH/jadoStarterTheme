@@ -206,8 +206,7 @@ function custom_dashboard_information()
 
 /** custom Image size */
 
-add_image_size('jado-thumbnail', 512, 512, true);
-
+add_image_size('ogimage', 1500, 1500, array('center', 'center'));
 
 
 /** disable RSS Feed   */

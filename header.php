@@ -20,13 +20,12 @@
     <meta name="MobileOptimized" content="320">
     <!--<meta name="referrer" content="no-referrer"> enable when not have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
     <meta property="og:url" content="<?php the_permalink(); ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?php the_title(); ?>"/>
     <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
     <?php if (has_post_thumbnail()) { ?>
-        <meta property="og:image" content="<?php the_post_thumbnail_url('large'); ?>"/>
+        <meta property="og:image" content="<?php the_post_thumbnail_url('ogimage'); ?>"/>
     <?php } ?>
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
         <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
