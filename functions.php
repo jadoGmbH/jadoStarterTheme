@@ -447,6 +447,13 @@ add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
 
 
 
+/** image quality  */
+
+function custom_jpeg_quality() {
+    return 70;
+}
+add_filter( 'jpeg_quality', 'custom_jpeg_quality' );
+
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
