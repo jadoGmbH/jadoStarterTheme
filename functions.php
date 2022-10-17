@@ -43,8 +43,6 @@ function jado_remove_wp_ver_css_js($src)
 }
 
 
-
-
 /** loading jquery */
 
 function jado_loadjquery()
@@ -89,24 +87,12 @@ function jado_register_sidebars()
     register_sidebar(array(
         'id' => 'sidebar1',
         'name' => __('Sidebar 1', 'jado'),
-        'description' => __('Erste sidebar', 'jado'),
+        'description' => __('first sidebar', 'jado'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widgettitle">',
         'after_title' => '</h4>',
     ));
-
-//
-//	register_sidebar(array(
-//		'id' => 'sidebar2',
-//		'name' => __( 'Sidebar 2', 'jado' ),
-//		'description' => __( 'Zweite sidebar', 'jado' ),
-//		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-//		'after_widget' => '</div>',
-//		'before_title' => '<h4 class="widgettitle">',
-//		'after_title' => '</h4>',
-//	));
-
 
 }
 
@@ -132,7 +118,7 @@ function remove_menus()
 add_action('admin_menu', 'remove_menus');
 
 
-/** disable admin frontend */
+/** disable admin bar frontend */
 
 add_filter('show_admin_bar', '__return_false');
 
@@ -181,27 +167,6 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 
 
-/** hide WP Error   */
-
-function no_wordpress_errors()
-{
-    return 'Nochmal versuchen oder unten das Passwort resetten!';
-}
-add_filter('login_errors', 'no_wordpress_errors');
-
-
-/** ja.do Admin Widget */
-
-add_action('wp_dashboard_setup', 'jado_custom_dashboard_widgets');
-function jado_custom_dashboard_widgets()
-{
-    global $wp_meta_boxes;
-    wp_add_dashboard_widget('custom_widget', 'Probleme oder Fragen?', 'custom_dashboard_information');
-}
-function custom_dashboard_information()
-{
-    echo 'Bei Fragen bitte ja.do  unter <a href="mailto:admin@ja.do">admin@ja.do</a> kontaktieren';
-}
 
 
 /** custom Image size */
@@ -288,8 +253,8 @@ add_action('after_setup_theme', 'jadotheme_gutenwidth');
 
 
 /** Emails encode Shortcode! */
+/** USAGE: [email]email@email.de[/email] */
 
-// Anwenden als SHORTCODE: -> [email]denis@wpcorner.de[/email]
 
 function jado_hide_email_shortcode( $atts , $content = null ) {
     if ( ! is_email( $content ) ) {
@@ -303,17 +268,8 @@ add_shortcode( 'email', 'jado_hide_email_shortcode' );
 
 
 
-/** Login site ja.do Link */
 
-function login_page_footer() { ?>
-    <p style="text-align: center;">
-        <a style="color: white;" href="https://www.ja.do" target="_blank">www.ja.do</a>
-    </p>
-<?php }
-add_action('login_footer','login_page_footer');
-
-
-/** Login Site Design */
+/** Admin Login Site Design */
 
 function jado_login_logo() {
     ?>
@@ -337,7 +293,19 @@ function jado_login_logo() {
 add_action( 'login_enqueue_scripts', 'jado_login_logo' );
 
 
-/** disable fullscreen mode default */
+/** Login site ja.do Link */
+
+function login_page_footer() { ?>
+    <p style="text-align: center;">
+        <a style="color: white;" href="https://www.ja.do" target="_blank">www.ja.do</a>
+    </p>
+<?php }
+add_action('login_footer','login_page_footer');
+
+
+
+
+/** disable admin fullscreen mode default */
 
 function jado_disable_editor_fullscreen() {
     $script = "window.onload = function() { const isFullscreenMode = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fullscreenMode' ); if ( isFullscreenMode ) { wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fullscreenMode' ); } }";
@@ -350,7 +318,7 @@ add_action( 'enqueue_block_editor_assets', 'jado_disable_editor_fullscreen' );
 
 
 /**  Custom Excerpt Lenght */
-/** USEGE:  the_excerpt_maxlength( 250 ); */
+/** USAGE:  the_excerpt_maxlength( 250 ); */
 
 the_excerpt_maxlength(190);
 function the_excerpt_maxlength($charlength) {
@@ -481,6 +449,12 @@ function jado_show_post_thumbnail_column($jado_columns, $jado_id){
             break;
     }
 }
+
+
+
+
+
+
 
 
 
