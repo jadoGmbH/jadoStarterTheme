@@ -439,7 +439,7 @@ add_filter( 'xmlrpc_methods', 'remove_xmlrpc_methods' );
 function disable_gutenberg_wp_enqueue_scripts() {
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');
-    wp_dequeue_style( 'global-styles' ); // disable global inline styles
+    //wp_dequeue_style( 'global-styles' ); // disable global inline styles
     //wp_dequeue_style('wc-block-style'); // disable woocommerce frontend block styles
     //wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
 }

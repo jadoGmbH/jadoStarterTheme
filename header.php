@@ -34,7 +34,7 @@
     if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         $timestamp = 'style.css?v=' . date('His');
     } else {
-        $timestamp = 'style.css?v=01';
+        $timestamp = 'style.css?v=01a';
     } ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/css/<?php echo $timestamp; ?>">
 </head>
