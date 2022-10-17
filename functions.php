@@ -8,6 +8,7 @@ URL: https://www.ja.do
 //require_once( 'lib/custom-post-type.php' );
 
 
+
 function jado_head_cleanup()
 {
     // category feeds
@@ -205,8 +206,7 @@ function custom_dashboard_information()
 
 /** custom Image size */
 
-add_image_size('jado-thumbnail', 512, 512, true);
-
+add_image_size('ogimage', 1200, 630, array('center', 'center'));
 
 
 /** disable RSS Feed   */
@@ -432,6 +432,18 @@ function remove_xmlrpc_methods($methods) {
 }
 add_filter( 'xmlrpc_methods', 'remove_xmlrpc_methods' );
 
+
+
+/** disable gutenberg frontend styles  */
+
+function disable_gutenberg_wp_enqueue_scripts() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style( 'global-styles' ); // disable global inline styles
+    //wp_dequeue_style('wc-block-style'); // disable woocommerce frontend block styles
+    //wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
+}
+add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
 
 
 

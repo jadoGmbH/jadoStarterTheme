@@ -63,19 +63,6 @@
       "oAP" : "\/comments.php",
       "oF" : 0
     },
-    "\/favicon.png" : {
-      "ft" : 32768,
-      "iS" : 213,
-      "oA" : 0,
-      "oAP" : "\/favicon.png",
-      "oF" : 0,
-      "oIPL" : 0,
-      "opt" : 0,
-      "oT" : 1,
-      "ou" : "lpckwebp-none",
-      "q" : 100,
-      "rq" : 75
-    },
     "\/footer.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -487,7 +474,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_print.css",
+      "oAP" : "\/lib\/scss\/assets\/_print.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -502,7 +489,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_typography.css",
+      "oAP" : "\/lib\/scss\/assets\/_typography.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -517,7 +504,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_variables.css",
+      "oAP" : "\/lib\/scss\/assets\/_variables.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -532,7 +519,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_woocommerce.css",
+      "oAP" : "\/lib\/scss\/assets\/_woocommerce.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -547,7 +534,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/css\/style.css",
+      "oAP" : "\/lib\/scss\/style.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -562,7 +549,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_desktopUp.css",
+      "oAP" : "\/lib\/scss\/viewports\/_desktopUp.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -577,7 +564,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_mobile.css",
+      "oAP" : "\/lib\/scss\/viewports\/_mobile.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -592,7 +579,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_tabletUp.css",
+      "oAP" : "\/lib\/scss\/viewports\/_tabletUp.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -667,18 +654,6 @@
       "oAP" : "\/single.php",
       "oF" : 0
     },
-    "\/style-min.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/style-min-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
     "\/style.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -716,7 +691,7 @@
   "projectSettings" : {
     "abortBuildOnError" : 1,
     "allowInjectionReloads" : 1,
-    "alwaysUseExternalServer" : 1,
+    "alwaysUseExternalServer" : 0,
     "animateCSSInjections" : 1,
     "autoBuildNewItems" : 1,
     "autoprefixerEnableIEGrid" : 0,
@@ -1657,7 +1632,7 @@
       },
       "no-underscore-dangle" : {
         "active" : 0,
-        "optionString" : "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false, 'allowFunctionParams': true}"
+        "optionString" : "{'allow': [], 'allowAfterThis': false, 'allowAfterSuper': false, 'allowAfterThisConstructor': false, 'enforceInMethodNames': false, 'enforceInClassFields': false, 'allowFunctionParams': true}"
       },
       "no-unexpected-multiline" : {
         "active" : 1
@@ -1703,7 +1678,7 @@
       },
       "no-use-before-define" : {
         "active" : 0,
-        "optionString" : "{'functions': true, 'classes': true, 'variables': true}"
+        "optionString" : "{'functions': true, 'classes': true, 'variables': true, 'allowNamedExports': false}"
       },
       "no-useless-backreference" : {
         "active" : 1
@@ -1884,7 +1859,7 @@
       },
       "sort-keys" : {
         "active" : 0,
-        "optionString" : "'asc', {'caseSensitive': true, 'natural': false, 'minKeys': 2}"
+        "optionString" : "'asc', {'caseSensitive': true, 'natural': false, 'minKeys': 2, 'allowLineSeparatedGroups': false}"
       },
       "sort-vars" : {
         "active" : 0,
@@ -1965,7 +1940,7 @@
       }
     },
     "esLintSourceType" : 0,
-    "externalServerAddress" : "http:\/\/bones.local",
+    "externalServerAddress" : "http:\/\/localhost:8888",
     "gitIgnoreBuildFolder" : 1,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
@@ -2125,7 +2100,7 @@
       "autoOutputPathReplace2" : "",
       "autoOutputPathStyle" : 0,
       "optimizerType" : 1,
-      "quality" : 100,
+      "quality" : 90,
       "webpOptimizationPresetUUID" : "lpckwebp-none",
       "webpRGBQuality" : 75
     },
@@ -2147,12 +2122,12 @@
       "autoOutputPathRelativePath" : "..\/css",
       "autoOutputPathReplace1" : "sass",
       "autoOutputPathReplace2" : "css",
-      "autoOutputPathStyle" : 2,
+      "autoOutputPathStyle" : 0,
       "compilerType" : 0,
       "cssoStyle" : 0,
-      "decimalPrecision" : 5,
+      "decimalPrecision" : 10,
       "emitCharset" : 1,
-      "outputStyle" : 3,
+      "outputStyle" : 0,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 0,
       "shouldRunBless" : 0,
@@ -2592,7 +2567,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : "bones.local"
+    "websiteRelativeRoot" : ""
   },
   "settingsFileVersion" : "3"
 }

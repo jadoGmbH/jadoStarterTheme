@@ -1,34 +1,32 @@
 <!doctype html>
-
-<html lang="<?php
-$sprache = get_bloginfo('language');
-$sprachekurz = substr("$sprache", 0, 2);
-echo $sprachekurz; ?>">
+<html lang="<?php echo get_bloginfo('language'); ?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        <?php if (is_front_page()) {
-            bloginfo('name');
-        } else {
-            bloginfo('name') . '' . wp_title('–');
-        } ?>
-    </title>
-
+    <?php
+    $description = get_bloginfo("description");
+    if ($description != '') {
+        $descriptionstring = ' - ' . $description;
+    } else {
+        $descriptionstring = '';
+    }
+    if (is_front_page()) {
+        echo '<title>' . get_bloginfo("name") . $descriptionstring . '</title>';
+    } else {
+        echo '<title>' . get_bloginfo("name") . $descriptionstring . ' - ' . get_the_title() . '</title>';
+    } ?>
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <!--<meta name="referrer" content="no-referrer"> enable when not have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
     <meta property="og:url" content="<?php the_permalink(); ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?php the_title(); ?>"/>
     <meta property="og:description" content="<?php echo get_the_excerpt(); ?>"/>
     <?php if (has_post_thumbnail()) { ?>
-        <meta property="og:image" content="<?php the_post_thumbnail_url('large'); ?>"/>
+        <meta property="og:image" content="<?php the_post_thumbnail_url('ogimage'); ?>"/>
     <?php } ?>
-
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
         <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
     <?php endif; ?>
@@ -36,7 +34,7 @@ echo $sprachekurz; ?>">
     if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         $timestamp = 'style.css?v=' . date('His');
     } else {
-        $timestamp = 'style.css';
+        $timestamp = 'style.css?v=01';
     } ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/css/<?php echo $timestamp; ?>">
 </head>
@@ -47,9 +45,9 @@ echo $sprachekurz; ?>">
             <div class="flex">
                 <?php if (!is_front_page()) {
                     echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';
-                } ?>
-                <span id="logo"><?php bloginfo('name'); ?></span>
-                <?php if (!is_front_page()) {
+                }
+                echo '<span id="logo">' . bloginfo('name') . '</span>';
+                if (!is_front_page()) {
                     echo '</a>';
                 } ?>
                 <span id="description"><?php bloginfo('description'); ?></span>

@@ -4,6 +4,7 @@ Stylesheet: Main Stylesheet
 
 @import "assets/variables";
 @import "assets/typography";
+@import url('/wp-includes/css/dist/block-library/style.min.css'); // loading gutenberg CSS
 @import "viewports/mobile";
 
 @media only screen and (min-width: 768px) {
