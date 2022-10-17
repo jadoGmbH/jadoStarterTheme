@@ -456,4 +456,34 @@ add_filter( 'jpeg_quality', 'custom_jpeg_quality' );
 
 
 
+/** Post Thumbnails at Admin Panel for POSTS and PAGES */
+
+add_image_size( 'adminFeaturedImage', 120, 120, false );
+
+add_filter('manage_posts_columns', 'jado_add_post_admin_thumbnail_column', 2);
+add_filter('manage_pages_columns', 'jado_add_post_admin_thumbnail_column', 2);
+
+function jado_add_post_admin_thumbnail_column($jado_columns){
+    $jado_columns['jado_thumb'] = __('Featured Image');
+    return $jado_columns;
+}
+
+add_action('manage_posts_custom_column', 'jado_show_post_thumbnail_column', 7, 2);
+add_action('manage_pages_custom_column', 'jado_show_post_thumbnail_column', 7, 2);
+
+function jado_show_post_thumbnail_column($jado_columns, $jado_id){
+    switch($jado_columns){
+        case 'jado_thumb':
+            if( function_exists('the_post_thumbnail') )
+                echo the_post_thumbnail( 'adminFeaturedImage' );
+            else
+                echo 'your theme does not support featured images ...';
+            break;
+    }
+}
+
+
+
+
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>
