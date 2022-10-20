@@ -9,7 +9,8 @@
                 </section>
             </div>
         <?php endwhile; endif;
-        //get_sidebar(); ?>
+        //get_sidebar();
+        ?>
     </div>
 </div>
 <?php get_footer(); ?>

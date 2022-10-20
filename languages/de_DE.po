@@ -1,0 +1,312 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ja.do Starter 2022\n"
+"POT-Creation-Date: 2022-10-20 13:26+0200\n"
+"PO-Revision-Date: 2022-10-20 13:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: 404.php:6
+msgid "Epic 404 - Article Not Found"
+msgstr "404 - Seite nicht gefunden"
+
+#: 404.php:9
+msgid ""
+"The article you were looking for was not found, but maybe try looking again!"
+msgstr ""
+"Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
+"einmal!"
+
+#: archive-custom_type.php:11
+#, php-format
+msgid ""
+"Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class="
+"\"author\">%3$s</span>"
+msgstr ""
+"Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class="
+"\"author\">%3$s</span>"
+
+#: archive-custom_type.php:11 taxonomy-custom_cat.php:17
+msgid "F jS, Y"
+msgstr "F jS, Y"
+
+#: archive.php:14
+msgid "Posted"
+msgstr "Veröffentlicht"
+
+#: archive.php:16
+msgid "by"
+msgstr "von"
+
+#: comments.php:8
+msgid "<span>No</span> Comments"
+msgstr "<span>Nein</span> Kommentare"
+
+#: comments.php:8
+msgid "<span>One</span> Comment"
+msgstr "<span>Ein</span> Kommentar"
+
+#: comments.php:8
+msgid "<span>%</span> Comments"
+msgstr "<span>%</span> Kommentare"
+
+#: comments.php:17
+msgid "Reply"
+msgstr "Antworten"
+
+#: comments.php:27
+msgid "&larr; Previous Comments"
+msgstr "&larr; Vorherige Kommentare"
+
+#: comments.php:28
+msgid "More Comments &rarr;"
+msgstr "Weitere Kommentare &rarr;"
+
+#: comments.php:32
+msgid "Comments are closed."
+msgstr "Kommentare sind geschlossen."
+
+#: footer.php:10 functions.php:33
+msgid "FooterNav"
+msgstr "FooterNav"
+
+#: functions.php:32 header.php:60
+msgid "TopMenu"
+msgstr "TopMenu"
+
+#: functions.php:150
+msgid "Links"
+msgstr "Links"
+
+#: index.php:23
+msgid "read more"
+msgstr "weiterlesen"
+
+#: index.php:30
+msgid "404 - Site not found!"
+msgstr "404 - Seite nicht gefunden!"
+
+#: lib/custom-post-type.php:12
+msgid "Produkte"
+msgstr "Products"
+
+#: lib/custom-post-type.php:13
+msgid "Produkt"
+msgstr "Produkt"
+
+#: lib/custom-post-type.php:14
+msgid "Alle Produkte"
+msgstr "Alle Produkte"
+
+#: lib/custom-post-type.php:15
+msgid "Neues Produkt"
+msgstr "Neues Produkt"
+
+#: lib/custom-post-type.php:16
+msgid "Add New Custom Type"
+msgstr "Add New Custom Type"
+
+#: lib/custom-post-type.php:17
+msgid "Bearbeiten"
+msgstr "Bearbeiten"
+
+#: lib/custom-post-type.php:18
+msgid "Edit Post Types"
+msgstr "Inhaltstypen bearbeiten"
+
+#: lib/custom-post-type.php:19
+msgid "New Post Type"
+msgstr "Neuer Post Typ"
+
+#: lib/custom-post-type.php:20
+msgid "View Post Type"
+msgstr "View Post Type"
+
+#: lib/custom-post-type.php:21
+msgid "Search Post Type"
+msgstr "Betragstyp Suche"
+
+#: lib/custom-post-type.php:22
+msgid "Nothing found in the Database."
+msgstr "Keine Einträge in der Datenbank."
+
+#: lib/custom-post-type.php:23
+msgid "Nothing found in Trash"
+msgstr "Nichts im Papierkorb gefunden"
+
+#: lib/custom-post-type.php:26
+msgid "Example custom post type"
+msgstr "Example custom post type"
+
+#: lib/theme-settings.php:7 lib/theme-settings.php:8
+msgid "Theme Functions"
+msgstr "Funktionen"
+
+#: lib/theme-settings.php:71
+msgid "Upload Image JPG Quality"
+msgstr "JPG-Qualität der Bilder"
+
+#: lib/theme-settings.php:85
+msgid ""
+"Enable auto alt-attributes on all Images after upload <br>(based on image "
+"name)"
+msgstr ""
+"Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
+
+#: lib/theme-settings.php:94
+msgid "Enable Post Thumbnail in backend"
+msgstr "Zeige Post Thumbnail im Backend"
+
+#: lib/theme-settings.php:103
+msgid "Enable SVG Uploads"
+msgstr "Aktivere SVG Uploads"
+
+#: lib/theme-settings.php:112
+msgid "Gutenberg Full width"
+msgstr "Gutenberg volle Seitenbreite"
+
+#: lib/theme-settings.php:121
+msgid "Disable Gutenberg Custom inline Styles"
+msgstr "Disable Gutenberg Custom inline Styles"
+
+#: lib/theme-settings.php:130
+msgid "Disable Emoji"
+msgstr "Emojis deaktivieren"
+
+#: lib/theme-settings.php:139
+msgid "Disable Comments"
+msgstr "Kommentarfunktion ausschalten"
+
+#: lib/theme-settings.php:148
+msgid "Remove XMLRPC"
+msgstr "XMLRPC entfernen"
+
+#: lib/theme-settings.php:157
+msgid "Disable Admin Bar Frontend"
+msgstr "Entferne Admin Bar aus dem Frontend"
+
+#: lib/theme-settings.php:166
+msgid "Disable Embeds Frontend"
+msgstr "Entferne Embed CSS aus dem Frontend"
+
+#: lib/theme-settings.php:175
+msgid "Disable Editor Fullscreen Default"
+msgstr "Default Editor Fullscreen ausschalten"
+
+#: lib/theme-settings.php:184
+msgid "Encode Emails <br>usage: [email]email@email.de[/email]"
+msgstr "Emails verschlüsseln <br>Benutzung: [email]email@email.de[/email]"
+
+#: lib/theme-settings.php:193
+msgid "Disable Heartbeat <br>(auto safe etc.)"
+msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
+
+#: lib/theme-settings.php:202
+msgid "Enable correct script style <br>(get rid of type=script etc.)"
+msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
+
+#: lib/theme-settings.php:246 lib/theme-settings.php:275
+#: lib/theme-settings.php:300 lib/theme-settings.php:341
+#: lib/theme-settings.php:365 lib/theme-settings.php:391
+#: lib/theme-settings.php:416 lib/theme-settings.php:435
+#: lib/theme-settings.php:481 lib/theme-settings.php:505
+#: lib/theme-settings.php:543 lib/theme-settings.php:600
+#: lib/theme-settings.php:626 lib/theme-settings.php:650
+msgid "Yes"
+msgstr "Ja"
+
+#: lib/theme-settings.php:313
+msgid "Featured Image"
+msgstr "Beitragsbild"
+
+#: lib/theme-settings.php:326
+msgid "your theme does not support featured images ..."
+msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
+
+#: search.php:5
+msgid "Search Results for:"
+msgstr "Suchergebnisse für:"
+
+#: search.php:14
+#, php-format
+msgid "Posted %1$s by %2$s"
+msgstr "Posted %1$s by %2$s"
+
+#: search.php:21
+msgid "Read more &raquo;"
+msgstr "Weiterlesen &raquo;"
+
+#: search.php:25
+#, php-format
+msgid "Filed under: %1$s"
+msgstr "Rubrik: %1$s"
+
+#: search.php:27
+msgid "Tags:"
+msgstr "Tags:"
+
+#: searchform.php:3
+msgid "Search for:"
+msgstr "Suche nach:"
+
+#: searchform.php:5
+msgid "Search"
+msgstr "Suche"
+
+#: single-custom_type.php:26 taxonomy-custom_cat.php:17
+#, php-format
+msgid ""
+"Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
+"\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
+msgstr ""
+"Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
+"\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
+
+#: single-custom_type.php:41
+msgid "Custom Tags:"
+msgstr "Custom Tags:"
+
+#: taxonomy-custom_cat.php:10
+msgid "Posts Categorized:"
+msgstr "Beiträge Kategorisiert:"
+
+#: taxonomy-custom_cat.php:21
+msgid "Read More &raquo;"
+msgstr "Weiterlesen &raquo;"
+
+#. Theme Name of the plugin/theme
+msgid "ja.do Starter 2022"
+msgstr "ja.do Starter 2022"
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.ja.do"
+msgstr "https://www.ja.do"
+
+#. Description of the plugin/theme
+msgid ""
+"custom Theme for starting clean and simple projects / woocommerce enabled"
+msgstr ""
+"custom Theme for starting clean and simple projects / woocommerce enabled"
+
+#. Author of the plugin/theme
+msgid "ja.do"
+msgstr "ja.do"
+
+#~ msgid "Sorry, we don't use RSS!"
+#~ msgstr "Sorry, we don't use RSS!"

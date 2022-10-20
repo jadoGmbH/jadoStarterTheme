@@ -8,7 +8,7 @@ $headlinesize: 40px;
 $contentwidth: 80%;
 $maxcontentwidth: 1100px; // maximal width for layout!
 $innerpostgap: 20px;
-$boxshadow: 0 0 3em rgba(0,0,0,0.1), 0 0 0.6em rgba(0,0,0,0.5);
+$boxshadow: 0 0 3em rgba(0, 0, 0, 0.1), 0 0 0.6em rgba(0, 0, 0, 0.5);
 $borderradius: 4px;
 $spaceafterblock: 50px;
 
@@ -26,11 +26,11 @@ body {
   padding: 2em 0;
 }
 
-.header{
+.header {
   box-shadow: $boxshadow;
 }
 
-#description{
+#description {
   font-size: $copysize;
 }
 
@@ -72,8 +72,8 @@ h3, h4 {
 }
 
 
-figure.wp-block-image{
-  figcaption{
+figure.wp-block-image {
+  figcaption {
     font-size: $copysize - 0.5;
   }
 }
@@ -90,82 +90,92 @@ figure.wp-block-image{
   }
 
 
+  .entry-content {
 
-    .entry-content {
+    ul {
+      margin-bottom: $spaceafterblock;
 
-      ul {
-        margin-bottom: $spaceafterblock;
+      li {
+        padding: 0 0 1em 1.4em;
 
-        li {
-          padding: 0 0 1em 1.4em;
-
-          &:before {
-            width: 0.6em;
-            height: 0.6em;
-            top: 0.5em;
-          }
+        &:before {
+          width: 0.6em;
+          height: 0.6em;
+          top: 0.5em;
         }
-      }
-
-
-      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $copysize;
-      }
-
-      p {
-        margin: 0 0 2em;
-      }
-
-
-      figure.wp-block-pullquote {
-        margin-bottom: $spaceafterblock;
-
-        p {
-          font-size: $headlinesize;
-        }
-      }
-
-      pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery{
-        margin-bottom: $spaceafterblock;
-      }
-
-
-      h2{
-        a{
-          font-size: $headlinesize - 15;
-          padding: $innerpostgap;
-
-        }
-      }
-
-      &.blog{
-        .post{
-
-          .entry-meta{
-            padding-left: $innerpostgap;
-            padding-right: $innerpostgap;
-          }
-
-
-          .entry-content{
-            padding: $innerpostgap;
-          }
-        }
-      }
-
-
-      img {
-        margin: 0 0 2em 0;
       }
     }
 
 
+    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
+      font-size: $copysize;
+    }
+
+    p {
+      margin: 0 0 2em;
+    }
+
+
+    figure.wp-block-pullquote {
+      margin-bottom: $spaceafterblock;
+
+      p {
+        font-size: $headlinesize;
+      }
+    }
+
+    pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
+      margin-bottom: $spaceafterblock;
+    }
+
+
+    h2 {
+      a {
+        font-size: $headlinesize - 15;
+        padding: $innerpostgap;
+
+      }
+    }
+
+    &.blog {
+      .post {
+
+        .entry-meta {
+          padding-left: $innerpostgap;
+          padding-right: $innerpostgap;
+        }
+
+
+        .entry-content {
+          padding: $innerpostgap;
+        }
+      }
+    }
+
+
+    img {
+      margin: 0 0 2em 0;
+    }
+  }
 }
 
 
-.footer{
+#widgetarea {
+
+
+  .widget {
+
+    h2, h3 {
+      font-size: $copysize + 4;
+    }
+  }
+}
+
+
+.footer {
   padding: 2em 0;
-  .copyright{
+
+  .copyright {
     font-size: $copysize - 3;
   }
 }

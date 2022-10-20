@@ -14,11 +14,10 @@ $spaceafterblock: 3em;
 
 
 body {
-
   font-family: $copy;
   line-height: 1.5;
   color: $text-color;
-  background-color: $bgcolor;
+  background-color: $dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -27,7 +26,6 @@ body {
   position: relative !important;
   top: 0;
   font-size: $copysize;
-
 
   &.scrollDown #headerfixed.header {
     transform: translate3d(0, -100%, 0);
@@ -108,6 +106,7 @@ ul {
 
 
 .logolink {
+
   span#logo {
     opacity: 1;
     @include transition(opacity 300ms ease-out);
@@ -144,6 +143,10 @@ span#logo {
   color: $white;
   font-size: $copysize;
   margin-top: 1em;
+
+  &:empty{
+    display: none;
+  }
 }
 
 
@@ -180,26 +183,20 @@ span#logo {
     }
 
     .c1 {
-      -moz-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       top: 2.8vw;
     }
 
     .c3 {
-      -moz-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
   }
 }
 
 .header {
-  padding: 2vw 0;
+  padding: 5vw 0;
 }
 
 #site-navigation {
@@ -214,6 +211,10 @@ span#logo {
 
 .nav {
   margin: 4vw 0 0 0;
+
+  &.top-nav{
+    padding-top: 8vw;
+  }
 
   &.footerNav {
     margin: 0;

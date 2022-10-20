@@ -79,6 +79,8 @@ span#logo {
   justify-content: flex-start;
 
   &.top-nav {
+    padding-top: 0;
+
     ul {
       margin: 0;
       width: 100%;
@@ -221,6 +223,29 @@ figure.wp-block-image {
 }
 
 
+#widgetarea{
+  display: flex;
+  flex-direction: row;
+
+  .widget{
+    margin: 0 0.5em;
+
+    ul, p{
+      margin-top: 0;
+    }
+
+    ol{
+      padding-left: 0;
+    }
+
+    h2, h3{
+      font-size: $copysize + 0.3;
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+
 .footer {
   padding: 2vw 0;
 
@@ -232,6 +257,10 @@ figure.wp-block-image {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+   #widgetarea{
+     margin-right: - 0.5em;
+   }
   }
 }
 

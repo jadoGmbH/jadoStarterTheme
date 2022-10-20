@@ -7,16 +7,8 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
-  "creatorBuild" : "34408",
+  "creatorBuild" : "34434",
   "files" : {
-    "\/_htaccess-compression.txt" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/_htaccess-compression.txt",
-      "oF" : 0
-    },
     "\/.gitignore" : {
       "cB" : 0,
       "ft" : 8192,
@@ -101,6 +93,22 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/index.php",
+      "oF" : 0
+    },
+    "\/languages\/de_DE.mo" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/languages\/de_DE.mo",
+      "oF" : 0
+    },
+    "\/languages\/de_DE.po" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/languages\/de_DE.po",
       "oF" : 0
     },
     "\/lib\/css\/login.css" : {
@@ -474,7 +482,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/assets\/_print.css",
+      "oAP" : "\/lib\/scss\/css\/_print.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -489,7 +497,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/assets\/_typography.css",
+      "oAP" : "\/lib\/scss\/css\/_typography.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -504,7 +512,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/assets\/_variables.css",
+      "oAP" : "\/lib\/scss\/css\/_variables.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -519,11 +527,23 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/assets\/_woocommerce.css",
+      "oAP" : "\/lib\/scss\/css\/_woocommerce.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
       "sct" : 0
+    },
+    "\/lib\/scss\/style.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/scss\/style-min.css",
+      "oF" : 0,
+      "pg" : 0
     },
     "\/lib\/scss\/style.scss" : {
       "aP" : 0,
@@ -534,7 +554,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/scss\/style.css",
+      "oAP" : "\/lib\/css\/style.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -549,7 +569,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/viewports\/_desktopUp.css",
+      "oAP" : "\/lib\/scss\/css\/_desktopUp.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -564,7 +584,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/viewports\/_mobile.css",
+      "oAP" : "\/lib\/scss\/css\/_mobile.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -579,11 +599,19 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/viewports\/_tabletUp.css",
+      "oAP" : "\/lib\/scss\/css\/_tabletUp.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
       "sct" : 0
+    },
+    "\/lib\/theme-settings.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/theme-settings.php",
+      "oF" : 0
     },
     "\/page.php" : {
       "cB" : 0,
@@ -691,7 +719,7 @@
   "projectSettings" : {
     "abortBuildOnError" : 1,
     "allowInjectionReloads" : 1,
-    "alwaysUseExternalServer" : 0,
+    "alwaysUseExternalServer" : 1,
     "animateCSSInjections" : 1,
     "autoBuildNewItems" : 1,
     "autoprefixerEnableIEGrid" : 0,
@@ -1393,7 +1421,8 @@
         "active" : 1
       },
       "no-fallthrough" : {
-        "active" : 1
+        "active" : 1,
+        "optionString" : "{'allowEmptyCase': false}"
       },
       "no-floating-decimal" : {
         "active" : 0
@@ -1940,7 +1969,7 @@
       }
     },
     "esLintSourceType" : 0,
-    "externalServerAddress" : "http:\/\/localhost:8888",
+    "externalServerAddress" : "http:\/\/bones.local",
     "gitIgnoreBuildFolder" : 1,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
@@ -2122,12 +2151,12 @@
       "autoOutputPathRelativePath" : "..\/css",
       "autoOutputPathReplace1" : "sass",
       "autoOutputPathReplace2" : "css",
-      "autoOutputPathStyle" : 0,
+      "autoOutputPathStyle" : 2,
       "compilerType" : 0,
       "cssoStyle" : 0,
       "decimalPrecision" : 10,
       "emitCharset" : 1,
-      "outputStyle" : 0,
+      "outputStyle" : 3,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 0,
       "shouldRunBless" : 0,
@@ -2567,7 +2596,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : ""
+    "websiteRelativeRoot" : "bones.local"
   },
   "settingsFileVersion" : "3"
 }

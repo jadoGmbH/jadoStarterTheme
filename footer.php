@@ -7,13 +7,14 @@
                 wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',
-                    'menu' => __('FooterNav', 'jado'),
+                    'menu' => __('FooterNav', 'jadotheme'),
                     'menu_class' => 'nav footerNav',
                     'theme_location' => 'footerNav',
                     'depth' => 0
                 ));
                 echo '</nav>';
             }
+            get_sidebar();
             ?>
     </div>
 </footer>

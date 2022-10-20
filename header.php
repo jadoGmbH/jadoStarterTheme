@@ -43,13 +43,9 @@
     <header id="headerfixed" class="header">
         <div id="inner-header" class="wrap">
             <div class="flex">
-                <?php if (!is_front_page()) {
-                    echo '<a class="logolink" href="' . home_url() . '" rel="nofollow">';
-                }
-                echo '<span id="logo">' . bloginfo('name') . '</span>';
-                if (!is_front_page()) {
-                    echo '</a>';
-                } ?>
+                <a class="logolink" href="<?php home_url(); ?>" rel="nofollow">
+                    <?php echo '<span id="logo">' . bloginfo('name') . '</span>'; ?>
+                </a>
                 <span id="description"><?php bloginfo('description'); ?></span>
                 <div id="burger">
                     <div class="cheese c1"></div>
@@ -61,7 +57,7 @@
                 <?php wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',
-                    'menu' => __('TopMenu', 'jado'),
+                    'menu' => __('TopMenu', 'jadotheme'),
                     'menu_class' => 'nav top-nav',
                     'theme_location' => 'topMenu',
                     'depth' => 0
