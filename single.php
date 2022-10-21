@@ -12,7 +12,7 @@
                 <?php endwhile;
                 else : ?>
                     <article id="post-not-found" class="hentry">
-                        <h1>404 - Site not found!</h1>
+                        <h1><?php __('404 - Site not found!', 'jadotheme'); ?></h1>
                     </article>
                 <?php endif; ?>
                 <?php //get_sidebar(); ?>
