@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ja.do Starter 2022\n"
-"POT-Creation-Date: 2022-10-21 10:57+0200\n"
-"PO-Revision-Date: 2022-10-21 10:57+0200\n"
+"POT-Creation-Date: 2022-10-21 11:16+0200\n"
+"PO-Revision-Date: 2022-10-21 11:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -81,7 +81,7 @@ msgstr "FooterNav"
 msgid "TopMenu"
 msgstr "TopMenu"
 
-#: functions.php:152
+#: functions.php:151
 msgid "Links"
 msgstr "Links"
 
@@ -229,6 +229,14 @@ msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 #: lib/theme-settings.php:667
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
+
+#: lib/theme-settings.php:673
+msgid ""
+"Please note: Settings are not saved the first time, only the second time "
+"saved - we are working on this!"
+msgstr ""
+"Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern "
+"gespeichert! Wir arbeiten dran das bald zu beheben!"
 
 #: search.php:5
 msgid "Search Results for:"
