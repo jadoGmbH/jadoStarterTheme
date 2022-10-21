@@ -667,6 +667,12 @@ function jado_notice() {
                 <strong><?php echo __('Settings saved'); ?></strong>
             </p>
         </div>
+
+        <div class="notice notice-error is-dismissible">
+            <p>
+                <strong><?php echo __('Please note: Settings are not saved the first time, only the second time saved - we are working on this!'); ?></strong>
+            </p>
+        </div>
         <?php
     }
 }
