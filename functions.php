@@ -29,7 +29,7 @@ function jado_theme_support()
     add_theme_support('menus');
     register_nav_menus(
         array(
-            'topMenu' => __('TopMenu', 'jadojadotheme'),
+            'topNav' => __('TopNav', 'jadojadotheme'),
             'footerNav' => __('FooterNav', 'jadojadotheme')
         )
     );
