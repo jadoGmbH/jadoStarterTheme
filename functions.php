@@ -131,11 +131,12 @@ add_action('admin_enqueue_scripts', 'jado_admin_CSS');
 
 function custom_admin_footer()
 {
-    echo 'ja.do Starter Template <a href="https://www.ja.do" target="_blank">www.ja.do</a>';
+    echo '<a href="https//github.com/jadoGmbH/jadoStarterTheme">ja.do Starter Theme</a> ';
+    echo  __('by');
+    echo ' <a href="https://www.ja.do" target="_blank">www.ja.do</a>';
 }
 
 add_filter('admin_footer_text', 'custom_admin_footer');
-
 
 
 

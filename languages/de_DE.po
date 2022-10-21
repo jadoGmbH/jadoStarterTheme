@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ja.do Starter 2022\n"
-"POT-Creation-Date: 2022-10-20 13:26+0200\n"
-"PO-Revision-Date: 2022-10-20 13:28+0200\n"
+"POT-Creation-Date: 2022-10-21 10:57+0200\n"
+"PO-Revision-Date: 2022-10-21 10:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -32,52 +32,44 @@ msgstr ""
 "Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
 "einmal!"
 
-#: archive-custom_type.php:11
-#, php-format
-msgid ""
-"Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class="
-"\"author\">%3$s</span>"
-msgstr ""
-"Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class="
-"\"author\">%3$s</span>"
-
-#: archive-custom_type.php:11 taxonomy-custom_cat.php:17
-msgid "F jS, Y"
-msgstr "F jS, Y"
+#: archive-custom_type.php:19 archive.php:29 index.php:30 search.php:34
+#: single-custom_type.php:20 single.php:15 taxonomy-custom_cat.php:28
+msgid "404 - Site not found!"
+msgstr "404 - Seite nicht gefunden!"
 
 #: archive.php:14
 msgid "Posted"
 msgstr "Veröffentlicht"
 
-#: archive.php:16
+#: archive.php:16 functions.php:135
 msgid "by"
 msgstr "von"
 
-#: comments.php:8
+#: comments.php:6
 msgid "<span>No</span> Comments"
 msgstr "<span>Nein</span> Kommentare"
 
-#: comments.php:8
+#: comments.php:6
 msgid "<span>One</span> Comment"
 msgstr "<span>Ein</span> Kommentar"
 
-#: comments.php:8
+#: comments.php:6
 msgid "<span>%</span> Comments"
 msgstr "<span>%</span> Kommentare"
 
-#: comments.php:17
+#: comments.php:15
 msgid "Reply"
 msgstr "Antworten"
 
-#: comments.php:27
+#: comments.php:25
 msgid "&larr; Previous Comments"
 msgstr "&larr; Vorherige Kommentare"
 
-#: comments.php:28
+#: comments.php:26
 msgid "More Comments &rarr;"
 msgstr "Weitere Kommentare &rarr;"
 
-#: comments.php:32
+#: comments.php:30
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
@@ -89,17 +81,13 @@ msgstr "FooterNav"
 msgid "TopMenu"
 msgstr "TopMenu"
 
-#: functions.php:150
+#: functions.php:152
 msgid "Links"
 msgstr "Links"
 
 #: index.php:23
 msgid "read more"
 msgstr "weiterlesen"
-
-#: index.php:30
-msgid "404 - Site not found!"
-msgstr "404 - Seite nicht gefunden!"
 
 #: lib/custom-post-type.php:12
 msgid "Produkte"
@@ -157,86 +145,90 @@ msgstr "Example custom post type"
 msgid "Theme Functions"
 msgstr "Funktionen"
 
-#: lib/theme-settings.php:71
+#: lib/theme-settings.php:66
 msgid "Upload Image JPG Quality"
 msgstr "JPG-Qualität der Bilder"
 
-#: lib/theme-settings.php:85
+#: lib/theme-settings.php:80
 msgid ""
 "Enable auto alt-attributes on all Images after upload <br>(based on image "
 "name)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
-#: lib/theme-settings.php:94
+#: lib/theme-settings.php:89
 msgid "Enable Post Thumbnail in backend"
 msgstr "Zeige Post Thumbnail im Backend"
 
-#: lib/theme-settings.php:103
+#: lib/theme-settings.php:98
 msgid "Enable SVG Uploads"
 msgstr "Aktivere SVG Uploads"
 
-#: lib/theme-settings.php:112
+#: lib/theme-settings.php:107
 msgid "Gutenberg Full width"
 msgstr "Gutenberg volle Seitenbreite"
 
-#: lib/theme-settings.php:121
+#: lib/theme-settings.php:116
 msgid "Disable Gutenberg Custom inline Styles"
-msgstr "Disable Gutenberg Custom inline Styles"
+msgstr "Gutenberg custom inline Styles ausschalten"
 
-#: lib/theme-settings.php:130
+#: lib/theme-settings.php:125
 msgid "Disable Emoji"
 msgstr "Emojis deaktivieren"
 
-#: lib/theme-settings.php:139
+#: lib/theme-settings.php:134
 msgid "Disable Comments"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:148
+#: lib/theme-settings.php:143
 msgid "Remove XMLRPC"
 msgstr "XMLRPC entfernen"
 
-#: lib/theme-settings.php:157
+#: lib/theme-settings.php:152
 msgid "Disable Admin Bar Frontend"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
-#: lib/theme-settings.php:166
+#: lib/theme-settings.php:161
 msgid "Disable Embeds Frontend"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
-#: lib/theme-settings.php:175
+#: lib/theme-settings.php:170
 msgid "Disable Editor Fullscreen Default"
 msgstr "Default Editor Fullscreen ausschalten"
 
-#: lib/theme-settings.php:184
+#: lib/theme-settings.php:179
 msgid "Encode Emails <br>usage: [email]email@email.de[/email]"
 msgstr "Emails verschlüsseln <br>Benutzung: [email]email@email.de[/email]"
 
-#: lib/theme-settings.php:193
+#: lib/theme-settings.php:188
 msgid "Disable Heartbeat <br>(auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
 
-#: lib/theme-settings.php:202
+#: lib/theme-settings.php:197
 msgid "Enable correct script style <br>(get rid of type=script etc.)"
 msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
 
-#: lib/theme-settings.php:246 lib/theme-settings.php:275
-#: lib/theme-settings.php:300 lib/theme-settings.php:341
-#: lib/theme-settings.php:365 lib/theme-settings.php:391
-#: lib/theme-settings.php:416 lib/theme-settings.php:435
-#: lib/theme-settings.php:481 lib/theme-settings.php:505
-#: lib/theme-settings.php:543 lib/theme-settings.php:600
-#: lib/theme-settings.php:626 lib/theme-settings.php:650
+#: lib/theme-settings.php:241 lib/theme-settings.php:263
+#: lib/theme-settings.php:286 lib/theme-settings.php:325
+#: lib/theme-settings.php:349 lib/theme-settings.php:375
+#: lib/theme-settings.php:400 lib/theme-settings.php:419
+#: lib/theme-settings.php:465 lib/theme-settings.php:489
+#: lib/theme-settings.php:527 lib/theme-settings.php:581
+#: lib/theme-settings.php:607 lib/theme-settings.php:629
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:313
+#: lib/theme-settings.php:297
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:326
+#: lib/theme-settings.php:310
 msgid "your theme does not support featured images ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
+
+#: lib/theme-settings.php:667
+msgid "Settings saved"
+msgstr "Einstellungen gespeichert"
 
 #: search.php:5
 msgid "Search Results for:"
@@ -245,7 +237,7 @@ msgstr "Suchergebnisse für:"
 #: search.php:14
 #, php-format
 msgid "Posted %1$s by %2$s"
-msgstr "Posted %1$s by %2$s"
+msgstr "Geschrieben %1$s von %2$s"
 
 #: search.php:21
 msgid "Read more &raquo;"
@@ -258,7 +250,7 @@ msgstr "Rubrik: %1$s"
 
 #: search.php:27
 msgid "Tags:"
-msgstr "Tags:"
+msgstr "Schlagworte:"
 
 #: searchform.php:3
 msgid "Search for:"
@@ -268,7 +260,11 @@ msgstr "Suche nach:"
 msgid "Search"
 msgstr "Suche"
 
-#: single-custom_type.php:26 taxonomy-custom_cat.php:17
+#: taxonomy-custom_cat.php:10
+msgid "Posts Categorized:"
+msgstr "Beiträge kategorisiert:"
+
+#: taxonomy-custom_cat.php:17
 #, php-format
 msgid ""
 "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
@@ -277,13 +273,9 @@ msgstr ""
 "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
 "\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
 
-#: single-custom_type.php:41
-msgid "Custom Tags:"
-msgstr "Custom Tags:"
-
-#: taxonomy-custom_cat.php:10
-msgid "Posts Categorized:"
-msgstr "Beiträge Kategorisiert:"
+#: taxonomy-custom_cat.php:17
+msgid "F jS, Y"
+msgstr "F jS, Y"
 
 #: taxonomy-custom_cat.php:21
 msgid "Read More &raquo;"
@@ -307,6 +299,17 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "ja.do"
 msgstr "ja.do"
+
+#, php-format
+#~ msgid ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
+#~ msgstr ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
+
+#~ msgid "Custom Tags:"
+#~ msgstr "Custom Tags:"
 
 #~ msgid "Sorry, we don't use RSS!"
 #~ msgstr "Sorry, we don't use RSS!"

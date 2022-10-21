@@ -7,8 +7,8 @@ function jado_top_lvl_menu()
         __('Theme Functions', 'jadotheme'),
         __('Theme Functions', 'jadotheme'),
         'manage_options',
-        'theme-options',
-        'jado_optione_page_callback', // this function prints the page content
+        'jado_options',
+        'jado_options_page_callback', // this function prints the page content
         'dashicons-admin-generic',
         63
     );
@@ -17,7 +17,7 @@ function jado_top_lvl_menu()
 add_action('admin_menu', 'jado_top_lvl_menu');
 
 
-function jado_optione_page_callback()
+function jado_options_page_callback()
 { ?>
     <div class="wrap">
         <h1><?php echo get_admin_page_title() ?></h1>
@@ -38,15 +38,12 @@ function jado_settings_fields()
 {
     $page_slug = 'jado_options';
     $option_group = 'jado_options_settings';
-
     add_settings_section(
         'jado_section_id',
         '',
         '',
         $page_slug
     );
-
-
     register_setting($option_group, 'gutenberg_full_width', 'jado_sanitize_checkbox');
     register_setting($option_group, 'disableGutenbergCustomStyle', 'jado_sanitize_checkbox');
     register_setting($option_group, 'disableEmoji', 'jado_sanitize_checkbox');
@@ -62,9 +59,7 @@ function jado_settings_fields()
     register_setting($option_group, 'encodeEmails', 'jado_sanitize_checkbox');
     register_setting($option_group, 'heartbeat', 'jado_sanitize_checkbox');
     register_setting($option_group, 'scriptW3C', 'jado_sanitize_checkbox');
-
-    register_setting($option_group, 'imgQuality', 'absent');
-
+    register_setting($option_group, 'imgQuality', 'absint');
 
     add_settings_field(
         'imgQuality',
@@ -74,7 +69,7 @@ function jado_settings_fields()
         'jado_section_id',
         array(
             'label_for' => 'imgQuality',
-            'class' => 'hello',
+            'class' => 'blunzi',
             'name' => 'imgQuality'
         )
     );
@@ -237,7 +232,7 @@ add_filter('jpeg_quality', 'custom_jpeg_quality');
 
 /**  Gutenberg full width alignfull */
 
-function jado_checkboxGutenbergFullWidth($args)
+function jado_checkboxGutenbergFullWidth()
 {
     $value = get_option('gutenberg_full_width');
     ?>
@@ -247,7 +242,6 @@ function jado_checkboxGutenbergFullWidth($args)
     </label>
     <?php
 }
-
 $gutenbergFullWidth = get_option('gutenberg_full_width');
 if ($gutenbergFullWidth == 'yes') {
     function jadotheme_gutenbergFullWidth()
@@ -261,22 +255,15 @@ if ($gutenbergFullWidth == 'yes') {
 
 /** disable Emoji  */
 
-function jado_disableEmoji($args)
+function jado_disableEmoji()
 {
     $value = get_option('disableEmoji');
     ?>
     <label>
-        <!--        <input type="checkbox" name="disableEmoji" -->
-        <?php //checked( $value, 'yes' )
-        ?><!-- /> --><?php //echo __('Yes');
-        ?>
-
-        <input type="checkbox"
-               name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
+          <input type="checkbox" name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
-
 $disableEmoji = get_option('disableEmoji');
 if ($disableEmoji == 'yes') {
     function jadotheme_disableEmoji()
@@ -284,14 +271,13 @@ if ($disableEmoji == 'yes') {
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
     }
-
     add_action('after_setup_theme', 'jadotheme_disableEmoji');
 }
 
 
 /** Enable Admin Post Thumbnail on backend  */
 
-function jado_AdminPostThumbnail($args)
+function jado_AdminPostThumbnail()
 {
     $value = get_option('AdminPostThumbnail');
     ?>
@@ -301,8 +287,6 @@ function jado_AdminPostThumbnail($args)
     </label>
     <?php
 }
-
-
 $AdminPostThumbnail = get_option('AdminPostThumbnail');
 if ($AdminPostThumbnail == 'yes') {
     add_image_size('adminFeaturedImage', 120, 120, false);
@@ -332,7 +316,7 @@ if ($AdminPostThumbnail == 'yes') {
 
 /** disable XMLRPC */
 
-function jado_removeXMLRPC($args)
+function jado_removeXMLRPC()
 {
     $value = get_option('removeXMLRPC');
     ?>
@@ -356,7 +340,7 @@ if ($removeXMLRPC == 'yes') {
 
 /** disable admin fullscreen mode default */
 
-function jado_disableEditorFullscreenDefault($args)
+function jado_disableEditorFullscreenDefault()
 {
     $value = get_option('disableEditorFullscreenDefault');
     ?>
@@ -382,7 +366,7 @@ if ($disableEditorFullscreenDefault == 'yes') {
 
 /** enable SVG upload  */
 
-function jado_enableSVGUploads($args)
+function jado_enableSVGUploads()
 {
     $value = get_option('enableSVGUploads');
     ?>
@@ -407,7 +391,7 @@ if ($enableSVGUploads == 'yes') {
 
 /** disable admin bar frontend */
 
-function jado_disableAdminBarFrontend($args)
+function jado_disableAdminBarFrontend()
 {
     $value = get_option('disableAdminBarFrontend');
     ?>
@@ -426,7 +410,7 @@ if ($disableAdminBarFrontend == 'yes') {
 
 /** disable embeds  */
 
-function jado_disableEmbedsFrontend($args)
+function jado_disableEmbedsFrontend()
 {
     $value = get_option('disableEmbedsFrontend');
     ?>
@@ -472,7 +456,7 @@ if ($disableEmbedsFrontend == 'yes') {
 /** disable gutenberg frontend custom styles  */
 
 
-function jado_disableGutenbergCustomStyle($args)
+function jado_disableGutenbergCustomStyle()
 {
     $value = get_option('disableGutenbergCustomStyle');
     ?>
@@ -496,7 +480,7 @@ if ($disableGutenbergCustomStyle == 'yes') {
 
 /** Set alt-attr on upload image */
 
-function jado_setAltAttrImage($args)
+function jado_setAltAttrImage()
 {
     $value = get_option('setAltAttrImage');
     ?>
@@ -534,7 +518,7 @@ if ($setAltAttrImage == 'yes') {
 /** disable comments and pingbacks  */
 
 
-function jado_disableComments($args)
+function jado_disableComments()
 {
     $value = get_option('disableComments');
     ?>
@@ -551,7 +535,6 @@ if ($disableComments == 'yes') {
     {
         return false;
     }
-
     add_filter('comments_open', 'disable_comments_status', 20, 2);
     add_filter('pings_open', 'disable_comments_status', 20, 2);
     function disable_comments_post_types_support()
@@ -564,14 +547,12 @@ if ($disableComments == 'yes') {
             }
         }
     }
-
     add_action('admin_init', 'disable_comments_post_types_support');
     function disable_comments_hide_existing_comments($comments)
     {
         $comments = array();
         return $comments;
     }
-
     add_filter('comments_array', 'disable_comments_hide_existing_comments', 10, 2);
     function disable_comments_admin_menu()
     {
@@ -591,7 +572,7 @@ if ($disableComments == 'yes') {
 
 /** Emails encode Shortcode! */
 
-function jado_encodeEmails($args)
+function jado_encodeEmails()
 {
     $value = get_option('encodeEmails');
     ?>
@@ -618,7 +599,7 @@ if ($encodeEmails == 'yes') {
 
 /** deactivate heartbeat - auto save etc. */
 
-function jado_heartbeat($args)
+function jado_heartbeat()
 {
     $value = get_option('heartbeat');
     ?>
@@ -638,11 +619,9 @@ if ($heartbeat == 'yes') {
 }
 
 
-/**
- *  Script style W3C-Correct
- */
+/** Script style W3C-Correct */
 
-function jado_scriptW3C($args)
+function jado_scriptW3C()
 {
     $value = get_option('scriptW3C');
     ?>
@@ -669,4 +648,26 @@ function jado_sanitize_checkbox($value)
 }
 
 
+
+
+
+
+
+add_action( 'admin_notices', 'jado_notice' );
+function jado_notice() {
+    if(
+        isset( $_GET[ 'page' ] )
+        && 'jado_options' == $_GET[ 'page' ]
+        && isset( $_GET[ 'settings-updated' ] )
+        && true == $_GET[ 'settings-updated' ]
+    ) {
+        ?>
+        <div class="notice notice-success is-dismissible">
+            <p>
+                <strong><?php echo __('Settings saved'); ?></strong>
+            </p>
+        </div>
+        <?php
+    }
+}
 ?>
