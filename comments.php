@@ -1,9 +1,7 @@
 <?php
-// don't load it if you can't comment
 if (post_password_required()) {
     return;
-}
-if (have_comments()) : ?>
+} if (have_comments()) : ?>
     <h3 id="comments-title"
         class="h2"><?php comments_number(__('<span>No</span> Comments', 'jadotheme'), __('<span>One</span> Comment', 'jadotheme'), __('<span>%</span> Comments', 'jadotheme')); ?></h3>
     <section class="commentlist">

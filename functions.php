@@ -8,7 +8,7 @@ require_once('lib/theme-settings.php');
 
 
 /** Activate custom post type Example  */
-require_once( 'lib/custom-post-type.php' );
+//require_once( 'lib/custom-post-type.php' );
 
 
 function jado_head_cleanup()
