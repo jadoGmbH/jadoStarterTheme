@@ -6,7 +6,7 @@ Stylesheet: Tablet & Small Desktop
 $copysize: 1.8vw;
 $headlinesize: 4vw;
 $contentwidth: 80%;
-$innerpostgap: 5vw;
+$innerpostgap: 2vw;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
 $borderradius: 0.5vw;
 $spaceafterblock: 3em;
@@ -166,6 +166,11 @@ figure.wp-block-image {
     }
 
     &.blog {
+
+      h2{
+        margin-bottom: 0.4em;
+      }
+
       .post {
         flex: 0 0 32%;
 
