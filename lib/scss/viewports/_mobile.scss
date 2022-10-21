@@ -272,6 +272,12 @@ span#logo {
   background-color: $bgcolor;
   box-shadow: $boxshadow;
 
+  #inner-content{
+    &.hasThumb{
+      padding-top: 2em !important;
+    }
+  }
+
   .entry-content {
     ul {
       list-style-type: none;
@@ -651,6 +657,23 @@ figure.wp-block-image {
     font-weight: normal;
     color: $bgcolor;
     font-size: $copysize - 0.75;
+  }
+}
+
+.featuredImage{
+  width: 100%;
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+.cpt-container{
+  display: flex;
+  flex-wrap: wrap;
+
+  .cpt{
+    flex: 0 0 100%;
   }
 }
 

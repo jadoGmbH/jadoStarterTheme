@@ -8,7 +8,7 @@ require_once('lib/theme-settings.php');
 
 
 /** Activate custom post type Example  */
-//require_once( 'lib/custom-post-type.php' );
+require_once( 'lib/custom-post-types.php' );
 
 
 function jado_head_cleanup()
@@ -165,6 +165,7 @@ add_action('admin_menu', 'remove_menus');
 /** custom Image size */
 
 add_image_size('ogimage', 1200, 630, array('center', 'center'));
+add_image_size('featuredImage', 2000, 1400, array('center', 'center'));
 
 
 

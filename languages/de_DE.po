@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ja.do Starter 2022\n"
-"POT-Creation-Date: 2022-10-21 11:16+0200\n"
-"PO-Revision-Date: 2022-10-21 11:17+0200\n"
+"POT-Creation-Date: 2022-10-21 22:52+0200\n"
+"PO-Revision-Date: 2022-10-21 23:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -77,57 +77,58 @@ msgstr "Kommentare sind geschlossen."
 msgid "FooterNav"
 msgstr "FooterNav"
 
-#: functions.php:32 header.php:60
-msgid "TopMenu"
-msgstr "TopMenu"
+#: functions.php:32
+msgid "TopNav"
+msgstr "TopNav"
 
 #: functions.php:151
 msgid "Links"
 msgstr "Links"
+
+#: header.php:60
+msgid "TopMenu"
+msgstr "TopMenu"
 
 #: index.php:23
 msgid "read more"
 msgstr "weiterlesen"
 
 #: lib/custom-post-type.php:12
-msgid "Produkte"
-msgstr "Products"
+msgid "Products"
+msgstr "Produkte"
 
 #: lib/custom-post-type.php:13
-msgid "Produkt"
+#| msgid "Produkt"
+msgid "Product"
 msgstr "Produkt"
 
 #: lib/custom-post-type.php:14
-msgid "Alle Produkte"
+msgid "All Products"
 msgstr "Alle Produkte"
 
-#: lib/custom-post-type.php:15
-msgid "Neues Produkt"
+#: lib/custom-post-type.php:15 lib/custom-post-type.php:19
+msgid "New Product"
 msgstr "Neues Produkt"
 
 #: lib/custom-post-type.php:16
-msgid "Add New Custom Type"
-msgstr "Add New Custom Type"
+msgid "Add New Product"
+msgstr "Neues Produkt hinzufügen"
 
 #: lib/custom-post-type.php:17
-msgid "Bearbeiten"
+msgid "Edit"
 msgstr "Bearbeiten"
 
 #: lib/custom-post-type.php:18
-msgid "Edit Post Types"
-msgstr "Inhaltstypen bearbeiten"
-
-#: lib/custom-post-type.php:19
-msgid "New Post Type"
-msgstr "Neuer Post Typ"
+msgid "Edit Product"
+msgstr "Produkt bearbeiten"
 
 #: lib/custom-post-type.php:20
-msgid "View Post Type"
-msgstr "View Post Type"
+msgid "View Product"
+msgstr "Produkt ansehen"
 
 #: lib/custom-post-type.php:21
-msgid "Search Post Type"
-msgstr "Betragstyp Suche"
+msgid "Search Products"
+msgstr "Produkt Suche"
 
 #: lib/custom-post-type.php:22
 msgid "Nothing found in the Database."
@@ -138,8 +139,88 @@ msgid "Nothing found in Trash"
 msgstr "Nichts im Papierkorb gefunden"
 
 #: lib/custom-post-type.php:26
-msgid "Example custom post type"
-msgstr "Example custom post type"
+msgid "Products Post Type"
+msgstr "Produkt Post Type"
+
+#: lib/custom-post-type.php:53
+msgid "Product categories"
+msgstr "Produkte Kategorien"
+
+#: lib/custom-post-type.php:54
+msgid "Product category"
+msgstr "Produkte Kategorie"
+
+#: lib/custom-post-type.php:55
+msgid "Search Product category"
+msgstr "Produkte Kategorie suchen"
+
+#: lib/custom-post-type.php:56
+msgid "All Product categories"
+msgstr "Alle Produkte Kategorien"
+
+#: lib/custom-post-type.php:57
+msgid "Parent Product category"
+msgstr "Eltern Produkt Kategorie"
+
+#: lib/custom-post-type.php:58
+msgid "Parent Product category:"
+msgstr "Eltern Produkt Kategorie:"
+
+#: lib/custom-post-type.php:59
+msgid "Edit Product category"
+msgstr "Produkte Kategorie bearbeiten"
+
+#: lib/custom-post-type.php:60
+msgid "Update Product category"
+msgstr "Produkt Kategorie update"
+
+#: lib/custom-post-type.php:61
+msgid "New Product category"
+msgstr "Neues Produkt Kategorie"
+
+#: lib/custom-post-type.php:62
+msgid "New Product category name"
+msgstr "Neuer Produkt Kategorie Name"
+
+#: lib/custom-post-type.php:75
+msgid "Products Tags"
+msgstr "Produkt Tags"
+
+#: lib/custom-post-type.php:76
+msgid "Product Tag"
+msgstr "Produkt Tag"
+
+#: lib/custom-post-type.php:77
+msgid "Search Produkt Tags"
+msgstr "Produkt Tag Suche"
+
+#: lib/custom-post-type.php:78
+msgid "All Product Tags"
+msgstr "Alle Produkte Schlagworte"
+
+#: lib/custom-post-type.php:79
+msgid "Parent Product Tag"
+msgstr "Produkt Schlagwort Eltern"
+
+#: lib/custom-post-type.php:80
+msgid "Parent Product Tag:"
+msgstr "Produkt Schlagwort Eltern:"
+
+#: lib/custom-post-type.php:81
+msgid "Edit Product Tag"
+msgstr "Produkt Tag bearbeiten"
+
+#: lib/custom-post-type.php:82
+msgid "Update Product Tag"
+msgstr "Produkt Schlagwort update"
+
+#: lib/custom-post-type.php:83
+msgid "Add New Product Tag"
+msgstr "Neuen Zustrom Type anlegen"
+
+#: lib/custom-post-type.php:84
+msgid "New Product Tag Name"
+msgstr "Neuer Produkt Schlagwort Name"
 
 #: lib/theme-settings.php:7 lib/theme-settings.php:8
 msgid "Theme Functions"
@@ -307,6 +388,26 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "ja.do"
 msgstr "ja.do"
+
+#~ msgid "Product category Bearbeiten"
+#~ msgstr "Produkt Kategorie"
+
+#, fuzzy
+#~| msgid "Neues Produkt"
+#~ msgid "Neue Produkt Kategorie Name"
+#~ msgstr "Neues Produkt"
+
+#~ msgid "Produkte"
+#~ msgstr "Products"
+
+#~ msgid "Bearbeiten"
+#~ msgstr "Bearbeiten"
+
+#~ msgid "View Post Type"
+#~ msgstr "View Post Type"
+
+#~ msgid "Example custom post type"
+#~ msgstr "Example custom post type"
 
 #, php-format
 #~ msgid ""

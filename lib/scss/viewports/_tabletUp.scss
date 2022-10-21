@@ -269,7 +269,12 @@ figure.wp-block-image {
   }
 }
 
-#coupon_code {
-  height: 100%;
-  display: inline-block;
+.cpt-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  .cpt{
+    flex: 0 0 30%;
+  }
 }
