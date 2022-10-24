@@ -7,7 +7,7 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
-  "creatorBuild" : "34434",
+  "creatorBuild" : "34418",
   "files" : {
     "\/.gitignore" : {
       "cB" : 0,
@@ -17,26 +17,12 @@
       "oAP" : "\/.gitignore",
       "oF" : 0
     },
-    "\/.idea" : {
-      "ft" : 65536,
-      "oA" : 1,
-      "oAP" : "\/.idea",
-      "oF" : 0
-    },
     "\/404.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/404.php",
-      "oF" : 0
-    },
-    "\/archive-custom_type.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/archive-custom_type.php",
       "oF" : 0
     },
     "\/archive.php" : {
@@ -135,12 +121,12 @@
       "oF" : 0,
       "pg" : 0
     },
-    "\/lib\/custom-post-type.php" : {
+    "\/lib\/custom-post-types.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/custom-post-type.php",
+      "oAP" : "\/lib\/custom-post-types.php",
       "oF" : 0
     },
     "\/lib\/fonts\/bree-serif-v10-latin-regular.woff" : {
@@ -613,6 +599,14 @@
       "oAP" : "\/lib\/theme-settings.php",
       "oF" : 0
     },
+    "\/page-custom-loop.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/page-custom-loop.php",
+      "oF" : 0
+    },
     "\/page.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -666,14 +660,6 @@
       "oAP" : "\/sidebar.php",
       "oF" : 0
     },
-    "\/single-custom_type.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/single-custom_type.php",
-      "oF" : 0
-    },
     "\/single.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -693,14 +679,6 @@
       "oAP" : "\/style-min.css",
       "oF" : 0,
       "pg" : 0
-    },
-    "\/taxonomy-custom_cat.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/taxonomy-custom_cat.php",
-      "oF" : 0
     }
   },
   "hooks" : [
@@ -1421,8 +1399,7 @@
         "active" : 1
       },
       "no-fallthrough" : {
-        "active" : 1,
-        "optionString" : "{'allowEmptyCase': false}"
+        "active" : 1
       },
       "no-floating-decimal" : {
         "active" : 0

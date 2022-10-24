@@ -44,7 +44,9 @@
         <div id="inner-header" class="wrap">
             <div class="flex">
                 <a class="logolink" href="<?php echo home_url(); ?>" rel="nofollow">
-                    <?php echo '<span id="logo">' . bloginfo('name') . '</span>'; ?>
+                    <?php echo '<h1 id="logo">';
+                    echo bloginfo('name');
+                    echo '</h1>'; ?>
                 </a>
                 <span id="description"><?php bloginfo('description'); ?></span>
                 <div id="burger">

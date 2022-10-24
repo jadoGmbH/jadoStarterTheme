@@ -59,25 +59,6 @@ p:empty {
 }
 
 
-h1, h2, h3, h4 {
-  text-rendering: optimizelegibility;
-  font-family: $headline;
-  line-height: 1.2;
-  margin: 0 0 $spaceafterblock 0;
-  font-weight: bold;
-}
-
-h1 {
-  font-size: $headlinesize;
-}
-
-h2 {
-  font-size: $headlinesize - 0.4;
-}
-
-h3, h4 {
-  font-size: $headlinesize - 1;
-}
 
 ul {
   padding: 0;
@@ -107,22 +88,22 @@ ul {
 
 .logolink {
 
-  span#logo {
+  #logo {
     opacity: 1;
     @include transition(opacity 300ms ease-out);
   }
 
   &:hover {
-    span#logo {
+    #logo {
       opacity: 0.5;
     }
   }
 }
 
 
-span#logo {
+#logo {
   display: inline-block;
-  font-size: 220%;
+  font-size: $headlinesize;
   line-height: 1.2;
   width: auto;
   font-family: $headline;
@@ -130,6 +111,7 @@ span#logo {
   color: $white;
   font-weight: normal;
   margin-right: 12vw;
+  margin-bottom: 0.2em;
 
   a {
     color: $white;
@@ -280,6 +262,29 @@ span#logo {
   }
 
   .entry-content {
+
+
+    h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
+      text-rendering: optimizelegibility;
+      font-family: $headline;
+      line-height: 1.2;
+      margin: 0 0 $spaceafterblock 0;
+      font-weight: bold;
+    }
+
+    h1, h1 a, h1 strong {
+      font-size: $headlinesize;
+    }
+
+    h2, h2 a, h2 strong{
+      font-size: $headlinesize - 0.4;
+    }
+
+    h3, h4, h3 a, h4 a, h3 strong, h4 strong {
+      font-size: $headlinesize - 1;
+    }
+
+
     ul {
       list-style-type: none;
       margin-bottom: $spaceafterblock;
