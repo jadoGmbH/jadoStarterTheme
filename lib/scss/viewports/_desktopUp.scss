@@ -137,24 +137,33 @@ figure.wp-block-image {
       }
     }
 
-    &.blog {
-      .post {
-
-        .entry-meta {
-          padding-left: $innerpostgap;
-          padding-right: $innerpostgap;
-        }
-
-
-        .entry-content {
-          padding: $innerpostgap;
-        }
-      }
-    }
-
 
     img {
       margin: 0 0 2em 0;
+    }
+
+    .cpt-container, .posts{
+
+      h2{
+        font-size: $headlinesize - 6;
+      }
+
+      .cpt, .post{
+        border-radius: $borderradius;
+      }
+
+      .cptimg, .postimg {
+        border-top-left-radius: $borderradius;
+        border-top-right-radius: $borderradius;
+      }
+
+      .postcontent, .cptcontent{
+        padding: 0 $innerpostgap;
+
+        &.noimg{
+          padding-top: $innerpostgap;
+        }
+      }
     }
   }
 }

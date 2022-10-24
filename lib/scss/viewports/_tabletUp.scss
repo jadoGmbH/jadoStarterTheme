@@ -165,26 +165,6 @@ figure.wp-block-image {
       }
     }
 
-    &.blog {
-
-      h2{
-        margin-bottom: 0.4em;
-      }
-
-      .post {
-        flex: 0 0 32%;
-
-        .entry-meta {
-          padding-left: $innerpostgap;
-          padding-right: $innerpostgap;
-        }
-
-        .entry-content {
-          padding: $innerpostgap;
-        }
-
-      }
-    }
 
     p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
       font-size: $copysize;
@@ -222,12 +202,30 @@ figure.wp-block-image {
     }
 
 
-    .cpt-container{
+    .cpt-container, .posts{
       justify-content: space-between;
       flex-wrap: wrap;
 
-      .cpt{
+      h2{
+        font-size: $headlinesize - 1;
+      }
+
+      .cpt, .post{
         flex: 0 0 30%;
+        border-radius: $borderradius;
+      }
+
+      .cptimg, .postimg {
+        border-top-left-radius: $borderradius;
+        border-top-right-radius: $borderradius;
+      }
+
+      .postcontent, .cptcontent{
+        padding: 0 $innerpostgap;
+
+        &.noimg{
+          padding-top: $innerpostgap;
+        }
       }
     }
   }

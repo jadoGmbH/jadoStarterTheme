@@ -402,15 +402,19 @@ span#logo {
       }
     }
 
-    .cpt-container {
+
+    .cpt-container, .posts {
       display: flex;
       flex-wrap: wrap;
       gap: 2em;
+      padding-bottom: 6em;
 
-      .cptimg {
+      .cptimg, .postimg {
         display: flex;
         margin-bottom: 0.5em;
         overflow: hidden;
+        border-top-left-radius: $borderradius;
+        border-top-right-radius: $borderradius;
 
         img {
           margin-bottom: 0;
@@ -419,13 +423,25 @@ span#logo {
         }
       }
 
-      h2 {
+      .postcontent, .cptcontent{
+        padding: 0 $innerpostgap;
+
+        &.noimg{
+          padding-top: $innerpostgap;
+        }
+      }
+
+      h2, p {
         margin-bottom: 0.2em;
       }
 
-      .cpt {
+      .cpt, .post {
+        display: flex;
+        flex-direction: column;
         position: relative;
         flex: 0 0 100%;
+        background-color: $white;
+        border-radius: $borderradius;
 
         &.sold{ /** change if you need another custom post type category! */
           &:before{
@@ -446,10 +462,11 @@ span#logo {
         height: 100%;
         display: flex;
         flex-direction: column;
+        text-decoration: none;
 
         img {
           transform: scale(1);
-          @include transition(all 200ms linear);
+          @include transition(transform 200ms linear);
         }
 
         &:hover {
@@ -479,76 +496,8 @@ span#logo {
     margin-bottom: 0;
   }
 
-  .hentry {
-    //background-color: $white;
-    padding-bottom: 3vw;
-
-    header {
-      padding: 2vw 0;
-    }
-
-    footer {
-      padding: 2vw;
-
-      p {
-        margin: 0;
-      }
-    }
-  }
 
   .entry-content {
-
-    &.blog {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      flex-wrap: wrap;
-
-
-      h2 {
-        margin-bottom: 0.5em;
-
-        a {
-          margin: 0;
-
-          &:visited {
-            color: $white;
-          }
-        }
-      }
-
-      .post {
-        flex: 0 0 100%;
-        border: 1px solid $maincolor;
-        display: inline-block;
-        position: relative;
-        padding-bottom: 4em;
-        margin-bottom: 1.2em;
-
-        p {
-          margin: 0;
-        }
-
-        a.wp-block-button__link {
-          display: block;
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          padding-left: 0;
-          padding-right: 0;
-        }
-
-        .entry-meta {
-          padding-left: $innerpostgap;
-          padding-right: $innerpostgap;
-          margin-bottom: 0;
-        }
-
-        .entry-content {
-          padding: $innerpostgap;
-        }
-      }
-    }
 
     a, a:visited {
       color: $text-color;
