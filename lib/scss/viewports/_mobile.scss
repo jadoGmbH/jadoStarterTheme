@@ -276,6 +276,7 @@ span#logo {
     &.hasThumb {
       padding-top: 2em !important;
     }
+    padding-bottom: 5em;
   }
 
   .entry-content {
@@ -442,6 +443,11 @@ span#logo {
         flex: 0 0 100%;
         background-color: $white;
         border-radius: $borderradius;
+        @include transition(background-color 200ms linear);
+
+        &:hover{
+          background-color: lighten($bgcolor, 5%);
+        }
 
         &.sold{ /** change if you need another custom post type category! */
           &:before{

@@ -201,7 +201,6 @@ figure.wp-block-image {
       height: auto;
     }
 
-
     .cpt-container, .posts{
       justify-content: space-between;
       flex-wrap: wrap;
@@ -211,7 +210,7 @@ figure.wp-block-image {
       }
 
       .cpt, .post{
-        flex: 0 0 30%;
+        flex: 0 0 31%;
         border-radius: $borderradius;
       }
 

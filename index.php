@@ -29,8 +29,8 @@
                             </div>
                         </a>
                         <div class="postcontent">
-                            <?php printf('<p class="post-category">' . __('Category:', 'jadotheme') . ' %1$s</p>', get_the_category_list(', ')); ?>
-                            <?php the_tags('<p class="post-tags"><span class="tags-title">' . __('Tags:', 'jadotheme') . '</span> ', ', ', '</p>'); ?>
+                            <?php //printf('<p class="post-category">' . __('Category:', 'jadotheme') . ' %1$s</p>', get_the_category_list(', ')); ?>
+                            <?php //the_tags('<p class="post-tags"><span class="tags-title">' . __('Tags:', 'jadotheme') . '</span> ', ', ', '</p>'); ?>
                         </div>
                     </article>
                 <?php endwhile;
