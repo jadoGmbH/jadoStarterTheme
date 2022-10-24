@@ -59,6 +59,10 @@ function jado_settings_fields()
     register_setting($option_group, 'encodeEmails', 'jado_sanitize_checkbox');
     register_setting($option_group, 'heartbeat', 'jado_sanitize_checkbox');
     register_setting($option_group, 'scriptW3C', 'jado_sanitize_checkbox');
+    register_setting($option_group, 'activateJquery', 'jado_sanitize_checkbox');
+
+
+
     register_setting($option_group, 'imgQuality', 'absint');
 
     add_settings_field(
@@ -196,6 +200,15 @@ function jado_settings_fields()
         'scriptW3C',
         __('Enable correct script style <br>(get rid of type=script etc.)', 'jadotheme'),
         'jado_scriptW3C',
+        $page_slug,
+        'jado_section_id'
+    );
+
+
+    add_settings_field(
+        'activateJquery',
+        __('Enable jQuery', 'jadotheme'),
+        'jado_activateJquery',
         $page_slug,
         'jado_section_id'
     );
@@ -617,6 +630,31 @@ if ($heartbeat == 'yes') {
         wp_deregister_script('heartbeat');
     }
 }
+
+
+
+
+/** activate jQuery */
+
+function jado_activateJquery()
+{
+    $value = get_option('activateJquery');
+    ?>
+    <label>
+        <input type="checkbox" name="activateJquery" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
+    </label>
+    <?php
+}
+
+$activateJquery = get_option('activateJquery');
+if ($activateJquery == 'yes') {
+    function load_scripts(){
+        wp_enqueue_script('jquery');
+    }
+    add_action('wp_enqueue_scripts', 'load_scripts');
+}
+
+
 
 
 /** Script style W3C-Correct */

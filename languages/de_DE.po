@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ja.do Starter 2022\n"
-"POT-Creation-Date: 2022-10-21 22:52+0200\n"
-"PO-Revision-Date: 2022-10-21 23:03+0200\n"
+"POT-Creation-Date: 2022-10-24 11:00+0200\n"
+"PO-Revision-Date: 2022-10-24 11:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -32,11 +32,6 @@ msgstr ""
 "Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
 "einmal!"
 
-#: archive-custom_type.php:19 archive.php:29 index.php:30 search.php:34
-#: single-custom_type.php:20 single.php:15 taxonomy-custom_cat.php:28
-msgid "404 - Site not found!"
-msgstr "404 - Seite nicht gefunden!"
-
 #: archive.php:14
 msgid "Posted"
 msgstr "Veröffentlicht"
@@ -44,6 +39,10 @@ msgstr "Veröffentlicht"
 #: archive.php:16 functions.php:135
 msgid "by"
 msgstr "von"
+
+#: archive.php:29 index.php:39 search.php:34 single.php:22
+msgid "404 - Site not found!"
+msgstr "404 - Seite nicht gefunden!"
 
 #: comments.php:6
 msgid "<span>No</span> Comments"
@@ -89,136 +88,131 @@ msgstr "Links"
 msgid "TopMenu"
 msgstr "TopMenu"
 
-#: index.php:23
-msgid "read more"
-msgstr "weiterlesen"
-
-#: lib/custom-post-type.php:12
+#: lib/custom-post-types.php:12
 msgid "Products"
 msgstr "Produkte"
 
-#: lib/custom-post-type.php:13
-#| msgid "Produkt"
+#: lib/custom-post-types.php:13
 msgid "Product"
 msgstr "Produkt"
 
-#: lib/custom-post-type.php:14
+#: lib/custom-post-types.php:14
 msgid "All Products"
 msgstr "Alle Produkte"
 
-#: lib/custom-post-type.php:15 lib/custom-post-type.php:19
+#: lib/custom-post-types.php:15 lib/custom-post-types.php:19
 msgid "New Product"
 msgstr "Neues Produkt"
 
-#: lib/custom-post-type.php:16
+#: lib/custom-post-types.php:16
 msgid "Add New Product"
 msgstr "Neues Produkt hinzufügen"
 
-#: lib/custom-post-type.php:17
+#: lib/custom-post-types.php:17
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: lib/custom-post-type.php:18
+#: lib/custom-post-types.php:18
 msgid "Edit Product"
 msgstr "Produkt bearbeiten"
 
-#: lib/custom-post-type.php:20
+#: lib/custom-post-types.php:20
 msgid "View Product"
 msgstr "Produkt ansehen"
 
-#: lib/custom-post-type.php:21
+#: lib/custom-post-types.php:21
 msgid "Search Products"
 msgstr "Produkt Suche"
 
-#: lib/custom-post-type.php:22
+#: lib/custom-post-types.php:22
 msgid "Nothing found in the Database."
 msgstr "Keine Einträge in der Datenbank."
 
-#: lib/custom-post-type.php:23
+#: lib/custom-post-types.php:23
 msgid "Nothing found in Trash"
 msgstr "Nichts im Papierkorb gefunden"
 
-#: lib/custom-post-type.php:26
+#: lib/custom-post-types.php:26
 msgid "Products Post Type"
 msgstr "Produkt Post Type"
 
-#: lib/custom-post-type.php:53
+#: lib/custom-post-types.php:52
 msgid "Product categories"
 msgstr "Produkte Kategorien"
 
-#: lib/custom-post-type.php:54
+#: lib/custom-post-types.php:53
 msgid "Product category"
 msgstr "Produkte Kategorie"
 
-#: lib/custom-post-type.php:55
+#: lib/custom-post-types.php:54
 msgid "Search Product category"
 msgstr "Produkte Kategorie suchen"
 
-#: lib/custom-post-type.php:56
+#: lib/custom-post-types.php:55
 msgid "All Product categories"
 msgstr "Alle Produkte Kategorien"
 
-#: lib/custom-post-type.php:57
+#: lib/custom-post-types.php:56
 msgid "Parent Product category"
 msgstr "Eltern Produkt Kategorie"
 
-#: lib/custom-post-type.php:58
+#: lib/custom-post-types.php:57
 msgid "Parent Product category:"
 msgstr "Eltern Produkt Kategorie:"
 
-#: lib/custom-post-type.php:59
+#: lib/custom-post-types.php:58
 msgid "Edit Product category"
 msgstr "Produkte Kategorie bearbeiten"
 
-#: lib/custom-post-type.php:60
+#: lib/custom-post-types.php:59
 msgid "Update Product category"
 msgstr "Produkt Kategorie update"
 
-#: lib/custom-post-type.php:61
+#: lib/custom-post-types.php:60
 msgid "New Product category"
 msgstr "Neues Produkt Kategorie"
 
-#: lib/custom-post-type.php:62
+#: lib/custom-post-types.php:61
 msgid "New Product category name"
 msgstr "Neuer Produkt Kategorie Name"
 
-#: lib/custom-post-type.php:75
+#: lib/custom-post-types.php:74
 msgid "Products Tags"
 msgstr "Produkt Tags"
 
-#: lib/custom-post-type.php:76
+#: lib/custom-post-types.php:75
 msgid "Product Tag"
 msgstr "Produkt Tag"
 
-#: lib/custom-post-type.php:77
+#: lib/custom-post-types.php:76
 msgid "Search Produkt Tags"
 msgstr "Produkt Tag Suche"
 
-#: lib/custom-post-type.php:78
+#: lib/custom-post-types.php:77
 msgid "All Product Tags"
 msgstr "Alle Produkte Schlagworte"
 
-#: lib/custom-post-type.php:79
+#: lib/custom-post-types.php:78
 msgid "Parent Product Tag"
 msgstr "Produkt Schlagwort Eltern"
 
-#: lib/custom-post-type.php:80
+#: lib/custom-post-types.php:79
 msgid "Parent Product Tag:"
 msgstr "Produkt Schlagwort Eltern:"
 
-#: lib/custom-post-type.php:81
+#: lib/custom-post-types.php:80
 msgid "Edit Product Tag"
 msgstr "Produkt Tag bearbeiten"
 
-#: lib/custom-post-type.php:82
+#: lib/custom-post-types.php:81
 msgid "Update Product Tag"
 msgstr "Produkt Schlagwort update"
 
-#: lib/custom-post-type.php:83
+#: lib/custom-post-types.php:82
 msgid "Add New Product Tag"
 msgstr "Neuen Zustrom Type anlegen"
 
-#: lib/custom-post-type.php:84
+#: lib/custom-post-types.php:83
 msgid "New Product Tag Name"
 msgstr "Neuer Produkt Schlagwort Name"
 
@@ -226,92 +220,97 @@ msgstr "Neuer Produkt Schlagwort Name"
 msgid "Theme Functions"
 msgstr "Funktionen"
 
-#: lib/theme-settings.php:66
+#: lib/theme-settings.php:70
 msgid "Upload Image JPG Quality"
 msgstr "JPG-Qualität der Bilder"
 
-#: lib/theme-settings.php:80
+#: lib/theme-settings.php:84
 msgid ""
 "Enable auto alt-attributes on all Images after upload <br>(based on image "
 "name)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
-#: lib/theme-settings.php:89
+#: lib/theme-settings.php:93
 msgid "Enable Post Thumbnail in backend"
 msgstr "Zeige Post Thumbnail im Backend"
 
-#: lib/theme-settings.php:98
+#: lib/theme-settings.php:102
 msgid "Enable SVG Uploads"
 msgstr "Aktivere SVG Uploads"
 
-#: lib/theme-settings.php:107
+#: lib/theme-settings.php:111
 msgid "Gutenberg Full width"
 msgstr "Gutenberg volle Seitenbreite"
 
-#: lib/theme-settings.php:116
+#: lib/theme-settings.php:120
 msgid "Disable Gutenberg Custom inline Styles"
 msgstr "Gutenberg custom inline Styles ausschalten"
 
-#: lib/theme-settings.php:125
+#: lib/theme-settings.php:129
 msgid "Disable Emoji"
 msgstr "Emojis deaktivieren"
 
-#: lib/theme-settings.php:134
+#: lib/theme-settings.php:138
 msgid "Disable Comments"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:143
+#: lib/theme-settings.php:147
 msgid "Remove XMLRPC"
 msgstr "XMLRPC entfernen"
 
-#: lib/theme-settings.php:152
+#: lib/theme-settings.php:156
 msgid "Disable Admin Bar Frontend"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
-#: lib/theme-settings.php:161
+#: lib/theme-settings.php:165
 msgid "Disable Embeds Frontend"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
-#: lib/theme-settings.php:170
+#: lib/theme-settings.php:174
 msgid "Disable Editor Fullscreen Default"
 msgstr "Default Editor Fullscreen ausschalten"
 
-#: lib/theme-settings.php:179
+#: lib/theme-settings.php:183
 msgid "Encode Emails <br>usage: [email]email@email.de[/email]"
 msgstr "Emails verschlüsseln <br>Benutzung: [email]email@email.de[/email]"
 
-#: lib/theme-settings.php:188
+#: lib/theme-settings.php:192
 msgid "Disable Heartbeat <br>(auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
 
-#: lib/theme-settings.php:197
+#: lib/theme-settings.php:201
 msgid "Enable correct script style <br>(get rid of type=script etc.)"
 msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
 
-#: lib/theme-settings.php:241 lib/theme-settings.php:263
-#: lib/theme-settings.php:286 lib/theme-settings.php:325
-#: lib/theme-settings.php:349 lib/theme-settings.php:375
-#: lib/theme-settings.php:400 lib/theme-settings.php:419
-#: lib/theme-settings.php:465 lib/theme-settings.php:489
-#: lib/theme-settings.php:527 lib/theme-settings.php:581
-#: lib/theme-settings.php:607 lib/theme-settings.php:629
+#: lib/theme-settings.php:210
+msgid "Enable jQuery"
+msgstr "jQuery aktivieren"
+
+#: lib/theme-settings.php:254 lib/theme-settings.php:276
+#: lib/theme-settings.php:299 lib/theme-settings.php:338
+#: lib/theme-settings.php:362 lib/theme-settings.php:388
+#: lib/theme-settings.php:413 lib/theme-settings.php:432
+#: lib/theme-settings.php:478 lib/theme-settings.php:502
+#: lib/theme-settings.php:540 lib/theme-settings.php:594
+#: lib/theme-settings.php:620 lib/theme-settings.php:644
+#: lib/theme-settings.php:667
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:297
+#: lib/theme-settings.php:310
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:310
+#: lib/theme-settings.php:323
 msgid "your theme does not support featured images ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 
-#: lib/theme-settings.php:667
+#: lib/theme-settings.php:705
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
-#: lib/theme-settings.php:673
+#: lib/theme-settings.php:711
 msgid ""
 "Please note: Settings are not saved the first time, only the second time "
 "saved - we are working on this!"
@@ -349,27 +348,6 @@ msgstr "Suche nach:"
 msgid "Search"
 msgstr "Suche"
 
-#: taxonomy-custom_cat.php:10
-msgid "Posts Categorized:"
-msgstr "Beiträge kategorisiert:"
-
-#: taxonomy-custom_cat.php:17
-#, php-format
-msgid ""
-"Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
-"\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
-msgstr ""
-"Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class="
-"\"author\">%3$s</span> <span class=\"amp\">&</span> filed under %4$s."
-
-#: taxonomy-custom_cat.php:17
-msgid "F jS, Y"
-msgstr "F jS, Y"
-
-#: taxonomy-custom_cat.php:21
-msgid "Read More &raquo;"
-msgstr "Weiterlesen &raquo;"
-
 #. Theme Name of the plugin/theme
 msgid "ja.do Starter 2022"
 msgstr "ja.do Starter 2022"
@@ -388,6 +366,32 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "ja.do"
 msgstr "ja.do"
+
+#. Template Name of the plugin/theme
+msgid "Custom Loop"
+msgstr "Zustrom Post Loop"
+
+#~ msgid "read more"
+#~ msgstr "weiterlesen"
+
+#~ msgid "Posts Categorized:"
+#~ msgstr "Beiträge kategorisiert:"
+
+#, php-format
+#~ msgid ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
+#~ msgstr ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
+
+#~ msgid "F jS, Y"
+#~ msgstr "F jS, Y"
+
+#~ msgid "Read More &raquo;"
+#~ msgstr "Weiterlesen &raquo;"
 
 #~ msgid "Product category Bearbeiten"
 #~ msgstr "Produkt Kategorie"
@@ -416,9 +420,6 @@ msgstr "ja.do"
 #~ msgstr ""
 #~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
 #~ "class=\"author\">%3$s</span>"
-
-#~ msgid "Custom Tags:"
-#~ msgstr "Custom Tags:"
 
 #~ msgid "Sorry, we don't use RSS!"
 #~ msgstr "Sorry, we don't use RSS!"
