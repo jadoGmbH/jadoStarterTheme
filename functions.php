@@ -8,7 +8,7 @@ require_once('lib/theme-settings.php');
 
 
 /** Activate custom post type Example  */
-require_once( 'lib/custom-post-types.php' );
+require_once( 'lib/custom-post-types.php' ); // enable to get Custom Post Type "products"
 
 
 function jado_head_cleanup()

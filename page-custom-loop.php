@@ -16,11 +16,15 @@ get_header(); ?>
                     if ($loop->have_posts()) :
                         while ($loop->have_posts()) : $loop->the_post();
                             ?>
-                            <div class="cpt <?php if(has_term('sold', 'custom_cat')){
+                            <div class="cpt <?php if(has_term('sold', 'custom_cat')){ // custom categories
                                 echo 'sold';
                             }?>">
                                 <a href="<?php echo get_the_permalink(); ?>">
-                                    <?php the_post_thumbnail('medium'); ?>
+                                    <?php if(has_post_thumbnail()){
+                                        echo '<div class="cptimg">';
+                                        the_post_thumbnail('medium');
+                                        echo '</div>';
+                                    } ?>
                                     <h2><?php echo get_the_title(); ?></h2>
                                     <?php the_excerpt(); ?>
                                 </a>

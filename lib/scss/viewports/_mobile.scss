@@ -99,7 +99,7 @@ ul {
     width: 100%;
   }
 
-  .flex{
+  .flex {
     color: $white;
   }
 }
@@ -144,7 +144,7 @@ span#logo {
   font-size: $copysize;
   margin-top: 1em;
 
-  &:empty{
+  &:empty {
     display: none;
   }
 }
@@ -212,7 +212,7 @@ span#logo {
 .nav {
   margin: 4vw 0 0 0;
 
-  &.top-nav{
+  &.top-nav {
     padding-top: 8vw;
   }
 
@@ -272,8 +272,8 @@ span#logo {
   background-color: $bgcolor;
   box-shadow: $boxshadow;
 
-  #inner-content{
-    &.hasThumb{
+  #inner-content {
+    &.hasThumb {
       padding-top: 2em !important;
     }
   }
@@ -300,76 +300,77 @@ span#logo {
       }
     }
 
-    figure.wp-block-pullquote{
+    figure.wp-block-pullquote {
       border-top: 1px solid $text-color;
       border-bottom: 1px solid $text-color;
       padding: 3vw 0;
       margin-bottom: $spaceafterblock;
 
-      p{
+      p {
         font-family: $headline;
         font-size: $headlinesize;
         margin-bottom: 1em;
       }
 
-      cite{
+      cite {
         opacity: 0.5;
       }
     }
 
-    pre.wp-block-code{
+    pre.wp-block-code {
       background-color: $text-color;
       color: $white;
       padding: 0.4em 0.8em;
       margin-bottom: $spaceafterblock;
     }
 
-    pre.wp-block-verse{
+    pre.wp-block-verse {
       margin-bottom: $spaceafterblock;
       font-style: italic;
     }
 
-    .wp-block-columns{
+    .wp-block-columns {
       margin-bottom: $spaceafterblock;
     }
 
-    figure.wp-block-table{
+    figure.wp-block-table {
       margin-bottom: $spaceafterblock;
 
-      tbody{
+      tbody {
         border-bottom: 1px solid $text-color;
         display: block;
         background-color: $white;
       }
 
-      figcaption{
+      figcaption {
         text-align: center;
         opacity: 0.5;
         font-style: italic;
         padding-top: 0.5em;
       }
-      table{
+
+      table {
         display: block;
         width: 100%;
       }
 
 
-      tr{
+      tr {
         border-top: 1px solid $text-color;
         width: 100%;
         display: flex;
         flex-direction: row;
 
-        td{
+        td {
           flex: 1;
           padding: 0.4em;
           border-right: 1px solid $text-color;
 
-          &:first-child{
+          &:first-child {
             border-left: 1px solid $text-color;
           }
 
-          &:empty{
+          &:empty {
             display: none;
           }
         }
@@ -382,8 +383,8 @@ span#logo {
       margin-right: 0;
       margin-bottom: $spaceafterblock;
 
-      .wp-block-image{
-        img{
+      .wp-block-image {
+        img {
           margin-bottom: 0;
         }
       }
@@ -396,6 +397,64 @@ span#logo {
 
           &:before {
             display: none;
+          }
+        }
+      }
+    }
+
+    .cpt-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+
+      .cptimg {
+        display: flex;
+        margin-bottom: 0.5em;
+        overflow: hidden;
+
+        img {
+          margin-bottom: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      h2 {
+        margin-bottom: 0.2em;
+      }
+
+      .cpt {
+        position: relative;
+        flex: 0 0 100%;
+
+        &.sold{ /** change if you need another custom post type category! */
+          &:before{
+            content: 'sold';
+            padding: 0.4em 1em;
+            position: absolute;
+            background: $dark;
+            color: $white;
+            left: 0;
+            top: 0;
+            z-index: 112;
+          }
+        }
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        img {
+          transform: scale(1);
+          @include transition(all 200ms linear);
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
           }
         }
       }
@@ -448,6 +507,7 @@ span#logo {
 
       h2 {
         margin-bottom: 0.5em;
+
         a {
           margin: 0;
 
@@ -660,20 +720,12 @@ figure.wp-block-image {
   }
 }
 
-.featuredImage{
+.featuredImage {
   width: 100%;
-  img{
+
+  img {
     width: 100%;
     height: auto;
-  }
-}
-
-.cpt-container{
-  display: flex;
-  flex-wrap: wrap;
-
-  .cpt{
-    flex: 0 0 100%;
   }
 }
 

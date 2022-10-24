@@ -220,6 +220,16 @@ figure.wp-block-image {
       max-width: 100%;
       height: auto;
     }
+
+
+    .cpt-container{
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .cpt{
+        flex: 0 0 30%;
+      }
+    }
   }
 
   .wp-block-columns{
@@ -266,15 +276,5 @@ figure.wp-block-image {
    #widgetarea{
      margin-right: - 0.5em;
    }
-  }
-}
-
-.cpt-container{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-
-  .cpt{
-    flex: 0 0 30%;
   }
 }
