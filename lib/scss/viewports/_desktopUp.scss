@@ -36,7 +36,7 @@ body {
 
 
 h1, h2, h3, h4 {
-  margin: 0 0 $spaceafterblock 0;
+  margin: 0 0 $innerpostgap 0;
 }
 
 h1 {
@@ -139,7 +139,7 @@ figure.wp-block-image {
 
 
     img {
-      margin: 0 0 2em 0;
+      margin: 0 0 0.5em 0;
     }
 
     .cpt-container, .posts{
