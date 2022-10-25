@@ -29,8 +29,8 @@ function jado_theme_support()
     add_theme_support('menus');
     register_nav_menus(
         array(
-            'topNav' => __('TopNav', 'jadojadotheme'),
-            'footerNav' => __('FooterNav', 'jadojadotheme')
+            'TopNav' => 'TopNav',
+            'FooterNav' => 'FooterNav'
         )
     );
 }

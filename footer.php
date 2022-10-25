@@ -2,7 +2,7 @@
     <div id="inner-footer" class="wrap">
         <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
             <?php
-            if (has_nav_menu('footerNav')) {
+            if (has_nav_menu('FooterNav')) {
                 echo '<nav id="footer-navigation">';
                 wp_nav_menu(array(
                     'container' => false,
