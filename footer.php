@@ -9,7 +9,7 @@
                     'container_class' => 'menu',
                     'menu' => __('FooterNav', 'jadotheme'),
                     'menu_class' => 'nav footerNav',
-                    'theme_location' => 'footerNav',
+                    'theme_location' => 'FooterNav',
                     'depth' => 0
                 ));
                 echo '</nav>';
