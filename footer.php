@@ -7,7 +7,7 @@
                 wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',
-                    'menu' => __('FooterNav', 'jadotheme'),
+                    'menu' => 'FooterNav',
                     'menu_class' => 'nav footerNav',
                     'theme_location' => 'FooterNav',
                     'depth' => 0

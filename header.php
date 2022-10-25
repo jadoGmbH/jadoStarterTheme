@@ -59,7 +59,7 @@
                 <?php wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',
-                    'menu' => __('TopNav', 'jadotheme'),
+                    'menu' => 'TopNav',
                     'menu_class' => 'nav top-nav',
                     'theme_location' => 'TopNav',
                     'depth' => 0
