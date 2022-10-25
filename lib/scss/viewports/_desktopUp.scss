@@ -9,7 +9,7 @@ $contentwidth: 80%;
 $maxcontentwidth: 1100px; // maximal width for layout!
 $innerpostgap: 20px;
 $boxshadow: 0 0 3em rgba(0, 0, 0, 0.1), 0 0 0.6em rgba(0, 0, 0, 0.5);
-$borderradius: 4px;
+$borderradius: 6px;
 $spaceafterblock: 50px;
 
 
@@ -76,6 +76,14 @@ figure.wp-block-image {
 
   .entry-content {
 
+    a, a:visited {
+      font-size: $copysize;
+
+      &.wp-block-button__link, &.button {
+        padding: 0.8em 1.5em;
+        border-radius: $borderradius;
+      }
+    }
 
     h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
       margin: 0 0 $innerpostgap 0;
@@ -93,7 +101,6 @@ figure.wp-block-image {
       font-size: $headlinesize - 12;
     }
 
-
     ul {
       margin-bottom: $spaceafterblock;
 
@@ -108,6 +115,10 @@ figure.wp-block-image {
       }
     }
 
+    h2 a {
+      font-size: $headlinesize - 15;
+      padding: $innerpostgap;
+    }
 
     p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
       font-size: $copysize;
@@ -130,14 +141,6 @@ figure.wp-block-image {
       margin-bottom: $spaceafterblock;
     }
 
-
-    h2 {
-      a {
-        font-size: $headlinesize - 15;
-        padding: $innerpostgap;
-
-      }
-    }
 
 
     img {

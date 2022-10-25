@@ -529,7 +529,7 @@ ul {
       &.wp-block-button__link, &.button {
         padding: 0.8em 1.5em;
         font-family: $headline;
-        border-radius: 0;
+        border-radius: $borderradius;
         background-color: $link-color;
         color: $white;
         margin: 0;
