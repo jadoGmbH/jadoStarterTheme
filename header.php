@@ -59,9 +59,9 @@
                 <?php wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',
-                    'menu' => __('TopMenu', 'jadotheme'),
+                    'menu' => __('TopNav', 'jadotheme'),
                     'menu_class' => 'nav top-nav',
-                    'theme_location' => 'topMenu',
+                    'theme_location' => 'TopNav',
                     'depth' => 0
                 )); ?>
             </nav>
