@@ -45,7 +45,7 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         if (nameIndex == -1) {
             classString += ' ' + className;
         } else {
-            classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
+            classString = classString.substring(0, nameIndex) + classString.substring(nameIndex + className.length);
         }
         element.className = classString;
     }
@@ -77,7 +77,7 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
     let lastScroll = 0;
 
     window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
+        const currentScroll = window.scrollY;
         if (currentScroll <= 0) {
             body.classList.remove(scrollUp);
             return;
