@@ -625,7 +625,7 @@
     },
     "\/screenshot.png" : {
       "ft" : 32768,
-      "iS" : 4430,
+      "iS" : 7040,
       "oA" : 0,
       "oAP" : "\/screenshot.png",
       "oF" : 0,
@@ -633,7 +633,7 @@
       "opt" : 0,
       "oT" : 1,
       "ou" : "lpckwebp-none",
-      "q" : 100,
+      "q" : 90,
       "rq" : 75
     },
     "\/search.php" : {

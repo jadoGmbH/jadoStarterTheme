@@ -65,7 +65,6 @@ function jado_register_sidebars()
 add_action('widgets_init', 'jado_register_sidebars');
 
 
-
 /** Admin Login Site Design */
 
 function jado_login_css()
@@ -83,13 +82,21 @@ function jado_login_css()
             display: block;
         }
         body.login {
-            background-color: #a1a111;
+            background-color: #ffffff;
+        }
+
+        body.login:before{
+            content: '';
+            background-color: #e1f200;
+            position: absolute;
+            left: -12vw;
+            top: -6vw;
+            width: 33vw;
+            height: 33vw;
+            border-radius: 50%;
         }
         .login #backtoblog, .login #nav {
             text-align: center;
-        }
-        .login #backtoblog a, .login #nav a {
-            color: #fff !important;
         }
         .privacy-policy-page-link {
             display: none;
@@ -104,7 +111,7 @@ add_action('login_enqueue_scripts', 'jado_login_css');
 function login_page_footer()
 { ?>
     <p style="text-align: center;">
-        <a style="color: white;" href="https://www.ja.do" target="_blank">www.ja.do</a>
+        <a  href="https://www.ja.do" target="_blank">www.ja.do</a>
     </p>
 <?php }
 
@@ -119,11 +126,12 @@ function jado_admin_CSS()
     ?>
     <style>
         #adminmenu div.wp-menu-image.dashicons-admin-generic:before{
-            color: #a1a111 !important;
+            color: #e1f200 !important;
         }
     </style>
 <?php }
 add_action('admin_enqueue_scripts', 'jado_admin_CSS');
+
 
 
 
@@ -161,7 +169,6 @@ function remove_menus()
 add_action('admin_menu', 'remove_menus');
 
 
-
 /** custom Image size */
 
 add_image_size('ogimage', 1200, 630, array('center', 'center'));
@@ -180,7 +187,6 @@ function disable_gutenberg_wp_enqueue_scripts()
 }
 
 add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
-
 
 
 

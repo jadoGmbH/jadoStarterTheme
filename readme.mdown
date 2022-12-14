@@ -8,6 +8,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 3.1 | added excerpts for pages as option |
 | 3.0 | settings page for many functions, translations, custom post types example and many more |
 | 2.7 | gutenberg CSS integrated in style.css & og:image |
 | 2.6 | typography.scss optimised / title & other header.php optimizations |

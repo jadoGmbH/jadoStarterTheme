@@ -59,6 +59,7 @@ function jado_settings_fields()
     register_setting($option_group, 'encodeEmails', 'jado_sanitize_checkbox');
     register_setting($option_group, 'heartbeat', 'jado_sanitize_checkbox');
     register_setting($option_group, 'scriptW3C', 'jado_sanitize_checkbox');
+    register_setting($option_group, 'pageExcerpts', 'jado_sanitize_checkbox');
     register_setting($option_group, 'activateJquery', 'jado_sanitize_checkbox');
 
 
@@ -200,6 +201,16 @@ function jado_settings_fields()
         'scriptW3C',
         __('Enable correct script style <br>(get rid of type=script etc.)', 'jadotheme'),
         'jado_scriptW3C',
+        $page_slug,
+        'jado_section_id'
+    );
+
+
+
+    add_settings_field(
+        'pageExcerpts',
+        __('Enable excerpts on pages<br>(for meta descriptions)', 'jadotheme'),
+        'jado_pageExcerpts',
         $page_slug,
         'jado_section_id'
     );
@@ -657,6 +668,37 @@ if ($activateJquery == 'yes') {
 
 
 
+
+
+
+
+
+/** excerpt for pages */
+
+
+function jado_pageExcerpts()
+{
+    $value = get_option('pageExcerpts');
+    ?>
+    <label>
+        <input type="checkbox" name="pageExcerpts" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
+    </label>
+    <?php
+}
+
+$pageExcerpts = get_option('pageExcerpts');
+if ($pageExcerpts == 'yes') {
+    add_action(
+        'after_setup_theme',
+        function () {
+            add_post_type_support( 'page', 'excerpt' );
+        }
+    );
+}
+
+
+
+
 /** Script style W3C-Correct */
 
 function jado_scriptW3C()
@@ -678,6 +720,13 @@ if ($scriptW3C == 'yes') {
         }
     );
 }
+
+
+
+
+
+
+
 
 
 function jado_sanitize_checkbox($value)

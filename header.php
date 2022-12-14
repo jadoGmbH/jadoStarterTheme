@@ -18,7 +18,7 @@
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <!--<meta name="referrer" content="no-referrer"> enable when not have password protected sites, or other frontend login sites (woocommerce) -->
+    <meta name="referrer" content="no-referrer"> <!-- disable when have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta property="og:url" content="<?php the_permalink(); ?>">
     <meta property="og:type" content="website">
@@ -45,7 +45,7 @@
             <div class="flex">
                 <a class="logolink" href="<?php echo home_url(); ?>" rel="nofollow">
                     <?php echo '<h1 id="logo">';
-                    echo bloginfo('name');
+                    bloginfo('name');
                     echo '</h1>'; ?>
                 </a>
                 <span id="description"><?php bloginfo('description'); ?></span>
