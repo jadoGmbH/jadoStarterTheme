@@ -2,7 +2,6 @@
 <html lang="<?php echo get_bloginfo('language'); ?>">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php
     $description = get_bloginfo("description");
     if ($description != '') {
