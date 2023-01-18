@@ -2,18 +2,20 @@
 <html lang="<?php echo get_bloginfo('language'); ?>">
 <head>
     <meta charset="utf-8">
-    <?php
-    $description = get_bloginfo("description");
-    if ($description != '') {
-        $descriptionstring = ' - ' . $description;
-    } else {
-        $descriptionstring = '';
-    }
-    if (is_front_page()) {
-        echo '<title>' . get_bloginfo("name") . $descriptionstring . '</title>';
-    } else {
-        echo '<title>' . get_bloginfo("name") . $descriptionstring . ' - ' . get_the_title() . '</title>';
-    } ?>
+    <title>
+        <?php
+        $description = get_bloginfo("description");
+        if ($description != '') {
+            $descriptionstring = ' - ' . $description;
+        } else {
+            $descriptionstring = '';
+        }
+        if (is_front_page()) {
+            echo get_bloginfo("name") . $descriptionstring;
+        } else {
+            echo get_bloginfo("name") . $descriptionstring . ' - ' . get_the_title();
+        } ?>
+    </title>
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
