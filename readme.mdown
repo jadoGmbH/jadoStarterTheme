@@ -1,4 +1,4 @@
-# ja.do WordPress Starter Theme
+# jado WordPress Starter Theme
 
 Super fast & slim Starter Template (Theme for WordPress for developing individual Designs)
 
