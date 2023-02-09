@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja.do Starter 2022\n"
 "POT-Creation-Date: 2022-10-24 11:00+0200\n"
-"PO-Revision-Date: 2022-10-24 11:01+0200\n"
+"PO-Revision-Date: 2023-02-09 10:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -349,8 +349,8 @@ msgid "Search"
 msgstr "Suche"
 
 #. Theme Name of the plugin/theme
-msgid "ja.do Starter 2022"
-msgstr "ja.do Starter 2022"
+msgid "jado Starter 2022"
+msgstr "jado Starter 2022"
 
 #. Theme URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -364,8 +364,8 @@ msgstr ""
 "custom Theme for starting clean and simple projects / woocommerce enabled"
 
 #. Author of the plugin/theme
-msgid "ja.do"
-msgstr "ja.do"
+msgid "jado"
+msgstr "jado"
 
 #. Template Name of the plugin/theme
 msgid "Custom Loop"
