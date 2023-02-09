@@ -7,6 +7,7 @@ $copysize: 4.1vw;
 $headlinesize: 6vw;
 $contentwidth: 84%;
 $innerpostgap: 3vw;
+$contentgaptop: 2em;
 $burgerright: calc(100% - #{$contentwidth});
 $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
 $borderradius: 0.7vw;
@@ -262,7 +263,6 @@ ul {
 
   .entry-content {
 
-
     h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
       text-rendering: optimizelegibility;
       font-family: $headline;
@@ -379,7 +379,6 @@ ul {
             display: none;
           }
         }
-
       }
     }
 
@@ -486,28 +485,24 @@ ul {
         }
       }
     }
-  }
 
 
-  blockquote.wp-block-quote {
-    margin: 0;
-    padding: 0 3em;
-    border-left: 0.2em solid $maincolor;
+    blockquote.wp-block-quote {
+      margin: 0;
+      padding: 0 3em;
+      border-left: 0.2em solid $maincolor;
 
-    p {
-      margin: 1em 0 2em 0;
-      font-style: italic;
+      p {
+        margin: 1em 0 2em 0;
+        font-style: italic;
+      }
     }
-  }
 
 
-  .byline {
-    font-size: 70%;
-    margin-bottom: 0;
-  }
-
-
-  .entry-content {
+    .byline {
+      font-size: 70%;
+      margin-bottom: 0;
+    }
 
     a, a:visited {
       color: $text-color;
@@ -630,6 +625,10 @@ ul {
       padding: 0.4em 0.8em;
     }
 
+
+    & > * + * { //space before Elements inside entry-content without the first
+      margin-top: $contentgaptop !important;
+    }
   }
 }
 

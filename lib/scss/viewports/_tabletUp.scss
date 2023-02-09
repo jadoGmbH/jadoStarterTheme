@@ -7,6 +7,7 @@ $copysize: 1.8vw;
 $headlinesize: 4vw;
 $contentwidth: 80%;
 $innerpostgap: 2vw;
+$contentgaptop: 4em;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
 $borderradius: 0.5vw;
 $spaceafterblock: 3em;
@@ -237,10 +238,14 @@ figure.wp-block-image {
         }
       }
     }
-  }
 
-  .wp-block-columns{
-    gap: 1.5em;
+    .wp-block-columns{
+      gap: 1.5em;
+    }
+
+    & > * + * { //space before Elements inside entry-content without the first
+      margin-top: $contentgaptop !important;
+    }
   }
 }
 
