@@ -6,7 +6,9 @@
             echo '</div>';
         } ?>
         <div id="inner-content" class="wrap <?php if(has_post_thumbnail()){
-            echo 'hasThumb';
+            if(!is_product()){
+                echo 'hasThumb';
+            }
         } ?>">
             <div class="entry-content">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

@@ -519,6 +519,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/lib\/scss\/assets\/_woocommerceCustom.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/lib\/scss\/css\/_woocommerceCustom.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/lib\/scss\/style.css" : {
       "aP" : 1,
       "bl" : 0,

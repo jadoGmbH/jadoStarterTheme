@@ -398,19 +398,6 @@ pre{
       }
     }
 
-    .woocommerce {
-      ul {
-        li {
-          padding: 0;
-
-          &:before {
-            display: none;
-          }
-        }
-      }
-    }
-
-
     .cpt-container, .posts {
       display: flex;
       flex-wrap: wrap;
@@ -508,22 +495,26 @@ pre{
       margin-bottom: 0;
     }
 
-    a, a:visited {
-      color: $text-color;
-      font-size: $copysize;
-      padding: 0 0 0.2em 0;
-      //text-decoration: none;
-      @include transition(all 200ms ease-out);
-      position: relative;
-      text-decoration: underline;
-      text-decoration-thickness: 3px;
-      text-decoration-color: darken($contrast, 10%);
-      text-underline-offset: 3px;
+    .summary, p{
+      a, a:visited {
+        color: $text-color;
+        font-size: $copysize;
+        padding: 0 0 0.2em 0;
+        //text-decoration: none;
+        @include transition(all 200ms ease-out);
+        position: relative;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: darken($contrast, 10%);
+        text-underline-offset: 3px;
 
-      &:hover, &:focus {
-        text-decoration-color: $contrast;
+        &:hover, &:focus {
+          text-decoration-color: $contrast;
+        }
       }
+    }
 
+    a, a:visited{
       &.wp-block-button__link, &.button {
         padding: 0.8em 1.5em;
         font-family: $headline;
@@ -544,6 +535,7 @@ pre{
         }
       }
     }
+
 
     button.button {
       padding: 0.8em 1.5em;
