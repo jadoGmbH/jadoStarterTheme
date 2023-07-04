@@ -109,12 +109,12 @@ function jado_login_css()
 add_action('login_enqueue_scripts', 'jado_login_css');
 
 
-/** Login site ja.do Link */
+/** Login site jado Link */
 
 function login_page_footer()
 { ?>
     <p style="text-align: center;">
-        <a href="https://www.ja.do" target="_blank">www.ja.do</a>
+        <a href="https://www.ja.do" target="_blank">jado</a>
     </p>
 <?php }
 
@@ -140,9 +140,9 @@ add_action('admin_enqueue_scripts', 'jado_admin_CSS');
 
 function custom_admin_footer()
 {
-    echo '<a href="https//github.com/jadoGmbH/jadoStarterTheme">ja.do Starter Theme</a> ';
+    echo '<a href="https//github.com/jadoGmbH/jadoStarterTheme">jado Starter Theme</a> ';
     echo __('by');
-    echo ' <a href="https://www.ja.do" target="_blank">www.ja.do</a>';
+    echo ' <a href="https://www.ja.do" target="_blank">jado</a>';
 }
 
 add_filter('admin_footer_text', 'custom_admin_footer');
