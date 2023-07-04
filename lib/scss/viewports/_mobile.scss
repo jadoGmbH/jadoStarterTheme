@@ -495,7 +495,7 @@ pre{
       margin-bottom: 0;
     }
 
-    .summary, p{
+    .summary, p, .woocommerce-cart-form{
       a, a:visited {
         color: $text-color;
         font-size: $copysize;
@@ -510,6 +510,10 @@ pre{
 
         &:hover, &:focus {
           text-decoration-color: $contrast;
+        }
+
+        &.remove{
+          text-decoration: none;
         }
       }
     }
@@ -535,6 +539,8 @@ pre{
         }
       }
     }
+
+
 
 
     button.button {

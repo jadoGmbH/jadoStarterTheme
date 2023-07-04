@@ -15,6 +15,10 @@
         li.product{
           padding: 0;
 
+          .price{
+            color: $dark;
+          }
+
           &:before {
             display: none;
           }
@@ -31,6 +35,11 @@
 
             &:hover{
               background-color: $contrast;
+            }
+
+            h2{
+              padding: 0;
+              margin-bottom: 0;
             }
           }
 
@@ -87,13 +96,25 @@
   flex-direction: column;
 }
 
-
 .price{
   font-family: $headline;
+  color: $dark;
+}
+
+.woocommerce div.product p.price, .woocommerce div.product span.price{
+  color: $dark;
 }
 
 .pswp{
   z-index: 9999;
+}
+
+.coupon{
+  input{
+    min-width: 160px;
+    line-height: 1.8;
+    border: none;
+  }
 }
 
 
