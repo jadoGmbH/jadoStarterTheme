@@ -4,8 +4,8 @@ Stylesheet: Main Stylesheet
 
 @import "assets/variables";
 @import "assets/typography";
-@import url('/wp-includes/css/dist/block-library/style.min.css'); // loading gutenberg CSS
 @import "viewports/mobile";
+//@import "assets/woocommerce"; // enable when using woocommerce
 
 @media only screen and (min-width: 768px) {
 	@import "viewports/tabletUp";
@@ -20,4 +20,3 @@ Stylesheet: Main Stylesheet
 }
 
 
-//@import "assets/woocommerce"; // enable when using woocommerce

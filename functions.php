@@ -1,6 +1,6 @@
 <?php
 
-load_theme_textdomain( 'jadotheme', TEMPLATEPATH.'/languages' );
+load_theme_textdomain('jadotheme', TEMPLATEPATH . '/languages');
 
 
 /** Theme Functions page */
@@ -8,7 +8,7 @@ require_once('lib/theme-settings.php');
 
 
 /** Activate custom post type Example  */
-require_once( 'lib/custom-post-types.php' ); // enable to get Custom Post Type "products"
+require_once('lib/custom-post-types.php'); // enable to get Custom Post Type "products"
 
 
 function jado_head_cleanup()
@@ -20,7 +20,6 @@ function jado_head_cleanup()
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
     remove_action('wp_head', 'wp_generator');
 }
-
 
 
 function jado_theme_support()
@@ -81,11 +80,12 @@ function jado_login_css()
             padding-bottom: 15px;
             display: block;
         }
+
         body.login {
             background-color: #ffffff;
         }
 
-        body.login:before{
+        body.login:before {
             content: '';
             background-color: #e1f200;
             position: absolute;
@@ -95,14 +95,17 @@ function jado_login_css()
             height: 33vw;
             border-radius: 50%;
         }
+
         .login #backtoblog, .login #nav {
             text-align: center;
         }
+
         .privacy-policy-page-link {
             display: none;
         }
     </style>
 <?php }
+
 add_action('login_enqueue_scripts', 'jado_login_css');
 
 
@@ -111,12 +114,11 @@ add_action('login_enqueue_scripts', 'jado_login_css');
 function login_page_footer()
 { ?>
     <p style="text-align: center;">
-        <a  href="https://www.ja.do" target="_blank">www.ja.do</a>
+        <a href="https://www.ja.do" target="_blank">www.ja.do</a>
     </p>
 <?php }
 
 add_action('login_footer', 'login_page_footer');
-
 
 
 /** Admin Design */
@@ -125,14 +127,13 @@ function jado_admin_CSS()
 {
     ?>
     <style>
-        #adminmenu div.wp-menu-image.dashicons-admin-generic:before{
+        #adminmenu div.wp-menu-image.dashicons-admin-generic:before {
             color: #e1f200 !important;
         }
     </style>
 <?php }
+
 add_action('admin_enqueue_scripts', 'jado_admin_CSS');
-
-
 
 
 /** Custom Backend footer Text */
@@ -140,14 +141,11 @@ add_action('admin_enqueue_scripts', 'jado_admin_CSS');
 function custom_admin_footer()
 {
     echo '<a href="https//github.com/jadoGmbH/jadoStarterTheme">ja.do Starter Theme</a> ';
-    echo  __('by');
+    echo __('by');
     echo ' <a href="https://www.ja.do" target="_blank">www.ja.do</a>';
 }
 
 add_filter('admin_footer_text', 'custom_admin_footer');
-
-
-
 
 
 /** disable backend menu */
@@ -156,7 +154,7 @@ function remove_menus()
 {
     global $menu;
     //$restricted = array(__('Dashboard', 'jadotheme'), __('Posts', 'jadotheme'), __('Media', 'jadotheme'), __('Links', 'jadotheme'), __('Pages', 'jadotheme'), __('Appearance', 'jadotheme'), __('Tools', 'jadotheme'), __('Users', 'jadotheme'), __('Settings', 'jadotheme'), __('Comments', 'jadotheme'), __('Plugins', 'jadotheme'));
-    $restricted = array( __('Links', 'jadotheme'));
+    $restricted = array(__('Links', 'jadotheme'));
     end($menu);
     while (prev($menu)) {
         $value = explode(' ', $menu[key($menu)][0]);
@@ -175,18 +173,29 @@ add_image_size('ogimage', 1200, 630, array('center', 'center'));
 add_image_size('featuredImage', 2000, 1400, array('center', 'center'));
 
 
-
-
 /** disable gutenberg frontend styles // integrated in styles.SCSS! */
-
 
 function disable_gutenberg_wp_enqueue_scripts()
 {
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style( 'global-styles' );
 }
 
 add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
+
+
+/** woocommerce style */
+
+if (class_exists('WooCommerce')) {
+    add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+    function ca_deregister_woocommerce_block_styles() {
+        wp_deregister_style( 'wc-blocks-style' );
+        wp_dequeue_style( 'wc-blocks-style' );
+    }
+    add_action( 'enqueue_block_assets', 'ca_deregister_woocommerce_block_styles' );
+}
 
 
 
