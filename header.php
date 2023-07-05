@@ -87,7 +87,7 @@
                 $cart_page_url = wc_get_cart_url();
                 $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
                 if (!$cart_count == '') {
-                    echo '<a title="Cart" class="cart" href="' . esc_url($cart_page_url) . '"><span class="iconscart"><span class="counter">' . $cart_count . '</span></span></a>';
+                    echo '<a title="Cart" class="cart" href="' . esc_url($cart_page_url) . '"><span class="iconscart"><span class="counter"><span class="counternum">' . $cart_count . '</span></span></span></a>';
                 } else {
                     echo '<a title="Cart" class="cart" href="' . esc_url($shop_page_url) . '"><span class="iconscart"></span></a>';
                 }

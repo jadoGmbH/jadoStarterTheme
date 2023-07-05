@@ -50,11 +50,39 @@
           }
         }
       }
+
+      &#shipping_method {
+        margin-bottom: 0;
+
+        li {
+          padding-left: 0;
+          padding-bottom: 0;
+          margin-bottom: 0;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+      &.wc_payment_methods {
+        li {
+          padding-left: 0;
+
+          &:before {
+            display: none !important;
+          }
+        }
+      }
     }
 
-    p.woocommerce-form-row {
+    p.woocommerce-form-row, p.form-row {
       margin: 0 0 0.8em 0;
       padding: 0;
+
+      span.optional {
+        font-size: 70%;
+      }
 
       label {
         font-size: 70%;
@@ -67,7 +95,7 @@
 
     .woocommerce-MyAccount-content {
       a {
-        &.button{
+        &.button {
           font-family: $copy;
           padding-bottom: .8em !important;
         }
@@ -76,48 +104,72 @@
   }
 }
 
-
-.shopnav{
+.shopnav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 
-  .shopuser{
+  .shopuser {
     padding: 0 0 0 1.6em;
     background: url(../img/user.svg) no-repeat 0 center;
     background-size: 1.2em;
   }
 
-  .iconscart{
+  a.cart {
+    display: flex;
+  }
+
+  .iconscart {
     padding: 0 0 0 1.6em;
     background: url(../img/cart.svg) no-repeat 0 center;
     background-size: 1.2em;
     margin-right: 1em;
+    position: relative;
 
-    .counter{
-      position: relative;
+    .counter {
+      position: absolute;
       color: $white;
-      font-size: 70%;
-      font-weight: bold;
       top: -0.5em;
-      &:before{
-        background: $wooRed;
-        border-radius: 100%;
-        width: 1.6vw;
-        height: 1.6vw;
-        content: '';
-        position: absolute;
-        left: -0.5vw;
-        top: -0.2vw;
-        z-index: -1;
-      }
+      left: .5em;
+      background: $wooRed;
+      border-radius: 100%;
+      aspect-ratio: 1/1;
+      width: 4.5vw;
+      height: 4.5vw;
+      display: flex;
+      align-content: center;
+      align-items: center;
 
+      .counternum {
+        border-radius: 100%;
+        width: 4.5vw;
+        height: 4.5vw;
+        text-align: center;
+        font-size: 70%;
+        font-weight: bold;
+      }
     }
   }
 }
 
 
+.cart_totals {
+  table.shop_table {
+    background: $white;
+  }
+}
 
+table.woocommerce-checkout-review-order-table {
+  th {
+
+    padding: 9px 12px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+  }
+}
 
 .woocommerce span.onsale {
   min-height: 3.236em;
@@ -244,6 +296,20 @@ nav.woocommerce-MyAccount-navigation {
   }
 }
 
+
+.woocommerce table.shop_table {
+  border: none;
+
+  tr {
+    td {
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+
 .woocommerce-MyAccount-content {
   a {
     font-family: $headline;
@@ -254,7 +320,7 @@ nav.woocommerce-MyAccount-navigation {
     text-underline-offset: 3px;
     padding-bottom: 0.3em !important;
 
-    &.button{
+    &.button {
       font-family: $copy;
       padding-bottom: .8em !important;
     }
@@ -264,8 +330,6 @@ nav.woocommerce-MyAccount-navigation {
     }
   }
 }
-
-
 
 
 input.woocommerce-form__input-checkbox {
@@ -316,7 +380,7 @@ button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-s
   background: rgba($white, 0.29);
 }
 
-input[type="text"], input[type="email"], input[type="telefon"], input[type="number"], input#password, input[type="password"] {
+input[type="text"], input[type="email"], textarea, input[type="tel"], input[type="number"], input#password, input[type="password"] {
   border-radius: $borderradius;
   border: none;
   border: 1px solid transparent;
@@ -325,7 +389,6 @@ input[type="text"], input[type="email"], input[type="telefon"], input[type="numb
   &:focus {
     border: 1px solid $wooBlue;
     background: $white;
-
   }
 }
 
@@ -366,7 +429,7 @@ fieldset {
     width: 48%
   }
 
-  .woocommerce-account .woocommerce-MyAccount-navigation{
+  .woocommerce-account .woocommerce-MyAccount-navigation {
     width: 30%;
   }
 
@@ -376,6 +439,27 @@ fieldset {
 
   .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
     width: 22.05%;
+  }
+
+
+  .shopnav {
+
+    .iconscart {
+
+      .counter {
+        top: -0.5em;
+        left: .5em;
+        width: 1.3vw;
+        height: 1.3vw;
+
+        .counternum {
+          width: 1.3vw;
+          height: 1.3vw;
+          font-size: 70%;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
 
