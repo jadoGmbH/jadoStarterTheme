@@ -214,7 +214,7 @@ table.woocommerce-checkout-review-order-table {
     border-radius: $borderradius;
 
     &.woocommerce-error {
-      border: 1px solid $wooRed;
+      border: 3px solid $wooRed;
     }
 
     li {
@@ -226,6 +226,19 @@ table.woocommerce-checkout-review-order-table {
     }
   }
 }
+
+.woocommerce-error {
+  border: 3px solid $wooRed;
+  border-radius: $borderradius;
+
+  li{
+    padding-bottom: 0 !important;
+    &:before{
+      display: none;
+    }
+  }
+}
+
 
 .woocommerce-error::before {
   color: $wooRed;
@@ -240,7 +253,8 @@ table.woocommerce-checkout-review-order-table {
 }
 
 .woocommerce-info {
-  border-top-color: $wooBlue;
+  border: 3px solid $wooBlue;
+  border-radius: $borderradius;
 }
 
 .woocommerce-info::before {
@@ -254,6 +268,7 @@ table.woocommerce-checkout-review-order-table {
 .woocommerce-message::before {
   color: $wooGreen;
 }
+
 
 .product_meta {
   display: flex;
