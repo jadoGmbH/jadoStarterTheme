@@ -284,6 +284,12 @@ table.woocommerce-checkout-review-order-table {
   align-content: center;
 }
 
+h3#ship-to-different-address{
+  .woocommerce-form__label-for-checkbox{
+    padding-left: 0 !important;
+  }
+}
+
 nav.woocommerce-MyAccount-navigation {
   ul li {
     padding: 0 0 0.4em 0 !important;
@@ -364,6 +370,10 @@ input[type="checkbox"] {
   display: inline-block;
   -webkit-appearance: none;
   padding: 0 !important;
+
+  &#ship-to-different-address-checkbox{
+    top: 0;
+  }
 }
 
 input[type="checkbox"]:before {
@@ -406,7 +416,7 @@ button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-s
 input[type="text"], input[type="email"], textarea, input[type="tel"], input[type="number"], input#password, input[type="password"] {
   border-radius: $borderradius;
   border: none;
-  border: 1px solid transparent;
+  border: 1px solid $bgcolor;
   padding: .6em .8em !important;
   @include transition(all 300ms ease-out);
 
@@ -438,7 +448,7 @@ fieldset {
 .coupon {
   input {
     min-width: 160px;
-    line-height: 1.8;
+    line-height: 1.4;
     border: none;
   }
 }
@@ -447,6 +457,26 @@ fieldset {
   width: 100%
 }
 
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
+  background: $white;
+}
+
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
+  background: $bgcolor;
+  color: $text-color;
+  border-radius: $borderradius;
+}
+
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before{
+  border-bottom-color: $bgcolor;
+}
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
+  border-radius: $borderradius;
+}
+
+/** Tablet up */
 
 @media only screen and (min-width: 768px) {
   .woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
@@ -464,7 +494,6 @@ fieldset {
   .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
     width: 22.05%;
   }
-
 
   .shopnav {
 
