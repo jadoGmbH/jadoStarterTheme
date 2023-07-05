@@ -31,8 +31,8 @@ function custom_post_example()
             'query_var' => true,
             'menu_position' => 3,
             'menu_icon' => 'dashicons-visibility', //dashicons-welcome-view-site
-            'rewrite' => array('slug' => 'produkt', 'with_front' => false),
-            'has_archive' => 'produkte',
+            'rewrite' => array('slug' => 'product', 'with_front' => false),
+            'has_archive' => 'products',
             'capability_type' => 'post',
 			'show_in_rest' => true, // Gutenberg enable
 			'hierarchical' => false,

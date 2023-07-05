@@ -50,6 +50,18 @@
         }
       }
     }
+
+    p.woocommerce-form-row{
+      margin: 0 0 0.8em 0;
+      padding: 0;
+
+      label{
+        font-size: 70%;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
   }
 }
 
@@ -91,9 +103,169 @@
   }
 }
 
+.woocommerce-notices-wrapper{
+  ul {
+    border-radius: $borderradius;
+
+    &.woocommerce-error{
+      border: 1px solid $wooRed;
+    }
+
+    li{
+      padding-bottom: 0 !important;
+      &:before{
+        display: none;
+      }
+    }
+  }
+}
+
+.woocommerce-error::before{
+  color: $wooRed;
+}
+
+.woocommerce-info{
+  border-top-color: $wooBlue;
+}
+
+.woocommerce-info::before{
+  color: $wooBlue;
+}
+
+.woocommerce-message{
+  border-top-color: $wooGreen;
+}
+
+.woocommerce-message::before{
+  color: $wooGreen;
+}
+
 .product_meta{
   display: flex;
   flex-direction: column;
+}
+
+
+
+.woocommerce-form__label-for-checkbox{
+  padding: 0 0 0 0.4em !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+nav.woocommerce-MyAccount-navigation{
+  ul li{
+    padding: 0 0 0.4em 0 !important;
+    a{
+      font-family: $headline;
+      color: $text-color;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-decoration-color: darken($contrast, 10%);
+      text-underline-offset: 3px;
+      padding-bottom: 0.3em !important;
+      &:hover, &:focus {
+        text-decoration-color: $contrast;
+      }
+    }
+    &.is-active{
+     a{
+       font-family: $headline;
+       color: $text-color;
+       text-decoration: underline;
+       text-decoration-thickness: 3px;
+       text-decoration-color: $wooBlue;
+       text-underline-offset: 3px;
+     }
+    }
+
+    &:before{
+      display: none;
+    }
+  }
+}
+
+.woocommerce-MyAccount-content{
+  a{
+    font-family: $headline;
+    color: $text-color;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: darken($contrast, 10%);
+    text-underline-offset: 3px;
+    padding-bottom: 0.3em !important;
+    &:hover, &:focus {
+      text-decoration-color: $contrast;
+    }
+  }
+}
+
+
+input.woocommerce-form__input-checkbox{
+  top: 0.4em;
+}
+
+input[type="checkbox"]  {
+  position: relative;
+  display: inline-block;
+  -webkit-appearance: none;
+  padding: 0 !important;
+}
+input[type="checkbox"]:before {
+  width: 1em;
+  height: 1em;
+  border-radius: $borderradius;
+  border: 2px solid $wooBlue;
+  background-color: $white;
+  display: inline-block;
+  content: '';
+  float: left;
+  margin-right: 0.4em;
+  z-index: 5;
+  position: relative;
+}
+input[type="checkbox"]:checked:before {
+  box-shadow: inset 0 0 0 3px $white;
+  background-color: $wooBlue;
+}
+
+.woocommerce-form-login__rememberme{
+  padding: 0.4em 0 0 1em;
+}
+
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register{
+  border: none;
+  padding: 0;
+}
+
+.woocommerce form .show-password-input, .woocommerce-page form .show-password-input{
+  top: 0.4em;
+}
+
+button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button{
+  border-radius: $borderradius;
+  background: rgba($white, 0.29);
+}
+
+input[type="text"], input[type="email"], input[type="telefon"], input[type="number"], input#password, input[type="password"]{
+  border-radius: $borderradius;
+  border: none;
+  border: 1px solid transparent;
+  @include transition(all 300ms ease-out);
+
+  &:focus{
+    border: 1px solid $wooBlue;
+    background: $white;
+
+  }
+}
+
+
+fieldset{
+  border: none;
+  padding: 0;
 }
 
 .price{

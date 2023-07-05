@@ -10,8 +10,8 @@ $innerpostgap: 3vw;
 $contentgaptop: 2em;
 $burgerright: calc(100% - #{$contentwidth});
 $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
-$borderradius: 0.7vw;
-$spaceafterblock: 3em;
+$borderradius: 0.4em;
+$spaceafterblock: 1.5em;
 
 
 body {
@@ -40,7 +40,7 @@ body {
 }
 
 a, a:visited {
-  color: $white;
+  color: $text-color;
   text-decoration: none;
   @include transition(all 200ms ease-out);
 
@@ -500,7 +500,6 @@ pre{
         color: $text-color;
         font-size: $copysize;
         padding: 0 0 0.2em 0;
-        //text-decoration: none;
         @include transition(all 200ms ease-out);
         position: relative;
         text-decoration: underline;
@@ -546,7 +545,6 @@ pre{
     button.button {
       padding: 0.8em 1.5em;
       font-family: $headline;
-      border-radius: 0;
       background-color: $link-color;
       color: $white;
       margin: 0;
