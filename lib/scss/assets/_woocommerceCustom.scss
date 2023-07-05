@@ -231,6 +231,14 @@ table.woocommerce-checkout-review-order-table {
   color: $wooRed;
 }
 
+.woocommerce form .form-row.woocommerce-invalid label{
+  color: $wooRed;
+}
+
+.woocommerce form .form-row.woocommerce-invalid .select2-container, .woocommerce form .form-row.woocommerce-invalid input.input-text, .woocommerce form .form-row.woocommerce-invalid select{
+  border-color: $wooRed;
+}
+
 .woocommerce-info {
   border-top-color: $wooBlue;
 }
@@ -384,6 +392,7 @@ input[type="text"], input[type="email"], textarea, input[type="tel"], input[type
   border-radius: $borderradius;
   border: none;
   border: 1px solid transparent;
+  padding: .6em .8em !important;
   @include transition(all 300ms ease-out);
 
   &:focus {
