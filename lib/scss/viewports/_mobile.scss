@@ -194,6 +194,20 @@ ul {
 .nav {
   margin: 4vw 0 0 0;
 
+  &.meta-nav{
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+
+    li{
+      margin: 0 0.4em 0 0;
+
+      a {
+        font-size: 80%;
+      }
+    }
+  }
+
   &.top-nav {
     padding-top: 8vw;
   }

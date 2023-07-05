@@ -5,17 +5,15 @@ Stylesheet: Tablet & Small Desktop
 
 $copysize: 1.8vw;
 $headlinesize: 4vw;
-$contentwidth: 80%;
+$contentwidth: 90%;
 $innerpostgap: 2vw;
 $contentgaptop: 4em;
 $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
 $spaceafterblock: 3em;
 
-
 body {
   font-size: 100%;
 }
-
 
 #logo {
   font-size: $headlinesize;
@@ -62,6 +60,18 @@ body {
   display: flex;
   justify-content: flex-start;
 
+  &.meta-nav {
+    justify-content: flex-end;
+
+    li {
+      margin: 0 0 0 0.4em;
+
+      a {
+        font-size: 80%;
+      }
+    }
+  }
+
   &.top-nav {
     padding-top: 0;
 
@@ -100,6 +110,12 @@ body {
           }
         }
       }
+
+      &:last-child{
+        a{
+          margin: 1em 0 0 0;
+        }
+      }
     }
   }
 
@@ -136,7 +152,7 @@ figure.wp-block-image {
   .entry-content {
 
 
-    .summary, p, .woocommerce-cart-form{
+    .summary, p, .woocommerce-cart-form {
       a, a:visited {
         font-size: $copysize;
 
@@ -146,7 +162,6 @@ figure.wp-block-image {
         }
       }
     }
-
 
 
     h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
@@ -197,11 +212,11 @@ figure.wp-block-image {
       }
     }
 
-    pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery{
+    pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
       margin-bottom: $spaceafterblock;
     }
 
-      h2 {
+    h2 {
       a {
         font-size: $headlinesize - 2.6;
         padding: $innerpostgap;
@@ -215,15 +230,15 @@ figure.wp-block-image {
       height: auto;
     }
 
-    .cpt-container, .posts{
+    .cpt-container, .posts {
       justify-content: space-between;
       flex-wrap: wrap;
 
-      h2{
+      h2 {
         font-size: $headlinesize - 1;
       }
 
-      .cpt, .post{
+      .cpt, .post {
         flex: 0 0 31%;
         border-radius: $borderradius;
       }
@@ -233,16 +248,16 @@ figure.wp-block-image {
         border-top-right-radius: $borderradius;
       }
 
-      .postcontent, .cptcontent{
+      .postcontent, .cptcontent {
         padding: 0 $innerpostgap;
 
-        &.noimg{
+        &.noimg {
           padding-top: $innerpostgap;
         }
       }
     }
 
-    .wp-block-columns{
+    .wp-block-columns {
       gap: 1.5em;
     }
 
@@ -253,22 +268,22 @@ figure.wp-block-image {
 }
 
 
-#widgetarea{
+#widgetarea {
   display: flex;
   flex-direction: row;
 
-  .widget{
+  .widget {
     margin: 0 0.5em;
 
-    ul, p{
+    ul, p {
       margin-top: 0;
     }
 
-    ol{
+    ol {
       padding-left: 0;
     }
 
-    h2, h3{
+    h2, h3 {
       font-size: $copysize + 0.3;
       margin-bottom: 0.4em;
     }
@@ -288,8 +303,8 @@ figure.wp-block-image {
     justify-content: space-between;
     align-items: center;
 
-   #widgetarea{
-     margin-right: - 0.5em;
-   }
+    #widgetarea {
+      margin-right: - 0.5em;
+    }
   }
 }

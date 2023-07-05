@@ -19,7 +19,8 @@
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <meta name="referrer" content="no-referrer"> <!-- disable when have password protected sites, or other frontend login sites (woocommerce) -->
+    <meta name="referrer" content="no-referrer">
+    <!-- disable when have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta property="og:url" content="<?php the_permalink(); ?>">
     <meta property="og:type" content="website">
@@ -43,19 +44,73 @@
 <div id="container">
     <header id="headerfixed" class="header">
         <div id="inner-header" class="wrap">
+            <?php
+            if (has_nav_menu('MetaNav')) {
+                wp_nav_menu(array(
+                    'container' => false,
+                    'container_class' => 'menu',
+                    'menu' => 'MetaNav',
+                    'menu_class' => 'nav meta-nav',
+                    'theme_location' => 'MetaNav',
+                    'depth' => 0
+                ));
+            }
+            ?>
             <div class="flex">
                 <a class="logolink" href="<?php echo home_url(); ?>" rel="nofollow">
                     <?php echo '<h1 id="logo">';
                     bloginfo('name');
                     echo '</h1>'; ?>
                 </a>
-                <span id="description"><?php bloginfo('description'); ?></span>
+                <?php if (get_bloginfo('description')) {
+                    echo '<span id="description">' . bloginfo('description') . '</span>';
+                } ?>
                 <div id="burger">
                     <div class="cheese c1"></div>
                     <div class="cheese c2"></div>
                     <div class="cheese c3"></div>
                 </div>
             </div>
+            <?php
+            if (class_exists('WooCommerce')) {
+                $user = wp_get_current_user();
+                $firstName = get_user_meta($user->ID, 'first_name', true);
+                $lastName = get_user_meta($user->ID, 'last_name', true);
+                $user = get_user_by('id', $user->ID);
+                if (!$user == '') {
+                    $userName = $user->user_login;
+                }else{
+                    $userName = '';
+                }
+                echo '<div class="shopnav">';
+                $cart_count = WC()->cart->get_cart_contents_count();
+                $cart_page_url = wc_get_cart_url();
+                $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
+                if (!$cart_count == '') {
+                    echo '<a title="Cart" class="cart" href="' . esc_url($cart_page_url) . '"><span class="iconscart"><span class="counter">' . $cart_count . '</span></span></a>';
+                } else {
+                    echo '<a title="Cart" class="cart" href="' . esc_url($shop_page_url) . '"><span class="iconscart"></span></a>';
+                }
+
+                    echo '<a title="Account Login" class="shopuser';
+                if (!$userName == '') {
+                    echo ' loggedin';
+                } else {
+                    echo ' loggedout';
+                }
+                echo '" href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '">';
+                if ($userName == '') {
+                    echo 'login';
+                } elseif ($firstName == '') {
+                    echo $userName;
+                } elseif (!$firstName == '') {
+                    echo $firstName . ' ' . $lastName;
+                }
+                echo '</a>';
+
+                echo '</div>';
+            }
+            ?>
             <nav id="site-navigation">
                 <?php wp_nav_menu(array(
                     'container' => false,

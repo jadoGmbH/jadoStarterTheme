@@ -29,7 +29,8 @@ function jado_theme_support()
     register_nav_menus(
         array(
             'TopNav' => 'TopNav',
-            'FooterNav' => 'FooterNav'
+            'FooterNav' => 'FooterNav',
+            'MetaNav' => 'MetaNav'
         )
     );
 }

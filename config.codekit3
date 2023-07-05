@@ -1793,11 +1793,47 @@
       "ou" : "lpckwebp-none",
       "rq" : 75
     },
+    "\/lib\/img\/cart.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/cart.afdesign",
+      "oF" : 0
+    },
+    "\/lib\/img\/cart.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/cart.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/lib\/img\/jado-logo_login.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/lib\/img\/jado-logo_login.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/user.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/user.afdesign",
+      "oF" : 0
+    },
+    "\/lib\/img\/user.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/user.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,

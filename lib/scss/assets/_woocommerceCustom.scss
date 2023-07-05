@@ -2,20 +2,21 @@
 #content {
   .entry-content {
     ul {
-      &.tabs{
-        li{
+      &.tabs {
+        li {
           padding: 0 1em;
+
           &:before {
             display: none;
           }
         }
       }
 
-      &.products{
-        li.product{
+      &.products {
+        li.product {
           padding: 0;
 
-          .price{
+          .price {
             color: $dark;
           }
 
@@ -23,7 +24,7 @@
             display: none;
           }
 
-          a.woocommerce-loop-product__link{
+          a.woocommerce-loop-product__link {
             padding: 1em;
             background-color: $white;
             border-radius: $borderradius;
@@ -33,17 +34,17 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
-            &:hover{
+            &:hover {
               background-color: $contrast;
             }
 
-            h2{
+            h2 {
               padding: 0;
               margin-bottom: 0;
             }
           }
 
-          a.button{
+          a.button {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
           }
@@ -51,19 +52,72 @@
       }
     }
 
-    p.woocommerce-form-row{
+    p.woocommerce-form-row {
       margin: 0 0 0.8em 0;
       padding: 0;
 
-      label{
+      label {
         font-size: 70%;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
     }
+
+
+    .woocommerce-MyAccount-content {
+      a {
+        &.button{
+          font-family: $copy;
+          padding-bottom: .8em !important;
+        }
+      }
+    }
   }
 }
+
+
+.shopnav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  .shopuser{
+    padding: 0 0 0 1.6em;
+    background: url(../img/user.svg) no-repeat 0 center;
+    background-size: 1.2em;
+  }
+
+  .iconscart{
+    padding: 0 0 0 1.6em;
+    background: url(../img/cart.svg) no-repeat 0 center;
+    background-size: 1.2em;
+    margin-right: 1em;
+
+    .counter{
+      position: relative;
+      color: $white;
+      font-size: 70%;
+      font-weight: bold;
+      top: -0.5em;
+      &:before{
+        background: $wooRed;
+        border-radius: 100%;
+        width: 1.6vw;
+        height: 1.6vw;
+        content: '';
+        position: absolute;
+        left: -0.5vw;
+        top: -0.2vw;
+        z-index: -1;
+      }
+
+    }
+  }
+}
+
+
+
 
 .woocommerce span.onsale {
   min-height: 3.236em;
@@ -83,18 +137,18 @@
   opacity: 0.8;
 }
 
-.woocommerce ul.products li.product .onsale{
+.woocommerce ul.products li.product .onsale {
   top: 1em;
   right: 1em;
 }
 
-.entry-summary{
-  form.cart{
+.entry-summary {
+  form.cart {
     display: flex;
     flex-direction: row;
 
-    .quantity{
-      input{
+    .quantity {
+      input {
         height: 100%;
         padding: 0 !important;
         border: none;
@@ -103,51 +157,51 @@
   }
 }
 
-.woocommerce-notices-wrapper{
+.woocommerce-notices-wrapper {
   ul {
     border-radius: $borderradius;
 
-    &.woocommerce-error{
+    &.woocommerce-error {
       border: 1px solid $wooRed;
     }
 
-    li{
+    li {
       padding-bottom: 0 !important;
-      &:before{
+
+      &:before {
         display: none;
       }
     }
   }
 }
 
-.woocommerce-error::before{
+.woocommerce-error::before {
   color: $wooRed;
 }
 
-.woocommerce-info{
+.woocommerce-info {
   border-top-color: $wooBlue;
 }
 
-.woocommerce-info::before{
+.woocommerce-info::before {
   color: $wooBlue;
 }
 
-.woocommerce-message{
+.woocommerce-message {
   border-top-color: $wooGreen;
 }
 
-.woocommerce-message::before{
+.woocommerce-message::before {
   color: $wooGreen;
 }
 
-.product_meta{
+.product_meta {
   display: flex;
   flex-direction: column;
 }
 
 
-
-.woocommerce-form__label-for-checkbox{
+.woocommerce-form__label-for-checkbox {
   padding: 0 0 0 0.4em !important;
   display: flex;
   flex-direction: row;
@@ -155,10 +209,11 @@
   align-content: center;
 }
 
-nav.woocommerce-MyAccount-navigation{
-  ul li{
+nav.woocommerce-MyAccount-navigation {
+  ul li {
     padding: 0 0 0.4em 0 !important;
-    a{
+
+    a {
       font-family: $headline;
       color: $text-color;
       text-decoration: underline;
@@ -166,29 +221,31 @@ nav.woocommerce-MyAccount-navigation{
       text-decoration-color: darken($contrast, 10%);
       text-underline-offset: 3px;
       padding-bottom: 0.3em !important;
+
       &:hover, &:focus {
         text-decoration-color: $contrast;
       }
     }
-    &.is-active{
-     a{
-       font-family: $headline;
-       color: $text-color;
-       text-decoration: underline;
-       text-decoration-thickness: 3px;
-       text-decoration-color: $wooBlue;
-       text-underline-offset: 3px;
-     }
+
+    &.is-active {
+      a {
+        font-family: $headline;
+        color: $text-color;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: $wooBlue;
+        text-underline-offset: 3px;
+      }
     }
 
-    &:before{
+    &:before {
       display: none;
     }
   }
 }
 
-.woocommerce-MyAccount-content{
-  a{
+.woocommerce-MyAccount-content {
+  a {
     font-family: $headline;
     color: $text-color;
     text-decoration: underline;
@@ -196,6 +253,12 @@ nav.woocommerce-MyAccount-navigation{
     text-decoration-color: darken($contrast, 10%);
     text-underline-offset: 3px;
     padding-bottom: 0.3em !important;
+
+    &.button{
+      font-family: $copy;
+      padding-bottom: .8em !important;
+    }
+
     &:hover, &:focus {
       text-decoration-color: $contrast;
     }
@@ -203,16 +266,19 @@ nav.woocommerce-MyAccount-navigation{
 }
 
 
-input.woocommerce-form__input-checkbox{
+
+
+input.woocommerce-form__input-checkbox {
   top: 0.4em;
 }
 
-input[type="checkbox"]  {
+input[type="checkbox"] {
   position: relative;
   display: inline-block;
   -webkit-appearance: none;
   padding: 0 !important;
 }
+
 input[type="checkbox"]:before {
   width: 1em;
   height: 1em;
@@ -226,36 +292,37 @@ input[type="checkbox"]:before {
   z-index: 5;
   position: relative;
 }
+
 input[type="checkbox"]:checked:before {
   box-shadow: inset 0 0 0 3px $white;
   background-color: $wooBlue;
 }
 
-.woocommerce-form-login__rememberme{
+.woocommerce-form-login__rememberme {
   padding: 0.4em 0 0 1em;
 }
 
-.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register{
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
   border: none;
   padding: 0;
 }
 
-.woocommerce form .show-password-input, .woocommerce-page form .show-password-input{
+.woocommerce form .show-password-input, .woocommerce-page form .show-password-input {
   top: 0.4em;
 }
 
-button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button{
+button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button {
   border-radius: $borderradius;
   background: rgba($white, 0.29);
 }
 
-input[type="text"], input[type="email"], input[type="telefon"], input[type="number"], input#password, input[type="password"]{
+input[type="text"], input[type="email"], input[type="telefon"], input[type="number"], input#password, input[type="password"] {
   border-radius: $borderradius;
   border: none;
   border: 1px solid transparent;
   @include transition(all 300ms ease-out);
 
-  &:focus{
+  &:focus {
     border: 1px solid $wooBlue;
     background: $white;
 
@@ -263,31 +330,56 @@ input[type="text"], input[type="email"], input[type="telefon"], input[type="numb
 }
 
 
-fieldset{
+fieldset {
   border: none;
   padding: 0;
 }
 
-.price{
+.price {
   font-family: $headline;
   color: $dark;
 }
 
-.woocommerce div.product p.price, .woocommerce div.product span.price{
+.woocommerce div.product p.price, .woocommerce div.product span.price {
   color: $dark;
 }
 
-.pswp{
+.pswp {
   z-index: 9999;
 }
 
-.coupon{
-  input{
+.coupon {
+  input {
     min-width: 160px;
     line-height: 1.8;
     border: none;
   }
 }
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary, .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-account .woocommerce-MyAccount-navigation, .woocommerce-account .woocommerce-MyAccount-content {
+  width: 100%
+}
+
+
+@media only screen and (min-width: 768px) {
+  .woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+    width: 48%
+  }
+
+  .woocommerce-account .woocommerce-MyAccount-navigation{
+    width: 30%;
+  }
+
+  .woocommerce-account .woocommerce-MyAccount-content {
+    width: 68%;
+  }
+
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    width: 22.05%;
+  }
+}
+
+
 
 
 
