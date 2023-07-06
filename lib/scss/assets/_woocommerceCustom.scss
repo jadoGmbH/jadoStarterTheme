@@ -108,6 +108,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  padding-top: 0.7em;
 
   a{
     color: $white;
@@ -563,6 +564,7 @@ table.shop_table.cart{
   }
 
   .shopnav {
+    padding-top: 0;
     .iconscart {
       .counter {
         width: 1.3vw;
