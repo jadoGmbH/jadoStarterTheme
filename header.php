@@ -87,9 +87,13 @@
                 $cart_page_url = wc_get_cart_url();
                 $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
                 if (!$cart_count == '') {
-                    echo '<a title="Cart" class="cart" href="' . esc_url($cart_page_url) . '"><span class="iconscart"><span class="counter"><span class="counternum">' . $cart_count . '</span></span></span></a>';
+                    echo '<a title="Cart" class="cart" href="' . esc_url($cart_page_url) . '"><span class="iconscart">';
+                    echo '<svg width="100%" height="100%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g id="cart"><path d="M16.62,35.751L53.34,35.751L61.296,12.799L12.514,12.799" style="fill:none;"/><g transform="matrix(0.923506,0,0,0.923506,1.91218,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><g transform="matrix(0.923506,0,0,0.923506,29.2333,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><path d="M2.505,8.152L11.342,8.152L16.297,35.858L16.297,44.877L52.936,44.877" style="fill:none;"/></g></svg>';
+                    echo'<span class="counter"><span class="counternum">' . $cart_count . '</span></span></span></a>';
                 } else {
-                    echo '<a title="Cart" class="cart" href="' . esc_url($shop_page_url) . '"><span class="iconscart"></span></a>';
+                    echo '<a title="Cart" class="cart" href="' . esc_url($shop_page_url) . '"><span class="iconscart">';
+                    echo '<svg width="100%" height="100%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g id="cart"><path d="M16.62,35.751L53.34,35.751L61.296,12.799L12.514,12.799" style="fill:none;"/><g transform="matrix(0.923506,0,0,0.923506,1.91218,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><g transform="matrix(0.923506,0,0,0.923506,29.2333,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><path d="M2.505,8.152L11.342,8.152L16.297,35.858L16.297,44.877L52.936,44.877" style="fill:none;"/></g></svg>';
+                    echo '</span></a>';
                 }
 
                     echo '<a title="Account Login" class="shopuser';
@@ -99,6 +103,7 @@
                     echo ' loggedout';
                 }
                 echo '" href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '">';
+                echo '<svg width="100%" height="100%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;"><g transform="matrix(3.18737,0,0,3.18737,-6.15237,-6.35643)"><path d="M20,21L20,19C20,16.806 18.194,15 16,15L8,15C5.806,15 4,16.806 4,19L4,21" style="fill:none;fill-rule:nonzero;"/></g><g transform="matrix(3.18737,0,0,3.18737,-6.15237,-6.35643)"><circle cx="12" cy="7" r="4" style="fill:none;"/></g></svg>';
                 if ($userName == '') {
                     echo 'login';
                 } elseif ($firstName == '') {

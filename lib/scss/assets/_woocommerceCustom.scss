@@ -109,10 +109,26 @@
   flex-direction: row;
   justify-content: flex-end;
 
+  a{
+    color: $white;
+  }
+
   .shopuser {
-    padding: 0 0 0 1.6em;
-    background: url(../img/user.svg) no-repeat 0 center;
-    background-size: 1.2em;
+    padding: 0 0 0 1em;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    svg{
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 0.5em;
+
+      path, circle{
+        stroke: $white;
+        stroke-width:1.57px;
+      }
+    }
   }
 
   a.cart {
@@ -121,16 +137,27 @@
 
   .iconscart {
     padding: 0 0 0 1.6em;
-    background: url(../img/cart.svg) no-repeat 0 center;
-    background-size: 1.2em;
     margin-right: 1em;
     position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    svg{
+      width: 1.2em;
+      height: 1.2em;
+
+      path, circle{
+        stroke: $white;
+        stroke-width: 4.5px;
+      }
+    }
 
     .counter {
       position: absolute;
       color: $white;
       top: -0.5em;
-      left: .5em;
+      left: 2.5em;
       background: $wooRed;
       border-radius: 100%;
       aspect-ratio: 1/1;
@@ -506,12 +533,8 @@ fieldset {
   }
 
   .shopnav {
-
     .iconscart {
-
       .counter {
-        top: -0.5em;
-        left: .5em;
         width: 1.3vw;
         height: 1.3vw;
 
