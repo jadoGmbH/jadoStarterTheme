@@ -76,6 +76,16 @@
       }
     }
 
+    .product-thumbnail{
+      a{
+        img{
+          margin-bottom: 0;
+        }
+      }
+    }
+
+
+
     p.woocommerce-form-row, p.form-row {
       margin: 0 0 0.8em 0;
       padding: 0;
@@ -427,6 +437,8 @@ input[type="checkbox"]:checked:before {
   box-shadow: inset 0 0 0 3px $white;
   background-color: $wooBlue;
 }
+
+
 
 .woocommerce-form-login__rememberme {
   padding: 0.4em 0 0 1em;
