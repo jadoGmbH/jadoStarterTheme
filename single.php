@@ -1,13 +1,15 @@
 <?php get_header(); ?>
     <div id="content">
-        <?php if(has_post_thumbnail()){
+        <?php if (has_post_thumbnail()) {
             echo '<div class="featuredImage">';
             the_post_thumbnail('featuredImage');
             echo '</div>';
         } ?>
-        <div id="inner-content" class="wrap <?php if(has_post_thumbnail()){
-            if(!is_product()){
-                echo 'hasThumb';
+        <div id="inner-content" class="wrap <?php if (has_post_thumbnail()) {
+            if (class_exists('WooCommerce')) {
+                if (!is_product()) {
+                    echo 'hasThumb';
+                }
             }
         } ?>">
             <div class="entry-content">
