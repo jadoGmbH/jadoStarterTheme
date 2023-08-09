@@ -1821,6 +1821,24 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/lib\/img\/select.afphoto" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/select.afphoto",
+      "oF" : 0
+    },
+    "\/lib\/img\/select.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/select.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/lib\/img\/user.afdesign" : {
       "cB" : 0,
       "ft" : 8192,

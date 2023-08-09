@@ -84,7 +84,37 @@
       }
     }
 
+    .woocommerce-product-gallery__wrapper{
+      img{
+        margin: 0;
+      }
+    }
 
+
+    select {
+      appearance: none;
+      background-color: $text-color;
+      background-size: 100%;
+      background-position: right center;
+      color: $white;
+      border-radius: $borderradius;
+      border: none;
+      padding: 0 2em 0 0.5em;
+      margin: 0;
+      width: auto;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: inherit;
+      line-height: inherit;
+      -webkit-mask-image: url(../img/select.svg);
+      mask-image: url(../img/select.svg);
+
+
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
 
     table.woocommerce-product-attributes{
       p{
