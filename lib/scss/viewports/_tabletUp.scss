@@ -152,6 +152,12 @@ figure.wp-block-image {
   .entry-content {
 
 
+    button.button, .wp-block-button button {
+      padding: 0.8em 1.5em;
+      margin: 0;
+      border-radius: $borderradius;
+    }
+
     .summary, p, .woocommerce-cart-form {
       a, a:visited {
         font-size: $copysize;

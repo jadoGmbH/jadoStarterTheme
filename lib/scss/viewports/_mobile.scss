@@ -554,31 +554,34 @@ pre{
     }
 
 
-
-
-    button.button {
+    button.button, .wp-block-button button {
       padding: 0.8em 1.5em;
       font-family: $headline;
       background-color: $link-color;
       color: $white;
+      border-radius: $borderradius;
       margin: 0;
+      line-height: 1.5;
       display: block;
+      width: 100%;
       text-align: center;
       @include transition(all 300ms ease-out);
 
       &:hover {
+        cursor: pointer;
         background-color: darken($link-color, 10%);
       }
     }
 
     h2 {
       a {
-        color: $white;
         font-size: $headlinesize;
-        background-color: $link-color;
         line-height: 1.2;
         display: block;
-        padding: $innerpostgap;
+
+        &:hover{
+          color: $link-hover;
+        }
       }
     }
 
