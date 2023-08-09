@@ -7,7 +7,11 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
+<<<<<<< Updated upstream
   "creatorBuild" : "34484",
+=======
+  "creatorBuild" : "34510",
+>>>>>>> Stashed changes
   "files" : {
     "\/.gitignore" : {
       "cB" : 0,
