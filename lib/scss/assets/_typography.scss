@@ -2,23 +2,26 @@
 Stylesheet: Typography
 ******************************************************************/
 
-
-//please integrate google webfonts with the webfont helper:  https://google-webfonts-helper.herokuapp.com/fonts (only woff and woff2)
+//please integrate google webfonts with the webfont helper:  https://gwfh.mranftl.com/fonts
 
 
 @font-face {
-  font-family: 'Bree Serif';
+  font-display: swap;
+  font-family: 'Albert Sans';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-  url('../fonts/bree-serif-v10-latin-regular.woff2') format('woff2'),
-  url('../fonts/bree-serif-v10-latin-regular.woff') format('woff');
-  font-display: swap; //fallback, optional, block, auto
+  src: url('../fonts/albert-sans-v1-latin-regular.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Albert Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/albert-sans-v1-latin-700.woff2') format('woff2');
+}
 
 $copy: "Helvetica Neue", sans-serif;
-$headline: "Bree Serif", sans-serif;
+$headline: "Albert Sans", sans-serif;
 
 h1, h2, h3, h4, p, li {
   -ms-word-wrap: normal;

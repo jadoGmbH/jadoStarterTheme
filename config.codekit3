@@ -129,20 +129,20 @@
       "oAP" : "\/lib\/custom-post-types.php",
       "oF" : 0
     },
-    "\/lib\/fonts\/bree-serif-v10-latin-regular.woff" : {
+    "\/lib\/fonts\/albert-sans-v1-latin-700.woff2" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/fonts\/bree-serif-v10-latin-regular.woff",
+      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-700.woff2",
       "oF" : 0
     },
-    "\/lib\/fonts\/bree-serif-v10-latin-regular.woff2" : {
+    "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/fonts\/bree-serif-v10-latin-regular.woff2",
+      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2",
       "oF" : 0
     },
     "\/lib\/fonts\/star.eot" : {
@@ -2378,6 +2378,18 @@
       "oA" : 0,
       "oAP" : "\/single.php",
       "oF" : 0
+    },
+    "\/style-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/style-min-min.css",
+      "oF" : 0,
+      "pg" : 0
     },
     "\/style.css" : {
       "aP" : 1,

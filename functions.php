@@ -174,17 +174,6 @@ add_image_size('ogimage', 1200, 630, array('center', 'center'));
 add_image_size('featuredImage', 2000, 1400, array('center', 'center'));
 
 
-/** disable gutenberg frontend styles // integrated in styles.SCSS! */
-
-function disable_gutenberg_wp_enqueue_scripts()
-{
-    wp_dequeue_style('wp-block-library');
-    wp_dequeue_style('wp-block-library-theme');
-    wp_dequeue_style( 'global-styles' );
-}
-
-add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 100);
-
 
 /** woocommerce style */
 

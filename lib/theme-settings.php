@@ -496,8 +496,9 @@ if ($disableGutenbergCustomStyle == 'yes') {
     function disable_gutenberg_custom_enqueue_scripts()
     {
         wp_dequeue_style('global-styles');
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('wp-block-library-theme');
     }
-
     add_filter('wp_enqueue_scripts', 'disable_gutenberg_custom_enqueue_scripts', 100);
 }
 
