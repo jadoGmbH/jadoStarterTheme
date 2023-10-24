@@ -141,7 +141,7 @@ add_action('admin_enqueue_scripts', 'jado_admin_CSS');
 
 function custom_admin_footer()
 {
-    echo '<a href="https//github.com/jadoGmbH/jadoStarterTheme">jado Starter Theme</a> ';
+    echo '<a href="https://github.com/jadoGmbH/jadoStarterTheme">jado Starter Theme</a> ';
     echo __('by');
     echo ' <a href="https://www.ja.do" target="_blank">jado</a>';
 }
