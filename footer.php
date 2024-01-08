@@ -42,7 +42,7 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
             return;
         }
         let classString = element.className, nameIndex = classString.indexOf(className);
-        if (nameIndex == -1) {
+        if (nameIndex === -1) {
             classString += ' ' + className;
         } else {
             classString = classString.substring(0, nameIndex) + classString.substring(nameIndex + className.length);
