@@ -34,6 +34,7 @@ function jado_options_page_callback()
 
 
 add_action('admin_init', 'jado_settings_fields');
+
 function jado_settings_fields()
 {
 
@@ -220,15 +221,15 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-}
 
+
+}
 
 
 function jado_sanitize_checkbox($value)
 {
     return 'on' === $value ? 'yes' : 'no';
 }
-
 
 
 /** image JPG quality  */
@@ -287,7 +288,7 @@ function jado_disableEmoji()
     $value = get_option('disableEmoji', 'no');
     ?>
     <label>
-          <input type="checkbox" name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Ja', 'jado'); ?>
+        <input type="checkbox" name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Ja', 'jado'); ?>
     </label>
     <?php
 }
@@ -731,7 +732,7 @@ function jado_notice() {
         isset( $_GET[ 'page' ] )
         && 'jado_options' == $_GET[ 'page' ]
         && isset( $_GET[ 'settings-updated' ] )
-        && true == $_GET[ 'settings-updated' ]
+        && $_GET['settings-updated']
     ) {
         ?>
         <div class="notice notice-success is-dismissible">
