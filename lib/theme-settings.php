@@ -4,8 +4,8 @@
 function jado_top_lvl_menu()
 {
     add_menu_page(
-        __('Theme Einstellungen', 'jado'),
-        __('Einstellungen', 'jado'),
+        __('jado Starter Theme Einstellungen', 'jado'),
+        __('jST Einstellungen', 'jado'),
         'manage_options',
         'jado_options',
         'jado_options_page_callback', // this function prints the page content
@@ -56,9 +56,7 @@ function jado_settings_fields()
     register_setting($option_group, 'scriptW3C', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'pageExcerpts', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'activateJquery', array('sanitize_callback' => 'jado_sanitize_checkbox'));
-
     register_setting($option_group, 'imgQuality', 'absint');
-
 
     add_settings_section(
         'jado_section_id',
@@ -67,24 +65,21 @@ function jado_settings_fields()
         'jado_options'
     );
 
-
     add_settings_field(
         'imgQuality',
-        __('Upload Bild JPG Qualität', 'jado'),
+        __('Upload Bilder JPG-Qualität', 'jado'),
         'jado_imageQuality',
         'jado_options',
         'jado_section_id',
         array(
             'label_for' => 'imgQuality',
-            'class' => 'blunzi',
             'name' => 'imgQuality'
         )
     );
 
-
     add_settings_field(
         'setAltAttrImage',
-        __('Automatische Alt-Attribute für alle Bilder nach dem Hochladen aktivieren <br>(basierend auf dem Bildnamen)', 'jado'),
+        __('Automatische Alt-Attribute für Bilder nach Upload <br>(basierend auf Bildnamen)', 'jado'),
         'jado_setAltAttrImage',
         'jado_options',
         'jado_section_id'
@@ -93,7 +88,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'AdminPostThumbnail',
-        __('Aktivieren Sie die Post-Miniaturansicht im Backend', 'jado'),
+        __('Beitragsbilder im Backend anzeigen', 'jado'),
         'jado_AdminPostThumbnail',
         'jado_options',
         'jado_section_id'
@@ -102,7 +97,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'enableSVGUploads',
-        __('Aktiviere SVG Uploads', 'jado'),
+        __('Aktiviere SVG Upload', 'jado'),
         'jado_enableSVGUploads',
         'jado_options',
         'jado_section_id'
@@ -111,7 +106,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'gutenberg_full_width',
-        __('Gutenberg volle Seitenbreite aktivieren', 'jado'),
+        __('Gutenberg gesamte Seitenbreite', 'jado'),
         'jado_checkboxGutenbergFullWidth',
         'jado_options',
         'jado_section_id'
@@ -147,7 +142,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'removeXMLRPC',
-        __('XMLRPC deaktivieren', 'jado'),
+        __('Deaktiviere XMLRPC', 'jado'),
         'jado_removeXMLRPC',
         'jado_options',
         'jado_section_id'
@@ -156,7 +151,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableAdminBarFrontend',
-        __('Deaktiviere die Admin-Bar im Frontend', 'jado'),
+        __('Deaktiviere Admin-Bar im Frontend', 'jado'),
         'jado_disableAdminBarFrontend',
         'jado_options',
         'jado_section_id'
@@ -201,7 +196,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'scriptW3C',
-        __('Korrekten Skriptstil aktivieren <br>(type=script usw. entfernen)', 'jado'),
+        __('Korrekter Skript-Stil <br>(type=script usw. entfernen)', 'jado'),
         'jado_scriptW3C',
         'jado_options',
         'jado_section_id'
@@ -211,7 +206,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'pageExcerpts',
-        __('Auszüge auf Seiten aktivieren<br>(für Meta-Beschreibungen)', 'jado'),
+        __('Auszüge (Excerpts) auf Seiten<br>(für Meta-Beschreibungen)', 'jado'),
         'jado_pageExcerpts',
         'jado_options',
         'jado_section_id'
@@ -220,12 +215,20 @@ function jado_settings_fields()
 
     add_settings_field(
         'activateJquery',
-        __('jQuery aktivieren', 'jado'),
+        __('Aktiviere jQuery', 'jado'),
         'jado_activateJquery',
         'jado_options',
         'jado_section_id'
     );
 }
+
+
+
+function jado_sanitize_checkbox($value)
+{
+    return 'on' === $value ? 'yes' : 'no';
+}
+
 
 
 /** image JPG quality  */
@@ -236,9 +239,10 @@ function jado_imageQuality($args)
         '<input type="number" id="%s" name="%s" value="%d" />',
         $args['name'],
         $args['name'],
-        get_option($args['name'], 82)
+        get_option($args['name'], 74)
     );
 }
+
 
 
 function custom_jpeg_quality()
@@ -247,7 +251,7 @@ function custom_jpeg_quality()
     if ($imageQuality != '') {
         return $imageQuality;
     } else {
-        return 82;
+        return 74;
     }
 }
 
@@ -718,10 +722,6 @@ if ($scriptW3C == 'yes') {
 
 
 
-function jado_sanitize_checkbox($value)
-{
-    return 'on' === $value ? 'yes' : 'no';
-}
 
 
 
@@ -736,10 +736,13 @@ function jado_notice() {
         ?>
         <div class="notice notice-success is-dismissible">
             <p>
-                <strong><?php echo __('Optionen gespeichert'); ?></strong>
+                <strong><?php echo __('Einstellungen gespeichert'); ?></strong>
             </p>
         </div>
         <?php
     }
 }
+
+
+
 ?>

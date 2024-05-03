@@ -8,7 +8,7 @@ require_once('lib/theme-settings.php');
 
 
 /** Activate custom post type Example  */
-require_once('lib/custom-post-types.php'); // enable to get Custom Post Type "products"
+//require_once('lib/custom-post-types.php'); // enable to get Custom Post Type "products"
 
 
 function jado_head_cleanup()
@@ -71,7 +71,11 @@ function jado_login_css()
 {
     ?>
     <style>
-        #login h1 a, .login h1 a {
+        #login h1{
+            position: relative;
+        }
+
+        #login h1 a {
             background: url(<?php echo get_stylesheet_directory_uri(); ?>/lib/img/jado-logo_login.svg) no-repeat center center;
             background-size: 40%;
             width: 326px;
@@ -82,26 +86,37 @@ function jado_login_css()
             display: block;
         }
 
-        body.login {
-            background-color: #ffffff;
-        }
-
-        body.login:before {
-            content: '';
-            background-color: #e1f200;
+        #login h1:after{
+            content: 'Starter Theme';
             position: absolute;
-            left: -12vw;
-            top: -6vw;
-            width: 33vw;
-            height: 33vw;
-            border-radius: 50%;
+            top: 100%;
+            left: 0.5em;
+            color: black;
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 40%;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            width: 100%;
+            display: inline-block;
         }
 
-        .login #backtoblog, .login #nav {
+        body.login {
+            //background-color: #ffffff;
+            background-color: rgba(0,0,0,0.05);
+
+        }
+
+        #loginform{
+            margin-top: 50px;
+            border-radius: 1em;
+        }
+
+        .login #nav {
             text-align: center;
         }
 
-        .privacy-policy-page-link {
+        .privacy-policy-page-link, .language-switcher, #backtoblog {
             display: none;
         }
     </style>
@@ -109,13 +124,19 @@ function jado_login_css()
 
 add_action('login_enqueue_scripts', 'jado_login_css');
 
+/** Login site github Link */
+
+function change_wp_login_url() {
+    return 'https://github.com/jadoGmbH/jadoStarterTheme/';
+}
+add_filter('login_headerurl', 'change_wp_login_url');
 
 /** Login site jado Link */
 
 function login_page_footer()
 { ?>
-    <p style="text-align: center;">
-        <a href="https://www.ja.do" target="_blank">jado</a>
+    <p style="text-align: center; padding-top: 2em;">
+        <a href="https://www.ja.do" target="_blank">jado GmbH</a>
     </p>
 <?php }
 
@@ -130,6 +151,21 @@ function jado_admin_CSS()
     <style>
         #adminmenu div.wp-menu-image.dashicons-admin-generic:before {
             color: #e1f200 !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .form-table tbody tr:nth-child(even) {
+                clear: left;
+            }
+
+            .form-table tbody tr {
+                width: 48%;
+                float: left;
+            }
+
+            .form-table tbody th label {
+                display: block;
+            }
         }
     </style>
 <?php }
