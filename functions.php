@@ -102,9 +102,7 @@ function jado_login_css()
         }
 
         body.login {
-            //background-color: #ffffff;
             background-color: rgba(0,0,0,0.05);
-
         }
 
         #loginform{
@@ -154,16 +152,16 @@ function jado_admin_CSS()
         }
 
         @media only screen and (min-width: 768px) {
-            .form-table tbody tr:nth-child(even) {
+            body.toplevel_page_jado_options .form-table tbody tr:nth-child(even) {
                 clear: left;
             }
 
-            .form-table tbody tr {
+            body.toplevel_page_jado_options .form-table tbody tr {
                 width: 48%;
                 float: left;
             }
 
-            .form-table tbody th label {
+            body.toplevel_page_jado_options .form-table tbody th label {
                 display: block;
             }
         }
