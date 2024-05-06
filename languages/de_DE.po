@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
 "POT-Creation-Date: 2024-05-06 19:02+0200\n"
-"PO-Revision-Date: 2024-05-06 19:12+0200\n"
+"PO-Revision-Date: 2024-05-06 20:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -212,16 +212,10 @@ msgid "jST Settings"
 msgstr "jST Einstellungen"
 
 #: lib/theme-settings.php:71
-#, fuzzy
-#| msgid "Upload Image JPG Quality"
 msgid "Upload Images JPG Quality"
 msgstr "JPG-Qualität der Bilder"
 
 #: lib/theme-settings.php:83
-#, fuzzy
-#| msgid ""
-#| "Enable auto alt-attributes on all Images after upload <br>(based on image "
-#| "name)"
 msgid "Set alt attributes for images after upload<br>(based on image name)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
@@ -231,14 +225,10 @@ msgid "Show featured images in backend"
 msgstr "Zeige Beitragsbilder in Backend"
 
 #: lib/theme-settings.php:101
-#, fuzzy
-#| msgid "Enable SVG Uploads"
 msgid "Activate SVG uploads"
 msgstr "Aktivere SVG Uploads"
 
 #: lib/theme-settings.php:110
-#, fuzzy
-#| msgid "Gutenberg Full width"
 msgid "Gutenberg full width"
 msgstr "Gutenberg volle Seitenbreite"
 
@@ -247,38 +237,26 @@ msgid "Deactivate Gutenberg inline styles"
 msgstr "Gutenberg Inline CSS ausschalten"
 
 #: lib/theme-settings.php:128
-#, fuzzy
-#| msgid "Disable Emoji"
 msgid "Deactivate Emojis"
 msgstr "Emojis deaktivieren"
 
 #: lib/theme-settings.php:137
-#, fuzzy
-#| msgid "Disable Comments"
 msgid "Deactivate comments"
 msgstr "Kommentarfunktion ausschalten"
 
 #: lib/theme-settings.php:146
-#, fuzzy
-#| msgid "Remove XMLRPC"
 msgid "Deaktiviere XMLRPC"
 msgstr "XMLRPC entfernen"
 
 #: lib/theme-settings.php:155
-#, fuzzy
-#| msgid "Disable Admin Bar Frontend"
 msgid "Deactivate admin bar in front end"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
 #: lib/theme-settings.php:164
-#, fuzzy
-#| msgid "Disable Embeds Frontend"
 msgid "Deactivate embeds front end"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
 #: lib/theme-settings.php:173
-#, fuzzy
-#| msgid "Disable Editor Fullscreen Default"
 msgid "Deactivate fullscreen editor default"
 msgstr "Default Editor Fullscreen ausschalten"
 
@@ -368,8 +346,8 @@ msgstr "https://www.ja.do"
 msgid ""
 "custom Theme for starting clean and simple projects / woocommerce enabled"
 msgstr ""
-"custom Theme, um Performance und schnelle Projekte zu starten / auch für "
-"WooCommerce "
+"Individuelle Theme, um Performance und schnelle Projekte zu starten / auch "
+"für WooCommerce"
 
 #. Author of the plugin/theme
 msgid "jado"
