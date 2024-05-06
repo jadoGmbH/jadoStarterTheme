@@ -8,6 +8,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 3.4 | WordPress 6.5.2 & translations |
 | 3.3 | WordPress 6.3 & Woo 8.0.0 optimisation, default Font |
 | 3.2 | optimized CSS loading and woocommerce CSS loading |
 | 3.1 | added excerpts for pages as option |
