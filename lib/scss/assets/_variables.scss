@@ -21,21 +21,21 @@ Stylesheet: Variables
 
 /* Colors */
 $bgcolor:     #e5e3dd;
-$dark: #15435a;
+$dark:        #15435a;
 $white:       #ffffff;
 $headercolor: $dark;
 $headertext:  $white;
 $contrast:    #E1F200;
-$maincolor: #1c958b;
+$maincolor:   #1c958b;
 $text-color:  #2b2913;
 $footercolor: #1f283a;
 $footertext:  $white;
-$link-color: #0361cc;
+$link-color:  #0361cc;
 $link-hover:  lighten($link-color, 15%);
 
 /* Woocommerce Colors */
-$wooGreen: #429e0e;
-$wooRed: #bc0427;
+$wooGreen:  #429e0e;
+$wooRed:    #bc0427;
 $wooYellow: #a18b0b;
-$wooBlue: $maincolor;
+$wooBlue:   #07468f;
 
