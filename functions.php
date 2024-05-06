@@ -1,6 +1,6 @@
 <?php
 
-load_theme_textdomain('jadotheme', TEMPLATEPATH . '/languages');
+load_theme_textdomain('jadotheme', get_template_directory() . '/languages');
 
 
 /** Theme Functions page */

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
-"POT-Creation-Date: 2024-05-03 14:24+0200\n"
-"PO-Revision-Date: 2024-05-03 14:24+0200\n"
+"POT-Creation-Date: 2024-05-06 19:02+0200\n"
+"PO-Revision-Date: 2024-05-06 19:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -212,10 +212,16 @@ msgid "jST Settings"
 msgstr "jST Einstellungen"
 
 #: lib/theme-settings.php:71
+#, fuzzy
+#| msgid "Upload Image JPG Quality"
 msgid "Upload Images JPG Quality"
 msgstr "JPG-Qualität der Bilder"
 
 #: lib/theme-settings.php:83
+#, fuzzy
+#| msgid ""
+#| "Enable auto alt-attributes on all Images after upload <br>(based on image "
+#| "name)"
 msgid "Set alt attributes for images after upload<br>(based on image name)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
@@ -225,10 +231,14 @@ msgid "Show featured images in backend"
 msgstr "Zeige Beitragsbilder in Backend"
 
 #: lib/theme-settings.php:101
+#, fuzzy
+#| msgid "Enable SVG Uploads"
 msgid "Activate SVG uploads"
 msgstr "Aktivere SVG Uploads"
 
 #: lib/theme-settings.php:110
+#, fuzzy
+#| msgid "Gutenberg Full width"
 msgid "Gutenberg full width"
 msgstr "Gutenberg volle Seitenbreite"
 
@@ -237,26 +247,38 @@ msgid "Deactivate Gutenberg inline styles"
 msgstr "Gutenberg Inline CSS ausschalten"
 
 #: lib/theme-settings.php:128
+#, fuzzy
+#| msgid "Disable Emoji"
 msgid "Deactivate Emojis"
 msgstr "Emojis deaktivieren"
 
 #: lib/theme-settings.php:137
+#, fuzzy
+#| msgid "Disable Comments"
 msgid "Deactivate comments"
 msgstr "Kommentarfunktion ausschalten"
 
 #: lib/theme-settings.php:146
+#, fuzzy
+#| msgid "Remove XMLRPC"
 msgid "Deaktiviere XMLRPC"
 msgstr "XMLRPC entfernen"
 
 #: lib/theme-settings.php:155
+#, fuzzy
+#| msgid "Disable Admin Bar Frontend"
 msgid "Deactivate admin bar in front end"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
 #: lib/theme-settings.php:164
+#, fuzzy
+#| msgid "Disable Embeds Frontend"
 msgid "Deactivate embeds front end"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
 #: lib/theme-settings.php:173
+#, fuzzy
+#| msgid "Disable Editor Fullscreen Default"
 msgid "Deactivate fullscreen editor default"
 msgstr "Default Editor Fullscreen ausschalten"
 
@@ -280,26 +302,26 @@ msgstr "Auszüge für Seiten<br>(für Meta Beschreibungen)"
 msgid "Activate jQuery"
 msgstr "jQuery aktivieren"
 
-#: lib/theme-settings.php:269 lib/theme-settings.php:291
-#: lib/theme-settings.php:314 lib/theme-settings.php:353
-#: lib/theme-settings.php:377 lib/theme-settings.php:403
-#: lib/theme-settings.php:428 lib/theme-settings.php:447
-#: lib/theme-settings.php:493 lib/theme-settings.php:518
-#: lib/theme-settings.php:556 lib/theme-settings.php:609
-#: lib/theme-settings.php:635 lib/theme-settings.php:659
-#: lib/theme-settings.php:683 lib/theme-settings.php:708
+#: lib/theme-settings.php:267 lib/theme-settings.php:289
+#: lib/theme-settings.php:312 lib/theme-settings.php:351
+#: lib/theme-settings.php:375 lib/theme-settings.php:401
+#: lib/theme-settings.php:426 lib/theme-settings.php:445
+#: lib/theme-settings.php:491 lib/theme-settings.php:516
+#: lib/theme-settings.php:554 lib/theme-settings.php:607
+#: lib/theme-settings.php:633 lib/theme-settings.php:657
+#: lib/theme-settings.php:681 lib/theme-settings.php:706
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:325
+#: lib/theme-settings.php:323
 msgid "Featured Image"
-msgstr ""
+msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:338
+#: lib/theme-settings.php:336
 msgid "Your theme do not support post thumbnails ..."
-msgstr "Ihr Theme unterstützt keine Featured Bilder …"
+msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 
-#: lib/theme-settings.php:739
+#: lib/theme-settings.php:737
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
@@ -351,11 +373,86 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "jado"
-msgstr "Jado"
+msgstr "jado"
 
 #. Template Name of the plugin/theme
 msgid "Custom Loop"
-msgstr "Csutom Loop"
+msgstr "Zustrom Post Loop"
 
 #~ msgid "Beitragsbild"
-#~ msgstr "Beitragsbild"
+#~ msgstr "Featured image"
+
+#~ msgid "Theme Functions"
+#~ msgstr "Funktionen"
+
+#~ msgid "Enable Post Thumbnail in backend"
+#~ msgstr "Zeige Post Thumbnail im Backend"
+
+#~ msgid ""
+#~ "Please note: Settings are not saved the first time, only the second time "
+#~ "saved - we are working on this!"
+#~ msgstr ""
+#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern "
+#~ "gespeichert! Wir arbeiten dran das bald zu beheben!"
+
+#~ msgid "FooterNav"
+#~ msgstr "FooterNav"
+
+#~ msgid "TopNav"
+#~ msgstr "TopNav"
+
+#~ msgid "TopMenu"
+#~ msgstr "TopMenu"
+
+#~ msgid "read more"
+#~ msgstr "weiterlesen"
+
+#~ msgid "Posts Categorized:"
+#~ msgstr "Beiträge kategorisiert:"
+
+#, php-format
+#~ msgid ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
+#~ msgstr ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
+
+#~ msgid "F jS, Y"
+#~ msgstr "F jS, Y"
+
+#~ msgid "Read More &raquo;"
+#~ msgstr "Weiterlesen &raquo;"
+
+#~ msgid "Product category Bearbeiten"
+#~ msgstr "Produkt Kategorie"
+
+#, fuzzy
+#~| msgid "Neues Produkt"
+#~ msgid "Neue Produkt Kategorie Name"
+#~ msgstr "Neues Produkt"
+
+#~ msgid "Produkte"
+#~ msgstr "Products"
+
+#~ msgid "Bearbeiten"
+#~ msgstr "Bearbeiten"
+
+#~ msgid "View Post Type"
+#~ msgstr "View Post Type"
+
+#~ msgid "Example custom post type"
+#~ msgstr "Example custom post type"
+
+#, php-format
+#~ msgid ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
+#~ msgstr ""
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
+
+#~ msgid "Sorry, we don't use RSS!"
+#~ msgstr "Sorry, we don't use RSS!"

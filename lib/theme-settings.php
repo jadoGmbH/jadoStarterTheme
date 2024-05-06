@@ -4,8 +4,8 @@
 function jado_top_lvl_menu()
 {
     add_menu_page(
-        __('jado Starter Theme Settings', 'jado'),
-        __('jST Settings', 'jado'),
+        __('jado Starter Theme Settings', 'jadotheme'),
+        __('jST Settings', 'jadotheme'),
         'manage_options',
         'jado_options',
         'jado_options_page_callback',
@@ -68,7 +68,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'imgQuality',
-        __('Upload Images JPG Quality', 'jado'),
+        __('Upload Images JPG Quality', 'jadotheme'),
         'jado_imageQuality',
         'jado_options',
         'jado_section_id',
@@ -80,7 +80,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'setAltAttrImage',
-        __('Set alt attributes for images after upload<br>(based on image name)', 'jado'),
+        __('Set alt attributes for images after upload<br>(based on image name)', 'jadotheme'),
         'jado_setAltAttrImage',
         'jado_options',
         'jado_section_id'
@@ -89,7 +89,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'AdminPostThumbnail',
-        __('Show featured images in backend', 'jado'),
+        __('Show featured images in backend', 'jadotheme'),
         'jado_AdminPostThumbnail',
         'jado_options',
         'jado_section_id'
@@ -98,7 +98,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'enableSVGUploads',
-        __('Activate SVG uploads', 'jado'),
+        __('Activate SVG uploads', 'jadotheme'),
         'jado_enableSVGUploads',
         'jado_options',
         'jado_section_id'
@@ -107,7 +107,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'gutenberg_full_width',
-        __('Gutenberg full width', 'jado'),
+        __('Gutenberg full width', 'jadotheme'),
         'jado_checkboxGutenbergFullWidth',
         'jado_options',
         'jado_section_id'
@@ -116,7 +116,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableGutenbergCustomStyle',
-        __('Deactivate Gutenberg inline styles', 'jado'),
+        __('Deactivate Gutenberg inline styles', 'jadotheme'),
         'jado_disableGutenbergCustomStyle',
         'jado_options',
         'jado_section_id'
@@ -125,7 +125,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableEmoji',
-        __('Deactivate Emojis', 'jado'),
+        __('Deactivate Emojis', 'jadotheme'),
         'jado_disableEmoji',
         'jado_options',
         'jado_section_id'
@@ -134,7 +134,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableComments',
-        __('Deactivate comments', 'jado'),
+        __('Deactivate comments', 'jadotheme'),
         'jado_disableComments',
         'jado_options',
         'jado_section_id'
@@ -143,7 +143,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'removeXMLRPC',
-        __('Deaktiviere XMLRPC', 'jado'),
+        __('Deaktiviere XMLRPC', 'jadotheme'),
         'jado_removeXMLRPC',
         'jado_options',
         'jado_section_id'
@@ -152,7 +152,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableAdminBarFrontend',
-        __('Deactivate admin bar in front end', 'jado'),
+        __('Deactivate admin bar in front end', 'jadotheme'),
         'jado_disableAdminBarFrontend',
         'jado_options',
         'jado_section_id'
@@ -161,7 +161,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableEmbedsFrontend',
-        __('Deactivate embeds front end', 'jado'),
+        __('Deactivate embeds front end', 'jadotheme'),
         'jado_disableEmbedsFrontend',
         'jado_options',
         'jado_section_id'
@@ -170,7 +170,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'disableEditorFullscreenDefault',
-        __('Deactivate fullscreen editor default', 'jado'),
+        __('Deactivate fullscreen editor default', 'jadotheme'),
         'jado_disableEditorFullscreenDefault',
         'jado_options',
         'jado_section_id'
@@ -179,7 +179,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'encodeEmails',
-        __('Encode emails <br>e.g. [email]email@email.com[/email]', 'jado'),
+        __('Encode emails <br>e.g. [email]email@email.com[/email]', 'jadotheme'),
         'jado_encodeEmails',
         'jado_options',
         'jado_section_id'
@@ -188,7 +188,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'heartbeat',
-        __('Deaktivate heartbeat <br>(auto safe etc.)', 'jado'),
+        __('Deaktivate heartbeat <br>(auto safe etc.)', 'jadotheme'),
         'jado_heartbeat',
         'jado_options',
         'jado_section_id'
@@ -197,7 +197,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'scriptW3C',
-        __('correct script style <br>(delete type=script)', 'jado'),
+        __('correct script style <br>(delete type=script)', 'jadotheme'),
         'jado_scriptW3C',
         'jado_options',
         'jado_section_id'
@@ -207,7 +207,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'pageExcerpts',
-        __('Excerpts for pages<br>(for meta descriptions)', 'jado'),
+        __('Excerpts for pages<br>(for meta descriptions)', 'jadotheme'),
         'jado_pageExcerpts',
         'jado_options',
         'jado_section_id'
@@ -216,7 +216,7 @@ function jado_settings_fields()
 
     add_settings_field(
         'activateJquery',
-        __('Activate jQuery', 'jado'),
+        __('Activate jQuery', 'jadotheme'),
         'jado_activateJquery',
         'jado_options',
         'jado_section_id'
@@ -264,7 +264,7 @@ function jado_checkboxGutenbergFullWidth()
     $value = get_option('gutenberg_full_width');
     ?>
     <label>
-        <input type="checkbox" name="gutenberg_full_width" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="gutenberg_full_width" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -286,7 +286,7 @@ function jado_disableEmoji()
     $value = get_option('disableEmoji', 'no');
     ?>
     <label>
-        <input type="checkbox" name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="disableEmoji" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -309,7 +309,7 @@ function jado_AdminPostThumbnail()
     ?>
     <label>
         <input type="checkbox"
-               name="AdminPostThumbnail" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="AdminPostThumbnail" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -348,7 +348,7 @@ function jado_removeXMLRPC()
     ?>
     <label>
         <input type="checkbox"
-               name="removeXMLRPC" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="removeXMLRPC" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -372,7 +372,7 @@ function jado_disableEditorFullscreenDefault()
     ?>
     <label>
         <input type="checkbox"
-               name="disableEditorFullscreenDefault" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="disableEditorFullscreenDefault" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -398,7 +398,7 @@ function jado_enableSVGUploads()
     ?>
     <label>
         <input type="checkbox"
-               name="enableSVGUploads" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="enableSVGUploads" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -423,7 +423,7 @@ function jado_disableAdminBarFrontend()
     ?>
     <label>
         <input type="checkbox"
-               name="disableAdminBarFrontend" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="disableAdminBarFrontend" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -442,7 +442,7 @@ function jado_disableEmbedsFrontend()
     ?>
     <label>
         <input type="checkbox"
-               name="disableEmbedsFrontend" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="disableEmbedsFrontend" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -488,7 +488,7 @@ function jado_disableGutenbergCustomStyle()
     ?>
     <label>
         <input type="checkbox"
-               name="disableGutenbergCustomStyle" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="disableGutenbergCustomStyle" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -513,7 +513,7 @@ function jado_setAltAttrImage()
     ?>
     <label>
         <input type="checkbox"
-               name="setAltAttrImage" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="setAltAttrImage" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -551,7 +551,7 @@ function jado_disableComments()
     ?>
     <label>
         <input type="checkbox"
-               name="disableComments" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+               name="disableComments" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -604,7 +604,7 @@ function jado_encodeEmails()
     $value = get_option('encodeEmails', 'no');
     ?>
     <label>
-        <input type="checkbox" name="encodeEmails" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="encodeEmails" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -630,7 +630,7 @@ function jado_heartbeat()
     $value = get_option('heartbeat', 'no');
     ?>
     <label>
-        <input type="checkbox" name="heartbeat" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="heartbeat" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -654,7 +654,7 @@ function jado_activateJquery()
     $value = get_option('activateJquery', 'no');
     ?>
     <label>
-        <input type="checkbox" name="activateJquery" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="activateJquery" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -678,7 +678,7 @@ function jado_pageExcerpts()
     $value = get_option('pageExcerpts', 'no');
     ?>
     <label>
-        <input type="checkbox" name="pageExcerpts" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="pageExcerpts" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
@@ -703,7 +703,7 @@ function jado_scriptW3C()
     $value = get_option('scriptW3C', 'no');
     ?>
     <label>
-        <input type="checkbox" name="scriptW3C" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jado'); ?>
+        <input type="checkbox" name="scriptW3C" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
     <?php
 }
