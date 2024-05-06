@@ -26,8 +26,6 @@ body {
   box-shadow: $boxshadow;
 }
 
-
-
 #logo {
   font-size: $headlinesize;
 }
@@ -72,10 +70,7 @@ figure.wp-block-image {
     }
   }
 
-
   .entry-content {
-
-
     .summary, p, .woocommerce-cart-form{
       a, a:visited {
         font-size: $copysize;
@@ -86,7 +81,6 @@ figure.wp-block-image {
         }
       }
     }
-
 
     h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
       margin: 0 0 $innerpostgap 0;
@@ -189,8 +183,8 @@ figure.wp-block-image {
 .footer {
   padding: 2em 0;
 
-  .copyright {
-    font-size: $copysize - 3;
+  .copyright, .copyright a {
+    font-size: $copysize - 6;
   }
 }
 

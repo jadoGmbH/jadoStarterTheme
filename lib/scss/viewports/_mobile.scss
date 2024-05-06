@@ -18,7 +18,7 @@ body {
   font-family: $copy;
   line-height: 1.5;
   color: $text-color;
-  background-color: $dark;
+  background-color: $headercolor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -72,9 +72,10 @@ ul {
 
 .header {
   box-shadow: $boxshadow;
-  background-color: $dark;
+  background-color: $headercolor;
   z-index: 9999;
   position: relative;
+  padding: 5vw 0;
 
   &#headerfixed {
     position: fixed;
@@ -82,13 +83,11 @@ ul {
   }
 
   .flex {
-    color: $white;
+    color: $headertext;
   }
 }
 
-
 .logolink {
-
   #logo {
     opacity: 1;
     @include transition(opacity 300ms ease-out);
@@ -109,9 +108,9 @@ ul {
   width: auto;
   font-family: $headline;
   position: relative;
-  color: $white;
+  color: $headertext;
   font-weight: normal;
-  margin: 0 12vw 0.2em 0;
+  margin: 0 12vw 0 0;
 
   a {
     color: $white;
@@ -177,9 +176,6 @@ ul {
   }
 }
 
-.header {
-  padding: 5vw 0;
-}
 
 #site-navigation {
   max-height: 0;
@@ -229,23 +225,23 @@ ul {
       font-family: $copy;
       font-weight: normal;
       display: block;
-      color: $white;
+      color: $headertext;
       margin: 0 0 1em 0;
       text-decoration: none;
       padding: 0.75vw 2vw;
-      border: 1px solid rgba($white, 0.5);
+      border: 1px solid rgba($headertext, 0.5);
       font-size: $copysize;
       border-radius: $borderradius;
 
       &:hover {
         background-color: darken($dark, 5%);
-        color: $white;
+        color: $headertext;
       }
     }
 
     &.current-menu-item, &.current_page_item {
       a {
-        color: $white;
+        color: $headertext;
         background-color: darken($dark, 5%);
 
         &:hover {
@@ -495,7 +491,7 @@ pre{
     blockquote.wp-block-quote {
       margin: 0;
       padding: 0 3em;
-      border-left: 0.2em solid $maincolor;
+      border-left: 1em solid $maincolor;
 
       p {
         margin: 1em 0 2em 0;
@@ -518,11 +514,11 @@ pre{
         position: relative;
         text-decoration: underline;
         text-decoration-thickness: 3px;
-        text-decoration-color: darken($contrast, 10%);
+        text-decoration-color: $link-color;
         text-underline-offset: 3px;
 
         &:hover, &:focus {
-          text-decoration-color: $contrast;
+          text-decoration-color: $link-hover;
         }
 
         &.remove{
@@ -681,10 +677,26 @@ figure.wp-block-image {
   }
 }
 
+.sidebar{
+  display: flex;
+  flex-direction: column;
+
+  a{
+    color: $footertext;
+  }
+  h1, h2, h3, h4, h5{
+    color: $footertext;
+
+    &.widgettitle{
+      margin-top: 0;
+    }
+  }
+}
+
 .footer {
   clear: both;
-  background-color: $dark;
-  color: $bgcolor;
+  background-color: $footercolor;
+  color: $footertext;
   position: sticky;
   bottom: 0;
   z-index: 1;
@@ -697,10 +709,14 @@ figure.wp-block-image {
     align-items: flex-start;
   }
 
-  .copyright {
+  .copyright, .copyright a {
     font-weight: normal;
-    color: $bgcolor;
+    color: $footertext;
     font-size: $copysize - 0.75;
+  }
+
+  a{
+    text-decoration: underline;
   }
 }
 
@@ -712,7 +728,6 @@ figure.wp-block-image {
     height: auto;
   }
 }
-
 
 .template {
   position: fixed;

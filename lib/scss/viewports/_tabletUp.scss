@@ -30,10 +30,15 @@ body {
 
 .header {
   box-shadow: $boxshadow;
+  padding: 3vw 0;
 
   #inner-header {
     display: flex;
     flex-direction: column;
+
+    > #site-navigation{
+      margin-top: 1em;
+    }
 
     .flex {
       display: flex;
@@ -84,7 +89,7 @@ body {
 
     li {
       a {
-        margin: 1em 1em 0 0;
+        margin: 0 1em 0 0;
       }
 
       &.menu-item-has-children, &.page_item_has_children {
@@ -108,12 +113,6 @@ body {
             max-height: 600px;
             overflow: visible;
           }
-        }
-      }
-
-      &:last-child{
-        a{
-          margin: 1em 0 0 0;
         }
       }
     }
@@ -296,11 +295,21 @@ figure.wp-block-image {
   }
 }
 
+.sidebar{
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  .wp-block-image{
+    margin-bottom: 0;
+  }
+}
+
 
 .footer {
   padding: 2vw 0;
 
-  .copyright {
+  .copyright, .copyright a {
     font-size: $copysize - 0.75;
   }
 

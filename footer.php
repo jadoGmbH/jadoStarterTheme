@@ -1,20 +1,12 @@
 <footer class="footer">
     <div id="inner-footer" class="wrap">
-        <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-            <?php
-            if (has_nav_menu('FooterNav')) {
-                echo '<nav id="footer-navigation">';
-                wp_nav_menu(array(
-                    'container' => false,
-                    'container_class' => 'menu',
-                    'menu' => 'FooterNav',
-                    'menu_class' => 'nav footerNav',
-                    'theme_location' => 'FooterNav',
-                    'depth' => 0
-                ));
-                echo '</nav>';
+        <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> – <a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank">Powered by jado Starter Theme</a></p>
+            <?php if(dynamic_sidebar()){
+                get_sidebar();
             }
+
             get_sidebar();
+
             ?>
     </div>
 </footer>
