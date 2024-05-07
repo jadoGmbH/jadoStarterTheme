@@ -26,6 +26,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php the_title(); ?>">
     <meta property="og:description" content="<?php echo get_the_excerpt(); ?>">
+    <meta name="description" content="<?php echo get_the_excerpt(); ?>">
     <?php if (has_post_thumbnail()) { ?>
         <meta property="og:image" content="<?php the_post_thumbnail_url('ogimage'); ?>">
     <?php } ?>
