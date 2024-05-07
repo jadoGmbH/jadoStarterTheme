@@ -64,7 +64,9 @@
                     echo '</div>'; ?>
                 </a>
                 <?php if (get_bloginfo('description')) {
-                    echo '<span id="description">' . bloginfo('description') . '</span>';
+                    echo '<span id="description">';
+                    bloginfo('description');
+                    echo '</span>';
                 } ?>
                 <div id="burger">
                     <div class="cheese c1"></div>

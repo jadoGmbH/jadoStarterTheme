@@ -83,6 +83,8 @@ ul {
   }
 
   .flex {
+    display: flex;
+    flex-direction: column;
     color: $headertext;
   }
 }
