@@ -30,7 +30,7 @@
             border-radius: $borderradius;
             display: flex;
             flex-direction: column;
-            color: $text-color;
+            color: $contenttext;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
@@ -119,10 +119,9 @@
       }
     }
 
-
     select {
       appearance: none;
-      background-color: $text-color;
+      background-color: $contenttext;
       background-position: right center;
       background-repeat: no-repeat;
       color: $white;
@@ -294,7 +293,7 @@ table.woocommerce-checkout-review-order-table {
   align-content: space-between;
   border-radius: 100%;
   background-color: $contrast;
-  color: $text-color;
+  color: $contenttext;
   opacity: 0.8;
 }
 
@@ -418,7 +417,7 @@ nav.woocommerce-MyAccount-navigation {
 
     a {
       font-family: $headline;
-      color: $text-color;
+      color: $contenttext;
       text-decoration: underline;
       text-decoration-thickness: 3px;
       text-decoration-color: darken($contrast, 10%);
@@ -433,7 +432,7 @@ nav.woocommerce-MyAccount-navigation {
     &.is-active {
       a {
         font-family: $headline;
-        color: $text-color;
+        color: $contenttext;
         text-decoration: underline;
         text-decoration-thickness: 3px;
         text-decoration-color: $wooBlue;
@@ -460,11 +459,10 @@ nav.woocommerce-MyAccount-navigation {
   }
 }
 
-
 .woocommerce-MyAccount-content {
   a {
     font-family: $headline;
-    color: $text-color;
+    color: $contenttext;
     text-decoration: underline;
     text-decoration-thickness: 3px;
     text-decoration-color: darken($contrast, 10%);
@@ -538,7 +536,7 @@ button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-s
 
 input[type="text"], input[type="email"], textarea, input[type="tel"], input[type="number"], input#password, input[type="password"] {
   border-radius: $borderradius;
-  border: 1px solid $bgcolor;
+  border: 1px solid $contentcolor;
   padding: .6em .8em !important;
   @include transition(all 300ms ease-out);
 
@@ -581,13 +579,13 @@ fieldset {
 }
 
 #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
-  background: $bgcolor;
-  color: $text-color;
+  background: $contentcolor;
+  color: $contenttext;
   border-radius: $borderradius;
 }
 
 #add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
-  border-bottom-color: $bgcolor;
+  border-bottom-color: $contentcolor;
 }
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {

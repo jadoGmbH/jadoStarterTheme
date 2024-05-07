@@ -1,5 +1,5 @@
 /******************************************************************
-Stylesheet: Base Mobile
+Stylesheet: Base Mobile - Tablet
 ******************************************************************/
 
 
@@ -17,7 +17,7 @@ $spaceafterblock: 1.5em;
 body {
   font-family: $copy;
   line-height: 1.5;
-  color: $text-color;
+  color: $contenttext;
   background-color: $headercolor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +40,7 @@ body {
 }
 
 a, a:visited {
-  color: $text-color;
+  color: $contenttext;
   text-decoration: none;
   @include transition(all 200ms ease-out);
 
@@ -252,7 +252,7 @@ pre{
 #content {
   position: relative;
   z-index: 2;
-  background-color: $bgcolor;
+  background-color: $contentcolor;
   box-shadow: $boxshadow;
 
   #inner-content {
@@ -307,8 +307,8 @@ pre{
     }
 
     figure.wp-block-pullquote {
-      border-top: 1px solid $text-color;
-      border-bottom: 1px solid $text-color;
+      border-top: 1px solid $contenttext;
+      border-bottom: 1px solid $contenttext;
       padding: 3vw 0;
       margin-bottom: $spaceafterblock;
 
@@ -324,7 +324,7 @@ pre{
     }
 
     pre.wp-block-code {
-      background-color: $text-color;
+      background-color: $contenttext;
       color: $white;
       padding: 0.4em 0.8em;
       margin-bottom: $spaceafterblock;
@@ -343,7 +343,7 @@ pre{
       margin-bottom: $spaceafterblock;
 
       tbody {
-        border-bottom: 1px solid $text-color;
+        border-bottom: 1px solid $contenttext;
         display: block;
         background-color: $white;
       }
@@ -362,7 +362,7 @@ pre{
 
 
       tr {
-        border-top: 1px solid $text-color;
+        border-top: 1px solid $contenttext;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -370,10 +370,10 @@ pre{
         td {
           flex: 1;
           padding: 0.4em;
-          border-right: 1px solid $text-color;
+          border-right: 1px solid $contenttext;
 
           &:first-child {
-            border-left: 1px solid $text-color;
+            border-left: 1px solid $contenttext;
           }
 
           &:empty {
@@ -437,7 +437,7 @@ pre{
         @include transition(background-color 200ms linear);
 
         &:hover{
-          background-color: lighten($bgcolor, 5%);
+          background-color: lighten($contentcolor, 5%);
         }
 
         &.sold{ /** change if you need another custom post type category! */
@@ -494,7 +494,7 @@ pre{
 
     .summary, p, .woocommerce-cart-form{
       a, a:visited {
-        color: $text-color;
+        color: $contenttext;
         font-size: $copysize;
         padding: 0 0 0.2em 0;
         @include transition(all 200ms ease-out);
