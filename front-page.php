@@ -20,7 +20,6 @@
                 </section>
             </div>
         <?php endwhile; endif; ?>
-        <?php //get_sidebar(); ?>
     </div>
 </div>
 <?php get_footer(); ?>

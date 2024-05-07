@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer id="footer" class="footer">
     <div id="inner-footer" class="wrap">
         <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> – <a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank">Powered by jado Starter Theme</a></p>
             <?php get_sidebar(); ?>

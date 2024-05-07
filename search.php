@@ -25,7 +25,7 @@
                         printf(__('Filed under: %1$s', 'jadotheme'), get_the_category_list(', '));
                     endif;
                     the_tags('<p class="tags"><span class="tags-title">' . __('Tags:', 'jadotheme') . '</span> ', ', ', '</p>'); ?>
-                </footer> <!-- end article footer -->
+                </footer>
             </article>
         <?php endwhile;
         else : ?>
@@ -34,8 +34,7 @@
                     <h1><?php __('404 - Site not found!', 'jadotheme'); ?></h1>
                 </header>
             </article>
-        <?php endif;
-        //get_sidebar(); ?>
+        <?php endif; ?>
     </div>
 </div>
 <?php get_footer(); ?>

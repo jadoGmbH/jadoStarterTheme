@@ -23,6 +23,26 @@ a, a:visited {
   }
 }
 
+#header, #footer{
+  display: none;
+}
+
+h1{
+  font-size: 23px !important;
+}
+
+p, a, li{
+  font-size: 12px !important;
+}
+
+#content{
+  box-shadow: none !important;
+}
+
+#inner-content{
+  padding-top: 0 !important;
+}
+
 .ir a:after,
 a[href^="javascript:"]:after,
 a[href^="#"]:after {

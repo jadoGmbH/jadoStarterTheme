@@ -16,7 +16,7 @@ Stylesheet: Main Stylesheet
 }
 
 @media print {
-	//@import "partials/print"; // enable for print design
+	@import "assets/print"; // enable for print design
 }
 
 

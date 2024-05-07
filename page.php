@@ -19,9 +19,7 @@
                     <?php the_content(); ?>
                 </section>
             </div>
-        <?php endwhile; endif;
-        //get_sidebar();
-        ?>
+        <?php endwhile; endif; ?>
     </div>
 </div>
 <?php get_footer(); ?>
