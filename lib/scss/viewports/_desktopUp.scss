@@ -35,14 +35,6 @@ body {
 }
 
 .nav {
-  &.footerNav {
-    li {
-      a {
-        font-size: $copysize - 3;
-      }
-    }
-  }
-
   li {
     a {
       font-size: $copysize;

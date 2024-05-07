@@ -65,15 +65,15 @@ body {
   display: flex;
   justify-content: flex-start;
 
-  &.meta-nav {
-    justify-content: flex-end;
+  li {
+    float: left;
+    position: relative;
 
-    li {
-      margin: 0 0 0 0.4em;
-
-      a {
-        font-size: 80%;
-      }
+    a {
+      font-size: $copysize;
+      padding: 0.4vw 1.2vw;
+      border-radius: $borderradius;
+      margin: 0 0 0 1em;
     }
   }
 
@@ -118,25 +118,20 @@ body {
     }
   }
 
-  &.footerNav {
+  &.meta-nav {
+    justify-content: flex-end;
+
     li {
+      margin: 0 0 0 0.4em;
+
       a {
-        font-size: $copysize - 0.3;
+        font-size: 80%;
       }
     }
   }
 
-  li {
-    float: left;
-    position: relative;
 
-    a {
-      font-size: $copysize;
-      padding: 0.4vw 1.2vw;
-      border-radius: $borderradius;
-      margin: 0 0 0 1em;
-    }
-  }
+
 }
 
 figure.wp-block-image {

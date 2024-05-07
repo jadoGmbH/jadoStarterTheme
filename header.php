@@ -42,7 +42,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="container">
-    <header id="headerfixed" class="header">
+    <header id="header" class="header">
         <div id="inner-header" class="wrap">
             <?php
             if (has_nav_menu('MetaNav')) {

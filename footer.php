@@ -1,13 +1,7 @@
 <footer class="footer">
     <div id="inner-footer" class="wrap">
         <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> – <a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank">Powered by jado Starter Theme</a></p>
-            <?php if(dynamic_sidebar()){
-                get_sidebar();
-            }
-
-            get_sidebar();
-
-            ?>
+            <?php get_sidebar(); ?>
     </div>
 </footer>
 </div>
@@ -47,7 +41,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         toggleClass(document.getElementById('site-navigation'), 'toggledOn');
     });
 
-
     const subMenuElements = document.querySelectorAll('li.menu-item-has-children, li.page_item_has_children');
     for (let i = 0; i < subMenuElements.length; i++) {
         subMenuElements.item(i).onmouseover = function () {
@@ -58,16 +51,14 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         }
     }
 
-    const header = document.getElementById('headerfixed');
+    const header = document.getElementById('header');
     const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
     document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
-
     const body = document.body;
     const menu = document.querySelector(".header");
     const scrollUp = "scrollUp";
     const scrollDown = "scrollDown";
     let lastScroll = 0;
-
     window.addEventListener("scroll", () => {
         const currentScroll = window.scrollY;
         if (currentScroll <= 0) {
