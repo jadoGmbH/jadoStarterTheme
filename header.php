@@ -58,9 +58,9 @@
             ?>
             <div class="flex">
                 <a class="logolink" href="<?php echo home_url(); ?>" rel="nofollow">
-                    <?php echo '<h1 id="logo">';
+                    <?php echo '<div id="logo">';
                     bloginfo('name');
-                    echo '</h1>'; ?>
+                    echo '</div>'; ?>
                 </a>
                 <?php if (get_bloginfo('description')) {
                     echo '<span id="description">' . bloginfo('description') . '</span>';
