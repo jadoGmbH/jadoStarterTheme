@@ -97,18 +97,6 @@
       "oAP" : "\/languages\/de_DE.po",
       "oF" : 0
     },
-    "\/lib\/css\/login.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/css\/login-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
     "\/lib\/css\/style.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -2229,18 +2217,6 @@
       "oS" : 3,
       "pg" : 0,
       "sct" : 0
-    },
-    "\/lib\/scss\/style.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/scss\/style-min.css",
-      "oF" : 0,
-      "pg" : 0
     },
     "\/lib\/scss\/style.scss" : {
       "aP" : 0,

@@ -12,19 +12,24 @@
         }
       }
 
-      &.products {
-        li.product {
+      &.products, &.wc-block-grid__products {
+        li.product, li.wc-block-grid__product {
           padding: 0;
 
           .price {
             color: $dark;
           }
 
+          .wc-block-grid__product-price{
+            background-color: $white;
+            margin-bottom: 0;
+          }
+
           &:before {
             display: none;
           }
 
-          a.woocommerce-loop-product__link {
+          a.woocommerce-loop-product__link, a.wc-block-grid__product-link {
             padding: 1em;
             background-color: $white;
             border-radius: $borderradius;
@@ -44,7 +49,7 @@
             }
           }
 
-          a.button {
+          a.button, a.wp-block-button__link  {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
           }
@@ -391,12 +396,20 @@ table.woocommerce-checkout-review-order-table {
   color: $wooGreen;
 }
 
+ul.wc-block-components-product-details{
+  li{
+    padding-left: 0 !important;
+
+    &:before{
+      display: none;
+    }
+  }
+}
 
 .product_meta {
   display: flex;
   flex-direction: column;
 }
-
 
 .woocommerce-form__label-for-checkbox {
   padding: 0 !important;
