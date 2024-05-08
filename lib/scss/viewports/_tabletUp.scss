@@ -142,8 +142,6 @@ figure.wp-block-image {
   box-shadow: $boxshadow;
 
   .entry-content {
-
-
     button.button, .wp-block-button button {
       padding: 0.8em 1.5em;
       margin: 0;
@@ -181,6 +179,19 @@ figure.wp-block-image {
     ul {
       margin-bottom: $spaceafterblock;
 
+
+      &.wp-block-latest-posts__list{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li {
+          border-radius: $borderradius;
+          margin: 0 0 1em 0;
+        }
+      }
+
+
       li {
         padding: 0 0 1vw 2vw;
 
@@ -195,6 +206,10 @@ figure.wp-block-image {
 
     p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
       font-size: $copysize;
+    }
+
+    time {
+      font-size: $copysize - 0.3;
     }
 
     p {

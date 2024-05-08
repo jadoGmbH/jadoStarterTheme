@@ -112,6 +112,10 @@ figure.wp-block-image {
       font-size: $copysize;
     }
 
+    time{
+      font-size: $copysize - 4;
+    }
+
     p {
       margin: 0 0 2em;
     }

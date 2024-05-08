@@ -60,7 +60,6 @@ p:empty {
 }
 
 
-
 ul {
   padding: 0;
 
@@ -291,6 +290,24 @@ pre{
       list-style-type: none;
       margin-bottom: $spaceafterblock;
 
+      &.wp-block-latest-posts__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        li {
+          background: $white;
+          border-radius: $borderradius;
+          padding: 1em;
+          position: relative;
+          margin: 0 0 1em 0;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+
       li {
         padding: 0 0 1vw 3vw;
         position: relative;
@@ -476,7 +493,6 @@ pre{
       }
     }
 
-
     blockquote.wp-block-quote {
       margin: 0;
       padding: 0 3em;
@@ -487,7 +503,6 @@ pre{
         font-style: italic;
       }
     }
-
 
     .byline {
       font-size: 70%;
@@ -535,6 +550,10 @@ pre{
         &.back {
           margin-bottom: 2em;
         }
+      }
+
+      &.wp-block-latest-posts__post-title{
+       font-weight: bold;
       }
     }
 
@@ -605,7 +624,9 @@ pre{
     }
 
     time {
+      font-size: $copysize - 1;
       color: $dark;
+      font-weight: bold;
     }
 
     p {

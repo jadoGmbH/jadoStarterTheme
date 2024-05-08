@@ -190,10 +190,10 @@
   padding-top: 0.7em;
 
   a {
-    color: $white;
+    color: $headertext;
   }
 
-  .shopuser {
+  a.shopuser {
     padding: 0 0 0 1em;
     display: flex;
     align-items: center;
@@ -205,7 +205,7 @@
       margin-right: 0.5em;
 
       path, circle {
-        stroke: $white;
+        stroke: $headertext;
         stroke-width: 1.57px;
       }
     }
@@ -220,6 +220,7 @@
     margin-right: 1em;
     position: relative;
     display: flex;
+    flex-direction: row;
     align-items: center;
     align-content: center;
 
@@ -702,6 +703,7 @@ table.shop_table.cart {
     padding-top: 0;
 
     .iconscart {
+
       .counter {
         width: 1.3vw;
         height: 1.3vw;

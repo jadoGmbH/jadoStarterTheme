@@ -98,7 +98,6 @@
                     echo '<svg width="100%" height="100%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g id="cart"><path d="M16.62,35.751L53.34,35.751L61.296,12.799L12.514,12.799" style="fill:none;"/><g transform="matrix(0.923506,0,0,0.923506,1.91218,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><g transform="matrix(0.923506,0,0,0.923506,29.2333,4.43349)"><circle cx="20.13" cy="53.091" r="4.868" style="fill:none;"/></g><path d="M2.505,8.152L11.342,8.152L16.297,35.858L16.297,44.877L52.936,44.877" style="fill:none;"/></g></svg>';
                     echo '</span></a>';
                 }
-
                     echo '<a title="Account Login" class="shopuser';
                 if (!$userName == '') {
                     echo ' loggedin';
