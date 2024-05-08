@@ -92,6 +92,13 @@ figure.wp-block-image {
     ul {
       margin-bottom: $spaceafterblock;
 
+      &.wp-block-latest-posts__list{
+
+        li {
+          border-radius: $borderradius;
+        }
+      }
+
       li {
         padding: 0 0 1em 1.4em;
 

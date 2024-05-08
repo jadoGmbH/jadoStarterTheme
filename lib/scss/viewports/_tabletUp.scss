@@ -179,7 +179,6 @@ figure.wp-block-image {
     ul {
       margin-bottom: $spaceafterblock;
 
-
       &.wp-block-latest-posts__list{
         flex-direction: row;
         flex-wrap: wrap;
@@ -187,10 +186,8 @@ figure.wp-block-image {
 
         li {
           border-radius: $borderradius;
-          margin: 0 0 1em 0;
         }
       }
-
 
       li {
         padding: 0 0 1vw 2vw;
