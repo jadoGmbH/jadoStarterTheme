@@ -180,12 +180,15 @@ figure.wp-block-image {
       margin-bottom: $spaceafterblock;
 
       &.wp-block-latest-posts__list{
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
 
-        li {
-          border-radius: $borderradius;
+        &.is-grid {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          li {
+            border-radius: $borderradius;
+          }
         }
       }
 

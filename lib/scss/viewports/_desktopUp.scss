@@ -94,8 +94,10 @@ figure.wp-block-image {
 
       &.wp-block-latest-posts__list{
 
-        li {
-          border-radius: $borderradius;
+        &.is-grid {
+          li {
+            border-radius: $borderradius;
+          }
         }
       }
 

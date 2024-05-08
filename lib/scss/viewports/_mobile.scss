@@ -295,17 +295,33 @@ pre{
         flex-direction: column;
         justify-content: flex-start;
 
+
         li {
-          background: $white;
-          border-radius: $borderradius;
-          padding: 1em;
-          position: relative;
-          margin: 0 0 1em 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
 
           &:before {
             display: none;
           }
         }
+
+        &.is-grid{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+
+          li {
+            background: $white;
+            border-radius: $borderradius;
+            padding: 1em;
+            position: relative;
+            margin: 0 0 1em 0;
+
+          }
+        }
+
+
       }
 
       li {
