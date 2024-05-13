@@ -1,7 +1,5 @@
 <?php
-
-
-function jado_top_lvl_menu()
+function jado_top_lvl_menu(): void
 {
     add_menu_page(
         __('jado Starter Theme Settings', 'jadotheme'),
@@ -16,8 +14,7 @@ function jado_top_lvl_menu()
 
 add_action('admin_menu', 'jado_top_lvl_menu');
 
-
-function jado_options_page_callback()
+function jado_options_page_callback(): void
 { ?>
     <div class="wrap">
         <h1><?php echo get_admin_page_title() ?></h1>
@@ -35,11 +32,10 @@ function jado_options_page_callback()
 
 add_action('admin_init', 'jado_settings_fields');
 
-function jado_settings_fields()
+function jado_settings_fields(): void
 {
 
     $option_group = 'jado_options_settings';
-
     register_setting($option_group, 'gutenberg_full_width', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'disableGutenbergCustomStyle', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'disableEmoji', array('sanitize_callback' => 'jado_sanitize_checkbox'));
@@ -57,6 +53,7 @@ function jado_settings_fields()
     register_setting($option_group, 'scriptW3C', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'pageExcerpts', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'activateJquery', array('sanitize_callback' => 'jado_sanitize_checkbox'));
+    register_setting($option_group, 'editor_role_menu', array('sanitize_callback' => 'jado_sanitize_checkbox'));
     register_setting($option_group, 'imgQuality', 'absint');
 
     add_settings_section(
@@ -86,7 +83,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'AdminPostThumbnail',
         __('Show featured images in backend', 'jadotheme'),
@@ -94,7 +90,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'enableSVGUploads',
@@ -104,7 +99,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'gutenberg_full_width',
         __('Gutenberg full width', 'jadotheme'),
@@ -112,7 +106,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'disableGutenbergCustomStyle',
@@ -122,7 +115,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'disableEmoji',
         __('Deactivate Emojis', 'jadotheme'),
@@ -130,7 +122,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'disableComments',
@@ -140,7 +131,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'removeXMLRPC',
         __('Deaktiviere XMLRPC', 'jadotheme'),
@@ -148,7 +138,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'disableAdminBarFrontend',
@@ -158,7 +147,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'disableEmbedsFrontend',
         __('Deactivate embeds front end', 'jadotheme'),
@@ -166,7 +154,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'disableEditorFullscreenDefault',
@@ -176,7 +163,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'encodeEmails',
         __('Encode emails <br>e.g. [email]email@email.com[/email]', 'jadotheme'),
@@ -184,7 +170,6 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
-
 
     add_settings_field(
         'heartbeat',
@@ -203,8 +188,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
-
     add_settings_field(
         'pageExcerpts',
         __('Excerpts for pages<br>(for meta descriptions)', 'jadotheme'),
@@ -213,7 +196,6 @@ function jado_settings_fields()
         'jado_section_id'
     );
 
-
     add_settings_field(
         'activateJquery',
         __('Activate jQuery', 'jadotheme'),
@@ -221,10 +203,18 @@ function jado_settings_fields()
         'jado_options',
         'jado_section_id'
     );
+
+    add_settings_field(
+        'editorRoleMenu',
+        __('Editors menu & widget access', 'jadotheme'),
+        'jado_editorRoleMenu',
+        'jado_options',
+        'jado_section_id'
+    );
 }
 
 
-function jado_sanitize_checkbox($value)
+function jado_sanitize_checkbox($value): string
 {
     return 'on' === $value ? 'yes' : 'no';
 }
@@ -232,7 +222,7 @@ function jado_sanitize_checkbox($value)
 
 /** image JPG quality  */
 
-function jado_imageQuality($args)
+function jado_imageQuality($args): void
 {
     printf(
         '<input type="number" id="%s" name="%s" value="%d" />',
@@ -257,9 +247,36 @@ function custom_jpeg_quality()
 add_filter('jpeg_quality', 'custom_jpeg_quality');
 
 
+
+/**  Give editor role menu access  */
+
+function jado_editorRoleMenu(): void
+{
+    $value = get_option('editor_role_menu');
+    ?>
+    <label>
+        <input type="checkbox" name="editor_role_menu" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
+    </label>
+    <?php
+}
+$editorRoleMenu = get_option('editor_role_menu', 'no');
+if ($editorRoleMenu == 'yes') {
+    $role_object = get_role( 'editor' );
+    $role_object->add_cap( 'edit_theme_options' );
+    function hide_menu(): void
+    {
+        if (current_user_can('editor')) {
+            remove_submenu_page( 'themes.php', 'themes.php' );
+            //remove_submenu_page( 'themes.php', 'widgets.php' );
+        }
+    }
+    add_action('admin_head', 'hide_menu');
+}
+
+
 /**  Gutenberg full width alignfull */
 
-function jado_checkboxGutenbergFullWidth()
+function jado_checkboxGutenbergFullWidth(): void
 {
     $value = get_option('gutenberg_full_width');
     ?>
@@ -270,18 +287,17 @@ function jado_checkboxGutenbergFullWidth()
 }
 $gutenbergFullWidth = get_option('gutenberg_full_width', 'no');
 if ($gutenbergFullWidth == 'yes') {
-    function jadotheme_gutenbergFullWidth()
+    function jadotheme_gutenbergFullWidth(): void
     {
         add_theme_support('align-wide');
     }
-
     add_action('after_setup_theme', 'jadotheme_gutenbergFullWidth');
 }
 
 
 /** disable Emoji  */
 
-function jado_disableEmoji()
+function jado_disableEmoji(): void
 {
     $value = get_option('disableEmoji', 'no');
     ?>
@@ -290,9 +306,9 @@ function jado_disableEmoji()
     </label>
     <?php
 }
-$disableEmoji = get_option('disableEmoji');
+$disableEmoji = get_option('disableEmoji', 'no');
 if ($disableEmoji == 'yes') {
-    function jadotheme_disableEmoji()
+    function jadotheme_disableEmoji(): void
     {
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
@@ -303,7 +319,7 @@ if ($disableEmoji == 'yes') {
 
 /** Enable Admin Post Thumbnail on backend  */
 
-function jado_AdminPostThumbnail()
+function jado_AdminPostThumbnail(): void
 {
     $value = get_option('AdminPostThumbnail', 'no');
     ?>
@@ -313,7 +329,7 @@ function jado_AdminPostThumbnail()
     </label>
     <?php
 }
-$AdminPostThumbnail = get_option('AdminPostThumbnail');
+$AdminPostThumbnail = get_option('AdminPostThumbnail', 'no');
 if ($AdminPostThumbnail == 'yes') {
     add_image_size('adminFeaturedImage', 120, 120, false);
     add_filter('manage_posts_columns', 'jado_add_post_admin_thumbnail_column', 2);
@@ -326,7 +342,7 @@ if ($AdminPostThumbnail == 'yes') {
 
     add_action('manage_posts_custom_column', 'jado_show_post_thumbnail_column', 7, 2);
     add_action('manage_pages_custom_column', 'jado_show_post_thumbnail_column', 7, 2);
-    function jado_show_post_thumbnail_column($jado_columns, $jado_id)
+    function jado_show_post_thumbnail_column($jado_columns, $jado_id): void
     {
         switch ($jado_columns) {
             case 'jado_thumb':
@@ -342,7 +358,7 @@ if ($AdminPostThumbnail == 'yes') {
 
 /** disable XMLRPC */
 
-function jado_removeXMLRPC()
+function jado_removeXMLRPC(): void
 {
     $value = get_option('removeXMLRPC', 'no');
     ?>
@@ -352,21 +368,19 @@ function jado_removeXMLRPC()
     </label>
     <?php
 }
-
 $removeXMLRPC = get_option('removeXMLRPC', 'no');
 if ($removeXMLRPC == 'yes') {
-    function remove_xmlrpc_methods($methods)
+    function remove_xmlrpc_methods($methods): array
     {
         return array();
     }
-
     add_filter('xmlrpc_methods', 'remove_xmlrpc_methods');
 }
 
 
 /** disable admin fullscreen mode default */
 
-function jado_disableEditorFullscreenDefault()
+function jado_disableEditorFullscreenDefault(): void
 {
     $value = get_option('disableEditorFullscreenDefault', 'no');
     ?>
@@ -380,19 +394,18 @@ function jado_disableEditorFullscreenDefault()
 
 $disableEditorFullscreenDefault = get_option('disableEditorFullscreenDefault', 'no');
 if ($disableEditorFullscreenDefault == 'yes') {
-    function jado_disable_editor_fullscreen()
+    function jado_disable_editor_fullscreen(): void
     {
         $script = "window.onload = function() { const isFullscreenMode = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fullscreenMode' ); if ( isFullscreenMode ) { wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fullscreenMode' ); } }";
         wp_add_inline_script('wp-blocks', $script);
     }
-
     add_action('enqueue_block_editor_assets', 'jado_disable_editor_fullscreen');
 }
 
 
 /** enable SVG upload  */
 
-function jado_enableSVGUploads()
+function jado_enableSVGUploads(): void
 {
     $value = get_option('enableSVGUploads', 'no');
     ?>
@@ -410,14 +423,13 @@ if ($enableSVGUploads == 'yes') {
         $mime_types['svg'] = 'image/svg+xml';
         return $mime_types;
     }
-
     add_filter('upload_mimes', 'ja_myme_types', 1, 1);
 }
 
 
 /** disable admin bar frontend */
 
-function jado_disableAdminBarFrontend()
+function jado_disableAdminBarFrontend(): void
 {
     $value = get_option('disableAdminBarFrontend', 'no');
     ?>
@@ -427,7 +439,6 @@ function jado_disableAdminBarFrontend()
     </label>
     <?php
 }
-
 $disableAdminBarFrontend = get_option('disableAdminBarFrontend', 'no');
 if ($disableAdminBarFrontend == 'yes') {
     add_filter('show_admin_bar', '__return_false');
@@ -436,7 +447,7 @@ if ($disableAdminBarFrontend == 'yes') {
 
 /** disable embeds  */
 
-function jado_disableEmbedsFrontend()
+function jado_disableEmbedsFrontend(): void
 {
     $value = get_option('disableEmbedsFrontend', 'no');
     ?>
@@ -446,10 +457,9 @@ function jado_disableEmbedsFrontend()
     </label>
     <?php
 }
-
 $disableEmbedsFrontend = get_option('disableEmbedsFrontend', 'no');
 if ($disableEmbedsFrontend == 'yes') {
-    function disable_embeds_code_init()
+    function disable_embeds_code_init(): void
     {
         remove_action('rest_api_init', 'wp_oembed_register_route');
         add_filter('embed_oembed_discover', '__return_false');
@@ -460,13 +470,11 @@ if ($disableEmbedsFrontend == 'yes') {
         add_filter('rewrite_rules_array', 'disable_embeds_rewrites');
         remove_filter('pre_oembed_result', 'wp_filter_pre_oembed_result', 10);
     }
-
     add_action('init', 'disable_embeds_code_init', 9999);
-    function disable_embeds_tiny_mce_plugin($plugins)
+    function disable_embeds_tiny_mce_plugin($plugins): array
     {
         return array_diff($plugins, array('wpembed'));
     }
-
     function disable_embeds_rewrites($rules)
     {
         foreach ($rules as $rule => $rewrite) {
@@ -481,8 +489,7 @@ if ($disableEmbedsFrontend == 'yes') {
 
 /** disable gutenberg frontend custom styles  */
 
-
-function jado_disableGutenbergCustomStyle()
+function jado_disableGutenbergCustomStyle(): void
 {
     $value = get_option('disableGutenbergCustomStyle', 'no');
     ?>
@@ -495,7 +502,7 @@ function jado_disableGutenbergCustomStyle()
 
 $disableGutenbergCustomStyle = get_option('disableGutenbergCustomStyle', 'no');
 if ($disableGutenbergCustomStyle == 'yes') {
-    function disable_gutenberg_custom_enqueue_scripts()
+    function disable_gutenberg_custom_enqueue_scripts(): void
     {
         wp_dequeue_style('global-styles');
         wp_dequeue_style('wp-block-library');
@@ -507,7 +514,7 @@ if ($disableGutenbergCustomStyle == 'yes') {
 
 /** Set alt-attr on upload image */
 
-function jado_setAltAttrImage()
+function jado_setAltAttrImage(): void
 {
     $value = get_option('setAltAttrImage', 'no');
     ?>
@@ -521,7 +528,7 @@ function jado_setAltAttrImage()
 $setAltAttrImage = get_option('setAltAttrImage', 'no');
 
 if ($setAltAttrImage == 'yes') {
-    function set_image_alt_on_image_upload($post_ID)
+    function set_image_alt_on_image_upload($post_ID): void
     {
         if (wp_attachment_is_image($post_ID)) {
             $jado_image_title = get_post($post_ID)->post_title;
@@ -537,15 +544,13 @@ if ($setAltAttrImage == 'yes') {
             wp_update_post($jado_image_meta);
         }
     }
-
     add_action('add_attachment', 'set_image_alt_on_image_upload', 109);
 }
 
 
 /** disable comments and pingbacks  */
 
-
-function jado_disableComments()
+function jado_disableComments(): void
 {
     $value = get_option('disableComments', 'no');
     ?>
@@ -555,16 +560,15 @@ function jado_disableComments()
     </label>
     <?php
 }
-
 $disableComments = get_option('disableComments', 'no');
 if ($disableComments == 'yes') {
-    function disable_comments_status()
+    function disable_comments_status(): bool
     {
         return false;
     }
     add_filter('comments_open', 'disable_comments_status', 20, 2);
     add_filter('pings_open', 'disable_comments_status', 20, 2);
-    function disable_comments_post_types_support()
+    function disable_comments_post_types_support(): void
     {
         $post_types = get_post_types();
         foreach ($post_types as $post_type) {
@@ -575,31 +579,29 @@ if ($disableComments == 'yes') {
         }
     }
     add_action('admin_init', 'disable_comments_post_types_support');
-    function disable_comments_hide_existing_comments($comments)
+    function disable_comments_hide_existing_comments($comments): array
     {
         $comments = array();
         return $comments;
     }
     add_filter('comments_array', 'disable_comments_hide_existing_comments', 10, 2);
-    function disable_comments_admin_menu()
+    function disable_comments_admin_menu(): void
     {
         remove_menu_page('edit-comments.php');
     }
-
     add_action('admin_menu', 'disable_comments_admin_menu');
-    function disable_menus_admin_bar_render()
+    function disable_menus_admin_bar_render(): void
     {
         global $wp_admin_bar;
         $wp_admin_bar->remove_menu('comments');
     }
-
     add_action('wp_before_admin_bar_render', 'disable_menus_admin_bar_render');
 }
 
 
 /** Emails encode Shortcode! */
 
-function jado_encodeEmails()
+function jado_encodeEmails(): void
 {
     $value = get_option('encodeEmails', 'no');
     ?>
@@ -625,7 +627,7 @@ if ($encodeEmails == 'yes') {
 
 /** deactivate heartbeat - auto save etc. */
 
-function jado_heartbeat()
+function jado_heartbeat(): void
 {
     $value = get_option('heartbeat', 'no');
     ?>
@@ -634,22 +636,19 @@ function jado_heartbeat()
     </label>
     <?php
 }
-
 $heartbeat = get_option('heartbeat', 'no');
 if ($heartbeat == 'yes') {
     add_action('init', 'stop_heartbeat', 1);
-    function stop_heartbeat()
+    function stop_heartbeat(): void
     {
         wp_deregister_script('heartbeat');
     }
 }
 
 
-
-
 /** activate jQuery */
 
-function jado_activateJquery()
+function jado_activateJquery(): void
 {
     $value = get_option('activateJquery', 'no');
     ?>
@@ -661,19 +660,17 @@ function jado_activateJquery()
 
 $activateJquery = get_option('activateJquery', 'no');
 if ($activateJquery == 'yes') {
-    function load_scripts(){
+    function load_scripts(): void
+    {
         wp_enqueue_script('jquery');
     }
     add_action('wp_enqueue_scripts', 'load_scripts');
 }
 
 
-
-
 /** excerpt for pages */
 
-
-function jado_pageExcerpts()
+function jado_pageExcerpts(): void
 {
     $value = get_option('pageExcerpts', 'no');
     ?>
@@ -694,11 +691,9 @@ if ($pageExcerpts == 'yes') {
 }
 
 
-
-
 /** Script style W3C-Correct */
 
-function jado_scriptW3C()
+function jado_scriptW3C(): void
 {
     $value = get_option('scriptW3C', 'no');
     ?>
@@ -707,7 +702,6 @@ function jado_scriptW3C()
     </label>
     <?php
 }
-
 $scriptW3C = get_option('scriptW3C', 'no');
 if ($scriptW3C == 'yes') {
     add_action(
@@ -720,11 +714,9 @@ if ($scriptW3C == 'yes') {
 
 
 
-
-
-
 add_action( 'admin_notices', 'jado_notice' );
-function jado_notice() {
+function jado_notice(): void
+{
     if(
         isset( $_GET[ 'page' ] )
         && 'jado_options' == $_GET[ 'page' ]

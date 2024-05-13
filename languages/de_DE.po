@@ -2,21 +2,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
 "POT-Creation-Date: 2024-05-06 19:02+0200\n"
-"PO-Revision-Date: 2024-05-06 20:49+0200\n"
+"PO-Revision-Date: 2024-05-13 13:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;"
+"__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -25,11 +25,8 @@ msgid "Epic 404 - Article Not Found"
 msgstr "404 - Seite nicht gefunden"
 
 #: 404.php:9
-msgid ""
-"The article you were looking for was not found, but maybe try looking again!"
-msgstr ""
-"Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
-"einmal!"
+msgid "The article you were looking for was not found, but maybe try looking again!"
+msgstr "Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch einmal!"
 
 #: archive.php:14
 msgid "Posted"
@@ -217,8 +214,7 @@ msgstr "JPG-Qualität der Bilder"
 
 #: lib/theme-settings.php:83
 msgid "Set alt attributes for images after upload<br>(based on image name)"
-msgstr ""
-"Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
+msgstr "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
 #: lib/theme-settings.php:92
 msgid "Show featured images in backend"
@@ -264,6 +260,10 @@ msgstr "Default Editor Fullscreen ausschalten"
 msgid "Encode emails e.g. [email]email@email.com[/email]"
 msgstr "Emails verschlüsseln z.B.: [email]email@email.de[/email]"
 
+#: lib/theme-settings.php:209
+msgid "Editors menu & widget access"
+msgstr "Redakteur Navigation & Widget Zugriff"
+
 #: lib/theme-settings.php:191
 msgid "Deaktivate heartbeat <br>(auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
@@ -280,14 +280,12 @@ msgstr "Auszüge für Seiten<br>(für Meta Beschreibungen)"
 msgid "Activate jQuery"
 msgstr "jQuery aktivieren"
 
-#: lib/theme-settings.php:267 lib/theme-settings.php:289
-#: lib/theme-settings.php:312 lib/theme-settings.php:351
-#: lib/theme-settings.php:375 lib/theme-settings.php:401
-#: lib/theme-settings.php:426 lib/theme-settings.php:445
-#: lib/theme-settings.php:491 lib/theme-settings.php:516
-#: lib/theme-settings.php:554 lib/theme-settings.php:607
-#: lib/theme-settings.php:633 lib/theme-settings.php:657
-#: lib/theme-settings.php:681 lib/theme-settings.php:706
+#: lib/theme-settings.php:267 lib/theme-settings.php:289 lib/theme-settings.php:312
+#: lib/theme-settings.php:351 lib/theme-settings.php:375 lib/theme-settings.php:401
+#: lib/theme-settings.php:426 lib/theme-settings.php:445 lib/theme-settings.php:491
+#: lib/theme-settings.php:516 lib/theme-settings.php:554 lib/theme-settings.php:607
+#: lib/theme-settings.php:633 lib/theme-settings.php:657 lib/theme-settings.php:681
+#: lib/theme-settings.php:706
 msgid "Yes"
 msgstr "Ja"
 
@@ -343,11 +341,8 @@ msgid "https://www.ja.do"
 msgstr "https://www.ja.do"
 
 #. Description of the plugin/theme
-msgid ""
-"custom Theme for starting clean and simple projects / woocommerce enabled"
-msgstr ""
-"Individuelle Theme, um Performance und schnelle Projekte zu starten / auch "
-"für WooCommerce"
+msgid "custom Theme for starting clean and simple projects / woocommerce enabled"
+msgstr "Individuelle Theme, um Performance und schnelle Projekte zu starten / auch für WooCommerce"
 
 #. Author of the plugin/theme
 msgid "jado"
@@ -355,7 +350,7 @@ msgstr "jado"
 
 #. Template Name of the plugin/theme
 msgid "Custom Loop"
-msgstr "Zustrom Post Loop"
+msgstr "Custom Post Loop"
 
 #~ msgid "Beitragsbild"
 #~ msgstr "Featured image"
@@ -367,11 +362,11 @@ msgstr "Zustrom Post Loop"
 #~ msgstr "Zeige Post Thumbnail im Backend"
 
 #~ msgid ""
-#~ "Please note: Settings are not saved the first time, only the second time "
-#~ "saved - we are working on this!"
+#~ "Please note: Settings are not saved the first time, only the second time saved - we are "
+#~ "working on this!"
 #~ msgstr ""
-#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern "
-#~ "gespeichert! Wir arbeiten dran das bald zu beheben!"
+#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern gespeichert! Wir arbeiten "
+#~ "dran das bald zu beheben!"
 
 #~ msgid "FooterNav"
 #~ msgstr "FooterNav"
@@ -390,13 +385,11 @@ msgstr "Zustrom Post Loop"
 
 #, php-format
 #~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
-#~ "%4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</"
+#~ "span> <span class=\"amp\">&</span> filed under %4$s."
 #~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
-#~ "%4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</"
+#~ "span> <span class=\"amp\">&</span> filed under %4$s."
 
 #~ msgid "F jS, Y"
 #~ msgstr "F jS, Y"
@@ -426,11 +419,11 @@ msgstr "Zustrom Post Loop"
 
 #, php-format
 #~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span>"
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</"
+#~ "span>"
 #~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span>"
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</"
+#~ "span>"
 
 #~ msgid "Sorry, we don't use RSS!"
 #~ msgstr "Sorry, we don't use RSS!"
