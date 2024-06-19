@@ -58,7 +58,7 @@
             }
             ?>
             <div class="flex">
-                <a class="logolink" href="<?php echo home_url(); ?>" rel="nofollow">
+                <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>" rel="nofollow">
                     <?php echo '<div id="logo">';
                     bloginfo('name');
                     echo '</div>'; ?>
