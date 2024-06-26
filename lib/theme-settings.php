@@ -537,8 +537,20 @@ function jado_apply_settings(): void
                 add_theme_support('html5', ['script', 'style']);
             }
         );
-    }
 
+        add_filter('script_loader_tag', 'clean_script_tag');
+        function clean_script_tag($input) {
+            $input = str_replace("type='text/javascript' ", '', $input);
+            return str_replace("'", '"', $input);
+        }
+
+
+        add_filter('style_loader_tag', 'jado_remove_type_attr', 10, 2);
+        add_filter('script_loader_tag', 'jado_remove_type_attr', 10, 2);
+        function jado_remove_type_attr($tag, $handle) {
+            return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+        }
+    }
 
 }
 

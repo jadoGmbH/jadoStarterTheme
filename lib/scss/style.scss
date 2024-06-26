@@ -5,14 +5,14 @@ Stylesheet: Main Stylesheet
 @import "assets/variables";
 @import "assets/typography";
 @import "viewports/mobile";
-//@import "assets/woocommerce"; // enable when using woocommerce
+@import "assets/woocommerce"; // enable when using woocommerce
 
 @media only screen and (min-width: 768px) {
 	@import "viewports/tabletUp";
 }
 
 @media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
-	@import "viewports/desktopUp"; // deactivate if you like web design without scaling endless viewports
+	@import "viewports/desktopUp"; // deactivate if you like web design with fluid weight not covered by max width!
 }
 
 @media print {

@@ -114,7 +114,6 @@
                     echo $firstName . ' ' . $lastName;
                 }
                 echo '</a>';
-
                 echo '</div>';
             }
             ?>
