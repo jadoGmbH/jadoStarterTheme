@@ -538,20 +538,22 @@ function jado_apply_settings(): void
             }
         );
 
-        add_filter('script_loader_tag', 'clean_script_tag');
-        function clean_script_tag($input) {
-            $input = str_replace("type='text/javascript' ", '', $input);
-            return str_replace("'", '"', $input);
+        function remove_type_attributes($tag) {
+            return preg_replace("/\s*type=['\"]text\/(javascript|css)['\"]/", '', $tag);
         }
-
-
-        add_filter('style_loader_tag', 'jado_remove_type_attr', 10, 2);
-        add_filter('script_loader_tag', 'jado_remove_type_attr', 10, 2);
-        function jado_remove_type_attr($tag, $handle) {
-            return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+        add_filter('script_loader_tag', 'remove_type_attributes');
+        add_filter('style_loader_tag', 'remove_type_attributes');
+        function buffer_start() { ob_start('buffer_callback'); }
+        function buffer_end() { ob_end_flush(); }
+        function buffer_callback($buffer) {
+            $buffer = preg_replace("/\s*type=['\"]text\/(javascript|css)['\"]/", '', $buffer);
+            return $buffer;
         }
+        add_action('wp_head', 'buffer_start', 1);
+        add_action('wp_footer', 'buffer_end', 1);
+        add_action('admin_head', 'buffer_start', 1);
+        add_action('admin_footer', 'buffer_end', 1);
     }
-
 }
 
 add_action('after_setup_theme', 'jado_apply_settings');
