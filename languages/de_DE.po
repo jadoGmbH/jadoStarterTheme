@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
-"POT-Creation-Date: 2024-05-06 19:02+0200\n"
-"PO-Revision-Date: 2024-05-13 13:18+0200\n"
+"POT-Creation-Date: 2024-06-26 12:30+0200\n"
+"PO-Revision-Date: 2024-06-26 12:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,9 +14,9 @@ msgstr ""
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;"
-"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;"
-"__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -25,14 +25,17 @@ msgid "Epic 404 - Article Not Found"
 msgstr "404 - Seite nicht gefunden"
 
 #: 404.php:9
-msgid "The article you were looking for was not found, but maybe try looking again!"
-msgstr "Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch einmal!"
+msgid ""
+"The article you were looking for was not found, but maybe try looking again!"
+msgstr ""
+"Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
+"einmal!"
 
 #: archive.php:14
 msgid "Posted"
 msgstr "Veröffentlicht"
 
-#: archive.php:16 functions.php:179
+#: archive.php:16 functions.php:182
 msgid "by"
 msgstr "von"
 
@@ -68,7 +71,7 @@ msgstr "Weitere Kommentare &rarr;"
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: functions.php:192
+#: functions.php:195
 msgid "Links"
 msgstr "Links"
 
@@ -200,106 +203,102 @@ msgstr "Neuen Zustrom Type anlegen"
 msgid "New Product Tag Name"
 msgstr "Neuer Produkt Schlagwort Name"
 
-#: lib/theme-settings.php:7
+#: lib/theme-settings.php:6
 msgid "jado Starter Theme Settings"
 msgstr "jado Starter Theme Einstellungen"
 
-#: lib/theme-settings.php:8
+#: lib/theme-settings.php:7
 msgid "jST Settings"
 msgstr "jST Einstellungen"
 
-#: lib/theme-settings.php:71
-msgid "Upload Images JPG Quality"
-msgstr "JPG-Qualität der Bilder"
+#: lib/theme-settings.php:75
+msgid "Image Quality JPG Settings"
+msgstr "Bildqualität der JPGs setzen (0-100)"
 
-#: lib/theme-settings.php:83
-msgid "Set alt attributes for images after upload<br>(based on image name)"
-msgstr "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
+#: lib/theme-settings.php:76
+msgid "Set alt attributes for images after upload (based on image)"
+msgstr ""
+"Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
-#: lib/theme-settings.php:92
+#: lib/theme-settings.php:77
 msgid "Show featured images in backend"
 msgstr "Zeige Beitragsbilder in Backend"
 
-#: lib/theme-settings.php:101
-msgid "Activate SVG uploads"
+#: lib/theme-settings.php:78
+msgid "Enable SVG Uploads"
 msgstr "Aktivere SVG Uploads"
 
-#: lib/theme-settings.php:110
+#: lib/theme-settings.php:79
 msgid "Gutenberg full width"
 msgstr "Gutenberg volle Seitenbreite"
 
-#: lib/theme-settings.php:119
+#: lib/theme-settings.php:80
 msgid "Deactivate Gutenberg inline styles"
 msgstr "Gutenberg Inline CSS ausschalten"
 
-#: lib/theme-settings.php:128
-msgid "Deactivate Emojis"
+#: lib/theme-settings.php:81
+msgid "Disable Emoji"
 msgstr "Emojis deaktivieren"
 
-#: lib/theme-settings.php:137
-msgid "Deactivate comments"
+#: lib/theme-settings.php:82
+msgid "Disable XMLRPC"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:146
-msgid "Deaktiviere XMLRPC"
-msgstr "XMLRPC entfernen"
-
-#: lib/theme-settings.php:155
-msgid "Deactivate admin bar in front end"
-msgstr "Entferne Admin Bar aus dem Frontend"
-
-#: lib/theme-settings.php:164
-msgid "Deactivate embeds front end"
-msgstr "Entferne Embed CSS aus dem Frontend"
-
-#: lib/theme-settings.php:173
-msgid "Deactivate fullscreen editor default"
+#: lib/theme-settings.php:84
+msgid "Disable Editor Fullscreen Default"
 msgstr "Default Editor Fullscreen ausschalten"
 
-#: lib/theme-settings.php:182
-msgid "Encode emails e.g. [email]email@email.com[/email]"
+#: lib/theme-settings.php:85
+msgid "Disable Admin Bar in Frontend"
+msgstr "Entferne Admin Bar aus dem Frontend"
+
+#: lib/theme-settings.php:86
+msgid "Disable Embeds in Frontend"
+msgstr "Entferne Embed CSS aus dem Frontend"
+
+#: lib/theme-settings.php:87
+msgid "Disable Comments"
+msgstr "Kommentarfunktion ausschalten"
+
+#: lib/theme-settings.php:88
+msgid "Encode emails e.g. <br>[email]email@email.com/email]"
 msgstr "Emails verschlüsseln z.B.: [email]email@email.de[/email]"
 
-#: lib/theme-settings.php:209
-msgid "Editors menu & widget access"
-msgstr "Redakteur Navigation & Widget Zugriff"
-
-#: lib/theme-settings.php:191
-msgid "Deaktivate heartbeat <br>(auto safe etc.)"
+#: lib/theme-settings.php:89
+msgid "Disable heartbeat <br>(auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
 
-#: lib/theme-settings.php:200
-msgid "correct script style <br>(delete type=script)"
+#: lib/theme-settings.php:90
+msgid "Correct script style (delete type=script)"
 msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
 
-#: lib/theme-settings.php:210
-msgid "Excerpts for pages<br>(for meta descriptions)"
+#: lib/theme-settings.php:91
+msgid "Excerpts for pages (for meta descriptions)"
 msgstr "Auszüge für Seiten<br>(für Meta Beschreibungen)"
 
-#: lib/theme-settings.php:219
+#: lib/theme-settings.php:92
 msgid "Activate jQuery"
-msgstr "jQuery aktivieren"
+msgstr "Aktiviere jQuery"
 
-#: lib/theme-settings.php:267 lib/theme-settings.php:289 lib/theme-settings.php:312
-#: lib/theme-settings.php:351 lib/theme-settings.php:375 lib/theme-settings.php:401
-#: lib/theme-settings.php:426 lib/theme-settings.php:445 lib/theme-settings.php:491
-#: lib/theme-settings.php:516 lib/theme-settings.php:554 lib/theme-settings.php:607
-#: lib/theme-settings.php:633 lib/theme-settings.php:657 lib/theme-settings.php:681
-#: lib/theme-settings.php:706
+#: lib/theme-settings.php:93
+msgid "Give Editors Menu access"
+msgstr "Redakteur Navigation & Widget Zugriff"
+
+#: lib/theme-settings.php:137
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:323
+#: lib/theme-settings.php:262
+msgid "Settings saved"
+msgstr "Einstellungen gespeichert"
+
+#: lib/theme-settings.php:317
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:336
+#: lib/theme-settings.php:330
 msgid "Your theme do not support post thumbnails ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
-
-#: lib/theme-settings.php:737
-msgid "Settings saved"
-msgstr "Einstellungen gespeichert"
 
 #: search.php:5
 msgid "Search Results for:"
@@ -341,8 +340,11 @@ msgid "https://www.ja.do"
 msgstr "https://www.ja.do"
 
 #. Description of the plugin/theme
-msgid "custom Theme for starting clean and simple projects / woocommerce enabled"
-msgstr "Individuelle Theme, um Performance und schnelle Projekte zu starten / auch für WooCommerce"
+msgid ""
+"custom Theme for starting clean and simple projects / woocommerce enabled"
+msgstr ""
+"Individuelle Theme, um Performance und schnelle Projekte zu starten / auch "
+"für WooCommerce"
 
 #. Author of the plugin/theme
 msgid "jado"
@@ -352,21 +354,46 @@ msgstr "jado"
 msgid "Custom Loop"
 msgstr "Custom Post Loop"
 
+#, fuzzy
+#~| msgid "Enable Post Thumbnail in backend"
+#~ msgid "Admin Post Thumbnail"
+#~ msgstr "Zeige Post Thumbnail im Backend"
+
+#, fuzzy
+#~| msgid "Deaktiviere XMLRPC"
+#~ msgid "Remove XML-RPC"
+#~ msgstr "XMLRPC entfernen"
+
+#, fuzzy
+#~| msgid "Deactivate Emojis"
+#~ msgid "Deactivate XML Sitemap"
+#~ msgstr "Emojis deaktivieren"
+
+#~ msgid "Set Alt Attribute for Images"
+#~ msgstr ""
+#~ "Setze automatisch Alt-Attribute auf Grund der Dateinamen bei Bildern"
+
+#~ msgid "Encode Emails"
+#~ msgstr "Verschlüssele Emailadressen (shortcode)"
+
+#~ msgid "Script W3C Compliance"
+#~ msgstr "Alle Scripte W3C-konform"
+
+#~ msgid "Upload Images JPG Quality"
+#~ msgstr "JPG-Qualität der Bilder"
+
 #~ msgid "Beitragsbild"
 #~ msgstr "Featured image"
 
 #~ msgid "Theme Functions"
 #~ msgstr "Funktionen"
 
-#~ msgid "Enable Post Thumbnail in backend"
-#~ msgstr "Zeige Post Thumbnail im Backend"
-
 #~ msgid ""
-#~ "Please note: Settings are not saved the first time, only the second time saved - we are "
-#~ "working on this!"
+#~ "Please note: Settings are not saved the first time, only the second time "
+#~ "saved - we are working on this!"
 #~ msgstr ""
-#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern gespeichert! Wir arbeiten "
-#~ "dran das bald zu beheben!"
+#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern "
+#~ "gespeichert! Wir arbeiten dran das bald zu beheben!"
 
 #~ msgid "FooterNav"
 #~ msgstr "FooterNav"
@@ -385,11 +412,13 @@ msgstr "Custom Post Loop"
 
 #, php-format
 #~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</"
-#~ "span> <span class=\"amp\">&</span> filed under %4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
 #~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</"
-#~ "span> <span class=\"amp\">&</span> filed under %4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
+#~ "%4$s."
 
 #~ msgid "F jS, Y"
 #~ msgstr "F jS, Y"
@@ -419,11 +448,11 @@ msgstr "Custom Post Loop"
 
 #, php-format
 #~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</"
-#~ "span>"
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
 #~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</"
-#~ "span>"
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
+#~ "class=\"author\">%3$s</span>"
 
 #~ msgid "Sorry, we don't use RSS!"
 #~ msgstr "Sorry, we don't use RSS!"
