@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
-"POT-Creation-Date: 2024-06-26 12:30+0200\n"
-"PO-Revision-Date: 2024-06-26 12:32+0200\n"
+"POT-Creation-Date: 2024-06-26 20:33+0200\n"
+"PO-Revision-Date: 2024-06-26 20:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -35,7 +35,7 @@ msgstr ""
 msgid "Posted"
 msgstr "Veröffentlicht"
 
-#: archive.php:16 functions.php:182
+#: archive.php:16 functions.php:179
 msgid "by"
 msgstr "von"
 
@@ -71,7 +71,7 @@ msgstr "Weitere Kommentare &rarr;"
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: functions.php:195
+#: functions.php:192
 msgid "Links"
 msgstr "Links"
 
@@ -211,92 +211,96 @@ msgstr "jado Starter Theme Einstellungen"
 msgid "jST Settings"
 msgstr "jST Einstellungen"
 
-#: lib/theme-settings.php:75
+#: lib/theme-settings.php:76
 msgid "Image Quality JPG Settings"
 msgstr "Bildqualität der JPGs setzen (0-100)"
 
-#: lib/theme-settings.php:76
+#: lib/theme-settings.php:77
 msgid "Set alt attributes for images after upload (based on image)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
-#: lib/theme-settings.php:77
+#: lib/theme-settings.php:78
 msgid "Show featured images in backend"
 msgstr "Zeige Beitragsbilder in Backend"
 
-#: lib/theme-settings.php:78
+#: lib/theme-settings.php:79
 msgid "Enable SVG Uploads"
 msgstr "Aktivere SVG Uploads"
 
-#: lib/theme-settings.php:79
+#: lib/theme-settings.php:80
 msgid "Gutenberg full width"
 msgstr "Gutenberg volle Seitenbreite"
 
-#: lib/theme-settings.php:80
+#: lib/theme-settings.php:81
 msgid "Deactivate Gutenberg inline styles"
 msgstr "Gutenberg Inline CSS ausschalten"
 
-#: lib/theme-settings.php:81
+#: lib/theme-settings.php:82
 msgid "Disable Emoji"
 msgstr "Emojis deaktivieren"
 
-#: lib/theme-settings.php:82
+#: lib/theme-settings.php:83
 msgid "Disable XMLRPC"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:84
+#: lib/theme-settings.php:85
 msgid "Disable Editor Fullscreen Default"
 msgstr "Default Editor Fullscreen ausschalten"
 
-#: lib/theme-settings.php:85
+#: lib/theme-settings.php:86
 msgid "Disable Admin Bar in Frontend"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
-#: lib/theme-settings.php:86
+#: lib/theme-settings.php:87
 msgid "Disable Embeds in Frontend"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
-#: lib/theme-settings.php:87
+#: lib/theme-settings.php:88
 msgid "Disable Comments"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:88
+#: lib/theme-settings.php:89
 msgid "Encode emails e.g. <br>[email]email@email.com/email]"
 msgstr "Emails verschlüsseln z.B.: [email]email@email.de[/email]"
 
-#: lib/theme-settings.php:89
+#: lib/theme-settings.php:90
 msgid "Disable heartbeat <br>(auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
 
-#: lib/theme-settings.php:90
+#: lib/theme-settings.php:91
 msgid "Correct script style (delete type=script)"
 msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
 
-#: lib/theme-settings.php:91
+#: lib/theme-settings.php:92
+msgid "Better Design for Gutenberg Backend"
+msgstr "Besseres Design für Gutenberg im Admin Bereich"
+
+#: lib/theme-settings.php:93
 msgid "Excerpts for pages (for meta descriptions)"
 msgstr "Auszüge für Seiten<br>(für Meta Beschreibungen)"
 
-#: lib/theme-settings.php:92
+#: lib/theme-settings.php:94
 msgid "Activate jQuery"
 msgstr "Aktiviere jQuery"
 
-#: lib/theme-settings.php:93
+#: lib/theme-settings.php:95
 msgid "Give Editors Menu access"
 msgstr "Redakteur Navigation & Widget Zugriff"
 
-#: lib/theme-settings.php:137
+#: lib/theme-settings.php:139
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:262
+#: lib/theme-settings.php:269
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
-#: lib/theme-settings.php:317
+#: lib/theme-settings.php:324
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:330
+#: lib/theme-settings.php:337
 msgid "Your theme do not support post thumbnails ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 
