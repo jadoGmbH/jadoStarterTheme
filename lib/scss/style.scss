@@ -12,7 +12,7 @@ Stylesheet: Main Stylesheet
 }
 
 @media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
-	@import "viewports/desktopUp"; // deactivate if you like web design with fluid weight not covered by max width!
+	@import "viewports/desktopUp"; // deactivate if you like web design with fluid width not covered by max width!
 }
 
 @media print {
