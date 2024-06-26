@@ -44,18 +44,18 @@ function jado_initialize_options(): void
         'enableSVGUploads',
         'gutenberg_full_width',
         'disableGutenbergCustomStyle',
+        'disableEditorFullscreenDefault',
+        'customAdminStyle',
         'disableEmoji',
         'removeXMLRPC',
-        //'deactivateXMLSitemap',
-        'disableEditorFullscreenDefault',
-        'disableAdminBarFrontend',
         'disableEmbedsFrontend',
         'disableComments',
         'encodeEmails',
         'heartbeat',
         'scriptW3C',
-        'customAdminStyle',
         'pageExcerpts',
+        //'deactivateXMLSitemap',
+        'disableAdminBarFrontend',
         'activateJquery',
         'editor_role_menu'
     ];
@@ -72,57 +72,112 @@ function jado_initialize_options(): void
 function jado_settings_fields(): void
 {
     $option_group = 'jado_options_settings';
-    $options = [
+
+    // Section 1: Media Settings
+    add_settings_section(
+        'jado_section_media',
+        __('Media Settings', 'jadotheme'),
+        '',
+        'jado_options'
+    );
+
+    $media_options = [
         'imgQuality' => __('Image Quality JPG Settings', 'jadotheme'),
         'setAltAttrImage' => __('Set alt attributes for images after upload (based on image)', 'jadotheme'),
         'AdminPostThumbnail' => __('Show featured images in backend', 'jadotheme'),
-        'enableSVGUploads' => __('Enable SVG Uploads', 'jadotheme'),
+        'enableSVGUploads' => __('Enable SVG Uploads', 'jadotheme')
+    ];
+
+    foreach ($media_options as $option => $label) {
+        jado_add_settings_field($option_group, 'jado_section_media', $option, $label);
+    }
+
+    // Section 2: Gutenberg Settings
+    add_settings_section(
+        'jado_section_gutenberg',
+        __('Gutenberg Settings', 'jadotheme'),
+        '',
+        'jado_options'
+    );
+
+    $gutenberg_options = [
         'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
         'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles', 'jadotheme'),
+        'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
+        'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
+    ];
+
+    foreach ($gutenberg_options as $option => $label) {
+        jado_add_settings_field($option_group, 'jado_section_gutenberg', $option, $label);
+    }
+
+    // Section 3: SEO Settings
+    add_settings_section(
+        'jado_section_seo',
+        __('SEO, Security & Performance Settings', 'jadotheme'),
+        '',
+        'jado_options'
+    );
+
+    $seo_options = [
         'disableEmoji' => __('Disable Emoji', 'jadotheme'),
         'removeXMLRPC' => __('Disable XMLRPC', 'jadotheme'),
-        //'deactivateXMLSitemap' => __('Deactivate XML Sitemap', 'jadotheme'),
-        'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
-        'disableAdminBarFrontend' => __('Disable Admin Bar in Frontend', 'jadotheme'),
         'disableEmbedsFrontend' => __('Disable Embeds in Frontend', 'jadotheme'),
         'disableComments' => __('Disable Comments', 'jadotheme'),
         'encodeEmails' => __('Encode emails e.g. <br>[email]email@email.com/email]', 'jadotheme'),
         'heartbeat' => __('Disable heartbeat <br>(auto safe etc.)', 'jadotheme'),
         'scriptW3C' => __('Correct script style (delete type=script)', 'jadotheme'),
-        'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme'),
         'pageExcerpts' => __('Excerpts for pages (for meta descriptions)', 'jadotheme'),
+    ];
+
+    foreach ($seo_options as $option => $label) {
+        jado_add_settings_field($option_group, 'jado_section_seo', $option, $label);
+    }
+
+
+    // Section 4: Misc Settings
+    add_settings_section(
+        'jado_section_misc',
+        __('Misc Settings', 'jadotheme'),
+        '',
+        'jado_options'
+    );
+
+    $misc_options = [
+        //'deactivateXMLSitemap' => __('Deactivate XML Sitemap', 'jadotheme'),
+        'disableAdminBarFrontend' => __('Disable Admin Bar in Frontend', 'jadotheme'),
         'activateJquery' => __('Activate jQuery', 'jadotheme'),
         'editor_role_menu' => __('Give Editors Menu access', 'jadotheme')
     ];
 
-    foreach ($options as $option => $label) {
-        $sanitize_callback = 'jado_sanitize_checkbox';
-        if ($option === 'imgQuality') {
-            $sanitize_callback = 'absint';
-        }
-        register_setting($option_group, $option, ['sanitize_callback' => $sanitize_callback]);
-
-        add_settings_section(
-            'jado_section_id',
-            '',
-            '',
-            'jado_options'
-        );
-
-        $callback = "jado_{$option}_field";
-        add_settings_field(
-            $option,
-            __($label, 'jadotheme'),
-            $callback,
-            'jado_options',
-            'jado_section_id',
-            array(
-                'label_for' => $option,
-                'name' => $option
-            )
-        );
+    foreach ($misc_options as $option => $label) {
+        jado_add_settings_field($option_group, 'jado_section_misc', $option, $label);
     }
 }
+
+
+function jado_add_settings_field($option_group, $section_id, $option, $label)
+{
+    $sanitize_callback = 'jado_sanitize_checkbox';
+    if ($option === 'imgQuality') {
+        $sanitize_callback = 'absint';
+    }
+    register_setting($option_group, $option, ['sanitize_callback' => $sanitize_callback]);
+
+    $callback = "jado_{$option}_field";
+    add_settings_field(
+        $option,
+        __($label, 'jadotheme'),
+        $callback,
+        'jado_options',
+        $section_id,
+        array(
+            'label_for' => $option,
+            'name' => $option
+        )
+    );
+}
+
 
 // Sanitize checkbox values
 function jado_sanitize_checkbox($value): string
@@ -525,14 +580,11 @@ function jado_apply_settings(): void
     /** excerpt for pages */
     $pageExcerpts = get_option('pageExcerpts', 'no');
     if ($pageExcerpts == 'yes') {
-        add_action(
-            'after_setup_theme',
-            function () {
-                add_post_type_support( 'page', 'excerpt' );
-            }
-        );
+        add_action('init', 'jado_add_excerpts_to_pages');
+        function jado_add_excerpts_to_pages() {
+            add_post_type_support('page', 'excerpt');
+        }
     }
-
 
 
     /** Script style W3C-Correct */
