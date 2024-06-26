@@ -54,6 +54,7 @@ function jado_initialize_options(): void
         'encodeEmails',
         'heartbeat',
         'scriptW3C',
+        'customAdminStyle',
         'pageExcerpts',
         'activateJquery',
         'editor_role_menu'
@@ -88,6 +89,7 @@ function jado_settings_fields(): void
         'encodeEmails' => __('Encode emails e.g. <br>[email]email@email.com/email]', 'jadotheme'),
         'heartbeat' => __('Disable heartbeat <br>(auto safe etc.)', 'jadotheme'),
         'scriptW3C' => __('Correct script style (delete type=script)', 'jadotheme'),
+        'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme'),
         'pageExcerpts' => __('Excerpts for pages (for meta descriptions)', 'jadotheme'),
         'activateJquery' => __('Activate jQuery', 'jadotheme'),
         'editor_role_menu' => __('Give Editors Menu access', 'jadotheme')
@@ -221,6 +223,11 @@ function jado_heartbeat_field($args): void
 }
 
 function jado_scriptW3C_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_customAdminStyle_field($args): void
 {
     jado_checkbox_field($args);
 }
@@ -554,6 +561,20 @@ function jado_apply_settings(): void
         add_action('admin_head', 'buffer_start', 1);
         add_action('admin_footer', 'buffer_end', 1);
     }
+
+
+    /** Better Gutenberg Styles Admin */
+    $customAdminStyle = get_option('customAdminStyle', 'no');
+    if ($customAdminStyle == 'yes') {
+
+        function custom_admin_styles()
+        {
+            echo '<style>.editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
+        }
+
+        add_action('admin_head', 'custom_admin_styles');
+    }
+
 }
 
 add_action('after_setup_theme', 'jado_apply_settings');
