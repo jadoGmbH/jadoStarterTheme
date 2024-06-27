@@ -150,7 +150,7 @@ function jado_admin_CSS()
         #adminmenu div.wp-menu-image.dashicons-admin-generic:before {
             color: #e1f200 !important;
         }
-        #wpbody form h2{padding-top: 2em; border-top: 1px solid #dcdcdc; margin: 2em 0 1em 0; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;}
+        body.toplevel_page_jado_options #wpbody form h2{padding-top: 2em; border-top: 1px solid #dcdcdc; margin: 2em 0 1em 0; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;}
         body.toplevel_page_jado_options table.form-table tbody tr{background: rgba(255,255,255,0.5); display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; border-right: 1px solid #dcdcdc;}
         body.toplevel_page_jado_options table.form-table tbody tr td{padding-right: 20px;}
         @media only screen and (min-width: 768px) {
