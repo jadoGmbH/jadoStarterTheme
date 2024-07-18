@@ -54,6 +54,7 @@ function jado_initialize_options(): void
         'heartbeat',
         'scriptW3C',
         'pageExcerpts',
+        'maintenanceMode',
         //'deactivateXMLSitemap',
         'disableAdminBarFrontend',
         'activateJquery',
@@ -147,7 +148,8 @@ function jado_settings_fields(): void
         //'deactivateXMLSitemap' => __('Deactivate XML Sitemap', 'jadotheme'),
         'disableAdminBarFrontend' => __('Disable Admin Bar in Frontend', 'jadotheme'),
         'activateJquery' => __('Activate jQuery', 'jadotheme'),
-        'editor_role_menu' => __('Give Editors Menu access', 'jadotheme')
+        'editor_role_menu' => __('Give Editors Menu access', 'jadotheme'),
+        'maintenanceMode' => __('Activate Maintenance mode', 'jadotheme'),
     ];
 
     foreach ($misc_options as $option => $label) {
@@ -288,6 +290,11 @@ function jado_customAdminStyle_field($args): void
 }
 
 function jado_pageExcerpts_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_maintenanceMode_field($args): void
 {
     jado_checkbox_field($args);
 }
@@ -583,6 +590,19 @@ function jado_apply_settings(): void
         add_action('init', 'jado_add_excerpts_to_pages');
         function jado_add_excerpts_to_pages() {
             add_post_type_support('page', 'excerpt');
+        }
+    }
+
+
+    /** Maintenance Mode **/
+    $maintenance = get_option('maintenanceMode', 'no');
+    if ($maintenance == 'yes') {
+        add_action('template_redirect', 'maintenance_mode');
+        function maintenance_mode() {
+            if ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
+                include get_template_directory() . '/lib/maintenance.php';
+                exit;
+            }
         }
     }
 

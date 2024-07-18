@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
 "POT-Creation-Date: 2024-06-26 21:46+0200\n"
-"PO-Revision-Date: 2024-06-26 21:47+0200\n"
+"PO-Revision-Date: 2024-07-18 22:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -304,6 +304,10 @@ msgstr "Aktiviere jQuery"
 msgid "Give Editors Menu access"
 msgstr "Redakteur Navigation & Widget Zugriff"
 
+#: lib/theme-settings.php:152
+msgid "Activate Maintenance mode"
+msgstr "Wartungsmodus aktivieren"
+
 #: lib/theme-settings.php:194
 msgid "Yes"
 msgstr "Ja"
@@ -373,6 +377,14 @@ msgstr "jado"
 #. Template Name of the plugin/theme
 msgid "Custom Loop"
 msgstr "Custom Post Loop"
+
+#: lib/maintenance.php:5
+msgid "Maintenance Mode"
+msgstr "Wartungsmodus"
+
+#: lib/maintenance.php:10
+msgid "Please come back later."
+msgstr "Bitte kommen sie später wieder."
 
 #, fuzzy
 #~| msgid "Enable Post Thumbnail in backend"
