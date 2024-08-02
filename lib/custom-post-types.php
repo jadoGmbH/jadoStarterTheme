@@ -34,7 +34,7 @@ function custom_post_example()
             'rewrite' => array('slug' => 'product', 'with_front' => false),
             'has_archive' => 'products',
             'capability_type' => 'post',
-			'show_in_rest' => true, // Gutenberg enable
+			'show_in_rest' => true,
 			'hierarchical' => false,
             //'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
 			'supports' => array('title', 'editor', 'author', 'thumbnail',  'custom-fields', 'revisions')
@@ -63,6 +63,8 @@ register_taxonomy('custom_cat',
         'show_admin_column' => true,
         'show_ui' => true,
         'query_var' => true,
+        'show_in_rest' => true, 
+        'show_in_menu' => true,
         'rewrite' => array('slug' => 'custom-slug'),
     )
 );
@@ -84,6 +86,7 @@ register_taxonomy('custom_tag',
         ),
         'show_admin_column' => true,
         'show_ui' => true,
+        'show_in_rest' => true, 
         'query_var' => true,
     )
 );
