@@ -13,6 +13,9 @@ $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
 $borderradius: 0.4em;
 $spaceafterblock: 1.5em;
 
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: $copy;
@@ -573,7 +576,7 @@ pre{
     }
 
 
-    button.button, .wp-block-button button {
+    button.button, .wp-block-button {
       padding: 0.8em 1.5em;
       font-family: $headline;
       background-color: $link-color;
