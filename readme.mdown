@@ -8,7 +8,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
-| 4.0 | SwiperJS and BaguetteBox integrated |
+| 4.0 | SwiperJS and BaguetteBox integrated switch license to MIT |
 | 3.5 | WordPress 6.6 & simple maintenance mode |
 | 3.4 | WordPress 6.5.2 & translations |
 | 3.3 | WordPress 6.3 & Woo 8.0.0 optimisation, default Font |
