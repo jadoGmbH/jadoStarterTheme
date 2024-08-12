@@ -147,19 +147,42 @@ function jado_admin_CSS()
 {
     ?>
     <style>
-        #adminmenu div.wp-menu-image.dashicons-admin-generic:before {
+        #adminmenu div.wp-menu-image.dashicons-admin-generic:before, #adminmenu div.wp-menu-image.dashicons-images-alt2:before {
             color: #e1f200 !important;
         }
+
         body.toplevel_page_jado_options #wpbody form h2{padding-top: 2em; border-top: 1px solid #dcdcdc; margin: 2em 0 1em 0; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;}
         body.toplevel_page_jado_options table.form-table tbody tr{background: rgba(255,255,255,0.5); display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; border-right: 1px solid #dcdcdc;}
-        body.toplevel_page_jado_options table.form-table tbody tr td{padding-right: 20px;}
+        body.toplevel_page_jado_options table.form-table tbody tr td{padding-right: 20px; display: flex; align-items: center; margin: 0;}
+        body.toplevel_page_jado_options table.form-table tbody th[scope="row"]{display: flex; align-items: center;}
+
         @media only screen and (min-width: 768px) {
             body.toplevel_page_jado_options .form-table tbody tr:nth-child(even) {
                 clear: left;
+                border-right: none;
             }
+
+            body.toplevel_page_jado_options tr.swiperjs{
+                background: rgba(255,255,255,0.5) url(<?php echo get_template_directory_uri()?>/lib/img/swiperjs.png) no-repeat 80% center !important;
+                background-size: 5em !important;
+            }
+            body.toplevel_page_jado_options tr.swiperjs:hover{
+                background: rgba(255,255,255,1) url(<?php echo get_template_directory_uri()?>/lib/img/swiperjs.png) no-repeat 80% center !important;
+                background-size: 5em !important;
+            }
+
+            body.toplevel_page_jado_options tr.baguettebox{
+                background: rgba(255,255,255,0.5) url(<?php echo get_template_directory_uri()?>/lib/img/baguettebox.png) no-repeat 80% center !important;
+                background-size: 5em !important;
+            }
+            body.toplevel_page_jado_options tr.baguettebox:hover{
+                background: rgba(255,255,255,1) url(<?php echo get_template_directory_uri()?>/lib/img/baguettebox.png) no-repeat 80% center !important;
+                background-size: 5em !important;
+            }
+
             body.toplevel_page_jado_options table.form-table tbody{display: flex; flex-wrap: wrap;}
             body.toplevel_page_jado_options table.form-table tbody tr:hover{background: rgba(255,255,255,1);}
-            body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;}
+            body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;width: 260px;}
             body.toplevel_page_jado_options table.form-table tbody tr{flex: 0 0 48%;}
             body.toplevel_page_jado_options .form-table tbody tr {
                 width: 46%;
@@ -231,6 +254,9 @@ add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 function theme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
+
+
+
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

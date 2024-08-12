@@ -15,13 +15,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
 }
 */
 ?>
-<!--<script async src="https://www.google-analytics.com/analytics.js"></script>-->
-<!--<script>-->
-<!--    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;-->
-<!--    ga("create", "UA-XXX-XXX-XXX", "auto");-->
-<!--    ga("set", "anonymizeIp", true);-->
-<!--    ga("send", "pageview");-->
-<!--</script>-->
 <script>
     function toggleClass(element, className) {
         if (!element || !className) {

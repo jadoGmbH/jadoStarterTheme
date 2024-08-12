@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
 "POT-Creation-Date: 2024-06-26 21:46+0200\n"
-"PO-Revision-Date: 2024-07-18 22:24+0200\n"
+"PO-Revision-Date: 2024-08-12 09:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,9 +14,8 @@ msgstr ""
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -25,11 +24,8 @@ msgid "Epic 404 - Article Not Found"
 msgstr "404 - Seite nicht gefunden"
 
 #: 404.php:9
-msgid ""
-"The article you were looking for was not found, but maybe try looking again!"
-msgstr ""
-"Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch "
-"einmal!"
+msgid "The article you were looking for was not found, but maybe try looking again!"
+msgstr "Der gesuchte Artikel wurde nicht gefunden. Bitte versuchen Sie es noch einmal!"
 
 #: archive.php:14
 msgid "Posted"
@@ -221,8 +217,7 @@ msgstr "Bildqualität der JPGs setzen (0-100)"
 
 #: lib/theme-settings.php:86
 msgid "Set alt attributes for images after upload (based on image)"
-msgstr ""
-"Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
+msgstr "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
 #: lib/theme-settings.php:87
 msgid "Show featured images in backend"
@@ -230,7 +225,15 @@ msgstr "Zeige Beitragsbilder in Backend"
 
 #: lib/theme-settings.php:88
 msgid "Enable SVG Uploads"
-msgstr "Aktivere SVG Uploads"
+msgstr "Aktiviere SVG Uploads"
+
+#: lib/theme-settings.php:89
+msgid "Enable SwiperJS for every Gallery Block"
+msgstr "Aktiviere SwiperJS Slider für jeden Galerie Block"
+
+#: lib/theme-settings.php:90
+msgid "Enable Lightbox for every Gallery Block linked to media file"
+msgstr "Aktiviere Lightbox für jede Galerie Block der zu den Mediendateien linkt"
 
 #: lib/theme-settings.php:98
 msgid "Gutenberg Settings"
@@ -324,6 +327,46 @@ msgstr "Beitragsbild"
 msgid "Your theme do not support post thumbnails ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 
+#: lib/theme-settings.php:46
+msgid "Gallery Block SwiperJS Settings"
+msgstr "Galerie Block SwiperJS Einstellungen"
+
+msgid "Setting options for all gallery blocks that are automatically converted to SwiperJS sliders when this plugin is activated"
+msgstr "Einstellmöglichkeiten für alle Galerie-Blöcke, die mit Aktivierung dieses Plugins automatisch in SwiperJS Slider umgewandelt werden"
+
+msgid "Gallery Settings"
+msgstr "Galerie Einstellungen"
+
+msgid "Effect:"
+msgstr "Effekt:"
+
+msgid "Speed (in ms):"
+msgstr "Geschwindigkeit (in ms):"
+
+msgid "Enable Pagination:"
+msgstr "Bullets unten einschalten:"
+
+msgid "Enable Navigation:"
+msgstr "Navigationspfeile einschalten:"
+
+msgid "Enable Autplay:"
+msgstr "Autoplay einschalten:"
+
+msgid "Autoplay Delay (in ms):"
+msgstr "Autoplay Verzögerung (in ms):"
+
+msgid "Slides per view:"
+msgstr "Slides pro Seite:"
+
+msgid "Space between Slides (in px):"
+msgstr "Abstand zwischen Bildern (in px):"
+
+msgid "Color for Navigation/Pagniation:"
+msgstr "Farbe der Navigation/Pagination:"
+
+msgid "Enable Lazyload:"
+msgstr "Bilder Lazyload einschalten:"
+
 #: search.php:5
 msgid "Search Results for:"
 msgstr "Suchergebnisse für:"
@@ -364,11 +407,8 @@ msgid "https://www.ja.do"
 msgstr "https://www.ja.do"
 
 #. Description of the plugin/theme
-msgid ""
-"custom Theme for starting clean and simple projects / woocommerce enabled"
-msgstr ""
-"Individuelle Theme, um Performance und schnelle Projekte zu starten / auch "
-"für WooCommerce"
+msgid "custom Theme for starting clean and simple projects / woocommerce enabled"
+msgstr "Individuelle Theme, um Performance und schnelle Projekte zu starten / auch für WooCommerce"
 
 #. Author of the plugin/theme
 msgid "jado"
@@ -402,8 +442,7 @@ msgstr "Bitte kommen sie später wieder."
 #~ msgstr "Emojis deaktivieren"
 
 #~ msgid "Set Alt Attribute for Images"
-#~ msgstr ""
-#~ "Setze automatisch Alt-Attribute auf Grund der Dateinamen bei Bildern"
+#~ msgstr "Setze automatisch Alt-Attribute auf Grund der Dateinamen bei Bildern"
 
 #~ msgid "Encode Emails"
 #~ msgstr "Verschlüssele Emailadressen (shortcode)"
@@ -420,12 +459,8 @@ msgstr "Bitte kommen sie später wieder."
 #~ msgid "Theme Functions"
 #~ msgstr "Funktionen"
 
-#~ msgid ""
-#~ "Please note: Settings are not saved the first time, only the second time "
-#~ "saved - we are working on this!"
-#~ msgstr ""
-#~ "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern "
-#~ "gespeichert! Wir arbeiten dran das bald zu beheben!"
+#~ msgid "Please note: Settings are not saved the first time, only the second time saved - we are working on this!"
+#~ msgstr "Bitte beachten: Einstellungen werden erst nach dem zweiten Sichern gespeichert! Wir arbeiten dran das bald zu beheben!"
 
 #~ msgid "FooterNav"
 #~ msgstr "FooterNav"
@@ -444,13 +479,11 @@ msgstr "Bitte kommen sie später wieder."
 
 #, php-format
 #~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
-#~ "%4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed "
+#~ "under %4$s."
 #~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed under "
-#~ "%4$s."
+#~ "Posted <time class=\"updated\" datetime=\"%1$s\">%2$s</time> by <span class=\"author\">%3$s</span> <span class=\"amp\">&</span> filed "
+#~ "under %4$s."
 
 #~ msgid "F jS, Y"
 #~ msgstr "F jS, Y"
@@ -479,12 +512,8 @@ msgstr "Bitte kommen sie später wieder."
 #~ msgstr "Example custom post type"
 
 #, php-format
-#~ msgid ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span>"
-#~ msgstr ""
-#~ "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span "
-#~ "class=\"author\">%3$s</span>"
+#~ msgid "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</span>"
+#~ msgstr "Posted <time class=\"updated\" datetime=\"%1$s\" >%2$s</time> by <span class=\"author\">%3$s</span>"
 
 #~ msgid "Sorry, we don't use RSS!"
 #~ msgstr "Sorry, we don't use RSS!"

@@ -115,6 +115,18 @@
       "oF" : 0,
       "pg" : 0
     },
+    "\/lib\/css\/swiperjs.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/swiperjs-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/lib\/custom-post-types.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1844,6 +1856,28 @@
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
+    },
+    "\/lib\/js\/admin-script.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/admin-script-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/lib\/js\/swiperjs.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/swiperjs-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     },
     "\/lib\/maintenance.php" : {
       "cB" : 0,
