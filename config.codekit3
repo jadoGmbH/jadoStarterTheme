@@ -103,6 +103,30 @@
       "oAP" : "\/languages\/de_DE.po",
       "oF" : 0
     },
+    "\/lib\/css\/baguetteBox.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/baguetteBox-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/lib\/css\/baguetteBox.min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/baguetteBox.min-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/lib\/css\/style.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -112,6 +136,18 @@
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/lib\/css\/style-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/lib\/css\/swiperjs-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/swiperjs-min-min.css",
       "oF" : 0,
       "pg" : 0
     },
@@ -1793,6 +1829,19 @@
       "ou" : "lpckwebp-none",
       "rq" : 75
     },
+    "\/lib\/img\/baguettebox.png" : {
+      "ft" : 32768,
+      "iS" : 4301,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/baguettebox.png",
+      "oF" : 0,
+      "oIPL" : 1,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/lib\/img\/cart.afdesign" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1839,6 +1888,19 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/lib\/img\/swiperjs.png" : {
+      "ft" : 32768,
+      "iS" : 4365,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/swiperjs.png",
+      "oF" : 0,
+      "oIPL" : 1,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/lib\/img\/user.afdesign" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1864,6 +1926,39 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/lib\/js\/admin-script-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/lib\/js\/baguetteBox.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/baguetteBox-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/lib\/js\/baguetteBox.min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/baguetteBox.min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/lib\/js\/swiperjs-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/swiperjs-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
