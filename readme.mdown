@@ -40,7 +40,7 @@ https://wordpress.ja.do/faq/
 
 📃 License:
 
-https://en.wikipedia.org/wiki/MIT_License
+https://opensource.org/license/mit
 
 📃 License Font: 
 
