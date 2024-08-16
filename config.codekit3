@@ -103,6 +103,18 @@
       "oAP" : "\/languages\/de_DE.po",
       "oF" : 0
     },
+    "\/lib\/css\/baguetteBox-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/baguetteBox-min-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/lib\/css\/baguetteBox.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -112,6 +124,18 @@
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/lib\/css\/baguetteBox-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/lib\/css\/baguetteBox.min-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/css\/baguetteBox.min-min-min.css",
       "oF" : 0,
       "pg" : 0
     },
