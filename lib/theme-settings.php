@@ -1006,8 +1006,8 @@ function jado_apply_settings(): void
     $baguettebox = get_option('baguettebox', 'no');
     if ($baguettebox == 'yes') {
         function register_b_assets() {
-            wp_register_style( 'baguettebox-css', get_template_directory_uri() . '/lib/css/baguetteBox.min.css', [], '1.12.0' );
-            wp_register_script( 'baguettebox', get_template_directory_uri() . '/lib/js/baguetteBox.min.js', [], '1.12.0', true );
+            wp_register_style( 'baguettebox-css', get_template_directory_uri() . '/lib/css/baguetteBox-min.css', [], '1.12.0' );
+            wp_register_script( 'baguettebox', get_template_directory_uri() . '/lib/js/baguetteBox-min.js', [], '1.12.0', true );
             $baguettebox_selector = apply_filters( 'baguettebox_selector', '.wp-block-gallery,:not(.wp-block-gallery)>.wp-block-image,.wp-block-media-text__media,.gallery,.wp-block-coblocks-gallery-masonry,.wp-block-coblocks-gallery-stacked,.wp-block-coblocks-gallery-collage,.wp-block-coblocks-gallery-offset,.wp-block-coblocks-gallery-stacked,.mgl-gallery,.gb-block-image' );
             $baguettebox_filter = apply_filters( 'baguettebox_filter',  '/.+\.(gif|jpe?g|png|webp|svg|avif|heif|heic|tif?f|)($|\?)/i' );
             $baguettebox_ignoreclass = apply_filters( 'baguettebox_ignoreclass', 'no-lightbox' );
