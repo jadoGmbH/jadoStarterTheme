@@ -7,7 +7,7 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
-  "creatorBuild" : "34576",
+  "creatorBuild" : "34590",
   "files" : {
     "\/.gitignore" : {
       "cB" : 0,
@@ -124,30 +124,6 @@
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/lib\/css\/baguetteBox-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
-    "\/lib\/css\/baguetteBox.min-min.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/css\/baguetteBox.min-min-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
-    "\/lib\/css\/baguetteBox.min.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/css\/baguetteBox.min-min.css",
       "oF" : 0,
       "pg" : 0
     },
@@ -1954,6 +1930,17 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/lib\/js\/baguetteBox-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/lib\/js\/baguetteBox-min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/lib\/js\/baguetteBox.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -1961,17 +1948,6 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/lib\/js\/baguetteBox-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/lib\/js\/baguetteBox.min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/lib\/js\/baguetteBox.min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -3046,10 +3022,6 @@
         "active" : 0,
         "optionString" : "{'before': true, 'after': true, 'overrides': {}}"
       },
-      "line-comment-position" : {
-        "active" : 0,
-        "optionString" : "{'position': 'above'}"
-      },
       "linebreak-style" : {
         "active" : 0,
         "optionString" : "'unix'"
@@ -3101,10 +3073,6 @@
       "max-statements-per-line" : {
         "active" : 0,
         "optionString" : "{'max': 1}"
-      },
-      "multiline-comment-style" : {
-        "active" : 0,
-        "optionString" : "'starred-block'"
       },
       "multiline-ternary" : {
         "active" : 0,
@@ -3247,7 +3215,8 @@
         "active" : 0
       },
       "no-extra-boolean-cast" : {
-        "active" : 1
+        "active" : 1,
+        "optionString" : "{'enforceForInnerExpressions': false}"
       },
       "no-extra-label" : {
         "active" : 0
@@ -3332,7 +3301,8 @@
         "optionString" : "{'ignore': [], 'ignoreArrayIndexes': true, 'ignoreDefaultValues': false, 'ignoreClassFieldInitialValues': false, 'enforceConst': false, 'detectObjects': false}"
       },
       "no-misleading-character-class" : {
-        "active" : 1
+        "active" : 1,
+        "optionString" : "{'allowEscape': false}"
       },
       "no-mixed-operators" : {
         "active" : 0,
@@ -3700,7 +3670,8 @@
         "active" : 0
       },
       "require-unicode-regexp" : {
-        "active" : 0
+        "active" : 0,
+        "optionString" : "{'requireFlag': 'u'}"
       },
       "require-yield" : {
         "active" : 1
@@ -4130,6 +4101,7 @@
     "tsImportHelpers" : 0,
     "tsIsolatedModules" : 0,
     "tsJSXFactory" : "React.createElement",
+    "tsJSXFragmentFactory" : "Fragment",
     "tsNoEmitHelpers" : 0,
     "tsNoFallthroughCasesInSwitch" : 0,
     "tsNoImplicitAny" : 0,

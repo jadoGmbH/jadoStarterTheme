@@ -162,7 +162,7 @@ ul {
     background: $white;
   }
 
-  &.toggledOn {
+  &.burgerToggledOn {
     .c2 {
       display: none;
     }
@@ -186,7 +186,7 @@ ul {
   overflow: hidden;
   @include transition(max-height 300ms linear);
 
-  &.toggledOn {
+  &.burgerToggledOn {
     max-height: 1600px;
   }
 }
@@ -223,6 +223,42 @@ ul {
         }
       }
     }
+
+
+    &.menu-item-has-children, &.page_item_has_children {
+      position: relative;
+      li {
+        a {
+          padding: 3vw 10vw;
+          width: 100%;
+        }
+      }
+
+      .sub-menu, .children {
+        display: none;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: auto;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      &.toggledOn {
+        > .sub-menu{
+          display: block;
+        }
+
+        .sub-menu, .children {
+          max-height: 600px;
+          overflow: visible;
+        }
+      }
+    }
+
+
 
     &.current_page_ancestor {
       > a {
