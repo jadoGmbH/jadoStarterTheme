@@ -30,8 +30,8 @@ $footercolor:    #466065;
 $footertext:     $white;
 $maincolor:      #1c958b;
 $contrast:       #E1F200;
-$link-color:     darken($contrast, 10%);
-$link-hover:     lighten($link-color, 15%);
+$link-color:     color.adjust($contrast, $lightness: -10%);
+$link-hover:     color.adjust($link-color, $lightness: 15%);
 
 /* Woocommerce Colors */
 $wooGreen:  #429e0e;

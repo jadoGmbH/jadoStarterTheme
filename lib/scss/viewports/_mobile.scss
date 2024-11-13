@@ -208,7 +208,7 @@ ul {
       border-radius: $borderradius;
 
       &:hover {
-        background-color: darken($dark, 5%);
+        background-color: color.adjust($dark, $lightness: -5%);
         color: $headertext;
       }
     }
@@ -216,7 +216,7 @@ ul {
     &.current-menu-item, &.current_page_item {
       a {
         color: $headertext;
-        background-color: darken($dark, 5%);
+        background-color: color.adjust($dark, $lightness: -5%);
 
         &:hover {
           cursor: default;
@@ -510,7 +510,7 @@ pre{
         @include transition(background-color 200ms linear);
 
         &:hover{
-          background-color: lighten($contentcolor, 5%);
+          background-color: color.adjust($contentcolor, $lightness: 5%);
         }
 
         &.sold{ /** change if you need another custom post type category! */
@@ -598,7 +598,7 @@ pre{
         text-decoration: none;
 
         &:hover {
-          background-color: darken($link-color, 10%);
+          background-color: color.adjust($link-color, $lightness: -10%);
         }
 
         &.back {
@@ -627,7 +627,7 @@ pre{
 
       &:hover {
         cursor: pointer;
-        background-color: darken($link-color, 10%);
+        background-color: color.adjust($link-color, $lightness: -10%);
       }
     }
 
