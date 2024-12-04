@@ -147,6 +147,8 @@ function jado_admin_CSS()
 {
     ?>
     <style>
+        .accordion-section-title button.accordion-trigger{height: 3em !important;}
+
         #adminmenu div.wp-menu-image.dashicons-admin-generic:before, #adminmenu div.wp-menu-image.dashicons-images-alt2:before {
             color: #e1f200 !important;
         }

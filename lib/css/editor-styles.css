@@ -15,7 +15,7 @@ html:where(.editor-styles-wrapper) {
 .wp-block-column{border: 1px dotted #ccc;} 
 .wp-block-column:hover{border: 1px dotted #07468f;}
 
-/** Default **/
+    /** Default **/
 
 :root{
     --wp-admin-theme-color:#007cba;
