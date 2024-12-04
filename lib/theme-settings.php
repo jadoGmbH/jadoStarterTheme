@@ -56,7 +56,7 @@ function jado_initialize_options(): void
         'gutenberg_full_width',
         'disableGutenbergCustomStyle',
         'disableEditorFullscreenDefault',
-        //'customAdminStyle',// not working in WP 6.7 anymore - iframes!
+        'customAdminStyle',
         'disableEmoji',
         'removeXMLRPC',
         'disableEmbedsFrontend',
@@ -120,8 +120,8 @@ function jado_settings_fields(): void
     $gutenberg_options = [
         'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
         'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles', 'jadotheme'),
-        'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme')
-        //'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
+        'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
+        'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
     ];
 
     foreach ($gutenberg_options as $option => $label) {
@@ -1045,13 +1045,9 @@ function jado_apply_settings(): void
     /** Better Gutenberg Styles Admin - NOT WORKING IN WP 6.7 anymore - iframes */
     $customAdminStyle = get_option('customAdminStyle', 'no');
     if ($customAdminStyle == 'yes') {
+        add_theme_support('editor-styles');
+        add_editor_style('lib/css/editor-styles.css' );
 
-        function custom_admin_styles()
-        {
-            echo '<style>.wp-block{border: 2px solid red;} .editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
-        }
-
-        add_action('admin_head', 'custom_admin_styles');
     }
 
 }
