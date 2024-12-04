@@ -8,6 +8,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 4.2 | WordPress 6.7 Better Gutenberg Styles reactivated |
 | 4.1 | WordPress 6.7 Better Gutenberg Styles deactivated - because of iframe handling in WP 6.7, SASS/SCSS code optimisations  |
 | 4.0 | SwiperJS and BaguetteBox integrated - switched to MIT license |
 | 3.5 | WordPress 6.6 & simple maintenance mode |
