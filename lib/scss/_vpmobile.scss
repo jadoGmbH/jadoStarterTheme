@@ -112,11 +112,12 @@ Stylesheet: Base Mobile - Tablet
 
 
   #logo {
+
     display: inline-block;
     font-size: $headlinesize;
     line-height: 1.2;
     width: auto;
-    font-family: $headline;
+    font-family: $copy;
     position: relative;
     color: $headertext;
     font-weight: normal;
