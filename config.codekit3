@@ -7,7 +7,7 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
-  "creatorBuild" : "34592",
+  "creatorBuild" : "34627",
   "files" : {
     "\/.gitignore" : {
       "cB" : 0,
@@ -2290,7 +2290,6 @@
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2298,29 +2297,12 @@
       "oAP" : "\/lib\/scss\/css\/_print.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
-    },
-    "\/lib\/scss\/assets\/_typography.scss" : {
-      "aP" : 0,
-      "bl" : 0,
-      "co" : 0,
-      "dP" : 5,
-      "ec" : 1,
-      "ft" : 4,
-      "ma" : 0,
-      "oA" : 1,
-      "oAP" : "\/lib\/scss\/css\/_typography.css",
-      "oF" : 0,
-      "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/assets\/_variables.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2328,14 +2310,12 @@
       "oAP" : "\/lib\/scss\/css\/_variables.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/assets\/_woocommerce.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2343,14 +2323,12 @@
       "oAP" : "\/lib\/scss\/css\/_woocommerce.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/assets\/_woocommerceCustom.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2358,14 +2336,12 @@
       "oAP" : "\/lib\/scss\/css\/_woocommerceCustom.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/style.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2373,14 +2349,12 @@
       "oAP" : "\/lib\/css\/style.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/viewports\/_desktopUp.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2388,14 +2362,25 @@
       "oAP" : "\/lib\/scss\/css\/_desktopUp.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
+    },
+    "\/lib\/scss\/viewports\/_index.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/lib\/scss\/css\/_index.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0
     },
     "\/lib\/scss\/viewports\/_mobile.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2403,14 +2388,12 @@
       "oAP" : "\/lib\/scss\/css\/_mobile.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/scss\/viewports\/_tabletUp.scss" : {
       "aP" : 0,
       "bl" : 0,
       "co" : 0,
-      "dP" : 5,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
@@ -2418,8 +2401,7 @@
       "oAP" : "\/lib\/scss\/css\/_tabletUp.css",
       "oF" : 0,
       "oS" : 3,
-      "pg" : 0,
-      "sct" : 0
+      "pg" : 0
     },
     "\/lib\/theme-settings.php" : {
       "cB" : 0,
@@ -2497,6 +2479,18 @@
       "oA" : 0,
       "oAP" : "\/single.php",
       "oF" : 0
+    },
+    "\/style-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/style-min-min.css",
+      "oF" : 0,
+      "pg" : 0
     },
     "\/style.css" : {
       "aP" : 1,
@@ -3962,9 +3956,7 @@
       "autoOutputPathReplace1" : "sass",
       "autoOutputPathReplace2" : "css",
       "autoOutputPathStyle" : 2,
-      "compilerType" : 0,
       "cssoStyle" : 0,
-      "decimalPrecision" : 5,
       "emitCharset" : 1,
       "outputStyle" : 3,
       "purgeCSSStyle" : 0,
@@ -4081,6 +4073,7 @@
     ],
     "rollupTreeshakingEnabled" : 1,
     "rollupTreeshakingModuleSideEffects" : 1,
+    "sassWarningStyle" : 1,
     "skippedFoldersString" : "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules",
     "sourceFolderName" : "source",
     "susyVersion" : 3,

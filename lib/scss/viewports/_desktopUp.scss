@@ -2,191 +2,197 @@
 Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 ******************************************************************/
 
-$copysize: 18px;
-$headlinesize: 40px;
-$contentwidth: 80%;
-$maxcontentwidth: 1000px; // maximal width for layout!
-$innerpostgap: 20px;
-$boxshadow: 0 0 3em rgba(0, 0, 0, 0.1), 0 0 0.6em rgba(0, 0, 0, 0.5);
-$spaceafterblock: 50px;
+@use "../assets/variables" as *;
+@use "sass:color";
+
+@mixin desktopUp() {
+
+  $copysize: 18px;
+  $headlinesize: 40px;
+  $contentwidth: 80%;
+  $maxcontentwidth: 1000px; // maximal width for layout!
+  $innerpostgap: 20px;
+  $borderradius: 0.4em;
+  $boxshadow: 0 0 3em rgba(0, 0, 0, 0.1), 0 0 0.6em rgba(0, 0, 0, 0.5);
+  $spaceafterblock: 50px;
 
 
-body {
-  font-size: 100%;
-}
-
-.wrap {
-  width: $contentwidth;
-  max-width: $maxcontentwidth;
-}
-
-.header {
-  padding: 2em 0;
-  box-shadow: $boxshadow;
-}
-
-#logo {
-  font-size: $headlinesize;
-}
-
-#description {
-  font-size: $copysize;
-}
-
-.nav {
-  li {
-    a {
-      font-size: $copysize;
-      padding: 0.25em 0.75em;
-      border-radius: $borderradius;
-    }
-  }
-}
-
-
-figure.wp-block-image {
-  figcaption {
-    font-size: $copysize - 4;
-  }
-}
-
-#content {
-  box-shadow: $boxshadow;
-
-
-  .hentry {
-
-    header {
-      padding: 2em 0;
-    }
+  body {
+    font-size: 100%;
   }
 
-  .entry-content {
-    .summary, p, .woocommerce-cart-form{
-      a, a:visited {
+  .wrap {
+    width: $contentwidth;
+    max-width: $maxcontentwidth;
+  }
+
+  .header {
+    padding: 2em 0;
+    box-shadow: $boxshadow;
+  }
+
+  #logo {
+    font-size: $headlinesize;
+  }
+
+  #description {
+    font-size: $copysize;
+  }
+
+  .nav {
+    li {
+      a {
         font-size: $copysize;
+        padding: 0.25em 0.75em;
+        border-radius: $borderradius;
+      }
+    }
+  }
 
-        &.wp-block-button__link, &.button {
-          padding: 0.8em 1.5em;
-          border-radius: $borderradius;
-        }
+
+  figure.wp-block-image {
+    figcaption {
+      font-size: $copysize - 4;
+    }
+  }
+
+  #content {
+    box-shadow: $boxshadow;
+
+
+    .hentry {
+
+      header {
+        padding: 2em 0;
       }
     }
 
-    h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
-      margin: 0 0 $innerpostgap 0;
-    }
+    .entry-content {
+      .summary, p, .woocommerce-cart-form {
+        a, a:visited {
+          font-size: $copysize;
 
-    h1, h1 a, h1 strong {
-      font-size: $headlinesize;
-    }
-
-    h2, h2 a, h2 strong {
-      font-size: $headlinesize - 10;
-    }
-
-    h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-      font-size: $headlinesize - 12;
-    }
-
-    ul {
-      margin-bottom: $spaceafterblock;
-
-      &.wp-block-latest-posts__list{
-
-        &.is-grid {
-          li {
+          &.wp-block-button__link, &.button {
+            padding: 0.8em 1.5em;
             border-radius: $borderradius;
           }
         }
       }
 
-      li {
-        padding: 0 0 1em 1.4em;
-
-        &:before {
-          width: 0.6em;
-          height: 0.6em;
-          top: 0.5em;
-        }
+      h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
+        margin: 0 0 $innerpostgap 0;
       }
-    }
 
-    h2 a {
-      font-size: $headlinesize - 15;
-      padding: $innerpostgap;
-    }
-
-    p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-      font-size: $copysize;
-    }
-
-    time{
-      font-size: $copysize - 4;
-    }
-
-    p {
-      margin: 0 0 2em;
-    }
-
-
-    figure.wp-block-pullquote {
-      margin-bottom: $spaceafterblock;
-
-      p {
+      h1, h1 a, h1 strong {
         font-size: $headlinesize;
       }
-    }
 
-    pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
-      margin-bottom: $spaceafterblock;
-    }
-
-    img {
-      margin: 0 0 0.5em 0;
-    }
-
-    .cpt-container, .posts{
-
-      h2{
-        font-size: $headlinesize - 6;
+      h2, h2 a, h2 strong {
+        font-size: $headlinesize - 10;
       }
 
-      .cpt, .post{
-        border-radius: $borderradius;
+      h3, h4, h3 a, h4 a, h3 strong, h4 strong {
+        font-size: $headlinesize - 12;
       }
 
-      .cptimg, .postimg {
-        border-top-left-radius: $borderradius;
-        border-top-right-radius: $borderradius;
+      ul {
+        margin-bottom: $spaceafterblock;
+
+        &.wp-block-latest-posts__list {
+
+          &.is-grid {
+            li {
+              border-radius: $borderradius;
+            }
+          }
+        }
+
+        li {
+          padding: 0 0 1em 1.4em;
+
+          &:before {
+            width: 0.6em;
+            height: 0.6em;
+            top: 0.5em;
+          }
+        }
       }
 
-      .postcontent, .cptcontent{
-        padding: 0 $innerpostgap;
+      h2 a {
+        font-size: $headlinesize - 15;
+        padding: $innerpostgap;
+      }
 
-        &.noimg{
-          padding-top: $innerpostgap;
+      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
+        font-size: $copysize;
+      }
+
+      time {
+        font-size: $copysize - 4;
+      }
+
+      p {
+        margin: 0 0 2em;
+      }
+
+
+      figure.wp-block-pullquote {
+        margin-bottom: $spaceafterblock;
+
+        p {
+          font-size: $headlinesize;
+        }
+      }
+
+      pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
+        margin-bottom: $spaceafterblock;
+      }
+
+      img {
+        margin: 0 0 0.5em 0;
+      }
+
+      .cpt-container, .posts {
+
+        h2 {
+          font-size: $headlinesize - 6;
+        }
+
+        .cpt, .post {
+          border-radius: $borderradius;
+        }
+
+        .cptimg, .postimg {
+          border-top-left-radius: $borderradius;
+          border-top-right-radius: $borderradius;
+        }
+
+        .postcontent, .cptcontent {
+          padding: 0 $innerpostgap;
+
+          &.noimg {
+            padding-top: $innerpostgap;
+          }
         }
       }
     }
   }
-}
 
 
-#widgetarea {
-  .widget {
-    h2, h3 {
-      font-size: $copysize + 4;
+  #widgetarea {
+    .widget {
+      h2, h3 {
+        font-size: $copysize + 4;
+      }
+    }
+  }
+
+
+  .footer {
+    padding: 2em 0;
+
+    .copyright, .copyright a {
+      font-size: $copysize - 6;
     }
   }
 }
-
-
-.footer {
-  padding: 2em 0;
-
-  .copyright, .copyright a {
-    font-size: $copysize - 6;
-  }
-}
-
