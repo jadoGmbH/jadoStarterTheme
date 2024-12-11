@@ -22,7 +22,7 @@ Stylesheet: Variables
 }
 
 /* Colors */
-$dark:           #15435a;
+$dark:           #286788;
 $white:          #ffffff;
 $headercolor:    $dark;
 $headertext:     $white;
@@ -30,7 +30,7 @@ $contentcolor:   #e5e3dd;
 $contenttext:    #2b2913;
 $footercolor:    #466065;
 $footertext:     $white;
-$maincolor:      #1c958b;
+$maincolor:      #7a8037;
 $contrast:       #E1F200;
 $link-color:     color.adjust($contrast, $lightness: -10%);
 $link-hover:     color.adjust($link-color, $lightness: 15%);

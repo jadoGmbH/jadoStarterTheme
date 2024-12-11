@@ -2,12 +2,11 @@
 Stylesheet: Tablet - Desktop
 ******************************************************************/
 
-@use "../assets/variables" as *;
+@use "variables" as *;
 @use "sass:color";
 
 
 @mixin tabletUp() {
-
   $copysize: 1.6vw;
   $headlinesize: 4vw;
   $contentwidth: 90%;

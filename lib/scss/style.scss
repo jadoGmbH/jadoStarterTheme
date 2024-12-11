@@ -2,20 +2,20 @@
 Stylesheet: Main Stylesheet
 ******************************************************************/
 
-@use "viewports/mobile";
-@use "viewports/tabletUp";
-@use "viewports/desktopUp";
-@use "assets/print" as print;
-@use "viewports/index" as viewports;
+@use "vpmobile";
+@use "vptabletUp";
+@use "vpdesktopUp";
+@use "print" as print;
+@use "index" as viewports;
 
-@include mobile.mobile();
+@include vpmobile.mobile();
 
 @media only screen and (min-width: 768px) {
-	@include tabletUp.tabletUp();
+	@include vptabletUp.tabletUp();
 }
 
 @media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
-	@include desktopUp.desktopUp(); // deactivate if you like web design with fluid width not covered by max width!
+	@include vpdesktopUp.desktopUp(); // deactivate if you like web design with fluid width not covered by max width!
 }
 
 @media print {

@@ -2,7 +2,7 @@
 Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 ******************************************************************/
 
-@use "../assets/variables" as *;
+@use "variables" as *;
 @use "sass:color";
 
 @mixin desktopUp() {
