@@ -1060,7 +1060,7 @@ function jado_apply_settings(): void
 
         function custom_admin_styles()
         {
-            echo '<style>.wp-block{border: 1px dotted #dedede;} .editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
+            echo '<style>figure.wp-block-image > div{background-color: #dedede;} .wp-block{border: 1px dotted #dedede;} .editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
         }
 
         add_action('admin_head', 'custom_admin_styles');
