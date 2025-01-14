@@ -56,7 +56,7 @@ function jado_initialize_options(): void
         'gutenberg_full_width',
         'disableGutenbergCustomStyle',
         'disableEditorFullscreenDefault',
-        'customAdminStyle',
+        'customAdminStyle',// not working in WP 6.7 anymore - iframes!
         'disableEmoji',
         'removeXMLRPC',
         'disableEmbedsFrontend',
@@ -410,13 +410,25 @@ function jado_apply_settings(): void
     /** disable Emoji  */
     $disableEmoji = get_option('disableEmoji', 'no');
     if ($disableEmoji == 'yes') {
-        function jadotheme_disableEmoji(): void
-        {
+        function disable_emojis() {
             remove_action('wp_head', 'print_emoji_detection_script', 7);
+            remove_action('admin_print_scripts', 'print_emoji_detection_script');
             remove_action('wp_print_styles', 'print_emoji_styles');
+            remove_action('admin_print_styles', 'print_emoji_styles');
+            remove_filter('the_content_feed', 'wp_staticize_emoji');
+            remove_filter('comment_text_rss', 'wp_staticize_emoji');
+            remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+            add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
         }
+        add_action('init', 'disable_emojis');
 
-        add_action('after_setup_theme', 'jadotheme_disableEmoji');
+        function disable_emojis_tinymce($plugins) {
+            if (is_array($plugins)) {
+                return array_diff($plugins, array('wpemoji'));
+            } else {
+                return array();
+            }
+        }
     }
 
 
@@ -1045,9 +1057,13 @@ function jado_apply_settings(): void
     /** Better Gutenberg Styles Admin - NOT WORKING IN WP 6.7 anymore - iframes */
     $customAdminStyle = get_option('customAdminStyle', 'no');
     if ($customAdminStyle == 'yes') {
-        add_theme_support('editor-styles');
-        add_editor_style('lib/css/editor-styles.css' );
 
+        function custom_admin_styles()
+        {
+            echo '<style>.wp-block{border: 1px dotted #dedede;} .editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
+        }
+
+        add_action('admin_head', 'custom_admin_styles');
     }
 
 }
