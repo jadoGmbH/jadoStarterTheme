@@ -8,6 +8,7 @@ jQuery is deactivated per default and two minimal functions are integrated in pu
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 4.4 | Default Securtiy Headers / hide WP-Users |
 | 4.3 | SASS 3.0 ready |
 | 4.2 | WordPress 6.7 Better Gutenberg Styles reactivated |
 | 4.1 | WordPress 6.7 Better Gutenberg Styles deactivated - because of iframe handling in WP 6.7, SASS/SCSS code optimisations  |
