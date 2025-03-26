@@ -362,6 +362,13 @@ function set_hsts_header($headers) {
 add_filter('wp_headers', 'set_hsts_header');
 
 
+/** Delay between login attempts */
+
+function custom_login_delay() {
+    sleep(20); // Delay 20 Seconds between login attempts
+}
+
+add_action('wp_login_failed', 'custom_login_delay');
 
 
 
