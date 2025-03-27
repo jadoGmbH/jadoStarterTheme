@@ -275,7 +275,6 @@ function block_author_enumeration() {
 }
 add_action('init', 'block_author_enumeration');
 
-
 function disable_json_user_enumeration($endpoints) {
     if (isset($endpoints['/wp/v2/users'])) {
         unset($endpoints['/wp/v2/users']);
@@ -286,7 +285,7 @@ add_filter('rest_endpoints', 'disable_json_user_enumeration');
 
 
 
-/** permission policy header */
+/** Permission-Policy-Header */
 
 
 function set_permissions_policy_header($headers) {
@@ -296,7 +295,7 @@ function set_permissions_policy_header($headers) {
 add_filter('wp_headers', 'set_permissions_policy_header');
 
 
-/** referrer header */
+/** Referrer-Header-Policy */
 
 function set_referrer_policy($headers) {
     $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
@@ -324,7 +323,7 @@ function set_coop_header($headers) {
 add_filter('wp_headers', 'set_coop_header');
 
 
-/** X-Frame-Options-Header - iframe on other sites */
+/** X-Frame-Options-Header - iFrames on other Sites */
 
 function set_x_frame_options($headers) {
     $headers['X-Frame-Options'] = 'SAMEORIGIN';
