@@ -21,7 +21,7 @@ Stylesheet: Tablet - Desktop
   }
 
   #logo {
-    font-size: $headlinesize;
+    font-size: $headlinesize - 1.4;
     margin-right: 0;
   }
 
@@ -161,7 +161,7 @@ Stylesheet: Tablet - Desktop
     box-shadow: $boxshadow;
 
     .entry-content {
-      button.button, .wp-block-button {
+      button.button {
         padding: 0.8em 1.5em;
         margin: 0;
         border-radius: $borderradius;

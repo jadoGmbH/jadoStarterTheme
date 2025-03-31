@@ -31,8 +31,8 @@ $contenttext:    #2b2913;
 $footercolor:    $dark;
 $footertext:     $white;
 $maincolor:      #7a8037;
-$contrast:       #a1aa33;
-$link-color:     $contrast;
+$contrast: #b9c62a;
+$link-color: #a7b32d;
 $link-hover:     $link-color;
 
 /* Woocommerce Colors */
@@ -57,6 +57,7 @@ $wooBlue:   #07468f;
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Albert Sans';
   font-style: normal;
   font-weight: 700;

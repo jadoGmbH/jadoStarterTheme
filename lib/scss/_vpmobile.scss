@@ -103,7 +103,7 @@ Stylesheet: Base Mobile - Tablet
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 1em;
+      gap: 0.6em;
       @include transition(opacity 300ms ease-out);
     }
 
@@ -135,7 +135,7 @@ Stylesheet: Base Mobile - Tablet
   #description {
     display: block;
     font-weight: normal;
-    color: $white;
+    color: $dark;
     font-size: $copysize;
     margin-top: 1em;
 
@@ -611,15 +611,19 @@ Stylesheet: Base Mobile - Tablet
           padding: 0.8em 1.5em;
           font-family: $headline;
           border-radius: $borderradius;
-          background-color: $link-color;
-          color: $white;
+          background-color: $contrast;
+          color: $dark;
           margin: 0;
+          top: 0;
+          position: relative;
           display: block;
           text-align: center;
           text-decoration: none;
+          @include transition(all 150ms ease-out);
 
           &:hover {
             background-color: $link-color;
+            top: 1px;
           }
 
           &.back {
@@ -633,7 +637,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
 
-      button.button, .wp-block-button {
+      button.button {
         padding: 0.8em 1.5em;
         font-family: $headline;
         background-color: $link-color;

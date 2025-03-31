@@ -63,7 +63,7 @@
                     echo '<div id="logo">';
                     $icon_url = get_site_icon_url(300);
                     if ($icon_url) {
-                        echo '<img width="100" height="100" src="' . esc_url($icon_url) . '">';
+                        echo '<img alt="Website Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
                     }
                     bloginfo('name');
                     echo '</div>'; ?>

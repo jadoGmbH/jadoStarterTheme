@@ -32,7 +32,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   #logo {
-    font-size: $headlinesize;
+    font-size: $headlinesize - 8;
   }
 
   #description {
