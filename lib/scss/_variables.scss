@@ -47,10 +47,9 @@ $wooBlue:   #07468f;
 
 //please integrate google webfonts with the webfont helper:  https://gwfh.mranftl.com/fonts
 
-
 @font-face {
   font-display: swap;
-  font-family: 'Albert Sans';
+  font-family: 'Albert Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/albert-sans-v1-latin-regular.woff2') format('woff2');
@@ -58,7 +57,7 @@ $wooBlue:   #07468f;
 
 @font-face {
   font-display: swap;
-  font-family: 'Albert Sans';
+  font-family: 'Albert Sans', sans-serif;
   font-style: normal;
   font-weight: 700;
   src: url('../fonts/albert-sans-v1-latin-700.woff2') format('woff2');

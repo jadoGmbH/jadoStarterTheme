@@ -78,16 +78,6 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
 
     .entry-content {
-      .summary, p, .woocommerce-cart-form {
-        a, a:visited {
-          font-size: $copysize;
-
-          &.wp-block-button__link, &.button {
-            padding: 0.8em 1.5em;
-            border-radius: $borderradius;
-          }
-        }
-      }
 
       h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
         margin: 0 0 $innerpostgap 0;
@@ -143,6 +133,10 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
       p {
         margin: 0 0 2em;
+
+        a{
+          font-size: $copysize;
+        }
       }
 
 
@@ -185,6 +179,15 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
           }
         }
       }
+    }
+  }
+
+  a, a:visited {
+    font-size: $copysize;
+
+    &.wp-block-button__link, &.button {
+      padding: 0.8em 1.5em;
+      border-radius: $borderradius;
     }
   }
 

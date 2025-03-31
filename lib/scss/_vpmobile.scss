@@ -7,7 +7,6 @@ Stylesheet: Base Mobile - Tablet
 
 
 @mixin mobile() {
-
   $copysize: 4.1vw;
   $headlinesize: 8.5vw;
   $contentwidth: 84%;
@@ -606,35 +605,6 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      a, a:visited {
-        &.wp-block-button__link, &.button {
-          padding: 0.8em 1.5em;
-          font-family: $headline;
-          border-radius: $borderradius;
-          background-color: $contrast;
-          color: $dark;
-          margin: 0;
-          top: 0;
-          position: relative;
-          display: block;
-          text-align: center;
-          text-decoration: none;
-          @include transition(all 150ms ease-out);
-
-          &:hover {
-            background-color: $link-color;
-            top: 1px;
-          }
-
-          &.back {
-            margin-bottom: 2em;
-          }
-        }
-
-        &.wp-block-latest-posts__post-title {
-          font-weight: bold;
-        }
-      }
 
 
       button.button {
@@ -713,6 +683,7 @@ Stylesheet: Base Mobile - Tablet
 
         a {
           font-weight: bold;
+          font-size: $copysize;
           font-family: $headline;
         }
       }
@@ -740,6 +711,38 @@ Stylesheet: Base Mobile - Tablet
       }
     }
   }
+
+
+  a, a:visited {
+    &.wp-block-button__link, &.button {
+      padding: 0.8em 1.5em;
+      font-family: $headline;
+      border-radius: $borderradius;
+      background-color: $contrast;
+      color: $dark;
+      margin: 0;
+      top: 0;
+      position: relative;
+      display: block;
+      text-align: center;
+      text-decoration: none !important;
+      @include transition(all 150ms ease-out);
+
+      &:hover {
+        background-color: $link-color;
+        top: 1px;
+      }
+
+      &.back {
+        margin-bottom: 2em;
+      }
+    }
+
+    &.wp-block-latest-posts__post-title {
+      font-weight: bold;
+    }
+  }
+
 
   .wp-block-image .aligncenter {
     margin-left: 0;

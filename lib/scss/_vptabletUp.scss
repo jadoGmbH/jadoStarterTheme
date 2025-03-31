@@ -167,17 +167,6 @@ Stylesheet: Tablet - Desktop
         border-radius: $borderradius;
       }
 
-      .summary, p, .woocommerce-cart-form {
-        a, a:visited {
-          font-size: $copysize;
-
-          &.wp-block-button__link, &.button {
-            padding: 0.8em 1.5em;
-            border-radius: $borderradius;
-          }
-        }
-      }
-
 
       h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
         margin: 0 0 $innerpostgap 0;
@@ -233,6 +222,10 @@ Stylesheet: Tablet - Desktop
 
       p {
         margin: 0 0 2vw;
+
+        a{
+          font-size: $copysize;
+        }
       }
 
       figure.wp-block-pullquote {
@@ -294,6 +287,15 @@ Stylesheet: Tablet - Desktop
       & > * + * { //space before Elements inside entry-content without the first
         margin-top: $contentgaptop !important;
       }
+    }
+  }
+
+  a, a:visited {
+    font-size: $copysize;
+
+    &.wp-block-button__link, &.button {
+      padding: 0.8em 1.5em;
+      border-radius: $borderradius;
     }
   }
 
