@@ -116,9 +116,8 @@ Stylesheet: Base Mobile - Tablet
 
 
   #logo {
-
     display: inline-block;
-    font-size: $headlinesize;
+    font-size: $headlinesize - 2;
     line-height: 1.2;
     width: auto;
     font-family: $copy;
@@ -149,10 +148,12 @@ Stylesheet: Base Mobile - Tablet
   #burger {
     position: absolute;
     right: calc(#{$burgerright} / 2);
-    top: 5vw;
+    top: 0;
     cursor: pointer;
     margin: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     color: $dark;
     padding: 0;
