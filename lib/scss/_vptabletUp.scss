@@ -96,24 +96,38 @@ Stylesheet: Tablet - Desktop
           margin: 0 1em 0 0;
         }
 
-        &.menu-item-has-children, &.page_item_has_children {
+        &.menu-item-has-children {
           li {
             a {
               padding: .75em 1em;
+              background-color: $white;
+              color: $dark;
+
+              &:hover{
+                background-color: $dark;
+              }
+            }
+
+            &.current-menu-item {
+              a{
+                color: $contrast;
+              }
             }
           }
 
-          .sub-menu, .children {
-            background-color: $dark;
+          .sub-menu {
+            background-color: transparent;
             position: absolute;
             top: 2.4em;
             flex-direction: column;
-            max-height: 0;
             overflow: hidden;
+            width: 300px;
+            max-height: 0;
+            display: flex;
           }
 
           &.toggledOn {
-            .sub-menu, .children {
+            .sub-menu {
               max-height: 600px;
               overflow: visible;
             }

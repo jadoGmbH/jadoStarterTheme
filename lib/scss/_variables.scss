@@ -22,18 +22,18 @@ Stylesheet: Variables
 }
 
 /* Colors */
-$dark:           #286788;
+$dark:          #222525;
 $white:          #ffffff;
-$headercolor:    $dark;
-$headertext:     $white;
-$contentcolor:   #e5e3dd;
+$headercolor:    $white;
+$headertext:     $dark;
+$contentcolor: #efedea;
 $contenttext:    #2b2913;
-$footercolor:    #466065;
+$footercolor:    $dark;
 $footertext:     $white;
 $maincolor:      #7a8037;
 $contrast:       #E1F200;
-$link-color:     color.adjust($contrast, $lightness: -10%);
-$link-hover:     color.adjust($link-color, $lightness: 15%);
+$link-color:     $contrast;
+$link-hover:     $link-color;
 
 /* Woocommerce Colors */
 $wooGreen:  #429e0e;

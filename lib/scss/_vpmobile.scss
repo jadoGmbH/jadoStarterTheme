@@ -9,7 +9,7 @@ Stylesheet: Base Mobile - Tablet
 @mixin mobile() {
 
   $copysize: 4.1vw;
-  $headlinesize: 6vw;
+  $headlinesize: 8.5vw;
   $contentwidth: 84%;
   $innerpostgap: 3vw;
   $contentgaptop: 2em;
@@ -100,6 +100,10 @@ Stylesheet: Base Mobile - Tablet
   .logolink {
     #logo {
       opacity: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1em;
       @include transition(opacity 300ms ease-out);
     }
 
@@ -150,7 +154,7 @@ Stylesheet: Base Mobile - Tablet
     margin: 0;
     display: block;
     text-align: center;
-    color: $white;
+    color: $dark;
     padding: 0;
 
     .c1, .c2, .c3 {
@@ -166,7 +170,7 @@ Stylesheet: Base Mobile - Tablet
       height: 0.8vw;
       border-radius: 1vw;
       margin-bottom: 2vw;
-      background: $white;
+      background: $dark;
     }
 
     &.burgerToggledOn {
@@ -215,15 +219,15 @@ Stylesheet: Base Mobile - Tablet
         border-radius: $borderradius;
 
         &:hover {
-          background-color: color.adjust($dark, $lightness: -5%);
-          color: $headertext;
+          background-color: $dark;
+          color: $white;
         }
       }
 
-      &.current-menu-item, &.current_page_item {
+      &.current-menu-item {
         a {
-          color: $headertext;
-          background-color: color.adjust($dark, $lightness: -5%);
+          color: $white;
+          background-color: $dark;
 
           &:hover {
             cursor: default;
@@ -232,17 +236,24 @@ Stylesheet: Base Mobile - Tablet
       }
 
 
-      &.menu-item-has-children, &.page_item_has_children {
+      &.menu-item-has-children {
         position: relative;
 
         li {
+          width: auto;
           a {
+            width: auto;
             padding: 3vw 10vw;
-            width: 100%;
+          }
+
+          &.current-menu-item{
+            a{
+              color: $contrast;
+            }
           }
         }
 
-        .sub-menu, .children {
+        .sub-menu {
           display: none;
           z-index: 999;
           padding: 0;
@@ -252,14 +263,15 @@ Stylesheet: Base Mobile - Tablet
           flex-direction: column;
           max-height: 0;
           overflow: hidden;
+
         }
 
         &.toggledOn {
           > .sub-menu {
-            display: block;
+            display: flex;
           }
 
-          .sub-menu, .children {
+          .sub-menu {
             max-height: 600px;
             overflow: visible;
           }
@@ -302,6 +314,7 @@ Stylesheet: Base Mobile - Tablet
     z-index: 2;
     background-color: $contentcolor;
     box-shadow: $boxshadow;
+    min-height: 100vh;
 
     #inner-content {
       &.hasThumb {
@@ -517,7 +530,7 @@ Stylesheet: Base Mobile - Tablet
           @include transition(background-color 200ms linear);
 
           &:hover {
-            background-color: color.adjust($contentcolor, $lightness: 5%);
+            background-color: $contentcolor;
           }
 
           &.sold { /** change if you need another custom post type category! */
@@ -605,7 +618,7 @@ Stylesheet: Base Mobile - Tablet
           text-decoration: none;
 
           &:hover {
-            background-color: color.adjust($link-color, $lightness: -10%);
+            background-color: $link-color;
           }
 
           &.back {
@@ -634,7 +647,7 @@ Stylesheet: Base Mobile - Tablet
 
         &:hover {
           cursor: pointer;
-          background-color: color.adjust($link-color, $lightness: -10%);
+          background-color: $link-color;
         }
       }
 

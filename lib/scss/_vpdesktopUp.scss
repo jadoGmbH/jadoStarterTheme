@@ -46,9 +46,19 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
         padding: 0.25em 0.75em;
         border-radius: $borderradius;
       }
+
+
+    }
+    &.top-nav{
+      li.menu-item-has-children {
+        li {
+          a {
+            padding: 0.25em 0.75em;
+          }
+        }
+      }
     }
   }
-
 
   figure.wp-block-image {
     figcaption {
