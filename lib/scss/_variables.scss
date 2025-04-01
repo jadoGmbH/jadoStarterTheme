@@ -1,0 +1,83 @@
+/******************************************************************
+Stylesheet: Variables
+******************************************************************/
+
+@use "sass:color";
+
+/* @include transition(opacity 100ms ease-out); */
+@mixin transition($transition...) {
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transition: $transition;
+  }
+}
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+  background-color: $to;
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/* Colors */
+$dark:           #222525;
+$white:          #ffffff;
+$headercolor:    $white;
+$headertext:     $dark;
+$contentcolor:   #e4e5d9;
+$contenttext:    #2b2913;
+$footercolor:    $dark;
+$footertext:     $white;
+$maincolor:      #7a8037;
+$contrast: #b9c62a;
+$link-color: #a7b32d;
+$link-hover:     $link-color;
+
+/* Woocommerce Colors */
+$wooGreen:  #429e0e;
+$wooRed:    #bc0427;
+$wooYellow: #a18b0b;
+$wooBlue:   #07468f;
+
+
+
+/* Fonts */
+
+//please integrate google webfonts with the webfont helper:  https://gwfh.mranftl.com/fonts
+
+@font-face {
+  font-display: swap;
+  font-family: 'Albert Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/albert-sans-v1-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Albert Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/albert-sans-v1-latin-700.woff2') format('woff2');
+}
+
+$copy: "Helvetica Neue", sans-serif;
+$headline: "Albert Sans", sans-serif;
+
+h1, h2, h3, h4, p, li {
+  -ms-word-wrap: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3; // minimum word chars + before line breaks + minimum after break
+  -ms-hyphenate-limit-chars: 6 3 3;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}

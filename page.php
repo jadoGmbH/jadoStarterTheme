@@ -13,12 +13,12 @@
         }
     } ?>">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <section class="entry-content">
+
+                <section id="post-<?php the_ID(); ?>" class="entry-content page">
                     <h1><?php the_title(); ?></h1>
                     <?php the_content(); ?>
                 </section>
-            </div>
+
         <?php endwhile; endif; ?>
     </div>
 </div>

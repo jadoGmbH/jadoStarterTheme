@@ -2,23 +2,22 @@
 Stylesheet: Main Stylesheet
 ******************************************************************/
 
-@use "sass:color";
+@use "vpmobile";
+@use "vptabletUp";
+@use "vpdesktopUp";
+@use "print" as print;
+@use "index" as viewports;
 
-@import "assets/variables";
-@import "assets/typography";
-@import "viewports/mobile";
-//@import "assets/woocommerce"; // enable when using woocommerce
+@include vpmobile.mobile();
 
 @media only screen and (min-width: 768px) {
-	@import "viewports/tabletUp";
+	@include vptabletUp.tabletUp();
 }
 
 @media only screen and (min-width: 1100px) { // edit here for the maximum site width for scaling fonts/layout
-	@import "viewports/desktopUp"; // deactivate if you like web design with fluid width not covered by max width!
+	@include vpdesktopUp.desktopUp(); // deactivate if you like web design with fluid width not covered by max width!
 }
 
 @media print {
-	@import "assets/print"; // enable for print design
+	@include viewports.print(); // enable for print design
 }
-
-

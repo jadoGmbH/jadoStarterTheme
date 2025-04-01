@@ -51,6 +51,7 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         }
         const burger = document.getElementById('burger');
         const siteNavigation = document.getElementById('site-navigation');
+
         burger.addEventListener('click', function () {
             siteNavigation.classList.toggle('burgerToggledOn');
             burger.classList.toggle('burgerToggledOn');
@@ -67,8 +68,10 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
 
 
         const header = document.getElementById('header');
+        const burgerheight = header.clientHeight;
         const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
         document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
+        burger.style.height = burgerheight + 'px';
         const body = document.body;
         const menu = document.querySelector(".header");
         const scrollUp = "scrollUp";

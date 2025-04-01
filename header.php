@@ -59,7 +59,12 @@
             ?>
             <div class="flex">
                 <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>" rel="nofollow">
-                    <?php echo '<div id="logo">';
+                    <?php
+                    echo '<div id="logo">';
+                    $icon_url = get_site_icon_url(300);
+                    if ($icon_url) {
+                        echo '<img alt="Website Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
+                    }
                     bloginfo('name');
                     echo '</div>'; ?>
                 </a>

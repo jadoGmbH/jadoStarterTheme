@@ -261,4 +261,115 @@ function theme_add_woocommerce_support() {
 
 
 
+/** Hide WP-Users */
+
+function block_author_enumeration() {
+    if (is_admin()) {
+        return;
+    }
+
+    if (isset($_GET['author'])) {
+        wp_redirect(home_url());
+        exit;
+    }
+}
+add_action('init', 'block_author_enumeration');
+
+function disable_json_user_enumeration($endpoints) {
+    if (isset($endpoints['/wp/v2/users'])) {
+        unset($endpoints['/wp/v2/users']);
+    }
+    return $endpoints;
+}
+add_filter('rest_endpoints', 'disable_json_user_enumeration');
+
+
+
+/** Permission-Policy-Header */
+
+
+function set_permissions_policy_header($headers) {
+    $headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()';
+    return $headers;
+}
+add_filter('wp_headers', 'set_permissions_policy_header');
+
+
+/** Referrer-Header-Policy */
+
+function set_referrer_policy($headers) {
+    $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
+    return $headers;
+}
+add_filter('wp_headers', 'set_referrer_policy');
+
+
+/** Cross-Origin-Resource-Policy */
+
+function set_corp_header($headers) {
+    $headers['Cross-Origin-Resource-Policy'] = 'same-origin';
+    return $headers;
+}
+add_filter('wp_headers', 'set_corp_header');
+
+
+
+/** Cross-Origin-Open-Policy */
+
+function set_coop_header($headers) {
+    $headers['Cross-Origin-Opener-Policy'] = 'same-origin';
+    return $headers;
+}
+add_filter('wp_headers', 'set_coop_header');
+
+
+/** X-Frame-Options-Header - iFrames on other Sites */
+
+function set_x_frame_options($headers) {
+    $headers['X-Frame-Options'] = 'SAMEORIGIN';
+    return $headers;
+}
+add_filter('wp_headers', 'set_x_frame_options');
+
+
+/** X-XSS-Protection */
+
+function set_x_xss_protection($headers) {
+    $headers['X-XSS-Protection'] = '1; mode=block';
+    return $headers;
+}
+add_filter('wp_headers', 'set_x_xss_protection');
+
+
+/** X-Content-Type-Options */
+
+function set_x_content_type_options($headers) {
+    $headers['X-Content-Type-Options'] = 'nosniff';
+    return $headers;
+}
+add_filter('wp_headers', 'set_x_content_type_options');
+
+
+/** Strict-Transport-Security */
+
+function set_hsts_header($headers) {
+    if (is_ssl()) {
+        $headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload';
+    }
+    return $headers;
+}
+add_filter('wp_headers', 'set_hsts_header');
+
+
+/** Delay between login attempts */
+
+function custom_login_delay() {
+    sleep(20); // Delay 20 Seconds between login attempts
+}
+
+add_action('wp_login_failed', 'custom_login_delay');
+
+
+
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>
