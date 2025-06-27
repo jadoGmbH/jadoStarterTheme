@@ -5,6 +5,8 @@ Super fast & slim Starter Template (Theme for WordPress for developing individua
 Gutenberg enabled, Woocommerce enabled (if you want) - integrated in style.css and fully responsive. 
 jQuery is deactivated per default and two minimal functions are integrated in pure JavaScript (footer.php) to get the burger-menu and the header behavior to work (sticky header wich appears after scroll up).
 
+NEW: give the WebP Auto-Gemerator a try on https://github.com/jadoGmbH/WebP-Autogen
+
 
 | Version | Features & Optimizations |
 | ------- | ------- |
