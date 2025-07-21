@@ -1982,6 +1982,19 @@
       "oAP" : "\/lib\/maintenance.php",
       "oF" : 0
     },
+    "\/lib\/scss\/_gutenbergblocks.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/lib\/css\/_gutenbergblocks.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0
+    },
     "\/lib\/scss\/_index.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -1990,7 +2003,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_index.css",
+      "oAP" : "\/lib\/css\/_index.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2003,7 +2016,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_print.css",
+      "oAP" : "\/lib\/css\/_print.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2016,7 +2029,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_variables.css",
+      "oAP" : "\/lib\/css\/_variables.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2029,7 +2042,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_vpdesktopUp.css",
+      "oAP" : "\/lib\/css\/_vpdesktopUp.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2042,7 +2055,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_vpmobile.css",
+      "oAP" : "\/lib\/css\/_vpmobile.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2055,7 +2068,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_vptabletUp.css",
+      "oAP" : "\/lib\/css\/_vptabletUp.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2068,7 +2081,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_woocommerce.css",
+      "oAP" : "\/lib\/css\/_woocommerce.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2081,7 +2094,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/lib\/scss\/_woocommerceCustom.css",
+      "oAP" : "\/lib\/css\/_woocommerceCustom.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2398,7 +2411,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/lib\/scss\/style.css",
+      "oAP" : "\/lib\/css\/style.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0
@@ -2509,7 +2522,7 @@
   "projectSettings" : {
     "abortBuildOnError" : 1,
     "allowInjectionReloads" : 1,
-    "alwaysUseExternalServer" : 0,
+    "alwaysUseExternalServer" : 1,
     "animateCSSInjections" : 1,
     "autoBuildNewItems" : 1,
     "autoprefixerEnableIEGrid" : 0,
@@ -3759,7 +3772,7 @@
       }
     },
     "esLintSourceType" : 0,
-    "externalServerAddress" : "http:\/\/localhost:8888",
+    "externalServerAddress" : "http:\/\/bones.local",
     "gitIgnoreBuildFolder" : 1,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
@@ -3941,7 +3954,7 @@
       "autoOutputPathRelativePath" : "..\/css",
       "autoOutputPathReplace1" : "sass",
       "autoOutputPathReplace2" : "css",
-      "autoOutputPathStyle" : 0,
+      "autoOutputPathStyle" : 2,
       "cssoStyle" : 0,
       "emitCharset" : 1,
       "outputStyle" : 0,

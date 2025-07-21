@@ -119,7 +119,7 @@ function jado_settings_fields(): void
 
     $gutenberg_options = [
         'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
-        'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles', 'jadotheme'),
+        'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles - they are already loaded by jST', 'jadotheme'),
         'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
         'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
     ];

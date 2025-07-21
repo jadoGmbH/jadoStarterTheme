@@ -7,8 +7,11 @@ Stylesheet: Main Stylesheet
 @use "vpdesktopUp";
 @use "print" as print;
 @use "index" as viewports;
+@use "gutenbergblocks"; // Version 6.8.2
 
+@include gutenbergblocks.gutenbergblocks();
 @include vpmobile.mobile();
+
 
 @media only screen and (min-width: 768px) {
 	@include vptabletUp.tabletUp();
