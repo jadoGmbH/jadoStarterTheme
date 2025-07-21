@@ -1,24 +1,28 @@
 <footer id="footer" class="footer">
     <div id="inner-footer" class="wrap">
-        <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> – <a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank">Powered by jado Starter Theme</a></p>
+        <p class="copyright">
+            &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> –
+            <span class="powered"><a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank" rel="noopener noreferrer">jado Starter Theme</a></span>
+        </p>
             <?php get_sidebar(); ?>
     </div>
 </footer>
 </div>
 <?php wp_footer();
-/*
 if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
     echo '<div class="template">';
     global $template;
     echo basename($template);
     echo '</div>';
 }
-*/
 ?>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         const subMenuElements = document.querySelectorAll('li.menu-item-has-children');
+        const header = document.getElementById('header');
+        const innerContent = document.getElementById('inner-content');
+        const burger = document.getElementById('burger');
         const toggleSubMenu = (element) => {
             const currentlyOpenMenus = document.querySelectorAll('.menu-item-has-children.toggledOn');
             currentlyOpenMenus.forEach(menu => {
@@ -49,7 +53,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
                 });
             });
         }
-        const burger = document.getElementById('burger');
         const siteNavigation = document.getElementById('site-navigation');
         if (burger && siteNavigation) {
             burger.addEventListener('click', function () {
@@ -57,7 +60,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
                 burger.classList.toggle('burgerToggledOn');
             });
         }
-
 
         document.addEventListener('click', function (event) {
             const isClickInside = siteNavigation.contains(event.target) || burger.contains(event.target);
@@ -69,38 +71,41 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         });
 
 
-
-        const header = document.getElementById('header');
-        const burgerheight = header.clientHeight;
-        const headerheight = header.clientHeight + 30; //additional space to top when header is fixed
-        document.getElementById('inner-content').style.paddingTop = headerheight + 'px';
-        burger.style.height = burgerheight + 'px';
-        const body = document.body;
-        const menu = document.querySelector(".header");
+        if (innerContent && header) {
+            innerContent.style.paddingTop = `${header.offsetHeight + 30}px`;
+        }
+        if (burger && header) {
+            burger.style.height = `${header.offsetHeight}px`;
+        }
+        let lastScroll = 0;
         const scrollUp = "scrollUp";
         const scrollDown = "scrollDown";
-        let lastScroll = 0;
-        window.addEventListener("scroll", () => {
+        const body = document.body;
+        let ticking = false;
+        function handleScroll() {
             const currentScroll = window.scrollY;
-            if (currentScroll <= 0) {
-                body.classList.remove(scrollUp);
-                return;
-            }
-            if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            if (scrollPosition >= documentHeight - 2) {
+                body.classList.remove(scrollDown);
+                body.classList.add(scrollUp);
+            } else if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
                 body.classList.remove(scrollUp);
                 body.classList.add(scrollDown);
-            } else if (
-                currentScroll < lastScroll &&
-                body.classList.contains(scrollDown)
-            ) {
+            } else if (currentScroll < lastScroll && !body.classList.contains(scrollUp)) {
                 body.classList.remove(scrollDown);
                 body.classList.add(scrollUp);
             }
             lastScroll = currentScroll;
-        });
+            ticking = false;
+        }
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScroll);
+                ticking = true;
+            }
+        }, { passive: true });
     });
-
-
 </script>
 </body>
 </html>

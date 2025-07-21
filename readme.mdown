@@ -2,7 +2,7 @@
 
 Super fast & slim Starter Template (Theme for WordPress for developing individual designs - woocommerce ready)
 
-Gutenberg enabled, Woocommerce enabled (if you want) - integrated in style.css and fully responsive. 
+Gutenberg enabled, Woocommerce enabled (if you want) - integrated in style.css and fully responsive.
 jQuery is deactivated per default and two minimal functions are integrated in pure JavaScript (footer.php) to get the burger-menu and the header behavior to work (sticky header wich appears after scroll up).
 
 NEW: give the WebP Auto-Gemerator WordPress Plugin a try - https://github.com/jadoGmbH/WebP-Autogen
@@ -10,6 +10,7 @@ NEW: give the WebP Auto-Gemerator WordPress Plugin a try - https://github.com/ja
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 4.5 | code Optimizations + SEO |
 | 4.4 | Default Security Headers / hide WP-Users |
 | 4.3 | SASS 3.0 ready |
 | 4.2 | WordPress 6.7 Better Gutenberg Styles reactivated |
@@ -48,6 +49,6 @@ https://wordpress.ja.do/faq/
 
 https://opensource.org/license/mit
 
-📃 License Font: 
+📃 License Font:
 
 https://scripts.sil.org/OFL

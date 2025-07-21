@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content">
+<main id="content">
     <div id="inner-content" class="wrap">
         <?php
         the_archive_title('<h1 class="page-title">', '</h1>');
@@ -31,5 +31,5 @@
             </article>
         <?php endif; ?>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>

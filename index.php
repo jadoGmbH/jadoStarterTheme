@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content">
+<main id="content">
     <div id="inner-content" class="wrap">
         <div class="entry-content blog">
             <div class="posts">
@@ -43,5 +43,5 @@
             <?php //get_sidebar(); ?>
         </div>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>

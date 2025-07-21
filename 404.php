@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content">
+<main id="content">
     <div id="inner-content" class="wrap">
         <article id="post-not-found" class="hentry">
             <header class="article-header">
@@ -10,5 +10,5 @@
             </section>
         </article>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>

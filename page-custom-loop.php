@@ -4,7 +4,7 @@
  *
 */
 get_header(); ?>
-<div id="content">
+<main id="content">
     <div id="inner-content" class="wrap">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -44,5 +44,5 @@ get_header(); ?>
             </div>
         <?php endwhile; endif; ?>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content">
+<main id="content">
 <?php if (has_post_thumbnail()) {
     echo '<div class="featuredImage">';
     the_post_thumbnail('featuredImage');
@@ -21,5 +21,5 @@
             </div>
         <?php endwhile; endif; ?>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>

@@ -2,31 +2,20 @@
 <html lang="<?php echo get_bloginfo('language'); ?>">
 <head>
     <meta charset="utf-8">
-    <title>
-        <?php
-        $description = get_bloginfo("description");
-        if ($description != '') {
-            $descriptionstring = ' - ' . $description;
-        } else {
-            $descriptionstring = '';
-        }
-        if (is_front_page()) {
-            echo get_bloginfo("name") . $descriptionstring;
-        } else {
-            echo get_bloginfo("name") . $descriptionstring . ' - ' . get_the_title();
-        } ?>
-    </title>
+    <title><?php echo esc_html( is_front_page() ? get_bloginfo('name') . ' - ' . get_bloginfo('description') : get_the_title() . ' - ' . get_bloginfo('name') ); ?></title>
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="referrer" content="no-referrer">
     <!-- disable when have password protected sites, or other frontend login sites (woocommerce) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="<?php echo esc_attr( wp_strip_all_tags(get_the_excerpt(), true) ); ?>">
     <meta property="og:url" content="<?php the_permalink(); ?>">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php the_title(); ?>">
-    <meta property="og:description" content="<?php echo get_the_excerpt(); ?>">
-    <meta name="description" content="<?php echo get_the_excerpt(); ?>">
+    <meta property="og:description" content="<?php echo esc_attr( wp_strip_all_tags(get_the_excerpt(), true) ); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:locale" content="<?php echo get_locale(); ?>">
     <?php if (has_post_thumbnail()) { ?>
         <meta property="og:image" content="<?php the_post_thumbnail_url('ogimage'); ?>">
     <?php } ?>
@@ -58,12 +47,12 @@
             }
             ?>
             <div class="flex">
-                <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>" rel="nofollow">
+                <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>">
                     <?php
                     echo '<div id="logo">';
                     $icon_url = get_site_icon_url(300);
                     if ($icon_url) {
-                        echo '<img alt="Website Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
+                        echo '<img alt="' . esc_attr(get_bloginfo('name')) . ' Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
                     }
                     bloginfo('name');
                     echo '</div>'; ?>
@@ -73,7 +62,7 @@
                     bloginfo('description');
                     echo '</span>';
                 } ?>
-                <div id="burger">
+                <button id="burger" class="burger" aria-expanded="false" aria-controls="site-navigation" aria-label="Open Menu">
                     <div class="cheese c1"></div>
                     <div class="cheese c2"></div>
                     <div class="cheese c3"></div>
@@ -85,7 +74,7 @@
                 $firstName = get_user_meta($user->ID, 'first_name', true);
                 $lastName = get_user_meta($user->ID, 'last_name', true);
                 $user = get_user_by('id', $user->ID);
-                if (!$user == '') {
+                if (!empty($user)) {
                     $userName = $user->user_login;
                 }else{
                     $userName = '';
@@ -122,7 +111,7 @@
                 echo '</div>';
             }
             ?>
-            <nav id="site-navigation">
+            <nav id="site-navigation" class="wrap">
                 <?php wp_nav_menu(array(
                     'container' => false,
                     'container_class' => 'menu',

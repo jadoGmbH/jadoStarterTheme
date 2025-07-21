@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content">
+<main id="content">
     <div id="inner-content" class="wrap">
         <h1 class="archive-title">
             <span><?php _e('Search Results for:', 'jadotheme'); ?></span> <?php echo esc_attr(get_search_query()); ?>
@@ -36,5 +36,5 @@
             </article>
         <?php endif; ?>
     </div>
-</div>
+</main>
 <?php get_footer(); ?>
