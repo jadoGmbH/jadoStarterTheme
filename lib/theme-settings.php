@@ -57,11 +57,13 @@ function jado_initialize_options(): void
         'business_contactsite',
         'business_areaserved',
         'business_languages',
+        'business_telephone',
         'business_foundingdate',
         'business_linkedin',
         'business_bluesky',
         'business_mastodon',
         'business_facebook',
+        'business_instagram',
         'business_googlemaps',
     ];
 
@@ -198,7 +200,7 @@ function jado_settings_fields(): void
     // Section 5: Business Information
     add_settings_section(
         'jado_section_business',
-        __('Business Information (for Social media Icons and LD+JSON (SEO))', 'jadotheme'),
+        __('Business Information – Social media Icons and LD+JSON (SEO)', 'jadotheme'),
         '',
         'jado_options'
     );
@@ -208,20 +210,33 @@ function jado_settings_fields(): void
         'business_postal_code' => __('Postal Code', 'jadotheme'),
         'business_city'        => __('City', 'jadotheme'),
         'business_country'     => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
-
         'business_contactsite' => __('Contact Site (URL)', 'jadotheme'),
         'business_areaserved'  => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
         'business_languages'    => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
         'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
-
+        'business_telephone'    => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
         'business_linkedIn'     => __('Linkedin (URL)', 'jadotheme'),
         'business_bluesky'     => __('Bluesky (URL)', 'jadotheme'),
         'business_mastodon'     => __('Mastodon (URL)', 'jadotheme'),
         'business_facebook'     => __('Facebook (URL)', 'jadotheme'),
+        'business_instagram'     => __('Instagram (URL)', 'jadotheme'),
         'business_googlemaps'     => __('Google Maps (URL)', 'jadotheme'),
-
-
     ];
+
+    register_setting($option_group, 'business_show_social_footer', ['sanitize_callback' => 'absint']);
+    add_settings_field(
+        'business_show_social_footer',
+        __('Show Social Media Icons in Footer', 'jadotheme'),
+        'jado_checkbox_field_callback',
+        'jado_options',
+        'jado_section_business',
+        [
+            'label_for' => 'business_show_social_footer',
+            'name' => 'business_show_social_footer'
+        ]
+    );
+
+
 
     foreach ($business_fields as $option => $label) {
         register_setting($option_group, $option, ['sanitize_callback' => 'sanitize_text_field']);
@@ -237,6 +252,14 @@ function jado_settings_fields(): void
             ]
         );
     }
+
+    function jado_checkbox_field_callback($args) {
+        $option = get_option($args['name']);
+        ?>
+        <input type="checkbox" id="<?php echo esc_attr($args['name']); ?>" name="<?php echo esc_attr($args['name']); ?>" value="1" <?php checked(1, $option); ?> />
+        <label for="<?php echo esc_attr($args['name']); ?>"><?php esc_html_e('Yes', 'jadotheme'); ?></label>
+        <?php
+    }
 }
 
 function jado_text_field_callback($args): void
@@ -248,6 +271,8 @@ function jado_text_field_callback($args): void
         $value
     );
 }
+
+
 
 
 function jado_add_settings_field($option_group, $section_id, $option, $label)

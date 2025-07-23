@@ -4972,6 +4972,31 @@ figure.wp-block-image figcaption {
   margin-top: 0;
 }
 
+.socialmediaicons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.socialmediaicons a {
+  width: 2rem;
+  height: 2rem;
+}
+.socialmediaicons a svg {
+  fill: currentColor;
+}
+.socialmediaicons a svg path {
+  fill: currentColor;
+}
+.socialmediaicons a:hover svg {
+  fill: #b9c62a;
+}
+.socialmediaicons a:hover svg path {
+  fill: #b9c62a !important;
+}
+
 .footer {
   clear: both;
   background-color: #222525;
@@ -5250,6 +5275,9 @@ figure.wp-block-image figcaption {
     align-items: start;
   }
   .sidebar .wp-block-image {
+    margin-bottom: 0;
+  }
+  .socialmediaicons {
     margin-bottom: 0;
   }
   .footer {

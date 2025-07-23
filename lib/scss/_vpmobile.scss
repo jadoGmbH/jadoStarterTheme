@@ -790,6 +790,39 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
+  .socialmediaicons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    
+    a{
+      width: 2rem;
+      height: 2rem;
+
+      svg {
+        fill: currentColor;
+        path{
+          fill: currentColor;
+        }
+      }
+
+      &:hover{
+        svg{
+          fill: $contrast;
+
+          path{
+            fill: $contrast !important;
+          }
+        }
+      }
+    }
+
+
+  }
+
   .footer {
     clear: both;
     background-color: $footercolor;

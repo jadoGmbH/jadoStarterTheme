@@ -1860,6 +1860,14 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/lib\/img\/facebook.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/facebook.afdesign",
+      "oF" : 0
+    },
     "\/lib\/img\/jado-logo_login.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -1883,6 +1891,92 @@
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/lib\/img\/select.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/social-media-icon_.afdesign",
+      "oF" : 0
+    },
+    "\/lib\/img\/social-media-icon_.afdesign~lock~" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/social-media-icon_.afdesign~lock~",
+      "oF" : 0
+    },
+    "\/lib\/img\/social-media-icon_bluesky.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_bluesky.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_facebook.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_facebook.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_instagram.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_instagram.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_linkedin.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_linkedin.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_location.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_location.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_mastodon.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_mastodon.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_phone.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_phone.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,

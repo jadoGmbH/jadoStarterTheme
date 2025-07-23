@@ -23,6 +23,7 @@
     $business_street        = get_option('business_street');
     $business_postal_code   = get_option('business_postal_code');
     $business_country       = get_option('business_country');
+    $business_telephone       = get_option('business_telephone');
     $business_contactsite   = get_option('business_contactsite');
     $business_areaserved    = get_option('business_areaserved');
     $business_languages     = get_option('business_languages');
@@ -32,15 +33,15 @@
     $business_bluesky       = get_option('business_bluesky');
     $business_mastodon      = get_option('business_mastodon');
     $business_facebook      = get_option('business_facebook');
+    $business_instagram      = get_option('business_instagram');
     $business_googlemaps    = get_option('business_googlemaps');
-
     if (!empty($business_city)) {
-
         $sameAs_raw = array_filter([
             $business_linkedin,
             $business_bluesky,
             $business_mastodon,
             $business_facebook,
+            $business_instagram,
             $business_googlemaps,
         ]);
         $sameAs = array_values($sameAs_raw);
@@ -87,6 +88,10 @@
             "@type" => "ContactPoint",
             "contactType" => "customer support",
         ];
+
+        if (!empty($business_telephone)) {
+            $contact["telephone"] = $business_telephone;
+        }
 
         if (!empty($business_contactsite)) {
             $contact["url"] = $business_contactsite;
