@@ -10,6 +10,7 @@ NEW: give the WebP Auto-Gemerator WordPress Plugin a try - https://github.com/ja
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 5.0 | added Social Meida Icons in footer and ld+json output in <head> |
 | 4.5 | code Optimizations + SEO |
 | 4.4 | Default Security Headers / hide WP-Users |
 | 4.3 | SASS 3.0 ready |
