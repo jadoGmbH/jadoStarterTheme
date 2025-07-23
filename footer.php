@@ -46,7 +46,6 @@
             }
             echo '</div>';
         }
-
         get_sidebar(); ?>
     </div>
 </footer>
@@ -112,8 +111,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
                 siteNavigation.classList.remove('burgerToggledOn');
             }
         });
-
-
         if (innerContent && header) {
             innerContent.style.paddingTop = `${header.offsetHeight + 30}px`;
         }
@@ -125,7 +122,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         const scrollDown = "scrollDown";
         const body = document.body;
         let ticking = false;
-
         function handleScroll() {
             const currentScroll = window.scrollY;
             const scrollPosition = window.scrollY + window.innerHeight;
@@ -143,7 +139,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
             lastScroll = currentScroll;
             ticking = false;
         }
-
         window.addEventListener("scroll", () => {
             if (!ticking) {
                 window.requestAnimationFrame(handleScroll);
