@@ -18,6 +18,8 @@ Stylesheet: Base Mobile - Tablet
   $spaceafterblock: 1.5em;
 
 
+
+
   html {
     scroll-behavior: smooth;
   }
@@ -315,6 +317,8 @@ Stylesheet: Base Mobile - Tablet
     background-color: $contentcolor;
     box-shadow: $boxshadow;
     min-height: 100vh;
+
+
 
     #inner-content {
       &.hasThumb {
@@ -802,10 +806,19 @@ Stylesheet: Base Mobile - Tablet
       align-items: flex-start;
     }
 
-    .copyright, .copyright a {
+    .copyright {
       font-weight: normal;
       color: $footertext;
       font-size: $copysize - 0.75;
+
+      a{
+        color: $footertext;
+        font-size: $copysize - 0.75;
+
+        &:hover{
+          color: $contrast
+        }
+      }
     }
 
     a {

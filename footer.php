@@ -4,7 +4,9 @@
             &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> –
             <span class="powered"><a href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank" rel="noopener noreferrer">jado Starter Theme</a></span>
         </p>
-            <?php get_sidebar(); ?>
+            <?php
+
+            get_sidebar(); ?>
     </div>
 </footer>
 </div>

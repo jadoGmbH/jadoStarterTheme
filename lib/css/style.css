@@ -4987,10 +4987,17 @@ figure.wp-block-image figcaption {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.footer .copyright, .footer .copyright a {
+.footer .copyright {
   font-weight: normal;
   color: #ffffff;
   font-size: 3.35vw;
+}
+.footer .copyright a {
+  color: #ffffff;
+  font-size: 3.35vw;
+}
+.footer .copyright a:hover {
+  color: #b9c62a;
 }
 .footer a {
   text-decoration: underline;
@@ -5064,8 +5071,8 @@ figure.wp-block-image figcaption {
   }
   .nav li a {
     font-size: 1.6vw;
-    padding: 0.4vw 1.2vw;
-    border-radius: 0.4em;
+    padding: 0.3rem 1rem;
+    border-radius: 0.3rem;
     margin: 0 0 0 1em;
   }
   .nav.top-nav {
@@ -5078,15 +5085,16 @@ figure.wp-block-image figcaption {
     justify-content: flex-start;
   }
   .nav.top-nav li a {
-    margin: 0 1em 0 0;
+    margin: 0 0.3rem 0 0;
   }
   .nav.top-nav li.menu-item-has-children li a {
-    padding: 0.75em 1em;
+    padding: 0.3rem 1rem;
     background-color: #ffffff;
     color: #222525;
   }
   .nav.top-nav li.menu-item-has-children li a:hover {
     background-color: #222525;
+    color: #ffffff;
   }
   .nav.top-nav li.menu-item-has-children li.current-menu-item a {
     color: #b9c62a;
@@ -5094,7 +5102,7 @@ figure.wp-block-image figcaption {
   .nav.top-nav li.menu-item-has-children .sub-menu {
     background-color: transparent;
     position: absolute;
-    top: 2.4em;
+    top: 2rem;
     flex-direction: column;
     overflow: hidden;
     width: 300px;
@@ -5123,7 +5131,7 @@ figure.wp-block-image figcaption {
   #content .entry-content button.button {
     padding: 0.8em 1.5em;
     margin: 0;
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #content .entry-content h1, #content .entry-content h2, #content .entry-content h3, #content .entry-content h4, #content .entry-content h1 a, #content .entry-content h2 a, #content .entry-content h3 a, #content .entry-content h4 a, #content .entry-content h1 strong, #content .entry-content h2 strong, #content .entry-content h3 strong, #content .entry-content h4 strong {
     margin: 0 0 2vw 0;
@@ -5146,7 +5154,7 @@ figure.wp-block-image figcaption {
     justify-content: space-between;
   }
   #content .entry-content ul.wp-block-latest-posts__list.is-grid li {
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #content .entry-content ul li {
     padding: 0 0 1vw 2vw;
@@ -5194,11 +5202,11 @@ figure.wp-block-image figcaption {
   }
   #content .entry-content .cpt-container .cpt, #content .entry-content .cpt-container .post, #content .entry-content .posts .cpt, #content .entry-content .posts .post {
     flex: 0 0 31%;
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #content .entry-content .cpt-container .cptimg, #content .entry-content .cpt-container .postimg, #content .entry-content .posts .cptimg, #content .entry-content .posts .postimg {
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
   }
   #content .entry-content .cpt-container .postcontent, #content .entry-content .cpt-container .cptcontent, #content .entry-content .posts .postcontent, #content .entry-content .posts .cptcontent {
     padding: 0 2vw;
@@ -5217,7 +5225,7 @@ figure.wp-block-image figcaption {
   }
   a.wp-block-button__link, a.button, a:visited.wp-block-button__link, a:visited.button {
     padding: 0.8em 1.5em;
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #widgetarea {
     display: flex;
@@ -5279,11 +5287,14 @@ figure.wp-block-image figcaption {
   }
   .nav li a {
     font-size: 18px;
-    padding: 0.25em 0.75em;
-    border-radius: 0.4em;
+    padding: 0.3rem 1rem;
+    border-radius: 0.3rem;
+  }
+  .nav.top-nav li.menu-item-has-children .sub-menu {
+    top: 2.4rem;
   }
   .nav.top-nav li.menu-item-has-children li a {
-    padding: 0.25em 0.75em;
+    padding: 0.3rem 1rem;
   }
   figure.wp-block-image figcaption {
     font-size: 14px;
@@ -5310,7 +5321,7 @@ figure.wp-block-image figcaption {
     margin-bottom: 50px;
   }
   #content .entry-content ul.wp-block-latest-posts__list.is-grid li {
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #content .entry-content ul li {
     padding: 0 0 1em 1.4em;
@@ -5352,11 +5363,11 @@ figure.wp-block-image figcaption {
     font-size: 34px;
   }
   #content .entry-content .cpt-container .cpt, #content .entry-content .cpt-container .post, #content .entry-content .posts .cpt, #content .entry-content .posts .post {
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #content .entry-content .cpt-container .cptimg, #content .entry-content .cpt-container .postimg, #content .entry-content .posts .cptimg, #content .entry-content .posts .postimg {
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
   }
   #content .entry-content .cpt-container .postcontent, #content .entry-content .cpt-container .cptcontent, #content .entry-content .posts .postcontent, #content .entry-content .posts .cptcontent {
     padding: 0 20px;
@@ -5369,7 +5380,7 @@ figure.wp-block-image figcaption {
   }
   a.wp-block-button__link, a.button, a:visited.wp-block-button__link, a:visited.button {
     padding: 0.8em 1.5em;
-    border-radius: 0.4em;
+    border-radius: 0.3rem;
   }
   #widgetarea .widget h2, #widgetarea .widget h3 {
     font-size: 22px;

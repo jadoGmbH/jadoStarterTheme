@@ -12,7 +12,7 @@ Stylesheet: Tablet - Desktop
   $contentwidth: 90%;
   $innerpostgap: 2vw;
   $contentgaptop: 2em;
-  $borderradius: 0.4em;
+  $borderradius: 0.3rem;
   $boxshadow: 0 0 2vw rgba(0, 0, 0, 0.1), 0 0 0.8vw rgba(0, 0, 0, 0.3);
   $spaceafterblock: 3em;
 
@@ -75,7 +75,7 @@ Stylesheet: Tablet - Desktop
 
       a {
         font-size: $copysize;
-        padding: 0.4vw 1.2vw;
+        padding: 0.3rem 1rem;
         border-radius: $borderradius;
         margin: 0 0 0 1em;
       }
@@ -93,18 +93,19 @@ Stylesheet: Tablet - Desktop
 
       li {
         a {
-          margin: 0 1em 0 0;
+          margin: 0 0.3rem 0 0;
         }
 
         &.menu-item-has-children {
           li {
             a {
-              padding: .75em 1em;
+              padding: 0.3rem 1rem;
               background-color: $white;
               color: $dark;
 
               &:hover{
                 background-color: $dark;
+                color: $white;
               }
             }
 
@@ -118,7 +119,7 @@ Stylesheet: Tablet - Desktop
           .sub-menu {
             background-color: transparent;
             position: absolute;
-            top: 2.4em;
+            top: 2rem;
             flex-direction: column;
             overflow: hidden;
             width: 300px;

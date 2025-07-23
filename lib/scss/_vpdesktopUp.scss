@@ -12,7 +12,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   $contentwidth: 80%;
   $maxcontentwidth: 1000px; // maximal width for layout!
   $innerpostgap: 20px;
-  $borderradius: 0.4em;
+  $borderradius: 0.3rem;
   $boxshadow: 0 0 3em rgba(0, 0, 0, 0.1), 0 0 0.6em rgba(0, 0, 0, 0.5);
   $spaceafterblock: 50px;
 
@@ -43,17 +43,20 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     li {
       a {
         font-size: $copysize;
-        padding: 0.25em 0.75em;
+        padding: 0.3rem 1rem;
         border-radius: $borderradius;
       }
-
-
     }
     &.top-nav{
       li.menu-item-has-children {
+
+        .sub-menu {
+          top: 2.4rem;
+        }
+
         li {
           a {
-            padding: 0.25em 0.75em;
+            padding: 0.3rem 1rem;
           }
         }
       }

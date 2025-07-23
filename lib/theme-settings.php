@@ -48,6 +48,29 @@ function jado_options_page_callback(): void
 // Function to initialize options if not set
 function jado_initialize_options(): void
 {
+
+    $business_info_options = [
+        'business_street',
+        'business_postal_code',
+        'business_city',
+        'business_country',
+        'business_contactsite',
+        'business_areaserved',
+        'business_languages',
+        'business_foundingdate',
+        'business_linkedin',
+        'business_bluesky',
+        'business_mastodon',
+        'business_facebook',
+        'business_googlemaps',
+    ];
+
+    foreach ($business_info_options as $option) {
+        if (get_option($option) === false) {
+            add_option($option, '');
+        }
+    }
+
     $options = [
         'imgQuality',
         'setAltAttrImage',
@@ -171,6 +194,59 @@ function jado_settings_fields(): void
     foreach ($misc_options as $option => $label) {
         jado_add_settings_field($option_group, 'jado_section_misc', $option, $label);
     }
+
+    // Section 5: Business Information
+    add_settings_section(
+        'jado_section_business',
+        __('Business Information (for Social media Icons and LD+JSON (SEO))', 'jadotheme'),
+        '',
+        'jado_options'
+    );
+
+    $business_fields = [
+        'business_street'      => __('Street and Number', 'jadotheme'),
+        'business_postal_code' => __('Postal Code', 'jadotheme'),
+        'business_city'        => __('City', 'jadotheme'),
+        'business_country'     => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
+
+        'business_contactsite' => __('Contact Site (URL)', 'jadotheme'),
+        'business_areaserved'  => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
+        'business_languages'    => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
+        'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
+
+        'business_linkedIn'     => __('Linkedin (URL)', 'jadotheme'),
+        'business_bluesky'     => __('Bluesky (URL)', 'jadotheme'),
+        'business_mastodon'     => __('Mastodon (URL)', 'jadotheme'),
+        'business_facebook'     => __('Facebook (URL)', 'jadotheme'),
+        'business_googlemaps'     => __('Google Maps (URL)', 'jadotheme'),
+
+
+    ];
+
+    foreach ($business_fields as $option => $label) {
+        register_setting($option_group, $option, ['sanitize_callback' => 'sanitize_text_field']);
+        add_settings_field(
+            $option,
+            $label,
+            'jado_text_field_callback',
+            'jado_options',
+            'jado_section_business',
+            [
+                'label_for' => $option,
+                'name' => $option
+            ]
+        );
+    }
+}
+
+function jado_text_field_callback($args): void
+{
+    $value = esc_attr(get_option($args['name'], ''));
+    printf(
+        '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text" />',
+        $args['name'],
+        $value
+    );
 }
 
 
