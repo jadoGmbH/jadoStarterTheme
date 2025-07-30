@@ -32,7 +32,7 @@ function jado_options_page_callback(): void
         </form>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const rows = document.querySelectorAll('.form-table tr');
             rows.forEach(row => {
                 const input = row.querySelector('input, select, textarea');
@@ -88,6 +88,17 @@ function jado_initialize_options(): void
         'disableComments',
         'encodeEmails',
         'heartbeat',
+        'hideWPUser',
+        'permissionPolicyHeader',
+        'referrerHeaderPolicy',
+        'crossOriginRessourcePolicy',
+        'crossOriginOpenPolicy',
+        'xFrameOptionsHeader',
+        'xxssProtection',
+        'xContentTypeOptions',
+        'strictTransportSecurity',
+        'delayLoginAttempts',
+        'cacheControlHeader',
         'scriptW3C',
         'swiperjs',
         'baguettebox',
@@ -166,10 +177,21 @@ function jado_settings_fields(): void
         'removeXMLRPC' => __('Disable XMLRPC', 'jadotheme'),
         'disableEmbedsFrontend' => __('Disable Embeds in Frontend', 'jadotheme'),
         'disableComments' => __('Disable Comments', 'jadotheme'),
-        'encodeEmails' => __('Encode emails e.g. <br>[email]email@email.com/email]', 'jadotheme'),
-        'heartbeat' => __('Disable heartbeat <br>(auto safe etc.)', 'jadotheme'),
+        'encodeEmails' => __('Encode emails e.g. [email]email@email.com/email]', 'jadotheme'),
+        'heartbeat' => __('Disable heartbeat (auto safe etc.)', 'jadotheme'),
         'scriptW3C' => __('Correct script style (delete type=script)', 'jadotheme'),
         'pageExcerpts' => __('Excerpts for pages (for meta descriptions)', 'jadotheme'),
+        'hideWPUser' => __('Hide WP User in Code', 'jadotheme'),
+        'permissionPolicyHeader' => __('Add permission policy header (disallow: geolocation, microphone, camera)', 'jadotheme'),
+        'referrerHeaderPolicy' => __('Add referrer policy header', 'jadotheme'),
+        'crossOriginRessourcePolicy' => __('Add cross origin ressource policy header (same-origin)', 'jadotheme'),
+        'crossOriginOpenPolicy' => __('Add cross origin opener policy header (same-origin)', 'jadotheme'),
+        'xFrameOptionsHeader' => __('Add x-frame options header (same-origin)', 'jadotheme'),
+        'xxssProtection' => __('X-XSS-Protection (mode block)', 'jadotheme'),
+        'xContentTypeOptions' => __('X-Content-Type-Options (no sniff)', 'jadotheme'),
+        'strictTransportSecurity' => __('Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)', 'jadotheme'),
+        'delayLoginAttempts' => __('Delay login attempts (30s)', 'jadotheme'),
+        'cacheControlHeader' => __('Set cache for 1 day (not for logged in users)', 'jadotheme'),
     ];
 
     foreach ($seo_options as $option => $label) {
@@ -206,21 +228,21 @@ function jado_settings_fields(): void
     );
 
     $business_fields = [
-        'business_street'      => __('Street and Number', 'jadotheme'),
+        'business_street' => __('Street and Number', 'jadotheme'),
         'business_postal_code' => __('Postal Code', 'jadotheme'),
-        'business_city'        => __('City', 'jadotheme'),
-        'business_country'     => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
+        'business_city' => __('City', 'jadotheme'),
+        'business_country' => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
         'business_contactsite' => __('Contact Site (URL)', 'jadotheme'),
-        'business_areaserved'  => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
-        'business_languages'    => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
+        'business_areaserved' => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
+        'business_languages' => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
         'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
-        'business_telephone'    => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
-        'business_linkedIn'     => __('Linkedin (URL)', 'jadotheme'),
-        'business_bluesky'     => __('Bluesky (URL)', 'jadotheme'),
-        'business_mastodon'     => __('Mastodon (URL)', 'jadotheme'),
-        'business_facebook'     => __('Facebook (URL)', 'jadotheme'),
-        'business_instagram'     => __('Instagram (URL)', 'jadotheme'),
-        'business_googlemaps'     => __('Google Maps (URL)', 'jadotheme'),
+        'business_telephone' => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
+        'business_linkedIn' => __('Linkedin (URL)', 'jadotheme'),
+        'business_bluesky' => __('Bluesky (URL)', 'jadotheme'),
+        'business_mastodon' => __('Mastodon (URL)', 'jadotheme'),
+        'business_facebook' => __('Facebook (URL)', 'jadotheme'),
+        'business_instagram' => __('Instagram (URL)', 'jadotheme'),
+        'business_googlemaps' => __('Google Maps (URL)', 'jadotheme'),
     ];
 
     register_setting($option_group, 'business_show_social_footer', ['sanitize_callback' => 'absint']);
@@ -235,7 +257,6 @@ function jado_settings_fields(): void
             'name' => 'business_show_social_footer'
         ]
     );
-
 
 
     foreach ($business_fields as $option => $label) {
@@ -253,10 +274,12 @@ function jado_settings_fields(): void
         );
     }
 
-    function jado_checkbox_field_callback($args) {
+    function jado_checkbox_field_callback($args)
+    {
         $option = get_option($args['name']);
         ?>
-        <input type="checkbox" id="<?php echo esc_attr($args['name']); ?>" name="<?php echo esc_attr($args['name']); ?>" value="1" <?php checked(1, $option); ?> />
+        <input type="checkbox" id="<?php echo esc_attr($args['name']); ?>" name="<?php echo esc_attr($args['name']); ?>"
+               value="1" <?php checked(1, $option); ?> />
         <label for="<?php echo esc_attr($args['name']); ?>"><?php esc_html_e('Yes', 'jadotheme'); ?></label>
         <?php
     }
@@ -271,8 +294,6 @@ function jado_text_field_callback($args): void
         $value
     );
 }
-
-
 
 
 function jado_add_settings_field($option_group, $section_id, $option, $label)
@@ -423,6 +444,63 @@ function jado_pageExcerpts_field($args): void
     jado_checkbox_field($args);
 }
 
+
+function jado_hideWPUser_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_permissionPolicyHeader_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_referrerHeaderPolicy_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_crossOriginRessourcePolicy_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_crossOriginOpenPolicy_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_xFrameOptionsHeader_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_xxssProtection_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_xContentTypeOptions_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_strictTransportSecurity_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_delayLoginAttempts_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_cacheControlHeader_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+
 function jado_maintenanceMode_field($args): void
 {
     jado_checkbox_field($args);
@@ -481,15 +559,11 @@ function jado_apply_settings(): void
         function jst_theme_setup()
         {
             add_theme_support('block-templates');
-            add_theme_support( 'block-template-parts' );
+            add_theme_support('block-template-parts');
         }
 
         add_action('after_setup_theme', 'jst_theme_setup');
     }
-
-
-
-
 
 
     /**  Give editor role menu access  */
@@ -511,7 +585,8 @@ function jado_apply_settings(): void
     /** disable Emoji  */
     $disableEmoji = get_option('disableEmoji', 'no');
     if ($disableEmoji == 'yes') {
-        function disable_emojis() {
+        function disable_emojis()
+        {
             remove_action('wp_head', 'print_emoji_detection_script', 7);
             remove_action('admin_print_scripts', 'print_emoji_detection_script');
             remove_action('wp_print_styles', 'print_emoji_styles');
@@ -521,9 +596,11 @@ function jado_apply_settings(): void
             remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
             add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
         }
+
         add_action('init', 'disable_emojis');
 
-        function disable_emojis_tinymce($plugins) {
+        function disable_emojis_tinymce($plugins)
+        {
             if (is_array($plugins)) {
                 return array_diff($plugins, array('wpemoji'));
             } else {
@@ -766,6 +843,199 @@ function jado_apply_settings(): void
     }
 
 
+    /** Hide WP Users  */
+    $hideWPUser = get_option('hideWPUser', 'no');
+    if ($hideWPUser == 'yes') {
+        function block_author_enumeration()
+        {
+            if (is_admin()) {
+                return;
+            }
+            if (isset($_GET['author'])) {
+                wp_redirect(home_url());
+                exit;
+            }
+        }
+
+        add_action('init', 'block_author_enumeration');
+        function disable_json_user_enumeration($endpoints)
+        {
+            if (isset($endpoints['/wp/v2/users'])) {
+                unset($endpoints['/wp/v2/users']);
+            }
+            return $endpoints;
+        }
+
+        add_filter('rest_endpoints', 'disable_json_user_enumeration');
+    }
+
+
+
+
+    add_action('init', 'register_custom_security_headers');
+
+    function register_custom_security_headers() {
+
+        /** Permission-Policy-Header */
+        if (get_option('permissionPolicyHeader', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_permissions_policy_header');
+        }
+
+        /** Referrer-Header-Policy */
+        if (get_option('referrerHeaderPolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_referrer_policy');
+        }
+
+        /** Cross-Origin-Resource-Policy */
+        if (get_option('crossOriginRessourcePolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_corp_header');
+        }
+
+        /** Cross-Origin-Open-Policy */
+        if (get_option('crossOriginOpenPolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_coop_header');
+            add_filter('wp_headers', 'set_coep_header');
+        }
+
+        /** X-Frame-Options-Header */
+        if (get_option('xFrameOptionsHeader', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_frame_options');
+        }
+
+        /** X-XSS-Protection */
+        if (get_option('xxssProtection', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_xss_protection');
+        }
+
+        /** X-Content-Type-Options */
+        if (get_option('xContentTypeOptions', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_content_type_options');
+        }
+
+        /** Strict-Transport-Security */
+        if (get_option('strictTransportSecurity', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_hsts_header');
+        }
+    }
+
+
+
+    /** Permission-Policy-Header */
+    $permissionPolicyHeader = get_option('permissionPolicyHeader', 'no');
+    if ($permissionPolicyHeader == 'yes') {
+        function set_permissions_policy_header($headers) {
+            $headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()';
+            return $headers;
+        }
+    }
+
+
+    /** Referrer-Header-Policy */
+    $referrerHeaderPolicy = get_option('referrerHeaderPolicy', 'no');
+    if ($referrerHeaderPolicy == 'yes') {
+        function set_referrer_policy($headers) {
+            $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
+            return $headers;
+        }
+    }
+
+    /** Cross-Origin-Resource-Policy */
+    $crossOriginRessourcePolicy = get_option('crossOriginRessourcePolicy', 'no');
+    if ($crossOriginRessourcePolicy == 'yes') {
+        function set_corp_header($headers) {
+            $headers['Cross-Origin-Resource-Policy'] = 'same-origin';
+            return $headers;
+        }
+    }
+
+    /** Cross-Origin-Open-Policy */
+    $crossOriginOpenPolicy = get_option('crossOriginOpenPolicy', 'no');
+    if ($crossOriginOpenPolicy == 'yes') {
+        function set_coop_header($headers) {
+            $headers['Cross-Origin-Opener-Policy'] = 'same-origin';
+            return $headers;
+        }
+        function set_coep_header($headers) {
+            $headers['Cross-Origin-Embedder-Policy'] = 'require-corp';
+            return $headers;
+        }
+    }
+
+
+    /** X-Frame-Options-Header - iFrames on other Sites */
+    $xFrameOptionsHeader = get_option('xFrameOptionsHeader', 'no');
+    if ($xFrameOptionsHeader == 'yes') {
+        function set_x_frame_options($headers) {
+            $headers['X-Frame-Options'] = 'SAMEORIGIN';
+            return $headers;
+        }
+    }
+
+    /** X-XSS-Protection */
+    $xxssProtection = get_option('xxssProtection', 'no');
+    if ($xxssProtection == 'yes') {
+        function set_x_xss_protection($headers) {
+            $headers['X-XSS-Protection'] = '1; mode=block';
+            return $headers;
+        }
+    }
+
+    /** X-Content-Type-Options */
+    $xContentTypeOptions = get_option('xContentTypeOptions', 'no');
+    if ($xContentTypeOptions == 'yes') {
+        function set_x_content_type_options($headers) {
+            $headers['X-Content-Type-Options'] = 'nosniff';
+            return $headers;
+        }
+    }
+
+    /** Strict-Transport-Security */
+    $strictTransportSecurity = get_option('strictTransportSecurity', 'no');
+    if ($strictTransportSecurity == 'yes') {
+        function set_hsts_header($headers) {
+            if (is_ssl()) {
+                $headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload';
+            }
+            return $headers;
+        }
+    }
+
+    /** Delay between login attempts */
+    $delayLoginAttempts = get_option('delayLoginAttempts', 'no');
+    if ($delayLoginAttempts == 'yes') {
+        function custom_login_delay()
+        {
+            sleep(30);
+        }
+
+        add_action('wp_login_failed', 'custom_login_delay');
+    }
+
+
+    /** Cache Control Header  */
+    $cacheControlHeader = get_option('cacheControlHeader', 'no');
+    if ($cacheControlHeader == 'yes') {
+        add_action('send_headers', 'custom_cache_control_header');
+        function custom_cache_control_header()
+        {
+            if (!is_user_logged_in()) {
+                header('Cache-Control: public, max-age=86400');
+            } else {
+                header('Cache-Control: no-cache, must-revalidate, max-age=0');
+            }
+        }
+        add_action('save_post', 'custom_invalidate_cache_on_save', 10, 3);
+        function custom_invalidate_cache_on_save($post_ID, $post, $update)
+        {
+            if (function_exists('wp_cache_clear_cache')) {
+                wp_cache_clear_cache();
+            }
+        }
+    }
+
+
+
+
     /** Maintenance Mode **/
     $maintenance = get_option('maintenanceMode', 'no');
     if ($maintenance == 'yes') {
@@ -857,7 +1127,9 @@ function jado_apply_settings(): void
             ?>
             <div class="wrap">
                 <h1><?php echo _e('Gallery Block SwiperJS Settings', 'jadotheme'); ?> </h1>
-                <h3><strong><?php echo _e('Setting options for all gallery blocks that are automatically converted to SwiperJS sliders when this plugin is activated', 'jadotheme'); ?> </strong></h3>
+                <h3>
+                    <strong><?php echo _e('Setting options for all gallery blocks that are automatically converted to SwiperJS sliders when this plugin is activated', 'jadotheme'); ?> </strong>
+                </h3>
                 <form method="post" action="options.php">
                     <?php
                     settings_fields('gallery_swiperjs_options');
@@ -1078,14 +1350,17 @@ function jado_apply_settings(): void
         });
     ", 'after');
         }
+
         add_action('wp_enqueue_scripts', __NAMESPACE__ . '\register_assets');
-        function admin_enqueue_scripts($hook) {
+        function admin_enqueue_scripts($hook)
+        {
             if ($hook === 'toplevel_page_gallery-swiperjs-settings') {
                 wp_enqueue_style('wp-color-picker');
                 wp_enqueue_script('custom-script', get_template_directory_uri() . '/lib/js/admin-script.js', array('wp-color-picker'), false, true);
                 wp_add_inline_script('custom-script', "jQuery(document).ready(function($){ $('.color-picker').wpColorPicker();});");
             }
         }
+
         add_action('admin_enqueue_scripts', 'admin_enqueue_scripts');
 
         function enqueue_assets()
@@ -1118,41 +1393,44 @@ function jado_apply_settings(): void
 
     $baguettebox = get_option('baguettebox', 'no');
     if ($baguettebox == 'yes') {
-        function register_b_assets() {
-            wp_register_style( 'baguettebox-css', get_template_directory_uri() . '/lib/css/baguetteBox-min.css', [], '1.12.0' );
-            wp_register_script( 'baguettebox', get_template_directory_uri() . '/lib/js/baguetteBox-min.js', [], '1.12.0', true );
-            $baguettebox_selector = apply_filters( 'baguettebox_selector', '.wp-block-gallery,:not(.wp-block-gallery)>.wp-block-image,.wp-block-media-text__media,.gallery,.wp-block-coblocks-gallery-masonry,.wp-block-coblocks-gallery-stacked,.wp-block-coblocks-gallery-collage,.wp-block-coblocks-gallery-offset,.wp-block-coblocks-gallery-stacked,.mgl-gallery,.gb-block-image' );
-            $baguettebox_filter = apply_filters( 'baguettebox_filter',  '/.+\.(gif|jpe?g|png|webp|svg|avif|heif|heic|tif?f|)($|\?)/i' );
-            $baguettebox_ignoreclass = apply_filters( 'baguettebox_ignoreclass', 'no-lightbox' );
+        function register_b_assets()
+        {
+            wp_register_style('baguettebox-css', get_template_directory_uri() . '/lib/css/baguetteBox-min.css', [], '1.12.0');
+            wp_register_script('baguettebox', get_template_directory_uri() . '/lib/js/baguetteBox-min.js', [], '1.12.0', true);
+            $baguettebox_selector = apply_filters('baguettebox_selector', '.wp-block-gallery,:not(.wp-block-gallery)>.wp-block-image,.wp-block-media-text__media,.gallery,.wp-block-coblocks-gallery-masonry,.wp-block-coblocks-gallery-stacked,.wp-block-coblocks-gallery-collage,.wp-block-coblocks-gallery-offset,.wp-block-coblocks-gallery-stacked,.mgl-gallery,.gb-block-image');
+            $baguettebox_filter = apply_filters('baguettebox_filter', '/.+\.(gif|jpe?g|png|webp|svg|avif|heif|heic|tif?f|)($|\?)/i');
+            $baguettebox_ignoreclass = apply_filters('baguettebox_ignoreclass', 'no-lightbox');
 
-            wp_add_inline_script( 'baguettebox', 'window.addEventListener("load", function() {baguetteBox.run("' . $baguettebox_selector . '",{captions:function(t){var e=t.parentElement.classList.contains("wp-block-image")||t.parentElement.classList.contains("wp-block-media-text__media")?t.parentElement.querySelector("figcaption"):t.parentElement.parentElement.querySelector("figcaption,dd");return!!e&&e.innerHTML},filter:' . $baguettebox_filter . ',ignoreClass:"' . $baguettebox_ignoreclass . '"});});' );
+            wp_add_inline_script('baguettebox', 'window.addEventListener("load", function() {baguetteBox.run("' . $baguettebox_selector . '",{captions:function(t){var e=t.parentElement.classList.contains("wp-block-image")||t.parentElement.classList.contains("wp-block-media-text__media")?t.parentElement.querySelector("figcaption"):t.parentElement.parentElement.querySelector("figcaption,dd");return!!e&&e.innerHTML},filter:' . $baguettebox_filter . ',ignoreClass:"' . $baguettebox_ignoreclass . '"});});');
 
         }
-        add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\register_b_assets' );
 
-        function enqueue_b_assets() {
-            $baguettebox_enqueue_b_assets = apply_filters( 'baguettebox_enqueue_b_assets',
-                has_block( 'core/gallery' ) ||
-                has_block( 'core/image' ) ||
-                has_block( 'core/media-text' ) ||
+        add_action('wp_enqueue_scripts', __NAMESPACE__ . '\register_b_assets');
+
+        function enqueue_b_assets()
+        {
+            $baguettebox_enqueue_b_assets = apply_filters('baguettebox_enqueue_b_assets',
+                has_block('core/gallery') ||
+                has_block('core/image') ||
+                has_block('core/media-text') ||
                 get_post_gallery() ||
-                has_block( 'coblocks/gallery-masonry' ) ||
-                has_block( 'coblocks/gallery-stacked' ) ||
-                has_block( 'coblocks/gallery-collage' ) ||
-                has_block( 'coblocks/gallery-offset' ) ||
-                has_block( 'coblocks/gallery-stacked' ) ||
-                has_block( 'meow-gallery/gallery' ) ||
-                has_block( 'generateblocks/image' )
+                has_block('coblocks/gallery-masonry') ||
+                has_block('coblocks/gallery-stacked') ||
+                has_block('coblocks/gallery-collage') ||
+                has_block('coblocks/gallery-offset') ||
+                has_block('coblocks/gallery-stacked') ||
+                has_block('meow-gallery/gallery') ||
+                has_block('generateblocks/image')
             );
 
-            if ( $baguettebox_enqueue_b_assets ) {
-                wp_enqueue_script( 'baguettebox' );
-                wp_enqueue_style( 'baguettebox-css' );
+            if ($baguettebox_enqueue_b_assets) {
+                wp_enqueue_script('baguettebox');
+                wp_enqueue_style('baguettebox-css');
             }
         }
-        add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_b_assets' );
-    }
 
+        add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_b_assets');
+    }
 
 
     /** Better Gutenberg Styles Admin - NOT WORKING IN WP 6.7 anymore - iframes */

@@ -148,12 +148,10 @@ function jado_admin_CSS()
     ?>
     <style>
         .accordion-section-title button.accordion-trigger{height: 3em !important;}
-
         #adminmenu div.wp-menu-image.dashicons-admin-generic:before, #adminmenu div.wp-menu-image.dashicons-images-alt2:before {
             color: #e1f200 !important;
         }
-
-        body.toplevel_page_jado_options #wpbody form h2{padding-top: 2em; border-top: 1px solid #dcdcdc; margin: 2em 0 1em 0; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;}
+        body.toplevel_page_jado_options #wpbody form h2{font-size: 160% !important; padding-top: 2em; border-top: 1px solid #dcdcdc; margin: 2em 0 1em 0; color: #aaa; letter-spacing: 0.05em; font-weight: normal;}
         body.toplevel_page_jado_options table.form-table tbody tr{background: rgba(255,255,255,0.5); display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; border-right: 1px solid #dcdcdc;}
         body.toplevel_page_jado_options table.form-table tbody tr td{padding-right: 20px; display: flex; align-items: center; margin: 0;}
         body.toplevel_page_jado_options table.form-table tbody th[scope="row"]{display: flex; align-items: center;}
@@ -163,29 +161,30 @@ function jado_admin_CSS()
                 clear: left;
                 border-right: none;
             }
-
             body.toplevel_page_jado_options tr.swiperjs{
                 background: rgba(255,255,255,0.5) url(<?php echo get_template_directory_uri()?>/lib/img/swiperjs.png) no-repeat 80% center !important;
                 background-size: 5em !important;
+                transition: all 300ms ease;
             }
             body.toplevel_page_jado_options tr.swiperjs:hover{
-                background: rgba(255,255,255,1) url(<?php echo get_template_directory_uri()?>/lib/img/swiperjs.png) no-repeat 80% center !important;
+                background: #DBF409 url(<?php echo get_template_directory_uri()?>/lib/img/swiperjs.png) no-repeat 80% center !important;
                 background-size: 5em !important;
             }
-
             body.toplevel_page_jado_options tr.baguettebox{
                 background: rgba(255,255,255,0.5) url(<?php echo get_template_directory_uri()?>/lib/img/baguettebox.png) no-repeat 80% center !important;
                 background-size: 5em !important;
+                transition: all 300ms ease;
             }
             body.toplevel_page_jado_options tr.baguettebox:hover{
-                background: rgba(255,255,255,1) url(<?php echo get_template_directory_uri()?>/lib/img/baguettebox.png) no-repeat 80% center !important;
+                background: #DBF409 url(<?php echo get_template_directory_uri()?>/lib/img/baguettebox.png) no-repeat 80% center !important;
                 background-size: 5em !important;
             }
-
             body.toplevel_page_jado_options table.form-table tbody{display: flex; flex-wrap: wrap;}
-            body.toplevel_page_jado_options table.form-table tbody tr:hover{background: rgba(255,255,255,1);}
-            body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;width: 260px;}
-            body.toplevel_page_jado_options table.form-table tbody tr{flex: 0 0 48%;}
+            body.toplevel_page_jado_options table.form-table tbody tr:hover{background: #DBF409;}
+            body.toplevel_page_jado_options table.form-table tbody tr label{color: #1d2327;}
+            body.toplevel_page_jado_options table.form-table tbody tr:hover label{color: black;}
+            body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;width: 600px;}
+            body.toplevel_page_jado_options table.form-table tbody tr{flex: 0 0 48%; transition: all 300ms ease;}
             body.toplevel_page_jado_options .form-table tbody tr {
                 width: 46%;
                 float: left;
@@ -256,118 +255,6 @@ add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 function theme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
-
-
-
-
-
-/** Hide WP-Users */
-
-function block_author_enumeration() {
-    if (is_admin()) {
-        return;
-    }
-
-    if (isset($_GET['author'])) {
-        wp_redirect(home_url());
-        exit;
-    }
-}
-add_action('init', 'block_author_enumeration');
-
-function disable_json_user_enumeration($endpoints) {
-    if (isset($endpoints['/wp/v2/users'])) {
-        unset($endpoints['/wp/v2/users']);
-    }
-    return $endpoints;
-}
-add_filter('rest_endpoints', 'disable_json_user_enumeration');
-
-
-
-/** Permission-Policy-Header */
-
-
-function set_permissions_policy_header($headers) {
-    $headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()';
-    return $headers;
-}
-add_filter('wp_headers', 'set_permissions_policy_header');
-
-
-/** Referrer-Header-Policy */
-
-function set_referrer_policy($headers) {
-    $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
-    return $headers;
-}
-add_filter('wp_headers', 'set_referrer_policy');
-
-
-/** Cross-Origin-Resource-Policy */
-
-function set_corp_header($headers) {
-    $headers['Cross-Origin-Resource-Policy'] = 'same-origin';
-    return $headers;
-}
-add_filter('wp_headers', 'set_corp_header');
-
-
-
-/** Cross-Origin-Open-Policy */
-
-function set_coop_header($headers) {
-    $headers['Cross-Origin-Opener-Policy'] = 'same-origin';
-    return $headers;
-}
-add_filter('wp_headers', 'set_coop_header');
-
-
-/** X-Frame-Options-Header - iFrames on other Sites */
-
-function set_x_frame_options($headers) {
-    $headers['X-Frame-Options'] = 'SAMEORIGIN';
-    return $headers;
-}
-add_filter('wp_headers', 'set_x_frame_options');
-
-
-/** X-XSS-Protection */
-
-function set_x_xss_protection($headers) {
-    $headers['X-XSS-Protection'] = '1; mode=block';
-    return $headers;
-}
-add_filter('wp_headers', 'set_x_xss_protection');
-
-
-/** X-Content-Type-Options */
-
-function set_x_content_type_options($headers) {
-    $headers['X-Content-Type-Options'] = 'nosniff';
-    return $headers;
-}
-add_filter('wp_headers', 'set_x_content_type_options');
-
-
-/** Strict-Transport-Security */
-
-function set_hsts_header($headers) {
-    if (is_ssl()) {
-        $headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload';
-    }
-    return $headers;
-}
-add_filter('wp_headers', 'set_hsts_header');
-
-
-/** Delay between login attempts */
-
-function custom_login_delay() {
-    sleep(20); // Delay 20 Seconds between login attempts
-}
-
-add_action('wp_login_failed', 'custom_login_delay');
 
 
 

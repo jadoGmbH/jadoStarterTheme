@@ -1860,14 +1860,6 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/lib\/img\/facebook.afdesign" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/img\/facebook.afdesign",
-      "oF" : 0
-    },
     "\/lib\/img\/jado-logo_login.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -1902,14 +1894,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/lib\/img\/social-media-icon_.afdesign",
-      "oF" : 0
-    },
-    "\/lib\/img\/social-media-icon_.afdesign~lock~" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/img\/social-media-icon_.afdesign~lock~",
       "oF" : 0
     },
     "\/lib\/img\/social-media-icon_bluesky.svg" : {
