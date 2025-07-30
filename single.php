@@ -26,7 +26,6 @@
                         <h1><?php __('404 - Site not found!', 'jadotheme'); ?></h1>
                     </article>
                 <?php endif; ?>
-                <?php //get_sidebar(); ?>
             </div>
         </div>
     </main>

@@ -102,7 +102,6 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
                 burger.classList.toggle('burgerToggledOn');
             });
         }
-
         document.addEventListener('click', function (event) {
             const isClickInside = siteNavigation.contains(event.target) || burger.contains(event.target);
             if (!isClickInside && isTouchDevice) {

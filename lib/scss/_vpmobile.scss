@@ -5,7 +5,6 @@ Stylesheet: Base Mobile - Tablet
 @use "variables" as *;
 @use "sass:color";
 
-
 @mixin mobile() {
   $copysize: 4.1vw;
   $headlinesize: 8.5vw;
@@ -16,8 +15,6 @@ Stylesheet: Base Mobile - Tablet
   $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
   $borderradius: 0.4em;
   $spaceafterblock: 1.5em;
-
-
 
 
   html {
@@ -78,6 +75,81 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
+
+  #inner-header{
+    position: relative;
+  }
+
+  .shopnav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+
+    .counter{
+      border-radius: 50%;
+      background-color: red;
+      color: $white;
+      display: flex;
+      width: 1rem;
+      height: 1rem;
+      font-size: 0.6rem;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    a{
+      width: 3rem;
+      height: 3rem;
+
+      &.shopuser{
+        background: $buttonbackground url(../img/user.svg) no-repeat center;
+        background-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $borderradius;
+
+        &:hover{
+          background: $contrast url(../img/user.svg) no-repeat center;
+          background-size: 1.5rem;
+        }
+      }
+
+      &.cart{
+        background: $buttonbackground url(../img/cart.svg) no-repeat center;
+        background-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+        border-radius: $borderradius;
+
+        &:hover{
+          background: $contrast url(../img/cart.svg) no-repeat center;
+          background-size: 1.5rem;
+
+        }
+      }
+
+      svg, path, circle{
+        stroke-width: 2 !important;
+        stroke: red !important;
+      }
+    }
+  }
 
   .header {
     box-shadow: $boxshadow;
@@ -216,7 +288,7 @@ Stylesheet: Base Mobile - Tablet
         margin: 0 0 0.5em 0;
         text-decoration: none;
         padding: 3vw 5vw;
-        border: 1px solid rgba($headertext, 0.3);
+        border: 1px solid $line;
         font-size: $copysize;
         border-radius: $borderradius;
 
@@ -600,7 +672,7 @@ Stylesheet: Base Mobile - Tablet
           text-underline-offset: 3px;
 
           &:hover, &:focus {
-            text-decoration-color: $link-hover;
+            text-decoration-color: $contrast;
           }
 
           &.remove {
@@ -609,12 +681,12 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-
-
-      button.button {
+      button.button, button.woocommerce-button {
         padding: 0.8em 1.5em;
         font-family: $headline;
-        background-color: $link-color;
+        outline: none;
+        border: none;
+        background-color: $buttoncolor;
         color: $white;
         border-radius: $borderradius;
         margin: 0;
@@ -626,7 +698,7 @@ Stylesheet: Base Mobile - Tablet
 
         &:hover {
           cursor: pointer;
-          background-color: $link-color;
+          background-color: $contrast;
         }
       }
 
@@ -701,7 +773,40 @@ Stylesheet: Base Mobile - Tablet
 
       input {
         padding: 0.4em 0.8em;
+        border-radius: $borderradius;
+        border: 1px solid $line;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+
+        &:hover{
+          border: 1px solid $contenttext;
+        }
+
+        &#password{
+          position: relative;
+        }
       }
+
+      .password-input{
+        position: absolute;
+      }
+
+      .show-password-input{
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        right: -2.2rem;
+        top: 0.15rem;
+        border-radius: $borderradius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: $buttonbackground url('../img/eye.svg') no-repeat center center;
+        background-size: 1.2rem;
+
+      }
+
 
       & > * {
         margin-block-start: 0;
@@ -718,12 +823,12 @@ Stylesheet: Base Mobile - Tablet
 
 
   a, a:visited {
-    &.wp-block-button__link, &.button {
+    &.wp-block-button__link, &.button, &.wc-block-components-button {
       padding: 0.8em 1.5em;
       font-family: $headline;
       border-radius: $borderradius;
-      background-color: $contrast;
-      color: $dark;
+      background-color: $buttonbackground;
+      color: $buttoncolor;
       margin: 0;
       top: 0;
       position: relative;
@@ -746,6 +851,8 @@ Stylesheet: Base Mobile - Tablet
       font-weight: bold;
     }
   }
+
+
 
 
   .wp-block-image .aligncenter {

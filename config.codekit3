@@ -1860,6 +1860,24 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/lib\/img\/eye.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/eye.afdesign",
+      "oF" : 0
+    },
+    "\/lib\/img\/eye.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/eye.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/lib\/img\/jado-logo_login.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -2561,6 +2579,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/sidebar.php",
+      "oF" : 0
+    },
+    "\/single-product.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/single-product.php",
       "oF" : 0
     },
     "\/single.php" : {
