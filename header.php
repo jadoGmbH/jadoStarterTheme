@@ -153,7 +153,7 @@
                     <div class="cheese c1"></div>
                     <div class="cheese c2"></div>
                     <div class="cheese c3"></div>
-            </div>
+                </button>
             <?php
             if (class_exists('WooCommerce')) {
                 $user = wp_get_current_user();
