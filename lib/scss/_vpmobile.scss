@@ -222,6 +222,9 @@ Stylesheet: Base Mobile - Tablet
     position: absolute;
     right: calc(#{$burgerright} / 2);
     top: 0;
+    border: none;
+    background: none;
+    outline: none;
     cursor: pointer;
     margin: 0;
     display: flex;
