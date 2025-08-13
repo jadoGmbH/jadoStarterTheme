@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
 "POT-Creation-Date: 2025-08-13 09:51+0200\n"
-"PO-Revision-Date: 2025-08-13 09:53+0200\n"
+"PO-Revision-Date: 2025-08-13 09:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -209,6 +209,10 @@ msgstr "Wartungsmodus"
 #: lib/maintenance.php:11
 msgid "Please come back later."
 msgstr "Bitte kommen sie später wieder."
+
+#: lib/maintenance.php:12
+msgid "Only logged-in users can see the frontend."
+msgstr "Nur eingeloggte Benutzer können die Webseite sehen."
 
 #: lib/theme-settings.php:6
 msgid "jado Starter Theme Settings"
