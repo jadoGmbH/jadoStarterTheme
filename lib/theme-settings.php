@@ -1042,12 +1042,13 @@ function jado_apply_settings(): void
         add_action('template_redirect', 'maintenance_mode');
         function maintenance_mode()
         {
-            if (!current_user_can('edit_themes') || !is_user_logged_in()) {
+            if ( !is_user_logged_in() ) {
                 include get_template_directory() . '/lib/maintenance.php';
                 exit;
             }
         }
     }
+
 
 
     /** Script style W3C-Correct */
