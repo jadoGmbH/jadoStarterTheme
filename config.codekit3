@@ -87,6 +87,14 @@
       "oAP" : "\/index.php",
       "oF" : 0
     },
+    "\/languages\/de_DE.l10n.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/languages\/de_DE.l10n.php",
+      "oF" : 0
+    },
     "\/languages\/de_DE.mo" : {
       "cB" : 0,
       "ft" : 8192,
