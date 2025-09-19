@@ -1383,6 +1383,16 @@ function jado_apply_settings(): void
             if ($swiperjs_enqueue_assets) {
                 wp_enqueue_script('swiperjs');
                 wp_enqueue_style('swiperjs-css');
+                add_filter('style_loader_tag', function ($html, $handle) {
+                    if ($handle === 'swiperjs-css') {
+                        $html = str_replace(
+                                "rel='stylesheet'",
+                                "rel='stylesheet' media='print' onload=\"this.onload=null;this.media='all';\"",
+                                $html
+                        );
+                    }
+                    return $html;
+                }, 10, 2);
             }
         }
 

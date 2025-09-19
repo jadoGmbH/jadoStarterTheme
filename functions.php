@@ -11,6 +11,20 @@ require_once('lib/theme-settings.php');
 //require_once('lib/custom-post-types.php'); // enable to get Custom Post Type "products"
 
 
+function theme_enqueue_styles() {
+    $ver = (str_contains($_SERVER["HTTP_HOST"], 'local'))
+        ? date('His')
+        : '01a';
+
+    wp_enqueue_style(
+        'theme-style',
+        get_template_directory_uri() . '/lib/css/style.css',
+        [],
+        $ver
+    );
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+
 function jado_head_cleanup()
 {
     remove_action('wp_head', 'rsd_link');

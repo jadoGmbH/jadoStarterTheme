@@ -7,7 +7,7 @@
       "uuidString" : "971BEE78-76E3-4A2E-A30D-D410E54B6E6D"
     }
   ],
-  "creatorBuild" : "34704",
+  "creatorBuild" : "34892",
   "files" : {
     "\/.gitignore" : {
       "cB" : 0,
@@ -3563,6 +3563,9 @@
         "active" : 0,
         "optionString" : "{'skipBlankLines': false, 'ignoreComments': false}"
       },
+      "no-unassigned-vars" : {
+        "active" : 0
+      },
       "no-undef" : {
         "active" : 1,
         "optionString" : "{'typeof': false}"
@@ -3643,7 +3646,8 @@
         "active" : 0
       },
       "no-useless-escape" : {
-        "active" : 1
+        "active" : 1,
+        "optionString" : "{'allowRegexCharacters': []}"
       },
       "no-useless-rename" : {
         "active" : 0,
