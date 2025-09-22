@@ -5,16 +5,17 @@ Stylesheet: Base Mobile - Tablet
 @use "variables" as *;
 @use "sass:color";
 
+// Viewport variables: define/override values for mobile at the top
 @mixin mobile() {
-  $copysize: 4.1vw;
-  $headlinesize: 8.5vw;
-  $contentwidth: 84%;
-  $innerpostgap: 3vw;
-  $contentgaptop: 2em;
+  $copysize: $mobile-copysize;
+  $headlinesize: $mobile-headlinesize;
+  $contentwidth: $mobile-contentwidth;
+  $innerpostgap: $mobile-innerpostgap;
+  $contentgaptop: $mobile-contentgaptop;
   $burgerright: calc(100% - #{$contentwidth});
-  $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
-  $borderradius: 0.4em;
-  $spaceafterblock: 1.5em;
+  $boxshadow: $mobile-boxshadow;
+  $borderradius: $mobile-borderradius;
+  $spaceafterblock: $block-gap-mobile;
 
 
   html {
@@ -76,11 +77,11 @@ Stylesheet: Base Mobile - Tablet
   }
 
 
-  #inner-header{
+  #inner-header {
     position: relative;
   }
 
-  .shopnav{
+  .shopnav {
     position: absolute;
     top: 0;
     right: 0;
@@ -91,7 +92,7 @@ Stylesheet: Base Mobile - Tablet
     align-items: center;
     font-weight: bold;
 
-    .counter{
+    .counter {
       border-radius: 50%;
       background-color: red;
       color: $white;
@@ -106,11 +107,11 @@ Stylesheet: Base Mobile - Tablet
       right: 0;
     }
 
-    a{
+    a {
       width: 3rem;
       height: 3rem;
 
-      &.shopuser{
+      &.shopuser {
         background: $buttonbackground url(../img/user.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
@@ -120,13 +121,13 @@ Stylesheet: Base Mobile - Tablet
         align-items: center;
         border-radius: $borderradius;
 
-        &:hover{
+        &:hover {
           background: $contrast url(../img/user.svg) no-repeat center;
           background-size: 1.5rem;
         }
       }
 
-      &.cart{
+      &.cart {
         background: $buttonbackground url(../img/cart.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
@@ -137,14 +138,14 @@ Stylesheet: Base Mobile - Tablet
         align-items: center;
         border-radius: $borderradius;
 
-        &:hover{
+        &:hover {
           background: $contrast url(../img/cart.svg) no-repeat center;
           background-size: 1.5rem;
 
         }
       }
 
-      svg, path, circle{
+      svg, path, circle {
         stroke-width: 2 !important;
         stroke: red !important;
       }
@@ -319,13 +320,14 @@ Stylesheet: Base Mobile - Tablet
 
         li {
           width: auto;
+
           a {
             width: auto;
             padding: 3vw 10vw;
           }
 
-          &.current-menu-item{
-            a{
+          &.current-menu-item {
+            a {
               color: $contrast;
             }
           }
@@ -393,7 +395,6 @@ Stylesheet: Base Mobile - Tablet
     background-color: $contentcolor;
     box-shadow: $boxshadow;
     min-height: 100vh;
-
 
 
     #inner-content {
@@ -496,64 +497,40 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      pre.wp-block-code {
-        background-color: $contenttext;
-        color: $white;
-        padding: 0.4em 0.8em;
-        margin-bottom: $spaceafterblock;
+      ul.wp-block-list {
+
+        ul.wp-block-list {
+          margin: 1rem 0 0 0;
+        }
       }
 
-      pre.wp-block-verse {
+      pre.wp-block-code {
+        border-radius: $borderradius;
+        background-color: $contenttext;
+        color: $white;
+        font-size: $copysize;
+        margin-bottom: $spaceafterblock;
+        padding: $mobile-innercontentgap;
+      }
+
+      .wp-block-verse {
         margin-bottom: $spaceafterblock;
         font-style: italic;
+        background-color: $headercolor;
+        border-radius: $borderradius;
+        font-size: $copysize;
+        padding: $mobile-innercontentgap;
       }
 
       .wp-block-columns {
         margin-bottom: $spaceafterblock;
       }
 
-      figure.wp-block-table {
-        margin-bottom: $spaceafterblock;
-
-        tbody {
-          border-bottom: 1px solid $contenttext;
-          display: block;
-          background-color: $white;
-        }
-
-        figcaption {
-          text-align: center;
-          opacity: 0.5;
-          font-style: italic;
-          padding-top: 0.5em;
-        }
-
-        table {
-          display: block;
-          width: 100%;
-        }
-
-
-        tr {
-          border-top: 1px solid $contenttext;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-
-          td {
-            flex: 1;
-            padding: 0.4em;
-            border-right: 1px solid $contenttext;
-
-            &:first-child {
-              border-left: 1px solid $contenttext;
-            }
-
-            &:empty {
-              display: none;
-            }
-          }
-        }
+      figcaption {
+        text-align: center;
+        opacity: 0.5;
+        font-style: italic;
+        padding-top: 0.5em;
       }
 
       .wp-block-gallery {
@@ -655,6 +632,13 @@ Stylesheet: Base Mobile - Tablet
         p {
           margin: 1em 0 2em 0;
           font-style: italic;
+        }
+      }
+
+
+      .wp-block-pullquote {
+        p, h1, h2, h3 {
+          color: $contenttext;
         }
       }
 
@@ -781,20 +765,20 @@ Stylesheet: Base Mobile - Tablet
         border: 1px solid $line;
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 
-        &:hover{
+        &:hover {
           border: 1px solid $contenttext;
         }
 
-        &#password{
+        &#password {
           position: relative;
         }
       }
 
-      .password-input{
+      .password-input {
         position: absolute;
       }
 
-      .show-password-input{
+      .show-password-input {
         position: absolute;
         width: 2rem;
         height: 2rem;
@@ -857,8 +841,6 @@ Stylesheet: Base Mobile - Tablet
   }
 
 
-
-
   .wp-block-image .aligncenter {
     margin-left: 0;
     margin-right: 0;
@@ -901,7 +883,7 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
-  .socialmediaicons{
+  .socialmediaicons {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -909,22 +891,25 @@ Stylesheet: Base Mobile - Tablet
     gap: 0.4rem;
     margin-bottom: 2rem;
 
-    a{
+    a {
       width: 2rem;
       height: 2rem;
+      border-radius: $borderradius;
+      overflow: hidden;
 
       svg {
         fill: currentColor;
-        path{
+
+        path {
           fill: currentColor;
         }
       }
 
-      &:hover{
-        svg{
+      &:hover {
+        svg {
           fill: $contrast;
 
-          path{
+          path {
             fill: $contrast !important;
           }
         }
@@ -955,11 +940,11 @@ Stylesheet: Base Mobile - Tablet
       color: $footertext;
       font-size: $copysize - 0.75;
 
-      a{
+      a {
         color: $footertext;
         font-size: $copysize - 0.75;
 
-        &:hover{
+        &:hover {
           color: $contrast
         }
       }
@@ -987,5 +972,214 @@ Stylesheet: Base Mobile - Tablet
     bottom: 0;
     padding: 0.4em 1em;
     z-index: 99999;
+  }
+
+  .wp-block-details, details.wp-block-details {
+    margin: 0 0 $spaceafterblock 0;
+    border: 1px solid $line;
+    border-radius: $borderradius;
+    background: $white;
+    color: $contenttext;
+    box-shadow: $boxshadow;
+    overflow: hidden;
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      padding: $mobile-innercontentgap;
+      font-family: $headline;
+      font-weight: 700;
+      font-size: $headlinesize - 2;
+      line-height: 1.2;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      color: $contenttext;
+      transition: color 0.2ms ease-out;
+
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:after {
+        content: "▾";
+        margin-left: auto;
+        font-size: 1.2em;
+        line-height: 1;
+        transform: rotate(-90deg);
+        @include transition(transform 250ms ease);
+      }
+
+      &:hover {
+        color: $maincolor;
+      }
+    }
+
+    > * {
+      padding: 1rem;
+    }
+
+    .wp-block-details__content {
+      padding: 0 1em 1em;
+      border-top: 1px solid $line;
+      display: grid;
+      grid-template-rows: 0fr; /* collapsed */
+      @include transition(grid-template-rows 300ms ease);
+
+      > * {
+        overflow: hidden;
+      }
+    }
+
+    &[open] {
+      summary:after {
+        transform: rotate(0deg);
+      }
+
+      .wp-block-details__content {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+
+  .wp-block-table {
+    margin-bottom: $spaceafterblock;
+
+    tbody {
+      display: block;
+      background-color: $white;
+    }
+
+    table {
+      display: block;
+      width: 100%;
+    }
+
+    th, td {
+      padding: $tablet-innercontentgap;
+      font-size: $copysize;
+    }
+
+    tr {
+      border-top: 1px solid $contenttext;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+
+      td {
+        flex: 1;
+        padding: $mobile-innercontentgap;
+        border-right: 1px solid $contenttext;
+
+        &:first-child {
+          border-left: 1px solid $contenttext;
+        }
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wp-block-details, details.wp-block-details {
+      summary:after {
+        transition: none;
+      }
+
+      .wp-block-details__content {
+        transition: none;
+      }
+    }
+  }
+
+
+  figure.wp-block-table, .wp-block-table {
+    margin: 0 0 $spaceafterblock 0;
+  }
+
+  .wp-block-table {
+    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: $borderradius;
+    background: $white;
+    box-shadow: $boxshadow;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      min-width: 540px;
+      background: $white;
+    }
+
+    caption {
+      caption-side: top;
+      padding: 0.6em 0.8em;
+      font-weight: 700;
+      text-align: left;
+      color: $contenttext;
+    }
+
+    thead th {
+      background-color: color.scale($line, $lightness: 45%);
+      color: $contenttext;
+      text-align: left;
+      font-weight: 700;
+    }
+
+
+    th, td {
+      padding: $mobile-innercontentgap;
+      border: 0;
+      vertical-align: top;
+      font-size: $copysize;
+    }
+
+    &:not(.is-style-stripes) tbody tr:nth-child(odd) {
+      background-color: color.scale($line, $lightness: 52%);
+    }
+
+    tbody tr:hover {
+      background-color: color.scale($contrast, $lightness: 88%);
+    }
+
+    .has-fixed-layout table {
+      table-layout: fixed;
+    }
+
+    td.is-numeric, th.is-numeric {
+      text-align: right;
+    }
+  }
+
+  #content .entry-content {
+    figure.wp-block-table {
+      tr {
+        border: 0 !important;
+      }
+
+      th, td {
+        border: 0 !important;
+      }
+    }
+
+    figure.wp-block-table tr td {
+      border: 0 !important;
+      border-bottom: 0 !important;
+    }
+
+    figure.wp-block-table tr td:first-child {
+      border-left: 0 !important;
+    }
+
+    figure.wp-block-table tr td:last-child {
+      border-right: 0 !important;
+    }
   }
 }

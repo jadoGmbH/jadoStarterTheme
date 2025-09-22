@@ -22,21 +22,21 @@ Stylesheet: Variables
 }
 
 /* Colors */
-$dark:           #222525;
-$white:          #ffffff;
-$headercolor:    $white;
-$headertext:     $dark;
-$contentcolor:   #e4e5d9;
-$contenttext:    #2b2913;
-$footercolor:    $dark;
+$dark:                #222525;
+$white:               #ffffff;
+$headercolor:         $white;
+$headertext:          $dark;
+$contentcolor:        #e4e5d9;
+$contenttext:         #2b2913;
+$footercolor:         $dark;
 $buttonbackground:    #900695;
-$buttoncolor:    $white;
-$footertext:     $white;
-$maincolor:      #7a8037;
-$line: #bcbcbc;
-$contrast: #b9c62a;
-$link-color: #a7b32d;
-$link-hover:     $link-color;
+$buttoncolor:         $white;
+$footertext:          $white;
+$maincolor:           #7a8037;
+$line:                #bcbcbc;
+$contrast:            #b9c62a;
+$link-color:          #a7b32d;
+$link-hover:          $link-color;
 
 /* Woocommerce Colors */
 $wooGreen:  #429e0e;
@@ -84,3 +84,52 @@ h1, h2, h3, h4, p, li {
   -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
 }
+
+
+
+
+/******************************************************************
+Variables: Added spacing scale, viewport defaults, and block gaps (moved from tokens)
+******************************************************************/
+
+
+
+// Unified block gaps per viewport
+$block-gap-mobile: 1.5em;
+$block-gap-tablet: 3em;
+$block-gap-desktop: 50px;
+
+// Viewport default variables (mirror current viewport-specific defaults)
+// Mobile
+$mobile-copysize: 4.1vw;
+$mobile-headlinesize: 8.5vw;
+$mobile-contentwidth: 84%;
+$mobile-innerpostgap: 3vw;
+$mobile-contentgaptop: 2em;
+$mobile-innercontentgap: 2rem;
+$mobile-borderradius: 0.4em;
+$mobile-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+
+// Tablet
+$tablet-copysize: 1.6vw;
+$tablet-headlinesize: 4vw;
+$tablet-contentwidth: 90%;
+$tablet-innerpostgap: 2vw;
+$tablet-contentgaptop: 2em;
+$tablet-innercontentgap: 2rem;
+$tablet-borderradius: 0.3rem;
+$tablet-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+
+// Desktop
+$desktop-copysize: 18px;
+$desktop-headlinesize: 40px;
+$desktop-contentwidth: 80%;
+$desktop-maxcontentwidth: 1000px;
+$desktop-innerpostgap: 20px;
+$desktop-innercontentgap: 2rem;
+$desktop-borderradius: 0.3rem;
+$desktop-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+
+
+
+
