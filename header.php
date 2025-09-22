@@ -192,7 +192,7 @@
             }
             ?>
         </div>
-        <nav id="site-navigation" class="wrap">
+        <nav id="site-navigation" class="">
             <?php wp_nav_menu(array(
             'container' => false,
             'container_class' => 'menu',
