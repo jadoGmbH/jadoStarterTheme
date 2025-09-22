@@ -199,6 +199,7 @@ function jado_admin_CSS()
             body.toplevel_page_jado_options table.form-table tbody tr:hover label{color: black;}
             body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;width: 600px;}
             body.toplevel_page_jado_options table.form-table tbody tr{flex: 0 0 48%; transition: all 300ms ease;}
+            body.toplevel_page_jado_options table.form-table tbody tr.baguettebox label, body.toplevel_page_jado_options table.form-table tbody tr.swiperjs label{max-width: 75%;}
             body.toplevel_page_jado_options .form-table tbody tr {
                 width: 46%;
                 float: left;
