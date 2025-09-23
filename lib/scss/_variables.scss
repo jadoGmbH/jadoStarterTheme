@@ -93,43 +93,52 @@ Variables: Added spacing scale, viewport defaults, and block gaps (moved from to
 ******************************************************************/
 
 
-
-// Unified block gaps per viewport
-$block-gap-mobile: 1.5em;
-$block-gap-tablet: 3em;
-$block-gap-desktop: 50px;
-
 // Viewport default variables (mirror current viewport-specific defaults)
+
 // Mobile
+
+$mobile-contentwidth: 84%;
+
+$block-gap-mobile: 1.5em;
+$mobile-innercontentgap: 2rem;
+$mobile-contentgaptop: 2em;
+$mobile-innerpostgap: 3vw;
+
 $mobile-copysize: 4.1vw;
 $mobile-headlinesize: 8.5vw;
-$mobile-contentwidth: 84%;
-$mobile-innerpostgap: 3vw;
-$mobile-contentgaptop: 2em;
-$mobile-innercontentgap: 2rem;
+
 $mobile-borderradius: 0.4em;
 $mobile-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
+
 // Tablet
-$tablet-copysize: 1.6vw;
-$tablet-headlinesize: 4vw;
+
 $tablet-contentwidth: 90%;
+
+$block-gap-tablet: 3em;
+$tablet-innercontentgap: 2rem;
 $tablet-innerpostgap: 2vw;
 $tablet-contentgaptop: 2em;
-$tablet-innercontentgap: 2rem;
+
+$tablet-copysize: 1.6vw;
+$tablet-headlinesize: 4vw;
+
 $tablet-borderradius: 0.3rem;
 $tablet-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
+
 // Desktop
-$desktop-copysize: 18px;
-$desktop-headlinesize: 40px;
+
 $desktop-contentwidth: 80%;
 $desktop-maxcontentwidth: 1000px;
-$desktop-innerpostgap: 20px;
+
+$block-gap-desktop: 50px;
 $desktop-innercontentgap: 2rem;
+$desktop-innerpostgap: 20px;
+
+$desktop-copysize: 18px;
+$desktop-headlinesize: 40px;
+
 $desktop-borderradius: 0.3rem;
 $desktop-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
-
-
-
 
