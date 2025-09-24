@@ -4849,11 +4849,11 @@ pre {
 }
 #content .entry-content blockquote.wp-block-quote {
   margin: 0;
-  padding: 0 3em;
+  padding: 0 1rem;
   border-left: 1em solid #7a8037;
 }
 #content .entry-content blockquote.wp-block-quote p {
-  margin: 1em 0 2em 0;
+  margin: 1rem 0 2rem 0;
   font-style: italic;
 }
 #content .entry-content .wp-block-pullquote p, #content .entry-content .wp-block-pullquote h1, #content .entry-content .wp-block-pullquote h2, #content .entry-content .wp-block-pullquote h3 {
@@ -4942,7 +4942,7 @@ pre {
   font-weight: bold;
 }
 #content .entry-content p {
-  margin: 0 0 2vw;
+  margin: 0 0 2em 0;
 }
 #content .entry-content p a {
   font-weight: bold;
@@ -4950,7 +4950,7 @@ pre {
   font-family: "Helvetica Neue", sans-serif;
 }
 #content .entry-content img {
-  margin: 0 0 2vw 0;
+  margin: 0 0 2em 0;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -5409,10 +5409,16 @@ figure.wp-block-image figcaption {
     font-size: 1.3vw;
   }
   #content .entry-content p {
-    margin: 0 0 2vw;
+    margin: 0 0 1.6rem 0;
   }
   #content .entry-content p a {
     font-size: 1.6vw;
+  }
+  #content .entry-content blockquote.wp-block-quote {
+    padding: 0 1.6rem;
+  }
+  #content .entry-content blockquote.wp-block-quote p {
+    margin: 1.6rem 0 3.2rem 0;
   }
   #content .entry-content .wp-block-pullquote {
     padding: 1.6rem 0;
@@ -5440,7 +5446,7 @@ figure.wp-block-image figcaption {
     padding: 2vw;
   }
   #content .entry-content img {
-    margin: 0 0 2vw 0;
+    margin: 0 0 1.6rem 0;
   }
   #content .entry-content .cpt-container, #content .entry-content .posts {
     justify-content: space-between;
@@ -5642,10 +5648,16 @@ figure.wp-block-image figcaption {
     font-size: 14px;
   }
   #content .entry-content p {
-    margin: 0 0 2em;
+    margin: 0 0 2.2rem 0;
   }
   #content .entry-content p a {
     font-size: 18px;
+  }
+  #content .entry-content blockquote.wp-block-quote {
+    padding: 0 2.2rem;
+  }
+  #content .entry-content blockquote.wp-block-quote p {
+    margin: 2.2rem 0 4.4rem 0;
   }
   #content .entry-content .wp-block-pullquote {
     margin-bottom: 50px;
@@ -5669,7 +5681,7 @@ figure.wp-block-image figcaption {
     font-size: 18px;
   }
   #content .entry-content img {
-    margin: 0 0 0.5em 0;
+    margin: 0 0 2.2rem 0;
   }
   #content .entry-content .cpt-container h2, #content .entry-content .posts h2 {
     font-size: 34px;

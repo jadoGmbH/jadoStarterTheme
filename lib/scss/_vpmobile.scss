@@ -488,7 +488,7 @@ Stylesheet: Base Mobile - Tablet
       ul.wp-block-list {
 
         ul.wp-block-list {
-          margin: 1rem 0 0 0;
+          margin: $mobile-innerContentGap 0 0 0;
         }
       }
 
@@ -614,11 +614,11 @@ Stylesheet: Base Mobile - Tablet
 
       blockquote.wp-block-quote {
         margin: 0;
-        padding: 0 3em;
+        padding: 0 $mobile-innerContentGap;
         border-left: 1em solid $mainColor;
 
         p {
-          margin: 1em 0 2em 0;
+          margin: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
           font-style: italic;
         }
       }
@@ -731,7 +731,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       p {
-        margin: 0 0 2vw;
+        margin: 0 0 $mobile-contentGapTop 0;
 
         a {
           font-weight: bold;
@@ -741,7 +741,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       img {
-        margin: 0 0 2vw 0;
+        margin: 0 0 $mobile-contentGapTop 0;
         width: 100%;
         max-width: 100%;
         height: auto;
