@@ -5119,6 +5119,11 @@ figure.wp-block-image figcaption {
   font-weight: normal;
   color: #ffffff;
   font-size: 3.35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.35rem;
 }
 .footer .copyright a {
   color: #ffffff;

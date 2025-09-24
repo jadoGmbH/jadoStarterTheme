@@ -945,7 +945,12 @@ Stylesheet: Base Mobile - Tablet
       font-weight: normal;
       color: $footerText;
       font-size: $mobile-copySize - 0.75;
-
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.35rem;
+      
       a {
         color: $footerText;
         font-size: $mobile-copySize - 0.75;
