@@ -97,48 +97,48 @@ Variables: Added spacing scale, viewport defaults, and block gaps (moved from to
 
 // Mobile
 
-$mobile-contentwidth: 84%;
+$mobile-contentWidth: 84%;
 
-$block-gap-mobile: 1.5em;
-$mobile-innercontentgap: 2rem;
-$mobile-contentgaptop: 2em;
-$mobile-innerpostgap: 3vw;
+$mobile-block-gap: 1.5em;
+$mobile-innerContentGap: 2rem;
+$mobile-contentGapTop: 2em;
+$mobile-innerPostGap: 3vw;
 
-$mobile-copysize: 4.1vw;
-$mobile-headlinesize: 8.5vw;
+$mobile-copySize: 4.1vw;
+$mobile-headlineSize: 8.5vw;
 
-$mobile-borderradius: 0.4em;
-$mobile-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+$mobile-borderRadius: 0.4em;
+$mobile-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
 
 // Tablet
 
-$tablet-contentwidth: 90%;
+$tablet-contentWidth: 90%;
 
-$block-gap-tablet: 3em;
-$tablet-innercontentgap: 2rem;
-$tablet-innerpostgap: 2vw;
-$tablet-contentgaptop: 2em;
+$tablet-block-gap: 3em;
+$tablet-innerContentGap: 2rem;
+$tablet-innerPostGap: 2vw;
+$tablet-contentGapTop: 2em;
 
-$tablet-copysize: 1.6vw;
-$tablet-headlinesize: 4vw;
+$tablet-copySize: 1.6vw;
+$tablet-headlineSize: 4vw;
 
-$tablet-borderradius: 0.3rem;
-$tablet-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+$tablet-borderRadius: 0.3rem;
+$tablet-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
 
 // Desktop
 
-$desktop-contentwidth: 80%;
-$desktop-maxcontentwidth: 1000px;
+$desktop-contentWidth: 80%;
+$desktop-maxContentWidth: 1000px;
 
-$block-gap-desktop: 50px;
-$desktop-innercontentgap: 2rem;
-$desktop-innerpostgap: 20px;
+$desktop-block-gap: 50px;
+$desktop-innerContentGap: 2rem;
+$desktop-innerPostGap: 20px;
 
-$desktop-copysize: 18px;
-$desktop-headlinesize: 40px;
+$desktop-copySize: 18px;
+$desktop-headlineSize: 40px;
 
-$desktop-borderradius: 0.3rem;
-$desktop-boxshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+$desktop-borderRadius: 0.3rem;
+$desktop-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 

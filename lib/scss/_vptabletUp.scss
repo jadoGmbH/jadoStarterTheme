@@ -7,14 +7,14 @@ Stylesheet: Tablet - Desktop
 
 // Viewport variables: define/override values for tablet at the top
 @mixin tabletUp() {
-  $copysize: $tablet-copysize;
-  $headlinesize: $tablet-headlinesize;
-  $contentwidth: $tablet-contentwidth;
-  $innerpostgap: $tablet-innerpostgap;
-  $contentgaptop: $tablet-contentgaptop;
-  $borderradius: $tablet-borderradius;
-  $boxshadow: $tablet-boxshadow;
-  $spaceafterblock: $block-gap-tablet;
+  $copysize: $tablet-copySize;
+  $headlinesize: $tablet-headlineSize;
+  $contentwidth: $tablet-contentWidth;
+  $innerpostgap: $tablet-innerPostGap;
+  $contentgaptop: $tablet-contentGapTop;
+  $borderradius: $tablet-borderRadius;
+  $boxshadow: $tablet-boxShadow;
+  $spaceafterblock: $tablet-block-gap;
 
   body {
     font-size: 100%;
@@ -417,7 +417,7 @@ Stylesheet: Tablet - Desktop
     }
 
     th, td {
-      padding: $tablet-innercontentgap;
+      padding: $tablet-innerContentGap;
       font-size: $copysize;
     }
 

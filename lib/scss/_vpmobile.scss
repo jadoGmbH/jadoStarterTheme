@@ -7,15 +7,15 @@ Stylesheet: Base Mobile - Tablet
 
 // Viewport variables: define/override values for mobile at the top
 @mixin mobile() {
-  $copysize: $mobile-copysize;
-  $headlinesize: $mobile-headlinesize;
-  $contentwidth: $mobile-contentwidth;
-  $innerpostgap: $mobile-innerpostgap;
-  $contentgaptop: $mobile-contentgaptop;
+  $copysize: $mobile-copySize;
+  $headlinesize: $mobile-headlineSize;
+  $contentwidth: $mobile-contentWidth;
+  $innerpostgap: $mobile-innerPostGap;
+  $contentgaptop: $mobile-contentGapTop;
   $burgerright: calc(100% - #{$contentwidth});
-  $boxshadow: $mobile-boxshadow;
-  $borderradius: $mobile-borderradius;
-  $spaceafterblock: $block-gap-mobile;
+  $boxshadow: $mobile-boxShadow;
+  $borderradius: $mobile-borderRadius;
+  $spaceafterblock: $mobile-block-gap;
 
 
   html {
@@ -510,7 +510,7 @@ Stylesheet: Base Mobile - Tablet
         color: $white;
         font-size: $copysize;
         margin-bottom: $spaceafterblock;
-        padding: $mobile-innercontentgap;
+        padding: $mobile-innerContentGap;
       }
 
       .wp-block-verse {
@@ -519,7 +519,7 @@ Stylesheet: Base Mobile - Tablet
         background-color: $headercolor;
         border-radius: $borderradius;
         font-size: $copysize;
-        padding: $mobile-innercontentgap;
+        padding: $mobile-innerContentGap;
       }
 
       .wp-block-columns {
@@ -987,7 +987,7 @@ Stylesheet: Base Mobile - Tablet
       display: flex;
       align-items: center;
       gap: 0.6em;
-      padding: $mobile-innercontentgap;
+      padding: $mobile-innerContentGap;
       font-family: $headline;
       font-weight: 700;
       font-size: $headlinesize - 2;
@@ -1059,7 +1059,7 @@ Stylesheet: Base Mobile - Tablet
     }
 
     th, td {
-      padding: $tablet-innercontentgap;
+      padding: $tablet-innerContentGap;
       font-size: $copysize;
     }
 
@@ -1071,7 +1071,7 @@ Stylesheet: Base Mobile - Tablet
 
       td {
         flex: 1;
-        padding: $mobile-innercontentgap;
+        padding: $mobile-innerContentGap;
         border-right: 1px solid $contenttext;
 
         &:first-child {
@@ -1135,7 +1135,7 @@ Stylesheet: Base Mobile - Tablet
 
 
     th, td {
-      padding: $mobile-innercontentgap;
+      padding: $mobile-innerContentGap;
       border: 0;
       vertical-align: top;
       font-size: $copysize;

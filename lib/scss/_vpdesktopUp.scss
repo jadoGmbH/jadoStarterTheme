@@ -8,14 +8,14 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 // Viewport variables: define/override values for desktop at the top
 @mixin desktopUp() {
 
-  $copysize: $desktop-copysize;
-  $headlinesize: $desktop-headlinesize;
-  $contentwidth: $desktop-contentwidth;
-  $maxcontentwidth: $desktop-maxcontentwidth; // maximal width for layout!
-  $innerpostgap: $desktop-innerpostgap;
-  $borderradius: $desktop-borderradius;
-  $boxshadow: $desktop-boxshadow;
-  $spaceafterblock: $block-gap-desktop;
+  $copysize: $desktop-copySize;
+  $headlinesize: $desktop-headlineSize;
+  $contentwidth: $desktop-contentWidth;
+  $maxcontentwidth: $desktop-maxContentWidth; // maximal width for layout!
+  $innerpostgap: $desktop-innerPostGap;
+  $borderradius: $desktop-borderRadius;
+  $boxshadow: $desktop-boxShadow;
+  $spaceafterblock: $desktop-block-gap;
 
 
   body {
@@ -160,12 +160,12 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       pre.wp-block-code {
         border-radius: $borderradius;
         font-size: $copysize;
-        padding: $desktop-innercontentgap;
+        padding: $desktop-innerContentGap;
       }
 
       .wp-block-verse {
         border-radius: $borderradius;
-        padding: $desktop-innercontentgap;
+        padding: $desktop-innerContentGap;
         font-size: $copysize;
       }
 
@@ -242,7 +242,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
     summary {
       gap: 0.8em;
-      padding: $desktop-innercontentgap;
+      padding: $desktop-innerContentGap;
       font-size: $headlinesize - 10;
 
       &:after {
@@ -281,7 +281,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
 
     th, td {
-      padding: $desktop-innercontentgap;
+      padding: $desktop-innerContentGap;
       font-size: $copysize;
     }
 
