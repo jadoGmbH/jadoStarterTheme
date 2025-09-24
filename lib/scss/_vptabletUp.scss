@@ -301,7 +301,7 @@ Stylesheet: Tablet - Desktop
     font-size: $tablet-copySize;
 
     &.wp-block-button__link, &.button {
-      padding: 0.8em 1.5em;
+      padding: calc($tablet-innerContentGap / 4) calc($tablet-innerContentGap / 2);
       border-radius: $tablet-borderRadius;
     }
   }
@@ -349,10 +349,18 @@ Stylesheet: Tablet - Desktop
 
 
   .footer {
-    padding: 2vw 0;
+    padding: $tablet-innerContentGap 0;
 
     .copyright, .copyright a {
-      font-size: $tablet-copySize - 0.75;
+      font-size: $tablet-copySize - 0.25;
+    }
+
+    a {
+      font-size: $tablet-copySize - 0.25;
+
+      &.wp-block-button__link{
+        font-size: $tablet-copySize - 0.25;
+      }
     }
 
     #inner-footer {

@@ -193,7 +193,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     font-size: $desktop-copySize;
 
     &.wp-block-button__link, &.button {
-      padding: 0.8em 1.5em;
+      padding: calc($desktop-innerContentGap / 4) calc($desktop-innerContentGap / 2);
       border-radius: $desktop-borderRadius;
     }
   }
@@ -209,10 +209,18 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
 
   .footer {
-    padding: 2em 0;
+    padding: $desktop-innerContentGap 0;
 
     .copyright, .copyright a {
-      font-size: $desktop-copySize - 6;
+      font-size: $desktop-copySize - 4;
+    }
+
+    a {
+      font-size: $desktop-copySize - 4;
+
+      &.wp-block-button__link{
+        font-size: $desktop-copySize - 4;
+      }
     }
   }
 

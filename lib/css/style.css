@@ -4871,9 +4871,9 @@ pre {
   transition: all 200ms ease-out;
   position: relative;
   text-decoration: underline;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   text-decoration-color: #a7b32d;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
 }
 #content .entry-content .summary a:hover, #content .entry-content .summary a:focus, #content .entry-content .summary a:visited:hover, #content .entry-content .summary a:visited:focus, #content .entry-content p a:hover, #content .entry-content p a:focus, #content .entry-content p a:visited:hover, #content .entry-content p a:visited:focus, #content .entry-content .woocommerce-cart-form a:hover, #content .entry-content .woocommerce-cart-form a:focus, #content .entry-content .woocommerce-cart-form a:visited:hover, #content .entry-content .woocommerce-cart-form a:visited:focus {
   text-decoration-color: #b9c62a;
@@ -4883,7 +4883,7 @@ pre {
 }
 #content .entry-content button.button, #content .entry-content button.woocommerce-button {
   padding: 0.8em 1.5em;
-  font-family: "Albert Sans", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   outline: none;
   border: none;
   background-color: #ffffff;
@@ -4947,7 +4947,7 @@ pre {
 #content .entry-content p a {
   font-weight: bold;
   font-size: 4.1vw;
-  font-family: "Albert Sans", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 #content .entry-content img {
   margin: 0 0 2vw 0;
@@ -4996,8 +4996,8 @@ pre {
 }
 
 a.wp-block-button__link, a.button, a.wc-block-components-button, a:visited.wp-block-button__link, a:visited.button, a:visited.wc-block-components-button {
-  padding: 0.8em 1.5em;
-  font-family: "Albert Sans", sans-serif;
+  padding: 0.25rem 0.5rem;
+  font-family: "Helvetica Neue", sans-serif;
   border-radius: 0.4em;
   background-color: #900695;
   color: #ffffff;
@@ -5092,7 +5092,7 @@ figure.wp-block-image figcaption {
   position: sticky;
   bottom: 0;
   z-index: 1;
-  padding: 2vw 0 4vw 0;
+  padding: 1rem 0 2rem 0;
 }
 .footer #inner-footer {
   display: flex;
@@ -5114,6 +5114,9 @@ figure.wp-block-image figcaption {
 }
 .footer a {
   text-decoration: underline;
+}
+.footer a.wp-block-button__link {
+  font-size: 3.35vw;
 }
 
 .featuredImage {
@@ -5483,7 +5486,7 @@ figure.wp-block-image figcaption {
     font-size: 1.6vw;
   }
   a.wp-block-button__link, a.button, a:visited.wp-block-button__link, a:visited.button {
-    padding: 0.8em 1.5em;
+    padding: 0.4rem 0.8rem;
     border-radius: 0.3rem;
   }
   #widgetarea {
@@ -5518,10 +5521,16 @@ figure.wp-block-image figcaption {
     border-radius: 0.3rem;
   }
   .footer {
-    padding: 2vw 0;
+    padding: 1.6rem 0;
   }
   .footer .copyright, .footer .copyright a {
-    font-size: 0.85vw;
+    font-size: 1.35vw;
+  }
+  .footer a {
+    font-size: 1.35vw;
+  }
+  .footer a.wp-block-button__link {
+    font-size: 1.35vw;
   }
   .footer #inner-footer {
     flex-direction: row;
@@ -5694,17 +5703,23 @@ figure.wp-block-image figcaption {
     font-size: 18px;
   }
   a.wp-block-button__link, a.button, a:visited.wp-block-button__link, a:visited.button {
-    padding: 0.8em 1.5em;
+    padding: 0.55rem 1.1rem;
     border-radius: 0.3rem;
   }
   #widgetarea .widget h2, #widgetarea .widget h3 {
     font-size: 22px;
   }
   .footer {
-    padding: 2em 0;
+    padding: 2.2rem 0;
   }
   .footer .copyright, .footer .copyright a {
-    font-size: 12px;
+    font-size: 14px;
+  }
+  .footer a {
+    font-size: 14px;
+  }
+  .footer a.wp-block-button__link {
+    font-size: 14px;
   }
   .socialmediaicons a {
     border-radius: 0.3rem;

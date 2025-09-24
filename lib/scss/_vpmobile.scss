@@ -643,9 +643,9 @@ Stylesheet: Base Mobile - Tablet
           @include transition(all 200ms ease-out);
           position: relative;
           text-decoration: underline;
-          text-decoration-thickness: 3px;
+          text-decoration-thickness: 2px;
           text-decoration-color: $linkColor;
-          text-underline-offset: 3px;
+          text-underline-offset: 2px;
 
           &:hover, &:focus {
             text-decoration-color: $contrast;
@@ -659,7 +659,7 @@ Stylesheet: Base Mobile - Tablet
 
       button.button, button.woocommerce-button {
         padding: 0.8em 1.5em;
-        font-family: $headline;
+        font-family: $copy;
         outline: none;
         border: none;
         background-color: $buttonColor;
@@ -736,7 +736,7 @@ Stylesheet: Base Mobile - Tablet
         a {
           font-weight: bold;
           font-size: $mobile-copySize;
-          font-family: $headline;
+          font-family: $copy;
         }
       }
 
@@ -800,8 +800,8 @@ Stylesheet: Base Mobile - Tablet
 
   a, a:visited {
     &.wp-block-button__link, &.button, &.wc-block-components-button {
-      padding: 0.8em 1.5em;
-      font-family: $headline;
+      padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
+      font-family: $copy;
       border-radius: $mobile-borderRadius;
       background-color: $buttonBackground;
       color: $buttonColor;
@@ -914,7 +914,7 @@ Stylesheet: Base Mobile - Tablet
     position: sticky;
     bottom: 0;
     z-index: 1;
-    padding: 2vw 0 4vw 0;
+    padding: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
 
     #inner-footer {
       display: flex;
@@ -940,6 +940,10 @@ Stylesheet: Base Mobile - Tablet
 
     a {
       text-decoration: underline;
+
+      &.wp-block-button__link{
+        font-size: $mobile-copySize - 0.75;
+      }
     }
   }
 
