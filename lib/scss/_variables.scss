@@ -24,14 +24,19 @@ Stylesheet: Variables
 /* Colors */
 $dark:                #222525;
 $white:               #ffffff;
-$headerColor:         $white;
+
+$headerBackground:    $white;
 $headerText:          $dark;
-$contentColor:        #e4e5d9;
+
+$contentBackground:   #e4e5d9;
 $contentText:         #2b2913;
-$footerColor:         $dark;
+
+$footerBackground:    $dark;
+$footerText:          $white;
+
 $buttonBackground:    #900695;
 $buttonColor:         $white;
-$footerText:          $white;
+
 $mainColor:           #7a8037;
 $line:                #bcbcbc;
 $contrast:            #b9c62a;

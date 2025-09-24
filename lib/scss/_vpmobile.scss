@@ -15,7 +15,7 @@ Stylesheet: Base Mobile - Tablet
     font-family: $copy;
     line-height: 1.5;
     color: $contentText;
-    background-color: $headerColor;
+    background-color: $headerBackground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -25,12 +25,12 @@ Stylesheet: Base Mobile - Tablet
     top: 0;
     font-size: $mobile-copySize;
 
-    &.scrollDown #header.header {
+    &.scrollDown #fixedHeader.header {
       transform: translate3d(0, -100%, 0);
       @include transition(transform 200ms ease-out);
     }
 
-    &.scrollUp #header.header {
+    &.scrollUp fixedHeader.header {
       transform: translate3d(0, 0, 0);
       @include transition(transform 200ms ease-out);
     }
@@ -143,12 +143,12 @@ Stylesheet: Base Mobile - Tablet
 
   .header {
     box-shadow: $mobile-boxShadow;
-    background-color: $headerColor;
+    background-color: $headerBackground;
     z-index: 9999;
     position: relative;
     padding: 5vw 0;
 
-    &#header {
+    &#fixedHeader {
       position: fixed;
       width: 100%;
     }
@@ -381,10 +381,9 @@ Stylesheet: Base Mobile - Tablet
   #content {
     position: relative;
     z-index: 2;
-    background-color: $contentColor;
+    background-color: $contentBackground;
     box-shadow: $mobile-boxShadow;
     min-height: 100vh;
-
 
     #inner-content {
       &.hasThumb {
@@ -505,7 +504,7 @@ Stylesheet: Base Mobile - Tablet
       .wp-block-verse {
         margin-bottom: $mobile-blockGap;
         font-style: italic;
-        background-color: $headerColor;
+        background-color: $headerBackground;
         border-radius: $mobile-borderRadius;
         font-size: $mobile-copySize;
         padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
@@ -576,7 +575,7 @@ Stylesheet: Base Mobile - Tablet
           @include transition(background-color 200ms linear);
 
           &:hover {
-            background-color: $contentColor;
+            background-color: $contentBackground;
           }
 
           &.sold { /** change if you need another custom post type category! */
@@ -910,7 +909,7 @@ Stylesheet: Base Mobile - Tablet
 
   .footer {
     clear: both;
-    background-color: $footerColor;
+    background-color: $footerBackground;
     color: $footerText;
     position: sticky;
     bottom: 0;

@@ -113,7 +113,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="container">
-    <header id="header" class="header">
+    <header id="fixedHeader" class="header">
         <div id="inner-header" class="wrap">
             <?php
             if (has_nav_menu('MetaNav')) {

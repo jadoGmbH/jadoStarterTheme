@@ -4360,12 +4360,12 @@ body {
   top: 0;
   font-size: 4.1vw;
 }
-body.scrollDown #header.header {
+body.scrollDown #fixedHeader.header {
   transform: translate3d(0, -100%, 0);
   -webkit-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
 }
-body.scrollUp #header.header {
+body.scrollUp fixedHeader.header {
   transform: translate3d(0, 0, 0);
   -webkit-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
@@ -4472,7 +4472,7 @@ ul li {
   position: relative;
   padding: 5vw 0;
 }
-.header#header {
+.header#fixedHeader {
   position: fixed;
   width: 100%;
 }
