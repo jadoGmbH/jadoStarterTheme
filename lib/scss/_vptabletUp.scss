@@ -426,10 +426,5 @@ Stylesheet: Tablet - Desktop
       padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
       font-size: $tablet-copySize;
     }
-
-    &:not(.is-style-stripes) tbody tr:nth-child(odd) {
-      background-color: color.scale($line, $lightness: 56%);
-    }
   }
-
 }

@@ -24,24 +24,24 @@ Stylesheet: Variables
 /* Colors */
 $dark:                #222525;
 $white:               #ffffff;
+$mainColor: #77660e;
+$line:                #bcbcbc;
+$contrast:            #b9c62a;
 
 $headerBackground:    $white;
 $headerText:          $dark;
 
-$contentBackground:   #e4e5d9;
+$contentBackground: #e6e5e2;
 $contentText:         #2b2913;
 
 $footerBackground:    $dark;
 $footerText:          $white;
 
-$buttonBackground:    #900695;
+$buttonBackground:    $mainColor;
 $buttonColor:         $white;
 
-$mainColor:           #7a8037;
-$line:                #bcbcbc;
-$contrast:            #b9c62a;
-$linkColor:          #a7b32d;
-$linkHover:          $linkColor;
+$linkColor:           #a7b32d;
+$linkHover:           $linkColor;
 
 /* Woocommerce Colors */
 $wooGreen:  #429e0e;

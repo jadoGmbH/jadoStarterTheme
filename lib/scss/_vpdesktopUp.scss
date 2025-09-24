@@ -283,13 +283,5 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
       font-size: $desktop-copySize;
     }
-
-    &:not(.is-style-stripes) tbody tr:nth-child(odd) {
-      background-color: color.scale($line, $lightness: 58%);
-    }
-
-    tbody tr:hover {
-      background-color: color.scale($contrast, $lightness: 90%);
-    }
   }
 }

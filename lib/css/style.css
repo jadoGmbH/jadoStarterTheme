@@ -4432,7 +4432,7 @@ ul li {
   height: 3rem;
 }
 .shopnav a.shopuser {
-  background: #900695 url(../img/user.svg) no-repeat center;
+  background: #77660e url(../img/user.svg) no-repeat center;
   background-size: 1.5rem;
   width: 3rem;
   height: 3rem;
@@ -4446,7 +4446,7 @@ ul li {
   background-size: 1.5rem;
 }
 .shopnav a.cart {
-  background: #900695 url(../img/cart.svg) no-repeat center;
+  background: #77660e url(../img/cart.svg) no-repeat center;
   background-size: 1.5rem;
   width: 3rem;
   height: 3rem;
@@ -4659,7 +4659,7 @@ pre {
 #content {
   position: relative;
   z-index: 2;
-  background-color: #e4e5d9;
+  background-color: #e6e5e2;
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
   min-height: 100vh;
 }
@@ -4725,7 +4725,7 @@ pre {
   content: "";
   width: 1.4vw;
   height: 1.4vw;
-  background: #7a8037;
+  background: #77660e;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -4819,7 +4819,7 @@ pre {
   transition: background-color 200ms linear;
 }
 #content .entry-content .cpt-container .cpt:hover, #content .entry-content .cpt-container .post:hover, #content .entry-content .posts .cpt:hover, #content .entry-content .posts .post:hover {
-  background-color: #e4e5d9;
+  background-color: #e6e5e2;
 }
 #content .entry-content .cpt-container .cpt.sold, #content .entry-content .cpt-container .post.sold, #content .entry-content .posts .cpt.sold, #content .entry-content .posts .post.sold { /** change if you need another custom post type category! */ }
 #content .entry-content .cpt-container .cpt.sold:before, #content .entry-content .cpt-container .post.sold:before, #content .entry-content .posts .cpt.sold:before, #content .entry-content .posts .post.sold:before {
@@ -4850,7 +4850,7 @@ pre {
 #content .entry-content blockquote.wp-block-quote {
   margin: 0;
   padding: 0 1rem;
-  border-left: 1em solid #7a8037;
+  border-left: 1em solid #77660e;
 }
 #content .entry-content blockquote.wp-block-quote p {
   margin: 1rem 0 2rem 0;
@@ -4982,7 +4982,7 @@ pre {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: #900695 url("../img/eye.svg") no-repeat center center;
+  background: #77660e url("../img/eye.svg") no-repeat center center;
   background-size: 1.2rem;
 }
 #content .entry-content > * {
@@ -4999,7 +4999,7 @@ a.wp-block-button__link, a.button, a.wc-block-components-button, a:visited.wp-bl
   padding: 0.25rem 0.5rem;
   font-family: "Helvetica Neue", sans-serif;
   border-radius: 0.4em;
-  background-color: #900695;
+  background-color: #77660e;
   color: #ffffff;
   margin: 0;
   top: 0;
@@ -5174,7 +5174,7 @@ figure.wp-block-image figcaption {
   transition: transform 250ms ease;
 }
 .wp-block-details summary:hover {
-  color: #7a8037;
+  color: #77660e;
 }
 .wp-block-details > * {
   padding: 1rem;
@@ -5231,7 +5231,10 @@ figure.wp-block-image figcaption {
   display: none;
 }
 .wp-block-table:not(.is-style-stripes) tbody tr:nth-child(odd) {
-  background-color: rgb(222.84, 222.84, 222.84);
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.wp-block-table:not(.is-style-stripes) tbody tr:nth-child(odd):hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .wp-block-table tbody tr:hover {
   background-color: rgb(247.575, 249.33, 228.27);
@@ -5569,9 +5572,6 @@ figure.wp-block-image figcaption {
     padding: 0.8rem 1.6rem;
     font-size: 1.6vw;
   }
-  .wp-block-table:not(.is-style-stripes) tbody tr:nth-child(odd) {
-    background-color: rgb(225.52, 225.52, 225.52);
-  }
 }
 @media only screen and (min-width: 1100px) {
   body {
@@ -5759,12 +5759,6 @@ figure.wp-block-image figcaption {
   .wp-block-table th, .wp-block-table td {
     padding: 1.1rem 2.2rem;
     font-size: 18px;
-  }
-  .wp-block-table:not(.is-style-stripes) tbody tr:nth-child(odd) {
-    background-color: rgb(226.86, 226.86, 226.86);
-  }
-  .wp-block-table tbody tr:hover {
-    background-color: rgb(248.8125, 250.275, 232.725);
   }
 }
 @media print {
