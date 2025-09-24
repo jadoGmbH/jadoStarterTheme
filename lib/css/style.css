@@ -4731,18 +4731,18 @@ pre {
   left: 0;
   top: 2.5vw;
 }
-#content .entry-content figure.wp-block-pullquote {
+#content .entry-content .wp-block-pullquote {
   border-top: 1px solid #2b2913;
   border-bottom: 1px solid #2b2913;
-  padding: 3vw 0;
+  padding: 1rem 0;
   margin-bottom: 1.5em;
 }
-#content .entry-content figure.wp-block-pullquote p {
+#content .entry-content .wp-block-pullquote p {
   font-family: "Albert Sans", sans-serif;
   font-size: 8.5vw;
-  margin-bottom: 1em;
+  margin-bottom: 0.5rem;
 }
-#content .entry-content figure.wp-block-pullquote cite {
+#content .entry-content .wp-block-pullquote cite {
   opacity: 0.5;
 }
 #content .entry-content ul.wp-block-list ul.wp-block-list {
@@ -5414,12 +5414,13 @@ figure.wp-block-image figcaption {
   #content .entry-content p a {
     font-size: 1.6vw;
   }
-  #content .entry-content figure.wp-block-pullquote {
-    padding: 3vw 0;
+  #content .entry-content .wp-block-pullquote {
+    padding: 1.6rem 0;
     margin-bottom: 3em;
   }
-  #content .entry-content figure.wp-block-pullquote p {
+  #content .entry-content .wp-block-pullquote p {
     font-size: 4vw;
+    margin-bottom: 0.8rem;
   }
   #content .entry-content .wp-block-code, #content .entry-content .wp-block-verse, #content .entry-content .wp-block-table, #content .entry-content .wp-block-columns, #content .entry-content .wp-block-gallery {
     margin-bottom: 3em;
@@ -5646,13 +5647,15 @@ figure.wp-block-image figcaption {
   #content .entry-content p a {
     font-size: 18px;
   }
-  #content .entry-content figure.wp-block-pullquote {
+  #content .entry-content .wp-block-pullquote {
     margin-bottom: 50px;
+    padding: 2.2rem 0;
   }
-  #content .entry-content figure.wp-block-pullquote p {
+  #content .entry-content .wp-block-pullquote p {
     font-size: 40px;
+    margin-bottom: 1.1rem;
   }
-  #content .entry-content .wp-block-code, #content .entry-content .wp-block-verse, #content .entry-content figure.wp-block-table, #content .entry-content .wp-block-columns, #content .entry-content .wp-block-gallery {
+  #content .entry-content .wp-block-code, #content .entry-content .wp-block-verse, #content .entry-content .wp-block-table, #content .entry-content .wp-block-columns, #content .entry-content .wp-block-gallery {
     margin-bottom: 50px;
   }
   #content .entry-content .wp-block-code {

@@ -135,15 +135,17 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       }
 
 
-      figure.wp-block-pullquote {
+      .wp-block-pullquote {
         margin-bottom: $desktop-blockGap;
+        padding: $desktop-innerContentGap 0;
 
         p {
           font-size: $desktop-headlineSize;
+          margin-bottom: calc($desktop-innerContentGap / 2);
         }
       }
 
-      .wp-block-code, .wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
+      .wp-block-code, .wp-block-verse, .wp-block-table, .wp-block-columns, .wp-block-gallery {
         margin-bottom: $desktop-blockGap;
       }
 

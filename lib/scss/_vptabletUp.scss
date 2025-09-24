@@ -222,12 +222,13 @@ Stylesheet: Tablet - Desktop
         }
       }
 
-      figure.wp-block-pullquote {
-        padding: 3vw 0;
+      .wp-block-pullquote {
+        padding: $tablet-innerContentGap 0;
         margin-bottom: $tablet-blockGap;
 
         p {
           font-size: $tablet-headlineSize;
+          margin-bottom: calc($tablet-innerContentGap / 2);
         }
       }
 

@@ -468,16 +468,16 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      figure.wp-block-pullquote {
+      .wp-block-pullquote {
         border-top: 1px solid $contentText;
         border-bottom: 1px solid $contentText;
-        padding: 3vw 0;
+        padding: $mobile-innerContentGap 0;
         margin-bottom: $mobile-blockGap;
 
         p {
           font-family: $headline;
           font-size: $mobile-headlineSize;
-          margin-bottom: 1em;
+          margin-bottom: calc($mobile-innerContentGap / 2);
         }
 
         cite {
