@@ -78,7 +78,7 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
     document.addEventListener("DOMContentLoaded", function () {
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         const subMenuElements = document.querySelectorAll('li.menu-item-has-children');
-        const header = document.getElementById('header');
+        const header = document.getElementById('fixedHeader');
         const innerContent = document.getElementById('inner-content');
         const burger = document.getElementById('burger');
         const toggleSubMenu = (element) => {
