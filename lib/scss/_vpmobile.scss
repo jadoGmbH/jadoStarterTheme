@@ -30,7 +30,7 @@ Stylesheet: Base Mobile - Tablet
       @include transition(transform 200ms ease-out);
     }
 
-    &.scrollUp fixedHeader.header {
+    &.scrollUp #fixedHeader.header {
       transform: translate3d(0, 0, 0);
       @include transition(transform 200ms ease-out);
     }
@@ -950,7 +950,7 @@ Stylesheet: Base Mobile - Tablet
       justify-content: flex-start;
       align-items: center;
       gap: 0.35rem;
-      
+
       a {
         color: $footerText;
         font-size: $mobile-copySize - 0.75;

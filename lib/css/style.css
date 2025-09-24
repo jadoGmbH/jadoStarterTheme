@@ -4365,7 +4365,7 @@ body.scrollDown #fixedHeader.header {
   -webkit-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
 }
-body.scrollUp fixedHeader.header {
+body.scrollUp #fixedHeader.header {
   transform: translate3d(0, 0, 0);
   -webkit-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
