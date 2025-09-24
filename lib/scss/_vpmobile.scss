@@ -916,6 +916,24 @@ Stylesheet: Base Mobile - Tablet
     z-index: 1;
     padding: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
 
+    a.jado{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 0.6em;
+      justify-content: space-between;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        svg{
+          width: 4.2rem;
+          height: auto;
+        }
+      }
+    }
+
     #inner-footer {
       display: flex;
       flex-direction: column;
@@ -954,16 +972,6 @@ Stylesheet: Base Mobile - Tablet
       width: 100%;
       height: auto;
     }
-  }
-
-  .template {
-    position: fixed;
-    background: red;
-    color: white;
-    left: 0;
-    bottom: 0;
-    padding: 0.4em 1em;
-    z-index: 99999;
   }
 
   .wp-block-details {
@@ -1118,5 +1126,13 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
-
+  .template {
+    position: fixed;
+    background: red;
+    color: white;
+    left: 0;
+    bottom: 0;
+    padding: 0.4em 1em;
+    z-index: 99999;
+  }
 }

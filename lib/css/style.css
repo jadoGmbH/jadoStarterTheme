@@ -5094,6 +5094,21 @@ figure.wp-block-image figcaption {
   z-index: 1;
   padding: 1rem 0 2rem 0;
 }
+.footer a.jado {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.6em;
+  justify-content: space-between;
+}
+.footer a.jado span {
+  display: flex;
+  align-items: center;
+}
+.footer a.jado span svg {
+  width: 4.2rem;
+  height: auto;
+}
 .footer #inner-footer {
   display: flex;
   flex-direction: column;
@@ -5125,16 +5140,6 @@ figure.wp-block-image figcaption {
 .featuredImage img {
   width: 100%;
   height: auto;
-}
-
-.template {
-  position: fixed;
-  background: red;
-  color: white;
-  left: 0;
-  bottom: 0;
-  padding: 0.4em 1em;
-  z-index: 99999;
 }
 
 .wp-block-details {
@@ -5262,6 +5267,16 @@ figure.wp-block-image figcaption {
     transition: none;
   }
 }
+.template {
+  position: fixed;
+  background: red;
+  color: white;
+  left: 0;
+  bottom: 0;
+  padding: 0.4em 1em;
+  z-index: 99999;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     font-size: 100%;
@@ -5518,6 +5533,9 @@ figure.wp-block-image figcaption {
   }
   .footer {
     padding: 1.6rem 0;
+  }
+  .footer a.jado span svg {
+    width: 3rem;
   }
   .footer .copyright, .footer .copyright a {
     font-size: 1.35vw;

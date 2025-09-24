@@ -360,6 +360,14 @@ Stylesheet: Tablet - Desktop
   .footer {
     padding: $tablet-innerContentGap 0;
 
+    a.jado{
+      span {
+        svg{
+          width: 3rem;
+        }
+      }
+    }
+
     .copyright, .copyright a {
       font-size: $tablet-copySize - 0.25;
     }
