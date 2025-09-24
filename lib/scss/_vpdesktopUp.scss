@@ -230,7 +230,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
   }
 
-  .wp-block-details, details.wp-block-details {
+  .wp-block-details {
     margin: 0 0 $desktop-blockGap 0;
     border: 1px solid $line;
     border-radius: $desktop-borderRadius;
@@ -241,21 +241,15 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     summary {
       gap: 0.8em;
       padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
-      font-size: $desktop-headlineSize - 10;
+      font-size: $desktop-headlineSize - 4;
 
       &:after {
         font-size: 1.1em;
       }
     }
 
-
     > * {
-      padding: 0 2rem;
-
-    }
-
-    .wp-block-details__content {
-      padding: 0 1.2em 1.2em;
+      padding: 0 $desktop-innerContentGap;
     }
   }
 

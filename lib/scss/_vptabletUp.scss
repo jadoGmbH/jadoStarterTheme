@@ -374,8 +374,8 @@ Stylesheet: Tablet - Desktop
     }
   }
 
-  /* WP Details block: tablet tuning */
-  .wp-block-details, details.wp-block-details {
+
+  .wp-block-details {
     margin: 0 0 $tablet-blockGap 0;
     border: 1px solid $line;
     border-radius: $tablet-borderRadius;
@@ -386,15 +386,15 @@ Stylesheet: Tablet - Desktop
     summary {
       gap: 0.7em;
       padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
-      font-size: $tablet-headlineSize - 4;
+      font-size: $tablet-headlineSize - 0.8;
 
       &:after {
         font-size: 1.1em;
       }
     }
 
-    .wp-block-details__content {
-      padding: 0 1.2em 1.2em;
+    > * {
+      padding: 0 $tablet-innerContentGap;
     }
   }
 

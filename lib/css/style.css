@@ -5137,7 +5137,7 @@ figure.wp-block-image figcaption {
   z-index: 99999;
 }
 
-.wp-block-details, details.wp-block-details {
+.wp-block-details {
   margin: 0 0 1.5em 0;
   border: 1px solid #bcbcbc;
   border-radius: 0.4em;
@@ -5146,7 +5146,7 @@ figure.wp-block-image figcaption {
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-.wp-block-details summary, details.wp-block-details summary {
+.wp-block-details summary {
   display: flex;
   align-items: center;
   gap: 0.6em;
@@ -5161,10 +5161,10 @@ figure.wp-block-image figcaption {
   color: #2b2913;
   transition: color 0.2ms ease-out;
 }
-.wp-block-details summary::-webkit-details-marker, details.wp-block-details summary::-webkit-details-marker {
+.wp-block-details summary::-webkit-details-marker {
   display: none;
 }
-.wp-block-details summary:after, details.wp-block-details summary:after {
+.wp-block-details summary:after {
   content: "▾";
   margin-left: auto;
   font-size: 1.2em;
@@ -5173,28 +5173,14 @@ figure.wp-block-image figcaption {
   -webkit-transition: transform 250ms ease;
   transition: transform 250ms ease;
 }
-.wp-block-details summary:hover, details.wp-block-details summary:hover {
+.wp-block-details summary:hover {
   color: #7a8037;
 }
-.wp-block-details > *, details.wp-block-details > * {
+.wp-block-details > * {
   padding: 1rem;
 }
-.wp-block-details .wp-block-details__content, details.wp-block-details .wp-block-details__content {
-  padding: 0 1em 1em;
-  border-top: 1px solid #bcbcbc;
-  display: grid;
-  grid-template-rows: 0fr; /* collapsed */
-  -webkit-transition: grid-template-rows 300ms ease;
-  transition: grid-template-rows 300ms ease;
-}
-.wp-block-details .wp-block-details__content > *, details.wp-block-details .wp-block-details__content > * {
-  overflow: hidden;
-}
-.wp-block-details[open] summary:after, details.wp-block-details[open] summary:after {
+.wp-block-details[open] summary:after {
   transform: rotate(0deg);
-}
-.wp-block-details[open] .wp-block-details__content, details.wp-block-details[open] .wp-block-details__content {
-  grid-template-rows: 1fr;
 }
 
 .wp-block-table {
@@ -5540,8 +5526,7 @@ figure.wp-block-image figcaption {
   .footer #inner-footer #widgetarea {
     margin-right: -0.5em;
   }
-  /* WP Details block: tablet tuning */
-  .wp-block-details, details.wp-block-details {
+  .wp-block-details {
     margin: 0 0 3em 0;
     border: 1px solid #bcbcbc;
     border-radius: 0.3rem;
@@ -5549,16 +5534,16 @@ figure.wp-block-image figcaption {
     color: #2b2913;
     box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
   }
-  .wp-block-details summary, details.wp-block-details summary {
+  .wp-block-details summary {
     gap: 0.7em;
     padding: 0.8rem 1.6rem;
-    font-size: 0vw;
+    font-size: 3.2vw;
   }
-  .wp-block-details summary:after, details.wp-block-details summary:after {
+  .wp-block-details summary:after {
     font-size: 1.1em;
   }
-  .wp-block-details .wp-block-details__content, details.wp-block-details .wp-block-details__content {
-    padding: 0 1.2em 1.2em;
+  .wp-block-details > * {
+    padding: 0 1.6rem;
   }
   .wp-block-table {
     overflow: hidden;
@@ -5724,7 +5709,7 @@ figure.wp-block-image figcaption {
   .socialmediaicons a {
     border-radius: 0.3rem;
   }
-  .wp-block-details, details.wp-block-details {
+  .wp-block-details {
     margin: 0 0 50px 0;
     border: 1px solid #bcbcbc;
     border-radius: 0.3rem;
@@ -5732,19 +5717,16 @@ figure.wp-block-image figcaption {
     color: #2b2913;
     box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
   }
-  .wp-block-details summary, details.wp-block-details summary {
+  .wp-block-details summary {
     gap: 0.8em;
     padding: 1.1rem 2.2rem;
-    font-size: 30px;
+    font-size: 36px;
   }
-  .wp-block-details summary:after, details.wp-block-details summary:after {
+  .wp-block-details summary:after {
     font-size: 1.1em;
   }
-  .wp-block-details > *, details.wp-block-details > * {
-    padding: 0 2rem;
-  }
-  .wp-block-details .wp-block-details__content, details.wp-block-details .wp-block-details__content {
-    padding: 0 1.2em 1.2em;
+  .wp-block-details > * {
+    padding: 0 2.2rem;
   }
   .wp-block-table {
     overflow: hidden;

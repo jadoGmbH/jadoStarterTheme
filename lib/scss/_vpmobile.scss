@@ -966,7 +966,7 @@ Stylesheet: Base Mobile - Tablet
     z-index: 99999;
   }
 
-  .wp-block-details, details.wp-block-details {
+  .wp-block-details {
     margin: 0 0 $mobile-blockGap 0;
     border: 1px solid $line;
     border-radius: $mobile-borderRadius;
@@ -1010,28 +1010,12 @@ Stylesheet: Base Mobile - Tablet
     }
 
     > * {
-      padding: 1rem;
-    }
-
-    .wp-block-details__content {
-      padding: 0 1em 1em;
-      border-top: 1px solid $line;
-      display: grid;
-      grid-template-rows: 0fr; /* collapsed */
-      @include transition(grid-template-rows 300ms ease);
-
-      > * {
-        overflow: hidden;
-      }
+      padding: $mobile-innerContentGap;
     }
 
     &[open] {
       summary:after {
         transform: rotate(0deg);
-      }
-
-      .wp-block-details__content {
-        grid-template-rows: 1fr;
       }
     }
   }
