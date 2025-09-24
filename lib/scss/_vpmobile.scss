@@ -400,7 +400,7 @@ Stylesheet: Base Mobile - Tablet
         text-rendering: optimizelegibility;
         font-family: $headline;
         line-height: 1.2;
-        margin: 0 0 $mobile-block-gap 0;
+        margin: 0 0 $mobile-blockGap 0;
         font-weight: bold;
       }
 
@@ -418,7 +418,7 @@ Stylesheet: Base Mobile - Tablet
 
       ul {
         list-style-type: none;
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
 
         &.wp-block-latest-posts__list {
           display: flex;
@@ -473,7 +473,7 @@ Stylesheet: Base Mobile - Tablet
         border-top: 1px solid $contentText;
         border-bottom: 1px solid $contentText;
         padding: 3vw 0;
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
 
         p {
           font-family: $headline;
@@ -498,12 +498,12 @@ Stylesheet: Base Mobile - Tablet
         background-color: $contentText;
         color: $white;
         font-size: $mobile-copySize;
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
         padding: $mobile-innerContentGap;
       }
 
       .wp-block-verse {
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
         font-style: italic;
         background-color: $headerColor;
         border-radius: $mobile-borderRadius;
@@ -512,7 +512,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       .wp-block-columns {
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
       }
 
       figcaption {
@@ -525,7 +525,7 @@ Stylesheet: Base Mobile - Tablet
       .wp-block-gallery {
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: $mobile-block-gap;
+        margin-bottom: $mobile-blockGap;
 
         .wp-block-image {
           img {
@@ -964,7 +964,7 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .wp-block-details, details.wp-block-details {
-    margin: 0 0 $mobile-block-gap 0;
+    margin: 0 0 $mobile-blockGap 0;
     border: 1px solid $line;
     border-radius: $mobile-borderRadius;
     background: $white;
@@ -1035,7 +1035,7 @@ Stylesheet: Base Mobile - Tablet
 
 
   .wp-block-table {
-    margin-bottom: $mobile-block-gap;
+    margin-bottom: $mobile-blockGap;
 
     tbody {
       display: block;
@@ -1088,7 +1088,7 @@ Stylesheet: Base Mobile - Tablet
 
 
   figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $mobile-block-gap 0;
+    margin: 0 0 $mobile-blockGap 0;
   }
 
   .wp-block-table {

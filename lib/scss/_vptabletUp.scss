@@ -179,7 +179,7 @@ Stylesheet: Tablet - Desktop
       }
 
       ul {
-        margin-bottom: $tablet-block-gap;
+        margin-bottom: $tablet-blockGap;
 
         &.wp-block-latest-posts__list {
 
@@ -224,7 +224,7 @@ Stylesheet: Tablet - Desktop
 
       figure.wp-block-pullquote {
         padding: 3vw 0;
-        margin-bottom: $tablet-block-gap;
+        margin-bottom: $tablet-blockGap;
 
         p {
           font-size: $tablet-headlineSize;
@@ -232,7 +232,7 @@ Stylesheet: Tablet - Desktop
       }
 
       pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
-        margin-bottom: $tablet-block-gap;
+        margin-bottom: $tablet-blockGap;
       }
 
       pre.wp-block-code {
@@ -368,7 +368,7 @@ Stylesheet: Tablet - Desktop
 
   /* WP Details block: tablet tuning */
   .wp-block-details, details.wp-block-details {
-    margin: 0 0 $tablet-block-gap 0;
+    margin: 0 0 $tablet-blockGap 0;
     border: 1px solid $line;
     border-radius: $tablet-borderRadius;
     background: $white;
@@ -392,7 +392,7 @@ Stylesheet: Tablet - Desktop
 
 
   figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $tablet-block-gap 0;
+    margin: 0 0 $tablet-blockGap 0;
   }
 
   .wp-block-table {

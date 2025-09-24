@@ -91,7 +91,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       }
 
       ul {
-        margin-bottom: $desktop-block-gap;
+        margin-bottom: $desktop-blockGap;
 
         &.wp-block-latest-posts__list {
 
@@ -136,7 +136,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
 
       figure.wp-block-pullquote {
-        margin-bottom: $desktop-block-gap;
+        margin-bottom: $desktop-blockGap;
 
         p {
           font-size: $desktop-headlineSize;
@@ -144,7 +144,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       }
 
       pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
-        margin-bottom: $desktop-block-gap;
+        margin-bottom: $desktop-blockGap;
       }
 
       pre.wp-block-code {
@@ -223,7 +223,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   .wp-block-details, details.wp-block-details {
-    margin: 0 0 $desktop-block-gap 0;
+    margin: 0 0 $desktop-blockGap 0;
     border: 1px solid $line;
     border-radius: $desktop-borderRadius;
     background: $white;
@@ -253,7 +253,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
 
   figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $desktop-block-gap 0;
+    margin: 0 0 $desktop-blockGap 0;
   }
 
   .wp-block-table {
