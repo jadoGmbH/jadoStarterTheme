@@ -5,18 +5,7 @@ Stylesheet: Base Mobile - Tablet
 @use "variables" as *;
 @use "sass:color";
 
-// Viewport variables: define/override values for mobile at the top
 @mixin mobile() {
-  $copysize: $mobile-copySize;
-  $headlinesize: $mobile-headlineSize;
-  $contentwidth: $mobile-contentWidth;
-  $innerpostgap: $mobile-innerPostGap;
-  $contentgaptop: $mobile-contentGapTop;
-  $burgerright: calc(100% - #{$contentwidth});
-  $boxshadow: $mobile-boxShadow;
-  $borderradius: $mobile-borderRadius;
-  $spaceafterblock: $mobile-block-gap;
-
 
   html {
     scroll-behavior: smooth;
@@ -25,8 +14,8 @@ Stylesheet: Base Mobile - Tablet
   body {
     font-family: $copy;
     line-height: 1.5;
-    color: $contenttext;
-    background-color: $headercolor;
+    color: $contentText;
+    background-color: $headerColor;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -34,7 +23,7 @@ Stylesheet: Base Mobile - Tablet
     padding: 0;
     position: relative !important;
     top: 0;
-    font-size: $copysize;
+    font-size: $mobile-copySize;
 
     &.scrollDown #header.header {
       transform: translate3d(0, -100%, 0);
@@ -48,12 +37,12 @@ Stylesheet: Base Mobile - Tablet
   }
 
   a, a:visited {
-    color: $contenttext;
+    color: $contentText;
     text-decoration: none;
     @include transition(all 200ms ease-out);
 
     &:hover, &:focus {
-      color: $link-hover;
+      color: $linkHover;
       text-decoration: none;
     }
   }
@@ -63,7 +52,7 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .wrap {
-    width: $contentwidth;
+    width: $mobile-contentWidth;
     margin: 0 auto;
   }
 
@@ -112,14 +101,14 @@ Stylesheet: Base Mobile - Tablet
       height: 3rem;
 
       &.shopuser {
-        background: $buttonbackground url(../img/user.svg) no-repeat center;
+        background: $buttonBackground url(../img/user.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
         height: 3rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
 
         &:hover {
           background: $contrast url(../img/user.svg) no-repeat center;
@@ -128,7 +117,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       &.cart {
-        background: $buttonbackground url(../img/cart.svg) no-repeat center;
+        background: $buttonBackground url(../img/cart.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
         height: 3rem;
@@ -136,7 +125,7 @@ Stylesheet: Base Mobile - Tablet
         justify-content: center;
         position: relative;
         align-items: center;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
 
         &:hover {
           background: $contrast url(../img/cart.svg) no-repeat center;
@@ -153,8 +142,8 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .header {
-    box-shadow: $boxshadow;
-    background-color: $headercolor;
+    box-shadow: $mobile-boxShadow;
+    background-color: $headerColor;
     z-index: 9999;
     position: relative;
     padding: 5vw 0;
@@ -167,7 +156,7 @@ Stylesheet: Base Mobile - Tablet
     .flex {
       display: flex;
       flex-direction: column;
-      color: $headertext;
+      color: $headerText;
     }
   }
 
@@ -191,12 +180,12 @@ Stylesheet: Base Mobile - Tablet
 
   #logo {
     display: inline-block;
-    font-size: $headlinesize - 2;
+    font-size: $mobile-headlineSize - 2;
     line-height: 1.2;
     width: auto;
     font-family: $copy;
     position: relative;
-    color: $headertext;
+    color: $headerText;
     font-weight: normal;
     margin: 0 12vw 0 0;
 
@@ -210,7 +199,7 @@ Stylesheet: Base Mobile - Tablet
     display: block;
     font-weight: normal;
     color: $dark;
-    font-size: $copysize;
+    font-size: $mobile-copySize;
     margin-top: 1em;
 
     &:empty {
@@ -221,7 +210,7 @@ Stylesheet: Base Mobile - Tablet
 
   #burger {
     position: absolute;
-    right: calc(#{$burgerright} / 2);
+    right: 2rem;
     top: 0;
     width: 5rem;
     height: 5rem;
@@ -289,13 +278,13 @@ Stylesheet: Base Mobile - Tablet
         font-family: $copy;
         font-weight: normal;
         display: block;
-        color: $headertext;
+        color: $headerText;
         margin: 0 0 0.5em 0;
         text-decoration: none;
         padding: 3vw 5vw;
         border: 1px solid $line;
-        font-size: $copysize;
-        border-radius: $borderradius;
+        font-size: $mobile-copySize;
+        border-radius: $mobile-borderRadius;
 
         &:hover {
           background-color: $dark;
@@ -392,8 +381,8 @@ Stylesheet: Base Mobile - Tablet
   #content {
     position: relative;
     z-index: 2;
-    background-color: $contentcolor;
-    box-shadow: $boxshadow;
+    background-color: $contentColor;
+    box-shadow: $mobile-boxShadow;
     min-height: 100vh;
 
 
@@ -411,25 +400,25 @@ Stylesheet: Base Mobile - Tablet
         text-rendering: optimizelegibility;
         font-family: $headline;
         line-height: 1.2;
-        margin: 0 0 $spaceafterblock 0;
+        margin: 0 0 $mobile-block-gap 0;
         font-weight: bold;
       }
 
       h1, h1 a, h1 strong {
-        font-size: $headlinesize;
+        font-size: $mobile-headlineSize;
       }
 
       h2, h2 a, h2 strong {
-        font-size: $headlinesize - 0.4;
+        font-size: $mobile-headlineSize - 0.4;
       }
 
       h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-        font-size: $headlinesize - 1;
+        font-size: $mobile-headlineSize - 1;
       }
 
       ul {
         list-style-type: none;
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-block-gap;
 
         &.wp-block-latest-posts__list {
           display: flex;
@@ -454,7 +443,7 @@ Stylesheet: Base Mobile - Tablet
 
             li {
               background: $white;
-              border-radius: $borderradius;
+              border-radius: $mobile-borderRadius;
               padding: 1em;
               position: relative;
               margin: 0 0 1em 0;
@@ -471,7 +460,7 @@ Stylesheet: Base Mobile - Tablet
             content: '';
             width: 1.4vw;
             height: 1.4vw;
-            background: $maincolor;
+            background: $mainColor;
             border-radius: 50%;
             position: absolute;
             left: 0;
@@ -481,14 +470,14 @@ Stylesheet: Base Mobile - Tablet
       }
 
       figure.wp-block-pullquote {
-        border-top: 1px solid $contenttext;
-        border-bottom: 1px solid $contenttext;
+        border-top: 1px solid $contentText;
+        border-bottom: 1px solid $contentText;
         padding: 3vw 0;
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-block-gap;
 
         p {
           font-family: $headline;
-          font-size: $headlinesize;
+          font-size: $mobile-headlineSize;
           margin-bottom: 1em;
         }
 
@@ -505,25 +494,25 @@ Stylesheet: Base Mobile - Tablet
       }
 
       pre.wp-block-code {
-        border-radius: $borderradius;
-        background-color: $contenttext;
+        border-radius: $mobile-borderRadius;
+        background-color: $contentText;
         color: $white;
-        font-size: $copysize;
-        margin-bottom: $spaceafterblock;
+        font-size: $mobile-copySize;
+        margin-bottom: $mobile-block-gap;
         padding: $mobile-innerContentGap;
       }
 
       .wp-block-verse {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-block-gap;
         font-style: italic;
-        background-color: $headercolor;
-        border-radius: $borderradius;
-        font-size: $copysize;
+        background-color: $headerColor;
+        border-radius: $mobile-borderRadius;
+        font-size: $mobile-copySize;
         padding: $mobile-innerContentGap;
       }
 
       .wp-block-columns {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-block-gap;
       }
 
       figcaption {
@@ -536,7 +525,7 @@ Stylesheet: Base Mobile - Tablet
       .wp-block-gallery {
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-block-gap;
 
         .wp-block-image {
           img {
@@ -555,8 +544,8 @@ Stylesheet: Base Mobile - Tablet
           display: flex;
           margin-bottom: 0.5em;
           overflow: hidden;
-          border-top-left-radius: $borderradius;
-          border-top-right-radius: $borderradius;
+          border-top-left-radius: $mobile-borderRadius;
+          border-top-right-radius: $mobile-borderRadius;
 
           img {
             margin-bottom: 0;
@@ -566,10 +555,10 @@ Stylesheet: Base Mobile - Tablet
         }
 
         .postcontent, .cptcontent {
-          padding: 0 $innerpostgap;
+          padding: 0 $mobile-innerPostGap;
 
           &.noimg {
-            padding-top: $innerpostgap;
+            padding-top: $mobile-innerPostGap;
           }
         }
 
@@ -583,11 +572,11 @@ Stylesheet: Base Mobile - Tablet
           position: relative;
           flex: 0 0 100%;
           background-color: $white;
-          border-radius: $borderradius;
+          border-radius: $mobile-borderRadius;
           @include transition(background-color 200ms linear);
 
           &:hover {
-            background-color: $contentcolor;
+            background-color: $contentColor;
           }
 
           &.sold { /** change if you need another custom post type category! */
@@ -627,7 +616,7 @@ Stylesheet: Base Mobile - Tablet
       blockquote.wp-block-quote {
         margin: 0;
         padding: 0 3em;
-        border-left: 1em solid $maincolor;
+        border-left: 1em solid $mainColor;
 
         p {
           margin: 1em 0 2em 0;
@@ -638,7 +627,7 @@ Stylesheet: Base Mobile - Tablet
 
       .wp-block-pullquote {
         p, h1, h2, h3 {
-          color: $contenttext;
+          color: $contentText;
         }
       }
 
@@ -649,14 +638,14 @@ Stylesheet: Base Mobile - Tablet
 
       .summary, p, .woocommerce-cart-form {
         a, a:visited {
-          color: $contenttext;
-          font-size: $copysize;
+          color: $contentText;
+          font-size: $mobile-copySize;
           padding: 0 0 0.2em 0;
           @include transition(all 200ms ease-out);
           position: relative;
           text-decoration: underline;
           text-decoration-thickness: 3px;
-          text-decoration-color: $link-color;
+          text-decoration-color: $linkColor;
           text-underline-offset: 3px;
 
           &:hover, &:focus {
@@ -674,9 +663,9 @@ Stylesheet: Base Mobile - Tablet
         font-family: $headline;
         outline: none;
         border: none;
-        background-color: $buttoncolor;
+        background-color: $buttonColor;
         color: $white;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         margin: 0;
         line-height: 1.5;
         display: block;
@@ -692,12 +681,12 @@ Stylesheet: Base Mobile - Tablet
 
       h2 {
         a {
-          font-size: $headlinesize;
+          font-size: $mobile-headlineSize;
           line-height: 1.2;
           display: block;
 
           &:hover {
-            color: $link-hover;
+            color: $linkHover;
           }
         }
       }
@@ -728,7 +717,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $copysize;
+        font-size: $mobile-copySize;
       }
 
       textarea {
@@ -737,7 +726,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       time {
-        font-size: $copysize - 1;
+        font-size: $mobile-copySize - 1;
         color: $dark;
         font-weight: bold;
       }
@@ -747,7 +736,7 @@ Stylesheet: Base Mobile - Tablet
 
         a {
           font-weight: bold;
-          font-size: $copysize;
+          font-size: $mobile-copySize;
           font-family: $headline;
         }
       }
@@ -761,12 +750,12 @@ Stylesheet: Base Mobile - Tablet
 
       input {
         padding: 0.4em 0.8em;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         border: 1px solid $line;
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 
         &:hover {
-          border: 1px solid $contenttext;
+          border: 1px solid $contentText;
         }
 
         &#password {
@@ -785,12 +774,12 @@ Stylesheet: Base Mobile - Tablet
         border: none;
         right: -2.2rem;
         top: 0.15rem;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        background: $buttonbackground url('../img/eye.svg') no-repeat center center;
+        background: $buttonBackground url('../img/eye.svg') no-repeat center center;
         background-size: 1.2rem;
 
       }
@@ -804,7 +793,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       & > * + * { //space before Elements inside entry-content without the first
-        margin-top: $contentgaptop !important;
+        margin-top: $mobile-contentGapTop !important;
       }
     }
   }
@@ -814,9 +803,9 @@ Stylesheet: Base Mobile - Tablet
     &.wp-block-button__link, &.button, &.wc-block-components-button {
       padding: 0.8em 1.5em;
       font-family: $headline;
-      border-radius: $borderradius;
-      background-color: $buttonbackground;
-      color: $buttoncolor;
+      border-radius: $mobile-borderRadius;
+      background-color: $buttonBackground;
+      color: $buttonColor;
       margin: 0;
       top: 0;
       position: relative;
@@ -826,7 +815,7 @@ Stylesheet: Base Mobile - Tablet
       @include transition(all 150ms ease-out);
 
       &:hover {
-        background-color: $link-color;
+        background-color: $linkColor;
         top: 1px;
       }
 
@@ -861,7 +850,7 @@ Stylesheet: Base Mobile - Tablet
     figcaption {
       margin-top: 0;
       text-align: center;
-      font-size: $copysize - 1;
+      font-size: $mobile-copySize - 1;
       font-style: italic;
     }
   }
@@ -871,11 +860,11 @@ Stylesheet: Base Mobile - Tablet
     flex-direction: column;
 
     a {
-      color: $footertext;
+      color: $footerText;
     }
 
     h1, h2, h3, h4, h5 {
-      color: $footertext;
+      color: $footerText;
 
       &.widgettitle {
         margin-top: 0;
@@ -894,7 +883,7 @@ Stylesheet: Base Mobile - Tablet
     a {
       width: 2rem;
       height: 2rem;
-      border-radius: $borderradius;
+      border-radius: $mobile-borderRadius;
       overflow: hidden;
 
       svg {
@@ -921,8 +910,8 @@ Stylesheet: Base Mobile - Tablet
 
   .footer {
     clear: both;
-    background-color: $footercolor;
-    color: $footertext;
+    background-color: $footerColor;
+    color: $footerText;
     position: sticky;
     bottom: 0;
     z-index: 1;
@@ -937,12 +926,12 @@ Stylesheet: Base Mobile - Tablet
 
     .copyright {
       font-weight: normal;
-      color: $footertext;
-      font-size: $copysize - 0.75;
+      color: $footerText;
+      font-size: $mobile-copySize - 0.75;
 
       a {
-        color: $footertext;
-        font-size: $copysize - 0.75;
+        color: $footerText;
+        font-size: $mobile-copySize - 0.75;
 
         &:hover {
           color: $contrast
@@ -975,12 +964,12 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .wp-block-details, details.wp-block-details {
-    margin: 0 0 $spaceafterblock 0;
+    margin: 0 0 $mobile-block-gap 0;
     border: 1px solid $line;
-    border-radius: $borderradius;
+    border-radius: $mobile-borderRadius;
     background: $white;
-    color: $contenttext;
-    box-shadow: $boxshadow;
+    color: $contentText;
+    box-shadow: $mobile-boxShadow;
     overflow: hidden;
 
     summary {
@@ -990,12 +979,12 @@ Stylesheet: Base Mobile - Tablet
       padding: $mobile-innerContentGap;
       font-family: $headline;
       font-weight: 700;
-      font-size: $headlinesize - 2;
+      font-size: $mobile-headlineSize - 2;
       line-height: 1.2;
       cursor: pointer;
       list-style: none;
       position: relative;
-      color: $contenttext;
+      color: $contentText;
       transition: color 0.2ms ease-out;
 
 
@@ -1013,7 +1002,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       &:hover {
-        color: $maincolor;
+        color: $mainColor;
       }
     }
 
@@ -1046,7 +1035,7 @@ Stylesheet: Base Mobile - Tablet
 
 
   .wp-block-table {
-    margin-bottom: $spaceafterblock;
+    margin-bottom: $mobile-block-gap;
 
     tbody {
       display: block;
@@ -1059,12 +1048,12 @@ Stylesheet: Base Mobile - Tablet
     }
 
     th, td {
-      padding: $tablet-innerContentGap;
-      font-size: $copysize;
+      padding: $mobile-innerContentGap;
+      font-size: $mobile-copySize;
     }
 
     tr {
-      border-top: 1px solid $contenttext;
+      border-top: 1px solid $contentText;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -1072,10 +1061,10 @@ Stylesheet: Base Mobile - Tablet
       td {
         flex: 1;
         padding: $mobile-innerContentGap;
-        border-right: 1px solid $contenttext;
+        border-right: 1px solid $contentText;
 
         &:first-child {
-          border-left: 1px solid $contenttext;
+          border-left: 1px solid $contentText;
         }
 
         &:empty {
@@ -1099,16 +1088,16 @@ Stylesheet: Base Mobile - Tablet
 
 
   figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $spaceafterblock 0;
+    margin: 0 0 $mobile-block-gap 0;
   }
 
   .wp-block-table {
     overflow: hidden;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border-radius: $borderradius;
+    border-radius: $mobile-borderRadius;
     background: $white;
-    box-shadow: $boxshadow;
+    box-shadow: $mobile-boxShadow;
 
     table {
       width: 100%;
@@ -1123,12 +1112,12 @@ Stylesheet: Base Mobile - Tablet
       padding: 0.6em 0.8em;
       font-weight: 700;
       text-align: left;
-      color: $contenttext;
+      color: $contentText;
     }
 
     thead th {
       background-color: color.scale($line, $lightness: 45%);
-      color: $contenttext;
+      color: $contentText;
       text-align: left;
       font-weight: 700;
     }
@@ -1138,7 +1127,7 @@ Stylesheet: Base Mobile - Tablet
       padding: $mobile-innerContentGap;
       border: 0;
       vertical-align: top;
-      font-size: $copysize;
+      font-size: $mobile-copySize;
     }
 
     &:not(.is-style-stripes) tbody tr:nth-child(odd) {

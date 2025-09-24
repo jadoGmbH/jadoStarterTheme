@@ -5,47 +5,37 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 @use "variables" as *;
 @use "sass:color";
 
-// Viewport variables: define/override values for desktop at the top
+
 @mixin desktopUp() {
-
-  $copysize: $desktop-copySize;
-  $headlinesize: $desktop-headlineSize;
-  $contentwidth: $desktop-contentWidth;
-  $maxcontentwidth: $desktop-maxContentWidth; // maximal width for layout!
-  $innerpostgap: $desktop-innerPostGap;
-  $borderradius: $desktop-borderRadius;
-  $boxshadow: $desktop-boxShadow;
-  $spaceafterblock: $desktop-block-gap;
-
 
   body {
     font-size: 100%;
   }
 
   .wrap {
-    width: $contentwidth;
-    max-width: $maxcontentwidth;
+    width: $desktop-contentWidth;
+    max-width: $desktop-maxContentWidth;
   }
 
   .header {
     padding: 2em 0;
-    box-shadow: $boxshadow;
+    box-shadow: $desktop-boxShadow;
   }
 
   #logo {
-    font-size: $headlinesize - 8;
+    font-size: $desktop-headlineSize - 8;
   }
 
   #description {
-    font-size: $copysize;
+    font-size: $desktop-copySize;
   }
 
   .nav {
     li {
       a {
-        font-size: $copysize;
+        font-size: $desktop-copySize;
         padding: 0.3rem 1rem;
-        border-radius: $borderradius;
+        border-radius: $desktop-borderRadius;
       }
     }
 
@@ -67,12 +57,12 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
   figure.wp-block-image {
     figcaption {
-      font-size: $copysize - 4;
+      font-size: $desktop-copySize - 4;
     }
   }
 
   #content {
-    box-shadow: $boxshadow;
+    box-shadow: $desktop-boxShadow;
 
 
     .hentry {
@@ -85,29 +75,29 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     .entry-content {
 
       h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
-        margin: 0 0 $innerpostgap 0;
+        margin: 0 0 $desktop-innerPostGap 0;
       }
 
       h1, h1 a, h1 strong {
-        font-size: $headlinesize;
+        font-size: $desktop-headlineSize;
       }
 
       h2, h2 a, h2 strong {
-        font-size: $headlinesize - 10;
+        font-size: $desktop-headlineSize - 10;
       }
 
       h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-        font-size: $headlinesize - 12;
+        font-size: $desktop-headlineSize - 12;
       }
 
       ul {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $desktop-block-gap;
 
         &.wp-block-latest-posts__list {
 
           &.is-grid {
             li {
-              border-radius: $borderradius;
+              border-radius: $desktop-borderRadius;
             }
           }
         }
@@ -124,49 +114,49 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       }
 
       h2 a {
-        font-size: $headlinesize - 15;
-        padding: $innerpostgap;
+        font-size: $desktop-headlineSize - 15;
+        padding: $desktop-innerPostGap;
       }
 
       p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $copysize;
+        font-size: $desktop-copySize;
       }
 
       time {
-        font-size: $copysize - 4;
+        font-size: $desktop-copySize - 4;
       }
 
       p {
         margin: 0 0 2em;
 
         a {
-          font-size: $copysize;
+          font-size: $desktop-copySize;
         }
       }
 
 
       figure.wp-block-pullquote {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $desktop-block-gap;
 
         p {
-          font-size: $headlinesize;
+          font-size: $desktop-headlineSize;
         }
       }
 
       pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $desktop-block-gap;
       }
 
       pre.wp-block-code {
-        border-radius: $borderradius;
-        font-size: $copysize;
+        border-radius: $desktop-borderRadius;
+        font-size: $desktop-copySize;
         padding: $desktop-innerContentGap;
       }
 
       .wp-block-verse {
-        border-radius: $borderradius;
+        border-radius: $desktop-borderRadius;
         padding: $desktop-innerContentGap;
-        font-size: $copysize;
+        font-size: $desktop-copySize;
       }
 
       img {
@@ -176,23 +166,23 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
       .cpt-container, .posts {
 
         h2 {
-          font-size: $headlinesize - 6;
+          font-size: $desktop-headlineSize - 6;
         }
 
         .cpt, .post {
-          border-radius: $borderradius;
+          border-radius: $desktop-borderRadius;
         }
 
         .cptimg, .postimg {
-          border-top-left-radius: $borderradius;
-          border-top-right-radius: $borderradius;
+          border-top-left-radius: $desktop-borderRadius;
+          border-top-right-radius: $desktop-borderRadius;
         }
 
         .postcontent, .cptcontent {
-          padding: 0 $innerpostgap;
+          padding: 0 $desktop-innerPostGap;
 
           &.noimg {
-            padding-top: $innerpostgap;
+            padding-top: $desktop-innerPostGap;
           }
         }
       }
@@ -200,11 +190,11 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   a, a:visited {
-    font-size: $copysize;
+    font-size: $desktop-copySize;
 
     &.wp-block-button__link, &.button {
       padding: 0.8em 1.5em;
-      border-radius: $borderradius;
+      border-radius: $desktop-borderRadius;
     }
   }
 
@@ -212,7 +202,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   #widgetarea {
     .widget {
       h2, h3 {
-        font-size: $copysize + 4;
+        font-size: $desktop-copySize + 4;
       }
     }
   }
@@ -222,28 +212,28 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     padding: 2em 0;
 
     .copyright, .copyright a {
-      font-size: $copysize - 6;
+      font-size: $desktop-copySize - 6;
     }
   }
 
   .socialmediaicons {
     a{
-      border-radius: $borderradius;
+      border-radius: $desktop-borderRadius;
     }
   }
 
   .wp-block-details, details.wp-block-details {
-    margin: 0 0 $spaceafterblock 0;
+    margin: 0 0 $desktop-block-gap 0;
     border: 1px solid $line;
-    border-radius: $borderradius;
+    border-radius: $desktop-borderRadius;
     background: $white;
-    color: $contenttext;
-    box-shadow: $boxshadow;
+    color: $contentText;
+    box-shadow: $desktop-boxShadow;
 
     summary {
       gap: 0.8em;
       padding: $desktop-innerContentGap;
-      font-size: $headlinesize - 10;
+      font-size: $desktop-headlineSize - 10;
 
       &:after {
         font-size: 1.1em;
@@ -263,13 +253,13 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
 
   figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $spaceafterblock 0;
+    margin: 0 0 $desktop-block-gap 0;
   }
 
   .wp-block-table {
     overflow: hidden;
-    border-radius: $borderradius;
-    box-shadow: $boxshadow;
+    border-radius: $desktop-borderRadius;
+    box-shadow: $desktop-boxShadow;
 
     table {
       min-width: 680px;
@@ -277,12 +267,12 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
     thead th {
       background-color: color.scale($line, $lightness: 35%);
-      font-size: $copysize;
+      font-size: $desktop-copySize;
     }
 
     th, td {
       padding: $desktop-innerContentGap;
-      font-size: $copysize;
+      font-size: $desktop-copySize;
     }
 
     &:not(.is-style-stripes) tbody tr:nth-child(odd) {
