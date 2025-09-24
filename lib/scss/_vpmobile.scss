@@ -493,13 +493,13 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      pre.wp-block-code {
+      .wp-block-code {
         border-radius: $mobile-borderRadius;
         background-color: $contentText;
         color: $white;
         font-size: $mobile-copySize;
         margin-bottom: $mobile-blockGap;
-        padding: $mobile-innerContentGap;
+        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       }
 
       .wp-block-verse {
@@ -508,7 +508,7 @@ Stylesheet: Base Mobile - Tablet
         background-color: $headerColor;
         border-radius: $mobile-borderRadius;
         font-size: $mobile-copySize;
-        padding: $mobile-innerContentGap;
+        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       }
 
       .wp-block-columns {
@@ -781,7 +781,6 @@ Stylesheet: Base Mobile - Tablet
         cursor: pointer;
         background: $buttonBackground url('../img/eye.svg') no-repeat center center;
         background-size: 1.2rem;
-
       }
 
 
@@ -795,6 +794,7 @@ Stylesheet: Base Mobile - Tablet
       & > * + * { //space before Elements inside entry-content without the first
         margin-top: $mobile-contentGapTop !important;
       }
+
     }
   }
 
@@ -976,7 +976,7 @@ Stylesheet: Base Mobile - Tablet
       display: flex;
       align-items: center;
       gap: 0.6em;
-      padding: $mobile-innerContentGap;
+      padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       font-family: $headline;
       font-weight: 700;
       font-size: $mobile-headlineSize - 2;
@@ -1033,67 +1033,10 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
-
-  .wp-block-table {
-    margin-bottom: $mobile-blockGap;
-
-    tbody {
-      display: block;
-      background-color: $white;
-    }
-
-    table {
-      display: block;
-      width: 100%;
-    }
-
-    th, td {
-      padding: $mobile-innerContentGap;
-      font-size: $mobile-copySize;
-    }
-
-    tr {
-      border-top: 1px solid $contentText;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-
-      td {
-        flex: 1;
-        padding: $mobile-innerContentGap;
-        border-right: 1px solid $contentText;
-
-        &:first-child {
-          border-left: 1px solid $contentText;
-        }
-
-        &:empty {
-          display: none;
-        }
-      }
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .wp-block-details, details.wp-block-details {
-      summary:after {
-        transition: none;
-      }
-
-      .wp-block-details__content {
-        transition: none;
-      }
-    }
-  }
-
-
-  figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $mobile-blockGap 0;
-  }
-
   .wp-block-table {
     overflow: hidden;
     overflow-x: auto;
+    margin: 0 0 $mobile-blockGap 0;
     -webkit-overflow-scrolling: touch;
     border-radius: $mobile-borderRadius;
     background: $white;
@@ -1124,10 +1067,25 @@ Stylesheet: Base Mobile - Tablet
 
 
     th, td {
-      padding: $mobile-innerContentGap;
       border: 0;
       vertical-align: top;
+      padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       font-size: $mobile-copySize;
+    }
+
+    tr {
+      border: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+
+      td {
+        flex: 1;
+
+        &:empty {
+          display: none;
+        }
+      }
     }
 
     &:not(.is-style-stripes) tbody tr:nth-child(odd) {
@@ -1145,30 +1103,29 @@ Stylesheet: Base Mobile - Tablet
     td.is-numeric, th.is-numeric {
       text-align: right;
     }
-  }
 
-  #content .entry-content {
-    figure.wp-block-table {
-      tr {
-        border: 0 !important;
-      }
-
-      th, td {
-        border: 0 !important;
-      }
+    tbody {
+      display: block;
+      background-color: $white;
     }
 
-    figure.wp-block-table tr td {
-      border: 0 !important;
-      border-bottom: 0 !important;
-    }
-
-    figure.wp-block-table tr td:first-child {
-      border-left: 0 !important;
-    }
-
-    figure.wp-block-table tr td:last-child {
-      border-right: 0 !important;
+    table {
+      display: block;
+      width: 100%;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wp-block-details, details.wp-block-details {
+      summary:after {
+        transition: none;
+      }
+
+      .wp-block-details__content {
+        transition: none;
+      }
+    }
+  }
+
+
 }

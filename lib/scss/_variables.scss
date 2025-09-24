@@ -95,7 +95,7 @@ h1, h2, h3, h4, p, li {
 $mobile-contentWidth: 84%;
 
 $mobile-blockGap: 1.5em;
-$mobile-innerContentGap: 2rem;
+$mobile-innerContentGap: 1rem;
 $mobile-contentGapTop: 2em;
 $mobile-innerPostGap: 3vw;
 
@@ -111,7 +111,7 @@ $mobile-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0
 $tablet-contentWidth: 90%;
 
 $tablet-blockGap: 3em;
-$tablet-innerContentGap: 2rem;
+$tablet-innerContentGap: 1.6rem;
 $tablet-innerPostGap: 2vw;
 $tablet-contentGapTop: 2em;
 
@@ -128,7 +128,7 @@ $desktop-contentWidth: 80%;
 $desktop-maxContentWidth: 1000px; // max content width
 
 $desktop-blockGap: 50px;
-$desktop-innerContentGap: 2rem;
+$desktop-innerContentGap: 2.2rem;
 $desktop-innerPostGap: 20px;
 $desktop-contentGapTop: 2em;
 

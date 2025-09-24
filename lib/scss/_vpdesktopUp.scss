@@ -143,19 +143,19 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
         }
       }
 
-      pre.wp-block-code, pre.wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
+      .wp-block-code, .wp-block-verse, figure.wp-block-table, .wp-block-columns, .wp-block-gallery {
         margin-bottom: $desktop-blockGap;
       }
 
-      pre.wp-block-code {
+      .wp-block-code {
         border-radius: $desktop-borderRadius;
         font-size: $desktop-copySize;
-        padding: $desktop-innerContentGap;
+        padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
       }
 
       .wp-block-verse {
         border-radius: $desktop-borderRadius;
-        padding: $desktop-innerContentGap;
+        padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
         font-size: $desktop-copySize;
       }
 
@@ -232,7 +232,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
     summary {
       gap: 0.8em;
-      padding: $desktop-innerContentGap;
+      padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
       font-size: $desktop-headlineSize - 10;
 
       &:after {
@@ -251,15 +251,11 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
   }
 
-
-  figure.wp-block-table, .wp-block-table {
-    margin: 0 0 $desktop-blockGap 0;
-  }
-
   .wp-block-table {
     overflow: hidden;
     border-radius: $desktop-borderRadius;
     box-shadow: $desktop-boxShadow;
+    margin: 0 0 $desktop-blockGap 0;
 
     table {
       min-width: 680px;
@@ -271,7 +267,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
 
     th, td {
-      padding: $desktop-innerContentGap;
+      padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
       font-size: $desktop-copySize;
     }
 
@@ -281,31 +277,6 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
     tbody tr:hover {
       background-color: color.scale($contrast, $lightness: 90%);
-    }
-  }
-
-  #content .entry-content {
-    figure.wp-block-table {
-      tr {
-        border: 0 !important;
-      }
-
-      th, td {
-        border: 0 !important;
-      }
-    }
-
-    figure.wp-block-table tr td {
-      border: 0 !important;
-      border-bottom: 0 !important;
-    }
-
-    figure.wp-block-table tr td:first-child {
-      border-left: 0 !important;
-    }
-
-    figure.wp-block-table tr td:last-child {
-      border-right: 0 !important;
     }
   }
 }
