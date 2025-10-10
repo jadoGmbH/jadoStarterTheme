@@ -34,7 +34,7 @@
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_instagram.svg');
                 echo '</a>';
             }
-            if ($link = get_option('business_linkedIn')) {
+            if ($link = get_option('business_linkedin')) {
                 echo '<a target="_blank" class="linkedin" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_linkedin.svg');
                 echo '</a>';

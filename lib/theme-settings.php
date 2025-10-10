@@ -240,7 +240,7 @@ function jado_settings_fields(): void
         'business_telephone' => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
         'business_email' => __('Email address (e.g.: info@example.com)', 'jadotheme'),
         'business_whatsapp' => __('WhatsApp number (e.g.: +49123456789)', 'jadotheme'),
-        'business_linkedIn' => __('Linkedin (URL)', 'jadotheme'),
+        'business_linkedin' => __('LinkedIn (URL)', 'jadotheme'),
         'business_bluesky' => __('Bluesky (URL)', 'jadotheme'),
         'business_mastodon' => __('Mastodon (URL)', 'jadotheme'),
         'business_facebook' => __('Facebook (URL)', 'jadotheme'),
@@ -1248,7 +1248,7 @@ function jado_apply_settings(): void
                                        value="1" <?php checked(1, get_option('gallery_swiperjs_lazy', 0)); ?> /></td>
                         </tr>
                         <tr>
-                            <th scope="row"><label for="gallery_swiperjs_hash_navigation"><?php echo _e('URL-Hash in der Adresszeile aktivieren', 'jadotheme'); ?></label></th>
+                            <th scope="row"><label for="gallery_swiperjs_hash_navigation"><?php echo _e('activate URL Hash', 'jadotheme'); ?></label></th>
                             <td>
                                 <input type="checkbox" id="gallery_swiperjs_hash_navigation" name="gallery_swiperjs_hash_navigation" value="1" <?php checked(1, get_option('gallery_swiperjs_hash_navigation', 0)); ?> />
                             </td>
