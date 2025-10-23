@@ -58,6 +58,8 @@ function jado_initialize_options(): void
         'business_areaserved',
         'business_languages',
         'business_telephone',
+        'business_email',
+        'business_whatsapp',
         'business_foundingdate',
         'business_linkedin',
         'business_bluesky',
@@ -81,7 +83,7 @@ function jado_initialize_options(): void
         'gutenberg_full_width',
         'disableGutenbergCustomStyle',
         'disableEditorFullscreenDefault',
-        'customAdminStyle',// not working in WP 6.7 anymore - iframes!
+        'customAdminStyle',
         'disableEmoji',
         'removeXMLRPC',
         'disableEmbedsFrontend',
@@ -138,7 +140,6 @@ function jado_settings_fields(): void
         'enableSVGUploads' => __('Enable SVG Uploads', 'jadotheme'),
         'swiperjs' => __('Enable SwiperJS for every Gallery Block', 'jadotheme'),
         'baguettebox' => __('Enable Lightbox for every Gallery Block linked to media file', 'jadotheme'),
-
     ];
 
     foreach ($media_options as $option => $label) {
@@ -237,7 +238,9 @@ function jado_settings_fields(): void
         'business_languages' => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
         'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
         'business_telephone' => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
-        'business_linkedIn' => __('Linkedin (URL)', 'jadotheme'),
+        'business_email' => __('Email address (e.g.: info@example.com)', 'jadotheme'),
+        'business_whatsapp' => __('WhatsApp number (e.g.: +49123456789)', 'jadotheme'),
+        'business_linkedin' => __('LinkedIn (URL)', 'jadotheme'),
         'business_bluesky' => __('Bluesky (URL)', 'jadotheme'),
         'business_mastodon' => __('Mastodon (URL)', 'jadotheme'),
         'business_facebook' => __('Facebook (URL)', 'jadotheme'),
@@ -1107,6 +1110,7 @@ function jado_apply_settings(): void
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_space_between');
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_effect');
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_navigation_color');
+            register_setting('gallery_swiperjs_options', 'gallery_swiperjs_hash_navigation');
             add_menu_page(
                 __('Gallery Settings', 'jadotheme'),
                 __('Gallery Settings', 'jadotheme'),
@@ -1243,6 +1247,12 @@ function jado_apply_settings(): void
                             <td><input type="checkbox" id="gallery_swiperjs_lazy" name="gallery_swiperjs_lazy"
                                        value="1" <?php checked(1, get_option('gallery_swiperjs_lazy', 0)); ?> /></td>
                         </tr>
+                        <tr>
+                            <th scope="row"><label for="gallery_swiperjs_hash_navigation"><?php echo _e('activate URL Hash', 'jadotheme'); ?></label></th>
+                            <td>
+                                <input type="checkbox" id="gallery_swiperjs_hash_navigation" name="gallery_swiperjs_hash_navigation" value="1" <?php checked(1, get_option('gallery_swiperjs_hash_navigation', 0)); ?> />
+                            </td>
+                        </tr>
                     </table>
                     <?php submit_button(); ?>
                 </form>
@@ -1264,6 +1274,7 @@ function jado_apply_settings(): void
             $spaceBetween = get_option('gallery_swiperjs_space_between', 0);
             $effect = get_option('gallery_swiperjs_effect', 'slide');
             $navigationColor = esc_attr(get_option('gallery_swiperjs_navigation_color', '#000000'));
+            $hashNavigation = get_option('gallery_swiperjs_hash_navigation', 0);
             $swiper_options = "
         autoHeight: true,
         loop: true,
@@ -1271,9 +1282,10 @@ function jado_apply_settings(): void
         speed: {$speed},
         slidesPerView: {$slidesPerView},
         spaceBetween: {$spaceBetween},
-        effect: '$effect',
-        hashNavigation: {watchState: true,}
-    ";
+        effect: '$effect'";
+            if ($hashNavigation) {
+                $swiper_options .= ",\n        hashNavigation: {watchState: true,}\n    ";
+            }
             if ($autoplay) {
                 $swiper_options .= ",
         autoplay: {
@@ -1323,6 +1335,7 @@ function jado_apply_settings(): void
         }
     ");
 
+            $data_hash_js = $hashNavigation ? "image.setAttribute('data-hash', 'slide' + (index + 1));" : "";
             wp_add_inline_script('swiperjs', "
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof Swiper !== 'undefined') {
@@ -1334,7 +1347,7 @@ function jado_apply_settings(): void
                         wrapper.classList.add('swiper-wrapper');
                         images.forEach(function(image, index) {
                             image.classList.add('swiper-slide');
-                            image.setAttribute('data-hash', 'slide' + (index + 1));
+                            {$data_hash_js}
                             wrapper.appendChild(image);
                         });
                         gallery.innerHTML = '';
@@ -1383,6 +1396,16 @@ function jado_apply_settings(): void
             if ($swiperjs_enqueue_assets) {
                 wp_enqueue_script('swiperjs');
                 wp_enqueue_style('swiperjs-css');
+                add_filter('style_loader_tag', function ($html, $handle) {
+                    if ($handle === 'swiperjs-css') {
+                        $html = str_replace(
+                                "rel='stylesheet'",
+                                "rel='stylesheet' media='print' onload=\"this.onload=null;this.media='all';\"",
+                                $html
+                        );
+                    }
+                    return $html;
+                }, 10, 2);
             }
         }
 
@@ -1401,9 +1424,7 @@ function jado_apply_settings(): void
             $baguettebox_selector = apply_filters('baguettebox_selector', '.wp-block-gallery,:not(.wp-block-gallery)>.wp-block-image,.wp-block-media-text__media,.gallery,.wp-block-coblocks-gallery-masonry,.wp-block-coblocks-gallery-stacked,.wp-block-coblocks-gallery-collage,.wp-block-coblocks-gallery-offset,.wp-block-coblocks-gallery-stacked,.mgl-gallery,.gb-block-image');
             $baguettebox_filter = apply_filters('baguettebox_filter', '/.+\.(gif|jpe?g|png|webp|svg|avif|heif|heic|tif?f|)($|\?)/i');
             $baguettebox_ignoreclass = apply_filters('baguettebox_ignoreclass', 'no-lightbox');
-
             wp_add_inline_script('baguettebox', 'window.addEventListener("load", function() {baguetteBox.run("' . $baguettebox_selector . '",{captions:function(t){var e=t.parentElement.classList.contains("wp-block-image")||t.parentElement.classList.contains("wp-block-media-text__media")?t.parentElement.querySelector("figcaption"):t.parentElement.parentElement.querySelector("figcaption,dd");return!!e&&e.innerHTML},filter:' . $baguettebox_filter . ',ignoreClass:"' . $baguettebox_ignoreclass . '"});});');
-
         }
 
         add_action('wp_enqueue_scripts', __NAMESPACE__ . '\register_b_assets');

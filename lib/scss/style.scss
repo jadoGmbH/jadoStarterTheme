@@ -22,5 +22,5 @@ Stylesheet: Main Stylesheet
 }
 
 @media print {
-	@include viewports.print(); // enable for print design
+	@include print.print(); // enable for print design
 }

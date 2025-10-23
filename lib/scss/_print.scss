@@ -2,91 +2,132 @@
 Stylesheet: Print Stylesheet
 ******************************************************************/
 
-
 @mixin print() {
-  * {
+  /* Base reset for print */
+  *, *::before, *::after {
     background: transparent !important;
-    color: black !important;
+    box-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;
     -ms-filter: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 
-  a, a:visited {
-    color: #444 !important;
-    text-decoration: underline;
-
-    &:after {
-      content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-      content: " (" attr(title) ")";
-    }
+  html, body {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
   }
 
-  #header, #footer {
-    display: none;
+  body {
+    color: #000 !important;
+    background: #fff !important;
+    font: 12pt/1.4 "Helvetica Neue", Arial, sans-serif;
   }
 
-  h1 {
-    font-size: 23px !important;
-  }
+  /* Page box */
+  @page { margin: 1.5cm; }
 
-  p, a, li {
-    font-size: 12px !important;
-  }
+  /* Headings and text */
+  h1 { font-size: 18pt !important; margin: 0 0 0.6em 0; }
+  h2 { font-size: 14pt !important; margin: 1em 0 0.5em 0; }
+  h3 { font-size: 12pt !important; margin: 1em 0 0.5em 0; }
+  p, li { font-size: 11pt !important; }
 
-  #content {
-    box-shadow: none !important;
-  }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
 
-  #inner-content {
-    padding-top: 0 !important;
+  /* Layout containers */
+  #content, .wrap, .container {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
+  #content { box-shadow: none !important; }
+  #inner-content { padding-top: 0 !important; }
 
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  tr, img {
-    page-break-inside: avoid;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  @page {
-    margin: 0.5cm;
-  }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-
+  /* Remove site chrome and non-essential UI */
+  #header, header,
+  #footer, footer,
   .sidebar,
   .page-navigation,
   .wp-prev-next,
   .respond-form,
-  nav {
-    display: none;
+  nav,
+  .site-banner,
+  .cookie-banner,
+  .modal,
+  .offcanvas,
+  .ad, .ads,
+  .share,
+  .pagination,
+  .breadcrumbs {
+    display: none !important;
   }
+
+  /* Utility helpers */
+  .no-print, .print-hidden { display: none !important; }
+  .print-only { display: block !important; }
+
+  /* Links: show targets in print, except JS/hash */
+  a, a:visited {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  a::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
+  abbr[title]::after { content: " (" attr(title) ")"; }
+  .ir a::after,
+  a[href^="javascript:"]::after,
+  a[href^="#"]::after {
+    content: "" !important;
+  }
+
+  /* Images and media */
+  img, svg {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  figure { page-break-inside: avoid; break-inside: avoid; margin: 0 0 1em 0; }
+  figcaption { color: #333 !important; font-size: 9pt !important; }
+  video, audio, iframe, embed, object,
+  .wp-block-embed, .wp-block-video { display: none !important; }
+
+  /* Tables */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    page-break-inside: auto;
+  }
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+  tr, img { page-break-inside: avoid; break-inside: avoid; }
+  th, td { border: 1px solid #999 !important; padding: 4pt 6pt !important; text-align: left; vertical-align: top; }
+
+  /* Code and quotes */
+  pre, blockquote, code {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  pre, code { font-family: Menlo, Consolas, monospace; font-size: 9pt; white-space: pre-wrap; word-wrap: break-word; }
+  blockquote { padding: 0.5em 1em; color: #333 !important; }
+
+  /* Forms and interactive elements */
+  form, input, select, textarea, button, .button, .btn, .wp-block-search, .comment-respond { display: none !important; }
+
+  /* Gutenberg layout adjustments */
+  .wp-block-columns { display: block; }
+  .wp-block-column { width: 100% !important; margin: 0 0 1em 0 !important; }
+  .wp-block-gallery { display: block; }
+  .wp-block-cover, .wp-block-cover-image { background: transparent !important; color: #000 !important; }
+  .has-background { background: transparent !important; }
+
+  /* Lists */
+  ul, ol { margin: 0 0 0.8em 1.2em !important; padding: 0 !important; }
+  li { break-inside: avoid; }
 }

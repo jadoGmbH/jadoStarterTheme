@@ -11,6 +11,20 @@ require_once('lib/theme-settings.php');
 //require_once('lib/custom-post-types.php'); // enable to get Custom Post Type "products"
 
 
+function theme_enqueue_styles() {
+    $ver = (str_contains($_SERVER["HTTP_HOST"], 'local'))
+        ? date('His')
+        : '01a';
+
+    wp_enqueue_style(
+        'theme-style',
+        get_template_directory_uri() . '/lib/css/style.css',
+        [],
+        $ver
+    );
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+
 function jado_head_cleanup()
 {
     remove_action('wp_head', 'rsd_link');
@@ -185,6 +199,7 @@ function jado_admin_CSS()
             body.toplevel_page_jado_options table.form-table tbody tr:hover label{color: black;}
             body.toplevel_page_jado_options table.form-table tbody tr th{padding-left: 20px;width: 600px;}
             body.toplevel_page_jado_options table.form-table tbody tr{flex: 0 0 48%; transition: all 300ms ease;}
+            body.toplevel_page_jado_options table.form-table tbody tr.baguettebox label, body.toplevel_page_jado_options table.form-table tbody tr.swiperjs label{max-width: 75%;}
             body.toplevel_page_jado_options .form-table tbody tr {
                 width: 46%;
                 float: left;

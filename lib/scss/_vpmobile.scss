@@ -6,16 +6,6 @@ Stylesheet: Base Mobile - Tablet
 @use "sass:color";
 
 @mixin mobile() {
-  $copysize: 4.1vw;
-  $headlinesize: 8.5vw;
-  $contentwidth: 84%;
-  $innerpostgap: 3vw;
-  $contentgaptop: 2em;
-  $burgerright: calc(100% - #{$contentwidth});
-  $boxshadow: 0 0 5vw rgba(0, 0, 0, 0.1), 0 0 2vw rgba(0, 0, 0, 0.4);
-  $borderradius: 0.4em;
-  $spaceafterblock: 1.5em;
-
 
   html {
     scroll-behavior: smooth;
@@ -24,8 +14,8 @@ Stylesheet: Base Mobile - Tablet
   body {
     font-family: $copy;
     line-height: 1.5;
-    color: $contenttext;
-    background-color: $headercolor;
+    color: $contentText;
+    background-color: $headerBackground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -33,26 +23,26 @@ Stylesheet: Base Mobile - Tablet
     padding: 0;
     position: relative !important;
     top: 0;
-    font-size: $copysize;
+    font-size: $mobile-copySize;
 
-    &.scrollDown #header.header {
+    &.scrollDown #fixedHeader.header {
       transform: translate3d(0, -100%, 0);
       @include transition(transform 200ms ease-out);
     }
 
-    &.scrollUp #header.header {
+    &.scrollUp #fixedHeader.header {
       transform: translate3d(0, 0, 0);
       @include transition(transform 200ms ease-out);
     }
   }
 
   a, a:visited {
-    color: $contenttext;
+    color: $contentText;
     text-decoration: none;
     @include transition(all 200ms ease-out);
 
     &:hover, &:focus {
-      color: $link-hover;
+      color: $linkHover;
       text-decoration: none;
     }
   }
@@ -62,7 +52,7 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .wrap {
-    width: $contentwidth;
+    width: $mobile-contentWidth;
     margin: 0 auto;
   }
 
@@ -76,11 +66,11 @@ Stylesheet: Base Mobile - Tablet
   }
 
 
-  #inner-header{
+  #inner-header {
     position: relative;
   }
 
-  .shopnav{
+  .shopnav {
     position: absolute;
     top: 0;
     right: 0;
@@ -91,7 +81,7 @@ Stylesheet: Base Mobile - Tablet
     align-items: center;
     font-weight: bold;
 
-    .counter{
+    .counter {
       border-radius: 50%;
       background-color: red;
       color: $white;
@@ -106,28 +96,28 @@ Stylesheet: Base Mobile - Tablet
       right: 0;
     }
 
-    a{
+    a {
       width: 3rem;
       height: 3rem;
 
-      &.shopuser{
-        background: $buttonbackground url(../img/user.svg) no-repeat center;
+      &.shopuser {
+        background: $buttonBackground url(../img/user.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
         height: 3rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
 
-        &:hover{
+        &:hover {
           background: $contrast url(../img/user.svg) no-repeat center;
           background-size: 1.5rem;
         }
       }
 
-      &.cart{
-        background: $buttonbackground url(../img/cart.svg) no-repeat center;
+      &.cart {
+        background: $buttonBackground url(../img/cart.svg) no-repeat center;
         background-size: 1.5rem;
         width: 3rem;
         height: 3rem;
@@ -135,16 +125,16 @@ Stylesheet: Base Mobile - Tablet
         justify-content: center;
         position: relative;
         align-items: center;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
 
-        &:hover{
+        &:hover {
           background: $contrast url(../img/cart.svg) no-repeat center;
           background-size: 1.5rem;
 
         }
       }
 
-      svg, path, circle{
+      svg, path, circle {
         stroke-width: 2 !important;
         stroke: red !important;
       }
@@ -152,13 +142,13 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .header {
-    box-shadow: $boxshadow;
-    background-color: $headercolor;
+    box-shadow: $mobile-boxShadow;
+    background-color: $headerBackground;
     z-index: 9999;
     position: relative;
     padding: 5vw 0;
 
-    &#header {
+    &#fixedHeader {
       position: fixed;
       width: 100%;
     }
@@ -166,7 +156,7 @@ Stylesheet: Base Mobile - Tablet
     .flex {
       display: flex;
       flex-direction: column;
-      color: $headertext;
+      color: $headerText;
     }
   }
 
@@ -190,12 +180,12 @@ Stylesheet: Base Mobile - Tablet
 
   #logo {
     display: inline-block;
-    font-size: $headlinesize - 2;
+    font-size: $mobile-headlineSize - 2;
     line-height: 1.2;
     width: auto;
     font-family: $copy;
     position: relative;
-    color: $headertext;
+    color: $headerText;
     font-weight: normal;
     margin: 0 12vw 0 0;
 
@@ -209,7 +199,7 @@ Stylesheet: Base Mobile - Tablet
     display: block;
     font-weight: normal;
     color: $dark;
-    font-size: $copysize;
+    font-size: $mobile-copySize;
     margin-top: 1em;
 
     &:empty {
@@ -220,7 +210,7 @@ Stylesheet: Base Mobile - Tablet
 
   #burger {
     position: absolute;
-    right: calc(#{$burgerright} / 2);
+    right: 2rem;
     top: 0;
     width: 5rem;
     height: 5rem;
@@ -288,13 +278,13 @@ Stylesheet: Base Mobile - Tablet
         font-family: $copy;
         font-weight: normal;
         display: block;
-        color: $headertext;
+        color: $headerText;
         margin: 0 0 0.5em 0;
         text-decoration: none;
         padding: 3vw 5vw;
         border: 1px solid $line;
-        font-size: $copysize;
-        border-radius: $borderradius;
+        font-size: $mobile-copySize;
+        border-radius: $mobile-borderRadius;
 
         &:hover {
           background-color: $dark;
@@ -319,13 +309,14 @@ Stylesheet: Base Mobile - Tablet
 
         li {
           width: auto;
+
           a {
             width: auto;
             padding: 3vw 10vw;
           }
 
-          &.current-menu-item{
-            a{
+          &.current-menu-item {
+            a {
               color: $contrast;
             }
           }
@@ -390,11 +381,9 @@ Stylesheet: Base Mobile - Tablet
   #content {
     position: relative;
     z-index: 2;
-    background-color: $contentcolor;
-    box-shadow: $boxshadow;
+    background-color: $contentBackground;
+    box-shadow: $mobile-boxShadow;
     min-height: 100vh;
-
-
 
     #inner-content {
       &.hasThumb {
@@ -410,25 +399,25 @@ Stylesheet: Base Mobile - Tablet
         text-rendering: optimizelegibility;
         font-family: $headline;
         line-height: 1.2;
-        margin: 0 0 $spaceafterblock 0;
+        margin: 0 0 $mobile-blockGap 0;
         font-weight: bold;
       }
 
       h1, h1 a, h1 strong {
-        font-size: $headlinesize;
+        font-size: $mobile-headlineSize;
       }
 
       h2, h2 a, h2 strong {
-        font-size: $headlinesize - 0.4;
+        font-size: $mobile-headlineSize - 0.4;
       }
 
       h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-        font-size: $headlinesize - 1;
+        font-size: $mobile-headlineSize - 1;
       }
 
       ul {
         list-style-type: none;
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-blockGap;
 
         &.wp-block-latest-posts__list {
           display: flex;
@@ -453,7 +442,7 @@ Stylesheet: Base Mobile - Tablet
 
             li {
               background: $white;
-              border-radius: $borderradius;
+              border-radius: $mobile-borderRadius;
               padding: 1em;
               position: relative;
               margin: 0 0 1em 0;
@@ -470,7 +459,7 @@ Stylesheet: Base Mobile - Tablet
             content: '';
             width: 1.4vw;
             height: 1.4vw;
-            background: $maincolor;
+            background: $mainColor;
             border-radius: 50%;
             position: absolute;
             left: 0;
@@ -479,16 +468,16 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      figure.wp-block-pullquote {
-        border-top: 1px solid $contenttext;
-        border-bottom: 1px solid $contenttext;
-        padding: 3vw 0;
-        margin-bottom: $spaceafterblock;
+      .wp-block-pullquote {
+        border-top: 1px solid $contentText;
+        border-bottom: 1px solid $contentText;
+        padding: $mobile-innerContentGap 0;
+        margin-bottom: $mobile-blockGap;
 
         p {
           font-family: $headline;
-          font-size: $headlinesize;
-          margin-bottom: 1em;
+          font-size: $mobile-headlineSize;
+          margin-bottom: calc($mobile-innerContentGap / 2);
         }
 
         cite {
@@ -496,70 +485,46 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      pre.wp-block-code {
-        background-color: $contenttext;
-        color: $white;
-        padding: 0.4em 0.8em;
-        margin-bottom: $spaceafterblock;
+      ul.wp-block-list {
+
+        ul.wp-block-list {
+          margin: $mobile-innerContentGap 0 0 0;
+        }
       }
 
-      pre.wp-block-verse {
-        margin-bottom: $spaceafterblock;
+      .wp-block-code {
+        border-radius: $mobile-borderRadius;
+        background-color: $contentText;
+        color: $white;
+        font-size: $mobile-copySize;
+        margin-bottom: $mobile-blockGap;
+        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
+      }
+
+      .wp-block-verse {
+        margin-bottom: $mobile-blockGap;
         font-style: italic;
+        background-color: $headerBackground;
+        border-radius: $mobile-borderRadius;
+        font-size: $mobile-copySize;
+        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       }
 
       .wp-block-columns {
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-blockGap;
       }
 
-      figure.wp-block-table {
-        margin-bottom: $spaceafterblock;
-
-        tbody {
-          border-bottom: 1px solid $contenttext;
-          display: block;
-          background-color: $white;
-        }
-
-        figcaption {
-          text-align: center;
-          opacity: 0.5;
-          font-style: italic;
-          padding-top: 0.5em;
-        }
-
-        table {
-          display: block;
-          width: 100%;
-        }
-
-
-        tr {
-          border-top: 1px solid $contenttext;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-
-          td {
-            flex: 1;
-            padding: 0.4em;
-            border-right: 1px solid $contenttext;
-
-            &:first-child {
-              border-left: 1px solid $contenttext;
-            }
-
-            &:empty {
-              display: none;
-            }
-          }
-        }
+      figcaption {
+        text-align: center;
+        opacity: 0.5;
+        font-style: italic;
+        padding-top: 0.5em;
       }
 
       .wp-block-gallery {
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: $spaceafterblock;
+        margin-bottom: $mobile-blockGap;
 
         .wp-block-image {
           img {
@@ -578,8 +543,8 @@ Stylesheet: Base Mobile - Tablet
           display: flex;
           margin-bottom: 0.5em;
           overflow: hidden;
-          border-top-left-radius: $borderradius;
-          border-top-right-radius: $borderradius;
+          border-top-left-radius: $mobile-borderRadius;
+          border-top-right-radius: $mobile-borderRadius;
 
           img {
             margin-bottom: 0;
@@ -589,10 +554,10 @@ Stylesheet: Base Mobile - Tablet
         }
 
         .postcontent, .cptcontent {
-          padding: 0 $innerpostgap;
+          padding: 0 $mobile-innerPostGap;
 
           &.noimg {
-            padding-top: $innerpostgap;
+            padding-top: $mobile-innerPostGap;
           }
         }
 
@@ -606,11 +571,11 @@ Stylesheet: Base Mobile - Tablet
           position: relative;
           flex: 0 0 100%;
           background-color: $white;
-          border-radius: $borderradius;
+          border-radius: $mobile-borderRadius;
           @include transition(background-color 200ms linear);
 
           &:hover {
-            background-color: $contentcolor;
+            background-color: $contentBackground;
           }
 
           &.sold { /** change if you need another custom post type category! */
@@ -649,12 +614,19 @@ Stylesheet: Base Mobile - Tablet
 
       blockquote.wp-block-quote {
         margin: 0;
-        padding: 0 3em;
-        border-left: 1em solid $maincolor;
+        padding: 0 $mobile-innerContentGap;
+        border-left: 1em solid $mainColor;
 
         p {
-          margin: 1em 0 2em 0;
+          margin: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
           font-style: italic;
+        }
+      }
+
+
+      .wp-block-pullquote {
+        p, h1, h2, h3 {
+          color: $contentText;
         }
       }
 
@@ -665,15 +637,15 @@ Stylesheet: Base Mobile - Tablet
 
       .summary, p, .woocommerce-cart-form {
         a, a:visited {
-          color: $contenttext;
-          font-size: $copysize;
+          color: $contentText;
+          font-size: $mobile-copySize;
           padding: 0 0 0.2em 0;
           @include transition(all 200ms ease-out);
           position: relative;
           text-decoration: underline;
-          text-decoration-thickness: 3px;
-          text-decoration-color: $link-color;
-          text-underline-offset: 3px;
+          text-decoration-thickness: 2px;
+          text-decoration-color: $linkColor;
+          text-underline-offset: 2px;
 
           &:hover, &:focus {
             text-decoration-color: $contrast;
@@ -687,12 +659,12 @@ Stylesheet: Base Mobile - Tablet
 
       button.button, button.woocommerce-button {
         padding: 0.8em 1.5em;
-        font-family: $headline;
+        font-family: $copy;
         outline: none;
         border: none;
-        background-color: $buttoncolor;
+        background-color: $buttonColor;
         color: $white;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         margin: 0;
         line-height: 1.5;
         display: block;
@@ -708,12 +680,12 @@ Stylesheet: Base Mobile - Tablet
 
       h2 {
         a {
-          font-size: $headlinesize;
+          font-size: $mobile-headlineSize;
           line-height: 1.2;
           display: block;
 
           &:hover {
-            color: $link-hover;
+            color: $linkHover;
           }
         }
       }
@@ -744,7 +716,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $copysize;
+        font-size: $mobile-copySize;
       }
 
       textarea {
@@ -753,23 +725,23 @@ Stylesheet: Base Mobile - Tablet
       }
 
       time {
-        font-size: $copysize - 1;
+        font-size: $mobile-copySize - 1;
         color: $dark;
         font-weight: bold;
       }
 
       p {
-        margin: 0 0 2vw;
+        margin: 0 0 $mobile-contentGapTop 0;
 
         a {
           font-weight: bold;
-          font-size: $copysize;
-          font-family: $headline;
+          font-size: $mobile-copySize;
+          font-family: $copy;
         }
       }
 
       img {
-        margin: 0 0 2vw 0;
+        margin: 0 0 $mobile-contentGapTop 0;
         width: 100%;
         max-width: 100%;
         height: auto;
@@ -777,38 +749,37 @@ Stylesheet: Base Mobile - Tablet
 
       input {
         padding: 0.4em 0.8em;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         border: 1px solid $line;
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 
-        &:hover{
-          border: 1px solid $contenttext;
+        &:hover {
+          border: 1px solid $contentText;
         }
 
-        &#password{
+        &#password {
           position: relative;
         }
       }
 
-      .password-input{
+      .password-input {
         position: absolute;
       }
 
-      .show-password-input{
+      .show-password-input {
         position: absolute;
         width: 2rem;
         height: 2rem;
         border: none;
         right: -2.2rem;
         top: 0.15rem;
-        border-radius: $borderradius;
+        border-radius: $mobile-borderRadius;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        background: $buttonbackground url('../img/eye.svg') no-repeat center center;
+        background: $buttonBackground url('../img/eye.svg') no-repeat center center;
         background-size: 1.2rem;
-
       }
 
 
@@ -820,19 +791,20 @@ Stylesheet: Base Mobile - Tablet
       }
 
       & > * + * { //space before Elements inside entry-content without the first
-        margin-top: $contentgaptop !important;
+        margin-top: $mobile-contentGapTop !important;
       }
+
     }
   }
 
 
   a, a:visited {
     &.wp-block-button__link, &.button, &.wc-block-components-button {
-      padding: 0.8em 1.5em;
-      font-family: $headline;
-      border-radius: $borderradius;
-      background-color: $buttonbackground;
-      color: $buttoncolor;
+      padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
+      font-family: $copy;
+      border-radius: $mobile-borderRadius;
+      background-color: $buttonBackground;
+      color: $buttonColor;
       margin: 0;
       top: 0;
       position: relative;
@@ -842,7 +814,7 @@ Stylesheet: Base Mobile - Tablet
       @include transition(all 150ms ease-out);
 
       &:hover {
-        background-color: $link-color;
+        background-color: $linkColor;
         top: 1px;
       }
 
@@ -855,8 +827,6 @@ Stylesheet: Base Mobile - Tablet
       font-weight: bold;
     }
   }
-
-
 
 
   .wp-block-image .aligncenter {
@@ -879,7 +849,7 @@ Stylesheet: Base Mobile - Tablet
     figcaption {
       margin-top: 0;
       text-align: center;
-      font-size: $copysize - 1;
+      font-size: $mobile-copySize - 1;
       font-style: italic;
     }
   }
@@ -889,11 +859,11 @@ Stylesheet: Base Mobile - Tablet
     flex-direction: column;
 
     a {
-      color: $footertext;
+      color: $footerText;
     }
 
     h1, h2, h3, h4, h5 {
-      color: $footertext;
+      color: $footerText;
 
       &.widgettitle {
         margin-top: 0;
@@ -901,7 +871,7 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
-  .socialmediaicons{
+  .socialmediaicons {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -909,39 +879,58 @@ Stylesheet: Base Mobile - Tablet
     gap: 0.4rem;
     margin-bottom: 2rem;
 
-    a{
+    a {
       width: 2rem;
       height: 2rem;
+      border-radius: $mobile-borderRadius;
+      overflow: hidden;
 
       svg {
         fill: currentColor;
-        path{
+
+        path {
           fill: currentColor;
         }
       }
 
-      &:hover{
-        svg{
+      &:hover {
+        svg {
           fill: $contrast;
 
-          path{
+          path {
             fill: $contrast !important;
           }
         }
       }
     }
-
-
   }
 
   .footer {
     clear: both;
-    background-color: $footercolor;
-    color: $footertext;
+    background-color: $footerBackground;
+    color: $footerText;
     position: sticky;
     bottom: 0;
     z-index: 1;
-    padding: 2vw 0 4vw 0;
+    padding: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
+
+    a.jado{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 0.6em;
+      justify-content: space-between;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        svg{
+          width: 3rem;
+          height: auto;
+        }
+      }
+    }
 
     #inner-footer {
       display: flex;
@@ -952,14 +941,19 @@ Stylesheet: Base Mobile - Tablet
 
     .copyright {
       font-weight: normal;
-      color: $footertext;
-      font-size: $copysize - 0.75;
+      color: $footerText;
+      font-size: $mobile-copySize - 0.75;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.35rem;
 
-      a{
-        color: $footertext;
-        font-size: $copysize - 0.75;
+      a {
+        color: $footerText;
+        font-size: $mobile-copySize - 0.75;
 
-        &:hover{
+        &:hover {
           color: $contrast
         }
       }
@@ -967,6 +961,10 @@ Stylesheet: Base Mobile - Tablet
 
     a {
       text-decoration: underline;
+
+      &.wp-block-button__link{
+        font-size: $mobile-copySize - 0.75;
+      }
     }
   }
 
@@ -976,6 +974,158 @@ Stylesheet: Base Mobile - Tablet
     img {
       width: 100%;
       height: auto;
+    }
+  }
+
+  .wp-block-details {
+    margin: 0 0 $mobile-blockGap 0;
+    border: 1px solid $line;
+    border-radius: $mobile-borderRadius;
+    background: $white;
+    color: $contentText;
+    box-shadow: $mobile-boxShadow;
+    overflow: hidden;
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
+      font-family: $headline;
+      font-weight: 700;
+      font-size: $mobile-headlineSize - 2;
+      line-height: 1.2;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      color: $contentText;
+      transition: color 0.2ms ease-out;
+
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:after {
+        content: "▾";
+        margin-left: auto;
+        font-size: 1.2em;
+        line-height: 1;
+        transform: rotate(-90deg);
+        @include transition(transform 250ms ease);
+      }
+
+      &:hover {
+        color: $mainColor;
+      }
+    }
+
+    > * {
+      padding: $mobile-innerContentGap;
+    }
+
+    &[open] {
+      summary:after {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .wp-block-table {
+    overflow: hidden;
+    overflow-x: auto;
+    margin: 0 0 $mobile-blockGap 0;
+    -webkit-overflow-scrolling: touch;
+    border-radius: $mobile-borderRadius;
+    background: $white;
+    box-shadow: $mobile-boxShadow;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      min-width: 540px;
+      background: $white;
+    }
+
+    caption {
+      caption-side: top;
+      padding: 0.6em 0.8em;
+      font-weight: 700;
+      text-align: left;
+      color: $contentText;
+    }
+
+    thead th {
+      background-color: color.scale($line, $lightness: 45%);
+      color: $contentText;
+      text-align: left;
+      font-weight: 700;
+    }
+
+
+    th, td {
+      border: 0;
+      vertical-align: top;
+      padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
+      font-size: $mobile-copySize;
+    }
+
+    tr {
+      border: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+
+      td {
+        flex: 1;
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+
+    &:not(.is-style-stripes) tbody tr:nth-child(odd) {
+      background-color: rgba(0,0,0,0.07);
+
+      &:hover{
+        background-color: rgba(0,0,0,0.1);
+      }
+    }
+
+    tbody tr:hover {
+      background-color: color.scale($contrast, $lightness: 88%);
+    }
+
+    .has-fixed-layout table {
+      table-layout: fixed;
+    }
+
+    td.is-numeric, th.is-numeric {
+      text-align: right;
+    }
+
+    tbody {
+      display: block;
+      background-color: $white;
+    }
+
+    table {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wp-block-details, details.wp-block-details {
+      summary:after {
+        transition: none;
+      }
+
+      .wp-block-details__content {
+        transition: none;
+      }
     }
   }
 

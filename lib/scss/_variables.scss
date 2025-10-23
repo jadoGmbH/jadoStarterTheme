@@ -22,21 +22,26 @@ Stylesheet: Variables
 }
 
 /* Colors */
-$dark:           #222525;
-$white:          #ffffff;
-$headercolor:    $white;
-$headertext:     $dark;
-$contentcolor:   #e4e5d9;
-$contenttext:    #2b2913;
-$footercolor:    $dark;
-$buttonbackground:    #900695;
-$buttoncolor:    $white;
-$footertext:     $white;
-$maincolor:      #7a8037;
-$line: #bcbcbc;
-$contrast: #b9c62a;
-$link-color: #a7b32d;
-$link-hover:     $link-color;
+$dark:                #222525;
+$white:               #ffffff;
+$mainColor: #77660e;
+$line:                #bcbcbc;
+$contrast:            #b9c62a;
+
+$headerBackground:    $white;
+$headerText:          $dark;
+
+$contentBackground: #e6e5e2;
+$contentText:         #2b2913;
+
+$footerBackground:    $dark;
+$footerText:          $white;
+
+$buttonBackground:    $mainColor;
+$buttonColor:         $white;
+
+$linkColor:           #a7b32d;
+$linkHover:           $linkColor;
 
 /* Woocommerce Colors */
 $wooGreen:  #429e0e;
@@ -84,3 +89,57 @@ h1, h2, h3, h4, p, li {
   -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
 }
+
+
+
+
+// Viewports default variables
+
+/* Mobile Viewport */
+
+$mobile-contentWidth: 84%;
+
+$mobile-blockGap: 1.5em;
+$mobile-innerContentGap: 1rem;
+$mobile-contentGapTop: 2em;
+$mobile-innerPostGap: 3vw;
+
+$mobile-copySize: 4.1vw;
+$mobile-headlineSize: 8.5vw;
+
+$mobile-borderRadius: 0.4em;
+$mobile-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+
+
+/* Tablet Viewport */
+
+$tablet-contentWidth: 90%;
+
+$tablet-blockGap: 3em;
+$tablet-innerContentGap: 1.6rem;
+$tablet-innerPostGap: 2vw;
+$tablet-contentGapTop: 2em;
+
+$tablet-copySize: 1.6vw;
+$tablet-headlineSize: 4vw;
+
+$tablet-borderRadius: 0.3rem;
+$tablet-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+
+
+/* Desktop up Viewport */
+
+$desktop-contentWidth: 80%;
+$desktop-maxContentWidth: 1000px; // max content width
+
+$desktop-blockGap: 50px;
+$desktop-innerContentGap: 2.2rem;
+$desktop-innerPostGap: 20px;
+$desktop-contentGapTop: 2em;
+
+$desktop-copySize: 18px;
+$desktop-headlineSize: 40px;
+
+$desktop-borderRadius: 0.3rem;
+$desktop-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+

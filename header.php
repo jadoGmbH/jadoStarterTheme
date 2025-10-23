@@ -109,17 +109,11 @@
     if (is_singular() && pings_open(get_queried_object())) : ?>
     <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
     <?php endif; ?>
-    <?php wp_head();
-    if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
-    $timestamp = 'style.css?v=' . date('His');
-    } else {
-    $timestamp = 'style.css?v=01a';
-    } ?>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/lib/css/<?php echo $timestamp; ?>">
+    <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
 <div id="container">
-    <header id="header" class="header">
+    <header id="fixedHeader" class="header">
         <div id="inner-header" class="wrap">
             <?php
             if (has_nav_menu('MetaNav')) {
@@ -198,7 +192,7 @@
             }
             ?>
         </div>
-        <nav id="site-navigation" class="wrap">
+        <nav id="site-navigation" class="">
             <?php wp_nav_menu(array(
             'container' => false,
             'container_class' => 'menu',
