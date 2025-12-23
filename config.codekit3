@@ -1922,6 +1922,14 @@
       "oAP" : "\/lib\/img\/social-media-icon_.afdesign",
       "oF" : 0
     },
+    "\/lib\/img\/social-media-icon_.afdesign~lock~" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/img\/social-media-icon_.afdesign~lock~",
+      "oF" : 0
+    },
     "\/lib\/img\/social-media-icon_bluesky.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -2007,6 +2015,16 @@
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/lib\/img\/social-media-icon_whatsapp.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/lib\/img\/social-media-icon_youtube.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/lib\/img\/social-media-icon_youtube.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
