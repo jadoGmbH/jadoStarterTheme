@@ -29,6 +29,11 @@
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_facebook.svg');
                 echo '</a>';
             }
+            if ($link = get_option('business_youtube')) {
+                echo '<a target="_blank" class="youtube" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_youtube.svg');
+                echo '</a>';
+            }
             if ($link = get_option('business_instagram')) {
                 echo '<a target="_blank" class="instagram" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_instagram.svg');
