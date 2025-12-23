@@ -3,13 +3,13 @@
 function jado_top_lvl_menu(): void
 {
     add_menu_page(
-        __('jado Starter Theme Settings', 'jadotheme'),
-        __('jST Settings', 'jadotheme'),
-        'manage_options',
-        'jado_options',
-        'jado_options_page_callback',
-        'dashicons-admin-generic',
-        63
+            __('jado Starter Theme Settings', 'jadotheme'),
+            __('jST Settings', 'jadotheme'),
+            'manage_options',
+            'jado_options',
+            'jado_options_page_callback',
+            'dashicons-admin-generic',
+            63
     );
 }
 
@@ -50,23 +50,24 @@ function jado_initialize_options(): void
 {
 
     $business_info_options = [
-        'business_street',
-        'business_postal_code',
-        'business_city',
-        'business_country',
-        'business_contactsite',
-        'business_areaserved',
-        'business_languages',
-        'business_telephone',
-        'business_email',
-        'business_whatsapp',
-        'business_foundingdate',
-        'business_linkedin',
-        'business_bluesky',
-        'business_mastodon',
-        'business_facebook',
-        'business_instagram',
-        'business_googlemaps',
+            'business_street',
+            'business_postal_code',
+            'business_city',
+            'business_country',
+            'business_contactsite',
+            'business_areaserved',
+            'business_languages',
+            'business_telephone',
+            'business_email',
+            'business_whatsapp',
+            'business_foundingdate',
+            'business_linkedin',
+            'business_bluesky',
+            'business_youtube',
+            'business_mastodon',
+            'business_facebook',
+            'business_instagram',
+            'business_googlemaps',
     ];
 
     foreach ($business_info_options as $option) {
@@ -76,40 +77,40 @@ function jado_initialize_options(): void
     }
 
     $options = [
-        'imgQuality',
-        'setAltAttrImage',
-        'AdminPostThumbnail',
-        'enableSVGUploads',
-        'gutenberg_full_width',
-        'disableGutenbergCustomStyle',
-        'disableEditorFullscreenDefault',
-        'customAdminStyle',
-        'disableEmoji',
-        'removeXMLRPC',
-        'disableEmbedsFrontend',
-        'disableComments',
-        'encodeEmails',
-        'heartbeat',
-        'hideWPUser',
-        'permissionPolicyHeader',
-        'referrerHeaderPolicy',
-        'crossOriginRessourcePolicy',
-        'crossOriginOpenPolicy',
-        'xFrameOptionsHeader',
-        'xxssProtection',
-        'xContentTypeOptions',
-        'strictTransportSecurity',
-        'delayLoginAttempts',
-        'cacheControlHeader',
-        'scriptW3C',
-        'swiperjs',
-        'baguettebox',
-        'pageExcerpts',
-        'maintenanceMode',
+            'imgQuality',
+            'setAltAttrImage',
+            'AdminPostThumbnail',
+            'enableSVGUploads',
+            'gutenberg_full_width',
+            'disableGutenbergCustomStyle',
+            'disableEditorFullscreenDefault',
+            'customAdminStyle',
+            'disableEmoji',
+            'removeXMLRPC',
+            'disableEmbedsFrontend',
+            'disableComments',
+            'encodeEmails',
+            'heartbeat',
+            'hideWPUser',
+            'permissionPolicyHeader',
+            'referrerHeaderPolicy',
+            'crossOriginRessourcePolicy',
+            'crossOriginOpenPolicy',
+            'xFrameOptionsHeader',
+            'xxssProtection',
+            'xContentTypeOptions',
+            'strictTransportSecurity',
+            'delayLoginAttempts',
+            'cacheControlHeader',
+            'scriptW3C',
+            'swiperjs',
+            'baguettebox',
+            'pageExcerpts',
+            'maintenanceMode',
         //'deactivateXMLSitemap',
-        'disableAdminBarFrontend',
-        'activateJquery',
-        'editor_role_menu'
+            'disableAdminBarFrontend',
+            'activateJquery',
+            'editor_role_menu'
     ];
 
     foreach ($options as $option) {
@@ -127,19 +128,19 @@ function jado_settings_fields(): void
 
     // Section 1: Media Settings
     add_settings_section(
-        'jado_section_media',
-        __('Media Settings', 'jadotheme'),
-        '',
-        'jado_options'
+            'jado_section_media',
+            __('Media Settings', 'jadotheme'),
+            '',
+            'jado_options'
     );
 
     $media_options = [
-        'imgQuality' => __('Image Quality JPG Settings', 'jadotheme'),
-        'setAltAttrImage' => __('Set alt attributes for images after upload (based on image)', 'jadotheme'),
-        'AdminPostThumbnail' => __('Show featured images in backend', 'jadotheme'),
-        'enableSVGUploads' => __('Enable SVG Uploads', 'jadotheme'),
-        'swiperjs' => __('Enable SwiperJS for every Gallery Block', 'jadotheme'),
-        'baguettebox' => __('Enable Lightbox for every Gallery Block linked to media file', 'jadotheme'),
+            'imgQuality' => __('Image Quality JPG Settings', 'jadotheme'),
+            'setAltAttrImage' => __('Set alt attributes for images after upload (based on image)', 'jadotheme'),
+            'AdminPostThumbnail' => __('Show featured images in backend', 'jadotheme'),
+            'enableSVGUploads' => __('Enable SVG Uploads', 'jadotheme'),
+            'swiperjs' => __('Enable SwiperJS for every Gallery Block', 'jadotheme'),
+            'baguettebox' => __('Enable Lightbox for every Gallery Block linked to media file', 'jadotheme'),
     ];
 
     foreach ($media_options as $option => $label) {
@@ -148,17 +149,17 @@ function jado_settings_fields(): void
 
     // Section 2: Gutenberg Settings
     add_settings_section(
-        'jado_section_gutenberg',
-        __('Gutenberg Settings', 'jadotheme'),
-        '',
-        'jado_options'
+            'jado_section_gutenberg',
+            __('Gutenberg Settings', 'jadotheme'),
+            '',
+            'jado_options'
     );
 
     $gutenberg_options = [
-        'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
-        'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles - they are already loaded by jST', 'jadotheme'),
-        'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
-        'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
+            'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
+            'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles - they are already loaded by jST', 'jadotheme'),
+            'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
+            'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
     ];
 
     foreach ($gutenberg_options as $option => $label) {
@@ -167,32 +168,32 @@ function jado_settings_fields(): void
 
     // Section 3: SEO Settings
     add_settings_section(
-        'jado_section_seo',
-        __('SEO, Security & Performance Settings', 'jadotheme'),
-        '',
-        'jado_options'
+            'jado_section_seo',
+            __('SEO, Security & Performance Settings', 'jadotheme'),
+            '',
+            'jado_options'
     );
 
     $seo_options = [
-        'disableEmoji' => __('Disable Emoji', 'jadotheme'),
-        'removeXMLRPC' => __('Disable XMLRPC', 'jadotheme'),
-        'disableEmbedsFrontend' => __('Disable Embeds in Frontend', 'jadotheme'),
-        'disableComments' => __('Disable Comments', 'jadotheme'),
-        'encodeEmails' => __('Encode emails e.g. [email]email@email.com/email]', 'jadotheme'),
-        'heartbeat' => __('Disable heartbeat (auto safe etc.)', 'jadotheme'),
-        'scriptW3C' => __('Correct script style (delete type=script)', 'jadotheme'),
-        'pageExcerpts' => __('Excerpts for pages (for meta descriptions)', 'jadotheme'),
-        'hideWPUser' => __('Hide WP User in Code', 'jadotheme'),
-        'permissionPolicyHeader' => __('Add permission policy header (disallow: geolocation, microphone, camera)', 'jadotheme'),
-        'referrerHeaderPolicy' => __('Add referrer policy header', 'jadotheme'),
-        'crossOriginRessourcePolicy' => __('Add cross origin ressource policy header (same-origin)', 'jadotheme'),
-        'crossOriginOpenPolicy' => __('Add cross origin opener policy header (same-origin)', 'jadotheme'),
-        'xFrameOptionsHeader' => __('Add x-frame options header (same-origin)', 'jadotheme'),
-        'xxssProtection' => __('X-XSS-Protection (mode block)', 'jadotheme'),
-        'xContentTypeOptions' => __('X-Content-Type-Options (no sniff)', 'jadotheme'),
-        'strictTransportSecurity' => __('Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)', 'jadotheme'),
-        'delayLoginAttempts' => __('Delay login attempts (30s)', 'jadotheme'),
-        'cacheControlHeader' => __('Set cache for 1 day (not for logged in users)', 'jadotheme'),
+            'disableEmoji' => __('Disable Emoji', 'jadotheme'),
+            'removeXMLRPC' => __('Disable XMLRPC', 'jadotheme'),
+            'disableEmbedsFrontend' => __('Disable Embeds in Frontend', 'jadotheme'),
+            'disableComments' => __('Disable Comments', 'jadotheme'),
+            'encodeEmails' => __('Encode emails e.g. [email]email@email.com/email]', 'jadotheme'),
+            'heartbeat' => __('Disable heartbeat (auto safe etc.)', 'jadotheme'),
+            'scriptW3C' => __('Correct script style (delete type=script)', 'jadotheme'),
+            'pageExcerpts' => __('Excerpts for pages (for meta descriptions)', 'jadotheme'),
+            'hideWPUser' => __('Hide WP User in Code', 'jadotheme'),
+            'permissionPolicyHeader' => __('Add permission policy header (disallow: geolocation, microphone, camera)', 'jadotheme'),
+            'referrerHeaderPolicy' => __('Add referrer policy header', 'jadotheme'),
+            'crossOriginRessourcePolicy' => __('Add cross origin ressource policy header (same-origin)', 'jadotheme'),
+            'crossOriginOpenPolicy' => __('Add cross origin opener policy header (same-origin)', 'jadotheme'),
+            'xFrameOptionsHeader' => __('Add x-frame options header (same-origin)', 'jadotheme'),
+            'xxssProtection' => __('X-XSS-Protection (mode block)', 'jadotheme'),
+            'xContentTypeOptions' => __('X-Content-Type-Options (no sniff)', 'jadotheme'),
+            'strictTransportSecurity' => __('Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)', 'jadotheme'),
+            'delayLoginAttempts' => __('Delay login attempts (30s)', 'jadotheme'),
+            'cacheControlHeader' => __('Set cache for 1 day (not for logged in users)', 'jadotheme'),
     ];
 
     foreach ($seo_options as $option => $label) {
@@ -202,18 +203,18 @@ function jado_settings_fields(): void
 
     // Section 4: Misc Settings
     add_settings_section(
-        'jado_section_misc',
-        __('Misc Settings', 'jadotheme'),
-        '',
-        'jado_options'
+            'jado_section_misc',
+            __('Misc Settings', 'jadotheme'),
+            '',
+            'jado_options'
     );
 
     $misc_options = [
         //'deactivateXMLSitemap' => __('Deactivate XML Sitemap', 'jadotheme'),
-        'disableAdminBarFrontend' => __('Disable Admin Bar in Frontend', 'jadotheme'),
-        'activateJquery' => __('Activate jQuery', 'jadotheme'),
-        'editor_role_menu' => __('Give Editors Menu access', 'jadotheme'),
-        'maintenanceMode' => __('Activate Maintenance mode', 'jadotheme'),
+            'disableAdminBarFrontend' => __('Disable Admin Bar in Frontend', 'jadotheme'),
+            'activateJquery' => __('Activate jQuery', 'jadotheme'),
+            'editor_role_menu' => __('Give Editors Menu access', 'jadotheme'),
+            'maintenanceMode' => __('Activate Maintenance mode', 'jadotheme'),
     ];
 
     foreach ($misc_options as $option => $label) {
@@ -222,58 +223,59 @@ function jado_settings_fields(): void
 
     // Section 5: Business Information
     add_settings_section(
-        'jado_section_business',
-        __('Business Information – Social media Icons and LD+JSON (SEO)', 'jadotheme'),
-        '',
-        'jado_options'
+            'jado_section_business',
+            __('Business Information – Social media Icons and LD+JSON (SEO)', 'jadotheme'),
+            '',
+            'jado_options'
     );
 
     $business_fields = [
-        'business_street' => __('Street and Number', 'jadotheme'),
-        'business_postal_code' => __('Postal Code', 'jadotheme'),
-        'business_city' => __('City', 'jadotheme'),
-        'business_country' => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
-        'business_contactsite' => __('Contact Site (URL)', 'jadotheme'),
-        'business_areaserved' => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
-        'business_languages' => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
-        'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
-        'business_telephone' => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
-        'business_email' => __('Email address (e.g.: info@example.com)', 'jadotheme'),
-        'business_whatsapp' => __('WhatsApp number (e.g.: +49123456789)', 'jadotheme'),
-        'business_linkedin' => __('LinkedIn (URL)', 'jadotheme'),
-        'business_bluesky' => __('Bluesky (URL)', 'jadotheme'),
-        'business_mastodon' => __('Mastodon (URL)', 'jadotheme'),
-        'business_facebook' => __('Facebook (URL)', 'jadotheme'),
-        'business_instagram' => __('Instagram (URL)', 'jadotheme'),
-        'business_googlemaps' => __('Google Maps (URL)', 'jadotheme'),
+            'business_street' => __('Street and Number', 'jadotheme'),
+            'business_postal_code' => __('Postal Code', 'jadotheme'),
+            'business_city' => __('City', 'jadotheme'),
+            'business_country' => __('Country (2-digit code, e.g. DE)', 'jadotheme'),
+            'business_contactsite' => __('Contact Site (URL)', 'jadotheme'),
+            'business_areaserved' => __('Area Served (e.g. DE, UK, PT)', 'jadotheme'),
+            'business_languages' => __('Spoken Languages (e.g. DE, EN)', 'jadotheme'),
+            'business_foundingdate' => __('Founding Date (e.g.: 2011)', 'jadotheme'),
+            'business_telephone' => __('Telephone (e.g.: +49 1234 56789)', 'jadotheme'),
+            'business_email' => __('Email address (e.g.: info@example.com)', 'jadotheme'),
+            'business_whatsapp' => __('WhatsApp number (e.g.: +49123456789)', 'jadotheme'),
+            'business_linkedin' => __('Linkedin (URL)', 'jadotheme'),
+            'business_bluesky' => __('Bluesky (URL)', 'jadotheme'),
+            'business_youtube' => __('Youtube (URL)', 'jadotheme'),
+            'business_mastodon' => __('Mastodon (URL)', 'jadotheme'),
+            'business_facebook' => __('Facebook (URL)', 'jadotheme'),
+            'business_instagram' => __('Instagram (URL)', 'jadotheme'),
+            'business_googlemaps' => __('Google Maps (URL)', 'jadotheme'),
     ];
 
     register_setting($option_group, 'business_show_social_footer', ['sanitize_callback' => 'absint']);
     add_settings_field(
-        'business_show_social_footer',
-        __('Show Social Media Icons in Footer', 'jadotheme'),
-        'jado_checkbox_field_callback',
-        'jado_options',
-        'jado_section_business',
-        [
-            'label_for' => 'business_show_social_footer',
-            'name' => 'business_show_social_footer'
-        ]
+            'business_show_social_footer',
+            __('Show Social Media Icons in Footer', 'jadotheme'),
+            'jado_checkbox_field_callback',
+            'jado_options',
+            'jado_section_business',
+            [
+                    'label_for' => 'business_show_social_footer',
+                    'name' => 'business_show_social_footer'
+            ]
     );
 
 
     foreach ($business_fields as $option => $label) {
         register_setting($option_group, $option, ['sanitize_callback' => 'sanitize_text_field']);
         add_settings_field(
-            $option,
-            $label,
-            'jado_text_field_callback',
-            'jado_options',
-            'jado_section_business',
-            [
-                'label_for' => $option,
-                'name' => $option
-            ]
+                $option,
+                $label,
+                'jado_text_field_callback',
+                'jado_options',
+                'jado_section_business',
+                [
+                        'label_for' => $option,
+                        'name' => $option
+                ]
         );
     }
 
@@ -292,9 +294,9 @@ function jado_text_field_callback($args): void
 {
     $value = esc_attr(get_option($args['name'], ''));
     printf(
-        '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text" />',
-        $args['name'],
-        $value
+            '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text" />',
+            $args['name'],
+            $value
     );
 }
 
@@ -309,15 +311,15 @@ function jado_add_settings_field($option_group, $section_id, $option, $label)
 
     $callback = "jado_{$option}_field";
     add_settings_field(
-        $option,
-        __($label, 'jadotheme'),
-        $callback,
-        'jado_options',
-        $section_id,
-        array(
-            'label_for' => $option,
-            'name' => $option
-        )
+            $option,
+            __($label, 'jadotheme'),
+            $callback,
+            'jado_options',
+            $section_id,
+            array(
+                    'label_for' => $option,
+                    'name' => $option
+            )
     );
 }
 
@@ -344,10 +346,10 @@ function jado_checkbox_field($args): void
 function jado_imgQuality_field($args): void
 {
     printf(
-        '<input type="number" id="%s" name="%s" value="%d" />',
-        $args['name'],
-        $args['name'],
-        get_option($args['name'], 74)
+            '<input type="number" id="%s" name="%s" value="%d" />',
+            $args['name'],
+            $args['name'],
+            get_option($args['name'], 74)
     );
 }
 
@@ -527,10 +529,10 @@ add_action('admin_notices', 'jado_notice');
 function jado_notice(): void
 {
     if (
-        isset($_GET['page'])
-        && 'jado_options' == $_GET['page']
-        && isset($_GET['settings-updated'])
-        && $_GET['settings-updated']
+            isset($_GET['page'])
+            && 'jado_options' == $_GET['page']
+            && isset($_GET['settings-updated'])
+            && $_GET['settings-updated']
     ) {
         ?>
         <div class="notice notice-success is-dismissible">
@@ -739,10 +741,10 @@ function jado_apply_settings(): void
                 $jado_image_title = preg_replace('%\s*[-_\s]+\s*%', ' ', $jado_image_title);
                 $jado_image_title = ucwords(strtolower($jado_image_title));
                 $jado_image_meta = array(
-                    'ID' => $post_ID,
-                    'post_title' => $jado_image_title,
-                    'post_excerpt' => $jado_image_title,
-                    'post_content' => $jado_image_title,
+                        'ID' => $post_ID,
+                        'post_title' => $jado_image_title,
+                        'post_excerpt' => $jado_image_title,
+                        'post_content' => $jado_image_title,
                 );
                 update_post_meta($post_ID, '_wp_attachment_image_alt', $jado_image_title);
                 wp_update_post($jado_image_meta);
@@ -873,11 +875,10 @@ function jado_apply_settings(): void
     }
 
 
-
-
     add_action('init', 'register_custom_security_headers');
 
-    function register_custom_security_headers() {
+    function register_custom_security_headers()
+    {
 
         /** Permission-Policy-Header */
         if (get_option('permissionPolicyHeader', 'no') === 'yes') {
@@ -922,11 +923,11 @@ function jado_apply_settings(): void
     }
 
 
-
     /** Permission-Policy-Header */
     $permissionPolicyHeader = get_option('permissionPolicyHeader', 'no');
     if ($permissionPolicyHeader == 'yes') {
-        function set_permissions_policy_header($headers) {
+        function set_permissions_policy_header($headers)
+        {
             $headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()';
             return $headers;
         }
@@ -936,7 +937,8 @@ function jado_apply_settings(): void
     /** Referrer-Header-Policy */
     $referrerHeaderPolicy = get_option('referrerHeaderPolicy', 'no');
     if ($referrerHeaderPolicy == 'yes') {
-        function set_referrer_policy($headers) {
+        function set_referrer_policy($headers)
+        {
             $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
             return $headers;
         }
@@ -945,7 +947,8 @@ function jado_apply_settings(): void
     /** Cross-Origin-Resource-Policy */
     $crossOriginRessourcePolicy = get_option('crossOriginRessourcePolicy', 'no');
     if ($crossOriginRessourcePolicy == 'yes') {
-        function set_corp_header($headers) {
+        function set_corp_header($headers)
+        {
             $headers['Cross-Origin-Resource-Policy'] = 'same-origin';
             return $headers;
         }
@@ -954,11 +957,14 @@ function jado_apply_settings(): void
     /** Cross-Origin-Open-Policy */
     $crossOriginOpenPolicy = get_option('crossOriginOpenPolicy', 'no');
     if ($crossOriginOpenPolicy == 'yes') {
-        function set_coop_header($headers) {
+        function set_coop_header($headers)
+        {
             $headers['Cross-Origin-Opener-Policy'] = 'same-origin';
             return $headers;
         }
-        function set_coep_header($headers) {
+
+        function set_coep_header($headers)
+        {
             $headers['Cross-Origin-Embedder-Policy'] = 'require-corp';
             return $headers;
         }
@@ -968,7 +974,8 @@ function jado_apply_settings(): void
     /** X-Frame-Options-Header - iFrames on other Sites */
     $xFrameOptionsHeader = get_option('xFrameOptionsHeader', 'no');
     if ($xFrameOptionsHeader == 'yes') {
-        function set_x_frame_options($headers) {
+        function set_x_frame_options($headers)
+        {
             $headers['X-Frame-Options'] = 'SAMEORIGIN';
             return $headers;
         }
@@ -977,7 +984,8 @@ function jado_apply_settings(): void
     /** X-XSS-Protection */
     $xxssProtection = get_option('xxssProtection', 'no');
     if ($xxssProtection == 'yes') {
-        function set_x_xss_protection($headers) {
+        function set_x_xss_protection($headers)
+        {
             $headers['X-XSS-Protection'] = '1; mode=block';
             return $headers;
         }
@@ -986,7 +994,8 @@ function jado_apply_settings(): void
     /** X-Content-Type-Options */
     $xContentTypeOptions = get_option('xContentTypeOptions', 'no');
     if ($xContentTypeOptions == 'yes') {
-        function set_x_content_type_options($headers) {
+        function set_x_content_type_options($headers)
+        {
             $headers['X-Content-Type-Options'] = 'nosniff';
             return $headers;
         }
@@ -995,7 +1004,8 @@ function jado_apply_settings(): void
     /** Strict-Transport-Security */
     $strictTransportSecurity = get_option('strictTransportSecurity', 'no');
     if ($strictTransportSecurity == 'yes') {
-        function set_hsts_header($headers) {
+        function set_hsts_header($headers)
+        {
             if (is_ssl()) {
                 $headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload';
             }
@@ -1027,6 +1037,7 @@ function jado_apply_settings(): void
                 header('Cache-Control: no-cache, must-revalidate, max-age=0');
             }
         }
+
         add_action('save_post', 'custom_invalidate_cache_on_save', 10, 3);
         function custom_invalidate_cache_on_save($post_ID, $post, $update)
         {
@@ -1037,15 +1048,13 @@ function jado_apply_settings(): void
     }
 
 
-
-
     /** Maintenance Mode **/
     $maintenance = get_option('maintenanceMode', 'no');
     if ($maintenance == 'yes') {
         add_action('template_redirect', 'maintenance_mode');
         function maintenance_mode()
         {
-            if ( !is_user_logged_in() ) {
+            if (!is_user_logged_in()) {
                 include get_template_directory() . '/lib/maintenance.php';
                 exit;
             }
@@ -1053,15 +1062,14 @@ function jado_apply_settings(): void
     }
 
 
-
     /** Script style W3C-Correct */
     $scriptW3C = get_option('scriptW3C', 'no');
     if ($scriptW3C == 'yes') {
         add_action(
-            'after_setup_theme',
-            function () {
-                add_theme_support('html5', ['script', 'style']);
-            }
+                'after_setup_theme',
+                function () {
+                    add_theme_support('html5', ['script', 'style']);
+                }
         );
 
         function remove_type_attributes($tag)
@@ -1112,13 +1120,13 @@ function jado_apply_settings(): void
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_navigation_color');
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_hash_navigation');
             add_menu_page(
-                __('Gallery Settings', 'jadotheme'),
-                __('Gallery Settings', 'jadotheme'),
-                'manage_options',
-                'gallery-swiperjs-settings',
-                __NAMESPACE__ . '\settings_page_html',
-                'dashicons-images-alt2',
-                64
+                    __('Gallery Settings', 'jadotheme'),
+                    __('Gallery Settings', 'jadotheme'),
+                    'manage_options',
+                    'gallery-swiperjs-settings',
+                    __NAMESPACE__ . '\settings_page_html',
+                    'dashicons-images-alt2',
+                    64
             );
         }
 
@@ -1248,9 +1256,13 @@ function jado_apply_settings(): void
                                        value="1" <?php checked(1, get_option('gallery_swiperjs_lazy', 0)); ?> /></td>
                         </tr>
                         <tr>
-                            <th scope="row"><label for="gallery_swiperjs_hash_navigation"><?php echo _e('activate URL Hash', 'jadotheme'); ?></label></th>
+                            <th scope="row"><label
+                                        for="gallery_swiperjs_hash_navigation"><?php echo _e('URL-Hash in der Adresszeile aktivieren', 'jadotheme'); ?></label>
+                            </th>
                             <td>
-                                <input type="checkbox" id="gallery_swiperjs_hash_navigation" name="gallery_swiperjs_hash_navigation" value="1" <?php checked(1, get_option('gallery_swiperjs_hash_navigation', 0)); ?> />
+                                <input type="checkbox" id="gallery_swiperjs_hash_navigation"
+                                       name="gallery_swiperjs_hash_navigation"
+                                       value="1" <?php checked(1, get_option('gallery_swiperjs_hash_navigation', 0)); ?> />
                             </td>
                         </tr>
                     </table>
@@ -1380,17 +1392,17 @@ function jado_apply_settings(): void
         function enqueue_assets()
         {
             $swiperjs_enqueue_assets = apply_filters('swiperjs_enqueue_assets',
-                has_block('core/gallery') ||
-                has_block('core/image') ||
-                has_block('core/media-text') ||
-                get_post_gallery() ||
-                has_block('coblocks/gallery-masonry') ||
-                has_block('coblocks/gallery-stacked') ||
-                has_block('coblocks/gallery-collage') ||
-                has_block('coblocks/gallery-offset') ||
-                has_block('coblocks/gallery-stacked') ||
-                has_block('meow-gallery/gallery') ||
-                has_block('generateblocks/image')
+                    has_block('core/gallery') ||
+                    has_block('core/image') ||
+                    has_block('core/media-text') ||
+                    get_post_gallery() ||
+                    has_block('coblocks/gallery-masonry') ||
+                    has_block('coblocks/gallery-stacked') ||
+                    has_block('coblocks/gallery-collage') ||
+                    has_block('coblocks/gallery-offset') ||
+                    has_block('coblocks/gallery-stacked') ||
+                    has_block('meow-gallery/gallery') ||
+                    has_block('generateblocks/image')
             );
 
             if ($swiperjs_enqueue_assets) {
@@ -1432,17 +1444,17 @@ function jado_apply_settings(): void
         function enqueue_b_assets()
         {
             $baguettebox_enqueue_b_assets = apply_filters('baguettebox_enqueue_b_assets',
-                has_block('core/gallery') ||
-                has_block('core/image') ||
-                has_block('core/media-text') ||
-                get_post_gallery() ||
-                has_block('coblocks/gallery-masonry') ||
-                has_block('coblocks/gallery-stacked') ||
-                has_block('coblocks/gallery-collage') ||
-                has_block('coblocks/gallery-offset') ||
-                has_block('coblocks/gallery-stacked') ||
-                has_block('meow-gallery/gallery') ||
-                has_block('generateblocks/image')
+                    has_block('core/gallery') ||
+                    has_block('core/image') ||
+                    has_block('core/media-text') ||
+                    get_post_gallery() ||
+                    has_block('coblocks/gallery-masonry') ||
+                    has_block('coblocks/gallery-stacked') ||
+                    has_block('coblocks/gallery-collage') ||
+                    has_block('coblocks/gallery-offset') ||
+                    has_block('coblocks/gallery-stacked') ||
+                    has_block('meow-gallery/gallery') ||
+                    has_block('generateblocks/image')
             );
 
             if ($baguettebox_enqueue_b_assets) {

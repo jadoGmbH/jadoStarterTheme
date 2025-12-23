@@ -111,22 +111,6 @@
       "oAP" : "\/languages\/de_DE.po",
       "oF" : 0
     },
-    "\/languages\/de.mo" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/languages\/de.mo",
-      "oF" : 0
-    },
-    "\/languages\/de.po" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/languages\/de.po",
-      "oF" : 0
-    },
     "\/lib\/css\/baguetteBox-min.css" : {
       "aP" : 1,
       "bl" : 0,
