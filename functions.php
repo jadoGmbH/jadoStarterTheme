@@ -52,6 +52,24 @@ function jado_theme_support()
 }
 
 
+
+/**
+ * Add "Patterns" menu item to the Appearance menu for classic themes.
+ */
+
+function jado_add_patterns_menu() {
+    add_submenu_page(
+        'themes.php',
+        __('Patterns', 'default'),
+        __('Patterns', 'default'),
+        'edit_theme_options',
+        'edit.php?post_type=wp_block'
+    );
+}
+add_action('admin_menu', 'jado_add_patterns_menu');
+
+
+
 /** start cleanup  */
 
 function jado_start()
