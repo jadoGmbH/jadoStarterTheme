@@ -1086,7 +1086,9 @@ function jado_apply_settings(): void
 
         function buffer_end()
         {
-            ob_end_flush();
+            if (ob_get_level() > 0) {
+                ob_end_flush();
+            }
         }
 
         function buffer_callback($buffer)
