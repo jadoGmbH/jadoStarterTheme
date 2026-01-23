@@ -40,8 +40,6 @@ function jado_theme_support()
 {
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
-    add_theme_support('editor-styles');
-    add_editor_style('lib/css/style.css');
     register_nav_menus(
         array(
             'TopNav' => 'TopNav',

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jado Starter Theme\n"
-"POT-Creation-Date: 2025-08-13 09:51+0200\n"
-"PO-Revision-Date: 2025-08-13 09:58+0200\n"
+"POT-Creation-Date: 2026-01-23 11:21+0100\n"
+"PO-Revision-Date: 2026-01-23 11:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Posted"
 msgstr "Veröffentlicht"
 
-#: archive.php:16 functions.php:207
+#: archive.php:16 functions.php:240
 msgid "by"
 msgstr "von"
 
@@ -70,7 +70,11 @@ msgstr "Weitere Kommentare &rarr;"
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: functions.php:220
+#: functions.php:61 functions.php:62
+msgid "Patterns"
+msgstr "Patterns"
+
+#: functions.php:253
 msgid "Links"
 msgstr "Links"
 
@@ -210,10 +214,6 @@ msgstr "Wartungsmodus"
 msgid "Please come back later."
 msgstr "Bitte kommen sie später wieder."
 
-#: lib/maintenance.php:12
-msgid "Only logged-in users can see the frontend."
-msgstr "Nur eingeloggte Benutzer können die Webseite sehen."
-
 #: lib/theme-settings.php:6
 msgid "jado Starter Theme Settings"
 msgstr "jado Starter Theme Einstellungen"
@@ -222,194 +222,194 @@ msgstr "jado Starter Theme Einstellungen"
 msgid "jST Settings"
 msgstr "jST Einstellungen"
 
-#: lib/theme-settings.php:129
+#: lib/theme-settings.php:132
 msgid "Media Settings"
 msgstr "Medien Einstellungen"
 
-#: lib/theme-settings.php:135
+#: lib/theme-settings.php:138
 msgid "Image Quality JPG Settings"
 msgstr "Bildqualität der JPGs setzen (0-100)"
 
-#: lib/theme-settings.php:136
+#: lib/theme-settings.php:139
 msgid "Set alt attributes for images after upload (based on image)"
 msgstr ""
 "Automatische alt-Attribute bei allen Bildern <br>(basierend auf Bildname)"
 
-#: lib/theme-settings.php:137
+#: lib/theme-settings.php:140
 msgid "Show featured images in backend"
 msgstr "Zeige Beitragsbilder in Backend"
 
-#: lib/theme-settings.php:138
+#: lib/theme-settings.php:141
 msgid "Enable SVG Uploads"
 msgstr "Aktiviere SVG Uploads"
 
-#: lib/theme-settings.php:139
+#: lib/theme-settings.php:142
 msgid "Enable SwiperJS for every Gallery Block"
 msgstr "Aktiviere SwiperJS Slider für jeden Galerie Block"
 
-#: lib/theme-settings.php:140
+#: lib/theme-settings.php:143
 msgid "Enable Lightbox for every Gallery Block linked to media file"
 msgstr ""
 "Aktiviere Lightbox für jede Galerie Block der zu den Mediendateien linkt"
 
-#: lib/theme-settings.php:151
+#: lib/theme-settings.php:153
 msgid "Gutenberg Settings"
 msgstr "Gutenberg Einstellungen"
 
-#: lib/theme-settings.php:157
+#: lib/theme-settings.php:159
 msgid "Gutenberg full width"
 msgstr "Gutenberg volle Seitenbreite"
 
-#: lib/theme-settings.php:158
+#: lib/theme-settings.php:160
 msgid "Deactivate Gutenberg inline styles - they are already loaded by jST"
 msgstr "Gutenberg Inline CSS ausschalten"
 
-#: lib/theme-settings.php:159
+#: lib/theme-settings.php:161
 msgid "Disable Editor Fullscreen Default"
 msgstr "Default Editor Fullscreen ausschalten"
 
-#: lib/theme-settings.php:160
-msgid "Better Design for Gutenberg Backend"
-msgstr "Besseres Design für Gutenberg im Admin Bereich"
+#: lib/theme-settings.php:162
+msgid "Design for Gutenberg Backend"
+msgstr "Design für Gutenberg Backend"
 
-#: lib/theme-settings.php:170
+#: lib/theme-settings.php:172
 msgid "SEO, Security & Performance Settings"
 msgstr "SEO, Security & Performance Einstellungen"
 
-#: lib/theme-settings.php:176
+#: lib/theme-settings.php:178
 msgid "Disable Emoji"
 msgstr "Emojis deaktivieren"
 
-#: lib/theme-settings.php:177
+#: lib/theme-settings.php:179
 msgid "Disable XMLRPC"
 msgstr "XMLRPC ausschalten"
 
-#: lib/theme-settings.php:178
+#: lib/theme-settings.php:180
 msgid "Disable Embeds in Frontend"
 msgstr "Entferne Embed CSS aus dem Frontend"
 
-#: lib/theme-settings.php:179
+#: lib/theme-settings.php:181
 msgid "Disable Comments"
 msgstr "Kommentarfunktion ausschalten"
 
-#: lib/theme-settings.php:180
+#: lib/theme-settings.php:182
 msgid "Encode emails e.g. [email]email@email.com/email]"
 msgstr "Emails verschlüsseln z.B.: [email]email@email.de[/email]"
 
-#: lib/theme-settings.php:181
+#: lib/theme-settings.php:183
 msgid "Disable heartbeat (auto safe etc.)"
 msgstr "WordPress Heartbeat ausschalten <br>(auto safe etc.)"
 
-#: lib/theme-settings.php:182
+#: lib/theme-settings.php:184
 msgid "Correct script style (delete type=script)"
 msgstr "Script Style W3C-konform <br>(type=script rauswerfen etc.)"
 
-#: lib/theme-settings.php:183
+#: lib/theme-settings.php:185
 msgid "Excerpts for pages (for meta descriptions)"
 msgstr "Auszüge für Seiten<br>(für Meta Beschreibungen)"
 
-#: lib/theme-settings.php:184
+#: lib/theme-settings.php:186
 msgid "Hide WP User in Code"
 msgstr "Verstecke die WP-User im Code"
 
-#: lib/theme-settings.php:185
+#: lib/theme-settings.php:187
 msgid ""
 "Add permission policy header (disallow: geolocation, microphone, camera)"
 msgstr ""
 "Berechtigungsrichtlinien-Header hinzufügen (nicht zulassen: "
 "Geolokalisierung, Mikrofon, Kamera)"
 
-#: lib/theme-settings.php:186
+#: lib/theme-settings.php:188
 msgid "Add referrer policy header"
 msgstr "Header der Referrer-Richtlinie hinzufügen"
 
-#: lib/theme-settings.php:187
+#: lib/theme-settings.php:189
 msgid "Add cross origin ressource policy header (same-origin)"
 msgstr "Benutze cross origin ressource policy header (same-origin)"
 
-#: lib/theme-settings.php:188
+#: lib/theme-settings.php:190
 msgid "Add cross origin opener policy header (same-origin)"
 msgstr "Benutze cross origin opener policy header (same-origin)"
 
-#: lib/theme-settings.php:189
+#: lib/theme-settings.php:191
 msgid "Add x-frame options header (same-origin)"
 msgstr "Benutze x-frame options header (same-origin)"
 
-#: lib/theme-settings.php:190
+#: lib/theme-settings.php:192
 msgid "X-XSS-Protection (mode block)"
 msgstr "X-XSS-Protection (mode block)"
 
-#: lib/theme-settings.php:191
+#: lib/theme-settings.php:193
 msgid "X-Content-Type-Options (no sniff)"
 msgstr "X-Content-Type-Options (no sniff)"
 
-#: lib/theme-settings.php:192
+#: lib/theme-settings.php:194
 msgid ""
 "Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)"
 msgstr ""
 "Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)"
 
-#: lib/theme-settings.php:193
+#: lib/theme-settings.php:195
 msgid "Delay login attempts (30s)"
 msgstr "Anmeldeversuche verzögern (30 s)"
 
-#: lib/theme-settings.php:194
+#: lib/theme-settings.php:196
 msgid "Set cache for 1 day (not for logged in users)"
 msgstr "Cache für 1 Tag einstellen (nicht für angemeldete Benutzer)"
 
-#: lib/theme-settings.php:205
+#: lib/theme-settings.php:207
 msgid "Misc Settings"
 msgstr "Diverse Einstellungen"
 
-#: lib/theme-settings.php:212
+#: lib/theme-settings.php:214
 msgid "Disable Admin Bar in Frontend"
 msgstr "Entferne Admin Bar aus dem Frontend"
 
-#: lib/theme-settings.php:213
+#: lib/theme-settings.php:215
 msgid "Activate jQuery"
 msgstr "Aktiviere jQuery"
 
-#: lib/theme-settings.php:214
+#: lib/theme-settings.php:216
 msgid "Give Editors Menu access"
 msgstr "Redakteur Navigation & Widget Zugriff"
 
-#: lib/theme-settings.php:215
+#: lib/theme-settings.php:217
 msgid "Activate Maintenance mode"
 msgstr "Wartungsmodus aktivieren"
 
-#: lib/theme-settings.php:225
+#: lib/theme-settings.php:227
 msgid "Business Information – Social media Icons and LD+JSON (SEO)"
 msgstr "Geschäftsinformationen – Social-Media-Symbole und LD+JSON (SEO)"
 
-#: lib/theme-settings.php:231
+#: lib/theme-settings.php:233
 msgid "Street and Number"
 msgstr "Straße und Hausnummer"
 
-#: lib/theme-settings.php:232
+#: lib/theme-settings.php:234
 msgid "Postal Code"
 msgstr "Postleitzahl"
 
-#: lib/theme-settings.php:233
+#: lib/theme-settings.php:235
 msgid "City"
 msgstr "Ort"
 
-#: lib/theme-settings.php:234
+#: lib/theme-settings.php:236
 msgid "Country (2-digit code, e.g. DE)"
 msgstr "Ländercode (2-Zeichen Code, z. B. DE)"
 
-#: lib/theme-settings.php:235
+#: lib/theme-settings.php:237
 msgid "Contact Site (URL)"
 msgstr "Kontaktseite (URL)"
 
-#: lib/theme-settings.php:236
+#: lib/theme-settings.php:238
 msgid "Area Served (e.g. DE, UK, PT)"
 msgstr "Bedientes Gebiet (z. B. DE, UK, PT)"
 
-#: lib/theme-settings.php:237
+#: lib/theme-settings.php:239
 msgid "Spoken Languages (e.g. DE, EN)"
 msgstr "Gesprochene Sprachen (z. B. DE, EN)"
 
-#: lib/theme-settings.php:238
+#: lib/theme-settings.php:240
 msgid "Founding Date (e.g.: 2011)"
 msgstr "Gründungsdatum (z. B.: 2011)"
 
@@ -457,31 +457,31 @@ msgstr "Google Maps (URL)"
 msgid "Show Social Media Icons in Footer"
 msgstr "Social-Media-Symbole in der Fußzeile anzeigen"
 
-#: lib/theme-settings.php:283 lib/theme-settings.php:335
+#: lib/theme-settings.php:288 lib/theme-settings.php:340
 msgid "Yes"
 msgstr "Ja"
 
-#: lib/theme-settings.php:535
+#: lib/theme-settings.php:540
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
-#: lib/theme-settings.php:621
+#: lib/theme-settings.php:626
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: lib/theme-settings.php:634
+#: lib/theme-settings.php:639
 msgid "Your theme do not support post thumbnails ..."
 msgstr "Ihr Theme unterstützt keine Featured Bilder ..."
 
-#: lib/theme-settings.php:1111 lib/theme-settings.php:1112
+#: lib/theme-settings.php:1125 lib/theme-settings.php:1126
 msgid "Gallery Settings"
 msgstr "Galerie Einstellungen"
 
-#: lib/theme-settings.php:1130
+#: lib/theme-settings.php:1144
 msgid "Gallery Block SwiperJS Settings"
 msgstr "Galerie Block SwiperJS Einstellungen"
 
-#: lib/theme-settings.php:1132
+#: lib/theme-settings.php:1146
 msgid ""
 "Setting options for all gallery blocks that are automatically converted to "
 "SwiperJS sliders when this plugin is activated"
@@ -489,45 +489,49 @@ msgstr ""
 "Einstellmöglichkeiten für alle Galerie-Blöcke, die mit Aktivierung dieses "
 "Plugins automatisch in SwiperJS Slider umgewandelt werden"
 
-#: lib/theme-settings.php:1142
+#: lib/theme-settings.php:1156
 msgid "Effect:"
 msgstr "Effekt:"
 
-#: lib/theme-settings.php:1169
+#: lib/theme-settings.php:1183
 msgid "Speed (in ms):"
 msgstr "Geschwindigkeit (in ms):"
 
-#: lib/theme-settings.php:1176
+#: lib/theme-settings.php:1190
 msgid "Enable Pagination:"
 msgstr "Bullets unten einschalten:"
 
-#: lib/theme-settings.php:1185
+#: lib/theme-settings.php:1199
 msgid "Enable Navigation:"
 msgstr "Navigationspfeile einschalten:"
 
-#: lib/theme-settings.php:1194
+#: lib/theme-settings.php:1208
 msgid "Enable Autplay:"
 msgstr "Autoplay einschalten:"
 
-#: lib/theme-settings.php:1203
+#: lib/theme-settings.php:1217
 msgid "Autoplay Delay (in ms):"
 msgstr "Autoplay Verzögerung (in ms):"
 
-#: lib/theme-settings.php:1211
+#: lib/theme-settings.php:1225
 msgid "Slides per view:"
 msgstr "Slides pro Seite:"
 
-#: lib/theme-settings.php:1223
+#: lib/theme-settings.php:1237
 msgid "Space between Slides (in px):"
 msgstr "Abstand zwischen Bildern (in px):"
 
-#: lib/theme-settings.php:1232
+#: lib/theme-settings.php:1246
 msgid "Color for Navigation/Pagniation:"
 msgstr "Farbe der Navigation/Pagination:"
 
-#: lib/theme-settings.php:1241
+#: lib/theme-settings.php:1255
 msgid "Enable Lazyload:"
 msgstr "Bilder Lazyload einschalten:"
+
+#: lib/theme-settings.php:1262
+msgid "Enable #Hash in URL"
+msgstr "Aktiviere #Hash-Links in URL"
 
 #: page.php:24
 msgid "Sorry, no content available."
@@ -587,6 +591,9 @@ msgstr "jado"
 #. Template Name of the plugin/theme
 msgid "Custom Loop"
 msgstr "Custom Post Loop"
+
+#~ msgid "Only logged-in users can see the frontend."
+#~ msgstr "Nur eingeloggte Benutzer können die Webseite sehen."
 
 #, fuzzy
 #~| msgid "Enable Post Thumbnail in backend"

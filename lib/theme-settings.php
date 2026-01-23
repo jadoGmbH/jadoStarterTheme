@@ -159,7 +159,7 @@ function jado_settings_fields(): void
             'gutenberg_full_width' => __('Gutenberg full width', 'jadotheme'),
             'disableGutenbergCustomStyle' => __('Deactivate Gutenberg inline styles - they are already loaded by jST', 'jadotheme'),
             'disableEditorFullscreenDefault' => __('Disable Editor Fullscreen Default', 'jadotheme'),
-            'customAdminStyle' => __('Better Design for Gutenberg Backend', 'jadotheme')
+            'customAdminStyle' => __('Design for Gutenberg Backend', 'jadotheme')
     ];
 
     foreach ($gutenberg_options as $option => $label) {
@@ -1259,7 +1259,7 @@ function jado_apply_settings(): void
                         </tr>
                         <tr>
                             <th scope="row"><label
-                                        for="gallery_swiperjs_hash_navigation"><?php echo _e('URL-Hash in der Adresszeile aktivieren', 'jadotheme'); ?></label>
+                                        for="gallery_swiperjs_hash_navigation"><?php echo _e('Enable #Hash in URL', 'jadotheme'); ?></label>
                             </th>
                             <td>
                                 <input type="checkbox" id="gallery_swiperjs_hash_navigation"
@@ -1469,16 +1469,11 @@ function jado_apply_settings(): void
     }
 
 
-    /** Better Gutenberg Styles Admin - NOT WORKING IN WP 6.7 anymore - iframes */
+    /** Better Gutenberg Styles Admin */
     $customAdminStyle = get_option('customAdminStyle', 'no');
     if ($customAdminStyle == 'yes') {
-
-        function custom_admin_styles()
-        {
-            echo '<style>figure.wp-block-image > div{background-color: #dedede;} .wp-block{border: 1px dotted #dedede;} .editor-styles-wrapper{background: #eee;} .block-editor-rich-text__editable:has(span[data-rich-text-placeholder=""]),.block-editor-rich-text__editable span[data-rich-text-placeholder]{background: yellow;}.editor-styles-wrapper .is-root-container  > *:hover{border: 1px dashed #07468f;} .editor-styles-wrapper .is-root-container  > * {border: 1px dotted #ccc; background: #fff;} .wp-block-column{border: 1px dotted #ccc;} .wp-block-column:hover{border: 1px dotted #07468f;}</style>';
-        }
-
-        add_action('admin_head', 'custom_admin_styles');
+        add_theme_support('editor-styles');
+        add_editor_style('lib/css/style.css');
     }
 
 }

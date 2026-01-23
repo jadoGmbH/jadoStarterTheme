@@ -378,451 +378,457 @@ Stylesheet: Base Mobile - Tablet
     white-space: unset;
   }
 
-  #content {
+  #content, .block-editor-iframe__body {
     position: relative;
     z-index: 2;
     background-color: $contentBackground;
     box-shadow: $mobile-boxShadow;
     min-height: 100vh;
+  }
 
-    #inner-content {
-      &.hasThumb {
-        padding-top: 2em !important;
-      }
 
-      padding-bottom: 5em;
+  #inner-content {
+    &.hasThumb {
+      padding-top: 2em !important;
     }
 
-    .entry-content {
-
-      h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
-        text-rendering: optimizelegibility;
-        font-family: $headline;
-        line-height: 1.2;
-        margin: 0 0 $mobile-blockGap 0;
-        font-weight: bold;
-      }
-
-      h1, h1 a, h1 strong {
-        font-size: $mobile-headlineSize;
-      }
-
-      h2, h2 a, h2 strong {
-        font-size: $mobile-headlineSize - 0.4;
-      }
-
-      h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-        font-size: $mobile-headlineSize - 1;
-      }
-
-      ul {
-        list-style-type: none;
-        margin-bottom: $mobile-blockGap;
-
-        &.wp-block-latest-posts__list {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
+    padding-bottom: 5em;
+  }
 
 
-          li {
-            padding: 0;
-            display: flex;
-            flex-direction: column;
+  h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
+    text-rendering: optimizelegibility;
+    font-family: $headline;
+    line-height: 1.2;
+    margin: 0 0 $mobile-blockGap 0;
+    font-weight: bold;
+  }
 
-            &:before {
-              display: none;
-            }
-          }
+  h1, h1 a, h1 strong {
+    font-size: $mobile-headlineSize;
+  }
 
-          &.is-grid {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+  h2, h2 a, h2 strong {
+    font-size: $mobile-headlineSize - 0.4;
+  }
 
-            li {
-              background: $white;
-              border-radius: $mobile-borderRadius;
-              padding: 1em;
-              position: relative;
-              margin: 0 0 1em 0;
+  h3, h4, h3 a, h4 a, h3 strong, h4 strong {
+    font-size: $mobile-headlineSize - 1;
+  }
 
-            }
-          }
+  ul.wp-block-list {
+    list-style-type: none;
+    margin-bottom: $mobile-blockGap;
+
+    &.wp-block-latest-posts__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+
+      li {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        &:before {
+          display: none;
         }
+      }
+
+      &.is-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
 
         li {
-          padding: 0 0 1vw 3vw;
-          position: relative;
-
-          &:before {
-            content: '';
-            width: 1.4vw;
-            height: 1.4vw;
-            background: $mainColor;
-            border-radius: 50%;
-            position: absolute;
-            left: 0;
-            top: 2.5vw;
-          }
-        }
-      }
-
-      .wp-block-pullquote {
-        border-top: 1px solid $contentText;
-        border-bottom: 1px solid $contentText;
-        padding: $mobile-innerContentGap 0;
-        margin-bottom: $mobile-blockGap;
-
-        p {
-          font-family: $headline;
-          font-size: $mobile-headlineSize;
-          margin-bottom: calc($mobile-innerContentGap / 2);
-        }
-
-        cite {
-          opacity: 0.5;
-        }
-      }
-
-      ul.wp-block-list {
-
-        ul.wp-block-list {
-          margin: $mobile-innerContentGap 0 0 0;
-        }
-      }
-
-      .wp-block-code {
-        border-radius: $mobile-borderRadius;
-        background-color: $contentText;
-        color: $white;
-        font-size: $mobile-copySize;
-        margin-bottom: $mobile-blockGap;
-        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
-      }
-
-      .wp-block-verse {
-        margin-bottom: $mobile-blockGap;
-        font-style: italic;
-        background-color: $headerBackground;
-        border-radius: $mobile-borderRadius;
-        font-size: $mobile-copySize;
-        padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
-      }
-
-      .wp-block-columns {
-        margin-bottom: $mobile-blockGap;
-      }
-
-      figcaption {
-        text-align: center;
-        opacity: 0.5;
-        font-style: italic;
-        padding-top: 0.5em;
-      }
-
-      .wp-block-gallery {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: $mobile-blockGap;
-
-        .wp-block-image {
-          img {
-            margin-bottom: 0;
-          }
-        }
-      }
-
-      .cpt-container, .posts {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2em;
-        padding-bottom: 6em;
-
-        .cptimg, .postimg {
-          display: flex;
-          margin-bottom: 0.5em;
-          overflow: hidden;
-          border-top-left-radius: $mobile-borderRadius;
-          border-top-right-radius: $mobile-borderRadius;
-
-          img {
-            margin-bottom: 0;
-            width: 100%;
-            height: auto;
-          }
-        }
-
-        .postcontent, .cptcontent {
-          padding: 0 $mobile-innerPostGap;
-
-          &.noimg {
-            padding-top: $mobile-innerPostGap;
-          }
-        }
-
-        h2, p {
-          margin-bottom: 0.2em;
-        }
-
-        .cpt, .post {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          flex: 0 0 100%;
-          background-color: $white;
+          background: $white;
           border-radius: $mobile-borderRadius;
-          @include transition(background-color 200ms linear);
+          padding: 1em;
+          position: relative;
+          margin: 0 0 1em 0;
 
-          &:hover {
-            background-color: $contentBackground;
-          }
-
-          &.sold { /** change if you need another custom post type category! */
-            &:before {
-              content: 'sold';
-              padding: 0.4em 1em;
-              position: absolute;
-              background: $dark;
-              color: $white;
-              left: 0;
-              top: 0;
-              z-index: 112;
-            }
-          }
-        }
-
-        a {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          text-decoration: none;
-
-          img {
-            transform: scale(1);
-            @include transition(transform 200ms linear);
-          }
-
-          &:hover {
-            img {
-              transform: scale(1.1);
-            }
-          }
         }
       }
+    }
 
-      blockquote.wp-block-quote {
-        margin: 0;
-        padding: 0 $mobile-innerContentGap;
-        border-left: 1em solid $mainColor;
+    li {
+      padding: 0 0 1vw 3vw;
+      position: relative;
 
-        p {
-          margin: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
-          font-style: italic;
-        }
+      &:before {
+        content: '';
+        width: 1.4vw;
+        height: 1.4vw;
+        background: $mainColor;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 2.5vw;
       }
+    }
+  }
 
+  .wp-block-pullquote {
+    border-top: 1px solid $contentText;
+    border-bottom: 1px solid $contentText;
+    padding: $mobile-innerContentGap 0;
+    margin-bottom: $mobile-blockGap;
 
-      .wp-block-pullquote {
-        p, h1, h2, h3 {
-          color: $contentText;
-        }
-      }
+    p {
+      font-family: $headline;
+      font-size: $mobile-headlineSize;
+      margin-bottom: calc($mobile-innerContentGap / 2);
+    }
 
-      .byline {
-        font-size: 70%;
+    cite {
+      opacity: 0.5;
+    }
+  }
+
+  ul.wp-block-list {
+
+    ul.wp-block-list {
+      margin: $mobile-innerContentGap 0 0 0;
+    }
+  }
+
+  .wp-block-code {
+    border-radius: $mobile-borderRadius;
+    background-color: $contentText;
+    color: $white;
+    font-size: $mobile-copySize;
+    margin-bottom: $mobile-blockGap;
+    padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
+  }
+
+  .wp-block-verse {
+    margin-bottom: $mobile-blockGap;
+    font-style: italic;
+    background-color: $headerBackground;
+    border-radius: $mobile-borderRadius;
+    font-size: $mobile-copySize;
+    padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
+  }
+
+  .wp-block-columns {
+    margin-bottom: $mobile-blockGap;
+  }
+
+  figcaption {
+    text-align: center;
+    opacity: 0.5;
+    font-style: italic;
+    padding-top: 0.5em;
+  }
+
+  .wp-block-gallery {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: $mobile-blockGap;
+
+    .wp-block-image {
+      img {
         margin-bottom: 0;
       }
+    }
+  }
 
-      .summary, p, .woocommerce-cart-form {
-        a, a:visited {
-          color: $contentText;
-          font-size: $mobile-copySize;
-          padding: 0 0 0.2em 0;
-          @include transition(all 200ms ease-out);
-          position: relative;
-          text-decoration: underline;
-          text-decoration-thickness: 2px;
-          text-decoration-color: $linkColor;
-          text-underline-offset: 2px;
+  .cpt-container, .posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding-bottom: 6em;
 
-          &:hover, &:focus {
-            text-decoration-color: $contrast;
-          }
-
-          &.remove {
-            text-decoration: none;
-          }
-        }
-      }
-
-      button.button, button.woocommerce-button {
-        padding: 0.8em 1.5em;
-        font-family: $copy;
-        outline: none;
-        border: none;
-        background-color: $buttonColor;
-        color: $white;
-        border-radius: $mobile-borderRadius;
-        margin: 0;
-        line-height: 1.5;
-        display: block;
-        width: 100%;
-        text-align: center;
-        @include transition(all 300ms ease-out);
-
-        &:hover {
-          cursor: pointer;
-          background-color: $contrast;
-        }
-      }
-
-      h2 {
-        a {
-          font-size: $mobile-headlineSize;
-          line-height: 1.2;
-          display: block;
-
-          &:hover {
-            color: $linkHover;
-          }
-        }
-      }
-
-      /* fullscreen video embed */
-
-      .wp-block-embed__wrapper {
-        position: relative;
-        display: block;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .wp-block-embed__wrapper::before {
-        display: block;
-        content: "";
-        padding-top: 56.25%; // ratio video
-      }
-
-      .wp-block-embed__wrapper iframe {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-      }
-
-      p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-        font-size: $mobile-copySize;
-      }
-
-      textarea {
-        border: none;
-        padding: 0.4em 0.8em;
-      }
-
-      time {
-        font-size: $mobile-copySize - 1;
-        color: $dark;
-        font-weight: bold;
-      }
-
-      p {
-        margin: 0 0 $mobile-contentGapTop 0;
-
-        a {
-          font-weight: bold;
-          font-size: $mobile-copySize;
-          font-family: $copy;
-        }
-      }
+    .cptimg, .postimg {
+      display: flex;
+      margin-bottom: 0.5em;
+      overflow: hidden;
+      border-top-left-radius: $mobile-borderRadius;
+      border-top-right-radius: $mobile-borderRadius;
 
       img {
-        margin: 0 0 $mobile-contentGapTop 0;
+        margin-bottom: 0;
         width: 100%;
-        max-width: 100%;
         height: auto;
       }
+    }
 
-      input {
-        padding: 0.4em 0.8em;
-        border-radius: $mobile-borderRadius;
-        border: 1px solid $line;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    .postcontent, .cptcontent {
+      padding: 0 $mobile-innerPostGap;
 
-        &:hover {
-          border: 1px solid $contentText;
+      &.noimg {
+        padding-top: $mobile-innerPostGap;
+      }
+    }
+
+    h2, p {
+      margin-bottom: 0.2em;
+    }
+
+    .cpt, .post {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex: 0 0 100%;
+      background-color: $white;
+      border-radius: $mobile-borderRadius;
+      @include transition(background-color 200ms linear);
+
+      &:hover {
+        background-color: $contentBackground;
+      }
+
+      &.sold { /** change if you need another custom post type category! */
+        &:before {
+          content: 'sold';
+          padding: 0.4em 1em;
+          position: absolute;
+          background: $dark;
+          color: $white;
+          left: 0;
+          top: 0;
+          z-index: 112;
         }
+      }
+    }
 
-        &#password {
-          position: relative;
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+
+      img {
+        transform: scale(1);
+        @include transition(transform 200ms linear);
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1);
         }
       }
+    }
+  }
 
-      .password-input {
-        position: absolute;
+  blockquote.wp-block-quote {
+    margin: 0;
+    padding: 0 $mobile-innerContentGap;
+    border-left: 1em solid $mainColor;
+
+    p {
+      margin: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
+      font-style: italic;
+    }
+  }
+
+
+  .wp-block-pullquote {
+    p, h1, h2, h3 {
+      color: $contentText;
+    }
+  }
+
+  .byline {
+    font-size: 70%;
+    margin-bottom: 0;
+  }
+
+  .summary, p, .woocommerce-cart-form {
+    a, a:visited {
+      color: $contentText;
+      font-size: $mobile-copySize;
+      padding: 0 0 0.2em 0;
+      @include transition(all 200ms ease-out);
+      position: relative;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-decoration-color: $linkColor;
+      text-underline-offset: 2px;
+
+      &:hover, &:focus {
+        text-decoration-color: $contrast;
       }
 
-      .show-password-input {
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
-        border: none;
-        right: -2.2rem;
-        top: 0.15rem;
-        border-radius: $mobile-borderRadius;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        background: $buttonBackground url('../img/eye.svg') no-repeat center center;
-        background-size: 1.2rem;
+      &.remove {
+        text-decoration: none;
       }
+    }
+  }
 
+  button.button, button.woocommerce-button {
+    padding: 0.8em 1.5em;
+    font-family: $copy;
+    outline: none;
+    border: none;
+    background-color: $buttonColor;
+    color: $white;
+    border-radius: $mobile-borderRadius;
+    margin: 0;
+    line-height: 1.5;
+    display: block;
+    width: 100%;
+    text-align: center;
+    @include transition(all 300ms ease-out);
 
-      & > * {
-        margin-block-start: 0;
-        margin-block-end: 0;
-        margin-inline-start: 0;
-        margin-inline-end: 0;
+    &:hover {
+      cursor: pointer;
+      background-color: $contrast;
+    }
+  }
+
+  h2 {
+    a {
+      font-size: $mobile-headlineSize;
+      line-height: 1.2;
+      display: block;
+
+      &:hover {
+        color: $linkHover;
       }
+    }
+  }
 
-      & > * + * { //space before Elements inside entry-content without the first
-        margin-top: $mobile-contentGapTop !important;
-      }
+  /* fullscreen video embed */
 
+  .wp-block-embed__wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .wp-block-embed__wrapper::before {
+    display: block;
+    content: "";
+    padding-top: 56.25%; // ratio video
+  }
+
+  .wp-block-embed__wrapper iframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
+    font-size: $mobile-copySize;
+  }
+
+  textarea {
+    border: none;
+    padding: 0.4em 0.8em;
+  }
+
+  time {
+    font-size: $mobile-copySize - 1;
+    color: $dark;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0 0 $mobile-contentGapTop 0;
+
+    a {
+      font-weight: bold;
+      font-size: $mobile-copySize;
+      font-family: $copy;
+    }
+  }
+
+  .wp-block-image{
+    img {
+      margin: 0 0 $mobile-contentGapTop 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+
+
+  input {
+    padding: 0.4em 0.8em;
+    border-radius: $mobile-borderRadius;
+    border: 1px solid $line;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      border: 1px solid $contentText;
+    }
+
+    &#password {
+      position: relative;
+    }
+  }
+
+  .password-input {
+    position: absolute;
+  }
+
+  .show-password-input {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    right: -2.2rem;
+    top: 0.15rem;
+    border-radius: $mobile-borderRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: $buttonBackground url('../img/eye.svg') no-repeat center center;
+    background-size: 1.2rem;
+  }
+
+
+  .entry-content{
+    & > * {
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+    }
+
+    & > * + * { //space before Elements inside entry-content without the first
+      margin-top: $mobile-contentGapTop !important;
+    }
+  }
+
+
+
+  .wp-block-button__link, .button, .wc-block-components-button {
+    padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
+    font-family: $copy;
+    border-radius: $mobile-borderRadius;
+    background-color: $buttonBackground;
+    color: $buttonColor;
+    margin: 0;
+    top: 0;
+    position: relative;
+    display: block;
+    text-align: center;
+    text-decoration: none !important;
+    @include transition(all 150ms ease-out);
+
+    &:hover {
+      background-color: $linkColor;
+      top: 1px;
+    }
+
+    &.back {
+      margin-bottom: 2em;
     }
   }
 
 
   a, a:visited {
-    &.wp-block-button__link, &.button, &.wc-block-components-button {
-      padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
-      font-family: $copy;
-      border-radius: $mobile-borderRadius;
-      background-color: $buttonBackground;
-      color: $buttonColor;
-      margin: 0;
-      top: 0;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-decoration: none !important;
-      @include transition(all 150ms ease-out);
-
-      &:hover {
-        background-color: $linkColor;
-        top: 1px;
-      }
-
-      &.back {
-        margin-bottom: 2em;
-      }
-    }
-
     &.wp-block-latest-posts__post-title {
       font-weight: bold;
     }
@@ -914,7 +920,7 @@ Stylesheet: Base Mobile - Tablet
     z-index: 1;
     padding: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
 
-    a.jado{
+    a.jado {
       display: flex;
       align-items: center;
       flex-direction: row;
@@ -925,7 +931,7 @@ Stylesheet: Base Mobile - Tablet
         display: flex;
         align-items: center;
 
-        svg{
+        svg {
           width: 3rem;
           height: auto;
         }
@@ -962,7 +968,7 @@ Stylesheet: Base Mobile - Tablet
     a {
       text-decoration: underline;
 
-      &.wp-block-button__link{
+      &.wp-block-button__link {
         font-size: $mobile-copySize - 0.75;
       }
     }
@@ -1087,10 +1093,10 @@ Stylesheet: Base Mobile - Tablet
     }
 
     &:not(.is-style-stripes) tbody tr:nth-child(odd) {
-      background-color: rgba(0,0,0,0.07);
+      background-color: rgba(0, 0, 0, 0.07);
 
-      &:hover{
-        background-color: rgba(0,0,0,0.1);
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
       }
     }
 

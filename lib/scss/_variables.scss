@@ -31,7 +31,7 @@ $contrast:            #b9c62a;
 $headerBackground:    $white;
 $headerText:          $dark;
 
-$contentBackground: #e6e5e2;
+$contentBackground:   #dcdcd6;
 $contentText:         #2b2913;
 
 $footerBackground:    $dark;
@@ -57,7 +57,7 @@ $wooBlue:   #07468f;
 
 @font-face {
   font-display: swap;
-  font-family: 'Albert Sans', sans-serif;
+  font-family: 'Albert Sans';
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/albert-sans-v1-latin-regular.woff2') format('woff2');
@@ -65,7 +65,7 @@ $wooBlue:   #07468f;
 
 @font-face {
   font-display: swap;
-  font-family: 'Albert Sans', sans-serif;
+  font-family: 'Albert Sans';
   font-style: normal;
   font-weight: 700;
   src: url('../fonts/albert-sans-v1-latin-700.woff2') format('woff2');
