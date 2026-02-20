@@ -886,6 +886,10 @@ Stylesheet: Base Mobile - Tablet
     color: var(--theme-button-text) !important;
   }
 
+  .wp-block-buttons {
+    margin-bottom: var(--theme-margin-bottom);
+  }
+
 
   a, a:visited {
     &.wp-block-latest-posts__post-title {

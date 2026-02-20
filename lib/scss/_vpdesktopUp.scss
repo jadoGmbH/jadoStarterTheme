@@ -237,6 +237,10 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
   }
 
+  .wp-block-buttons {
+    margin-bottom: var(--theme-margin-bottom);
+  }
+
   .wp-block-details {
     margin: 0 0 $desktop-blockGap 0;
     border: 1px solid var(--theme-button-outline, var(--color-line));
