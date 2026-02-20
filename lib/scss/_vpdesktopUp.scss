@@ -176,13 +176,6 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     font-size: $fluid-copySize;
   }
 
-  .wp-block-image{
-    img {
-      margin: 0 0 $desktop-innerContentGap 0;
-    }
-  }
-
-
 
   .cpt-container, .posts {
 

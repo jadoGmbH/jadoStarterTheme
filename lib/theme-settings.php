@@ -82,7 +82,7 @@ function jado_output_design_custom_properties(): void
         // Apply shadows
         echo ".header, #content, .block-editor-iframe__body, .wp-block-details, .wp-block-table { box-shadow: var(--theme-show-shadows) !important; }\n";
         // Apply global margin-bottom
-        echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, #content img, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .entry-content img, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
+        echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
         // Apply global gap for columns
         echo ".wp-block-columns { gap: var(--theme-margin-bottom) !important; }\n";
         // Maximalbreite der Seite (Wrapper)
@@ -148,6 +148,43 @@ function jado_customize_register($wp_customize)
                 'section' => 'jado_section_design',
                 'settings' => $id,
         ]));
+
+        // Wenn das aktuelle Feld "Outline Menu" (color_line) ist, füge die gewünschten Felder danach ein
+        if ($id === 'color_line') {
+
+            // TopNav Outline Checkbox
+            $wp_customize->add_setting('theme_topnav_outline', [
+                    'type' => 'option',
+                    'default' => '',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            // Filter the value for the control to be boolean
+            add_filter('customize_value_theme_topnav_outline', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_topnav_outline', [
+                    'label' => __('TopNav Links Outline', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+
+            // Wrapper Max-Width Range Control
+            $wp_customize->add_setting('theme_wrap_max_width', [
+                    'type' => 'option',
+                    'default' => '1280',
+                    'sanitize_callback' => 'absint',
+                    'transport' => 'refresh',
+            ]);
+            $wp_customize->add_control('theme_wrap_max_width', [
+                    'label' => __('Site Content max-width (px)', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'range',
+                    'input_attrs' => [
+                            'min' => 320,
+                            'max' => 2560,
+                            'step' => 20,
+                    ],
+            ]);
+        }
     }
 
     // Border Radius Range Control
@@ -184,39 +221,6 @@ function jado_customize_register($wp_customize)
                     'max' => 100,
                     'step' => 1,
             ],
-    ]);
-
-    // Wrapper Max-Width Range Control
-    $wp_customize->add_setting('theme_wrap_max_width', [
-            'type' => 'option',
-            'default' => '1280',
-            'sanitize_callback' => 'absint',
-            'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('theme_wrap_max_width', [
-            'label' => __('Site Content max-width (px)', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'range',
-            'input_attrs' => [
-                    'min' => 320,
-                    'max' => 2560,
-                    'step' => 20,
-            ],
-    ]);
-
-    // TopNav Outline Checkbox
-    $wp_customize->add_setting('theme_topnav_outline', [
-            'type' => 'option',
-            'default' => '',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_topnav_outline', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_topnav_outline', [
-            'label' => __('TopNav Links Outline', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
     ]);
 
     // Headline Hyphens Checkbox

@@ -271,14 +271,6 @@ Stylesheet: Tablet - Desktop
   }
 
 
-
-  .wp-block-image{
-    img {
-      margin: 0 0 $tablet-innerContentGap 0;
-    }
-  }
-
-
   .cpt-container, .posts {
     justify-content: space-between;
     flex-wrap: wrap;
@@ -334,8 +326,9 @@ Stylesheet: Tablet - Desktop
     .widget {
       margin: 0 0.5em;
 
-      ul, p {
-        margin-top: 0;
+
+      ul, p, .wp-block-image {
+        margin: 0;
       }
 
       ol {
