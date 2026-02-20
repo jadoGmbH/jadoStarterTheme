@@ -9,9 +9,9 @@ function jado_output_design_custom_properties(): void
             'color_line' => '--color-line',
             'theme_header_bg' => '--theme-header-bg',
             'theme_header_text' => '--theme-header-text',
+            'theme_headline_color' => '--theme-headline-color',
             'theme_content_bg' => '--theme-content-bg',
             'theme_content_text' => '--theme-content-text',
-            'theme_headline_color' => '--theme-headline-color',
             'theme_footer_bg' => '--theme-footer-bg',
             'theme_footer_text' => '--theme-footer-text',
             'theme_button_bg' => '--theme-button-bg',
@@ -99,10 +99,12 @@ function jado_output_design_custom_properties(): void
             echo ".widgets-php .components-button:not(.edit-widgets-header *), .widgets-php a.components-button:not(.edit-widgets-header *) { color: #1e1e1e !important; }\n";
             echo ".widgets-php .components-button:not(.edit-widgets-header *) svg { fill: #1e1e1e !important; color: #1e1e1e !important; }\n";
             echo ".widgets-php .block-editor-block-contextual-toolbar * { color: initial !important; }\n";
+            // .wrap im Backend (z.B. jST Settings) auf 100% Breite halten, nicht durch Frontend-Max-Width begrenzen
+            echo "#wpbody-content .wrap { width: 100% !important; max-width: none !important; }\n";
         }
 
         // Apply global margin-bottom
-        echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
+        echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, #content .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
         // Apply global gap for columns
         echo ".wp-block-columns { gap: var(--theme-margin-bottom) !important; }\n";
         // Maximalbreite der Seite (Wrapper)
@@ -143,16 +145,17 @@ function jado_customize_register($wp_customize)
             'color_dark' => __('Active Menu Background', 'jadotheme'),
             'color_light' => __('Active Menu Text', 'jadotheme'),
             'color_line' => __('Outline Menu', 'jadotheme'),
-            'color_main' => __('Bullet & Quote', 'jadotheme'),
             'theme_content_bg' => __('Content Background', 'jadotheme'),
             'theme_headline_color' => __('Headline', 'jadotheme'),
             'theme_content_text' => __('Content Text', 'jadotheme'),
-            'theme_footer_bg' => __('Footer Background', 'jadotheme'),
-            'theme_footer_text' => __('Footer Text', 'jadotheme'),
-            'theme_button_bg' => __('Button Background', 'jadotheme'),
-            'theme_button_text' => __('Button Text', 'jadotheme'),
             'color_link' => __('Link Color', 'jadotheme'),
             'color_linkHover' => __('Link Hover Color', 'jadotheme'),
+            'theme_button_bg' => __('Button Background', 'jadotheme'),
+            'theme_button_text' => __('Button Text', 'jadotheme'),
+            'color_main' => __('Bullet & Quote', 'jadotheme'),
+            'theme_footer_bg' => __('Footer Background', 'jadotheme'),
+            'theme_footer_text' => __('Footer Text', 'jadotheme'),
+
     ];
 
     foreach ($design_fields as $id => $label) {
@@ -204,116 +207,137 @@ function jado_customize_register($wp_customize)
                             'step' => 20,
                     ],
             ]);
+
+            // Header Fixed Checkbox
+            $wp_customize->add_setting('theme_header_fixed', [
+                    'type' => 'option',
+                    'default' => '',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            // Filter the value for the control to be boolean
+            add_filter('customize_value_theme_header_fixed', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_header_fixed', [
+                    'label' => __('Header Fixed', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+
+            // Header Compact Checkbox
+            $wp_customize->add_setting('theme_header_compact', [
+                    'type' => 'option',
+                    'default' => '',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            // Filter the value for the control to be boolean
+            add_filter('customize_value_theme_header_compact', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_header_compact', [
+                    'label' => __('Header Compact', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+
+            // Show Shadows Checkbox
+            $wp_customize->add_setting('theme_show_shadows', [
+                    'type' => 'option',
+                    'default' => 'yes',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            // Filter the value for the control to be boolean
+            add_filter('customize_value_theme_show_shadows', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_show_shadows', [
+                    'label' => __('Show Shadows', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+        }
+
+        // Headlines Hyphens Auto hinter Headline
+        if ($id === 'theme_headline_color') {
+            $wp_customize->add_setting('theme_headline_hyphens', [
+                    'type' => 'option',
+                    'default' => '',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            add_filter('customize_value_theme_headline_hyphens', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_headline_hyphens', [
+                    'label' => __('Headlines Hyphens Auto', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+        }
+
+        // Spacing (px) hinter Content Background
+        if ($id === 'theme_content_bg') {
+            $wp_customize->add_setting('theme_margin_bottom', [
+                    'type' => 'option',
+                    'default' => '20',
+                    'sanitize_callback' => 'absint',
+                    'transport' => 'refresh',
+            ]);
+            $wp_customize->add_control('theme_margin_bottom', [
+                    'label' => __('Spacing (px)', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'range',
+                    'input_attrs' => [
+                            'min' => 0,
+                            'max' => 100,
+                            'step' => 1,
+                    ],
+            ]);
+        }
+
+        // Text Hyphens Auto hinter Content Text
+        if ($id === 'theme_content_text') {
+            $wp_customize->add_setting('theme_text_hyphens', [
+                    'type' => 'option',
+                    'default' => '',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            ]);
+            add_filter('customize_value_theme_text_hyphens', 'jado_customize_value_checkbox');
+            $wp_customize->add_control('theme_text_hyphens', [
+                    'label' => __('Text Hyphens Auto', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'checkbox',
+            ]);
+        }
+
+        // Border Radius (px) hinter Button Background
+        if ($id === 'theme_button_bg') {
+            $wp_customize->add_setting('theme_border_radius', [
+                    'type' => 'option',
+                    'default' => '0',
+                    'sanitize_callback' => 'absint',
+                    'transport' => 'refresh',
+            ]);
+            $wp_customize->add_control('theme_border_radius', [
+                    'label' => __('Border Radius (px)', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'range',
+                    'input_attrs' => [
+                            'min' => 0,
+                            'max' => 50,
+                            'step' => 1,
+                    ],
+            ]);
         }
     }
 
-    // Border Radius Range Control
-    $wp_customize->add_setting('theme_border_radius', [
+    // Footer: Copyright anzeigen (Standard: aktiv)
+    $wp_customize->add_setting('theme_show_copyright', [
             'type' => 'option',
-            'default' => '0',
-            'sanitize_callback' => 'absint',
-            'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('theme_border_radius', [
-            'label' => __('Border Radius (px)', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'range',
-            'input_attrs' => [
-                    'min' => 0,
-                    'max' => 50,
-                    'step' => 1,
-            ],
-    ]);
-
-    // Margin Bottom Range Control
-    $wp_customize->add_setting('theme_margin_bottom', [
-            'type' => 'option',
-            'default' => '20',
-            'sanitize_callback' => 'absint',
-            'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('theme_margin_bottom', [
-            'label' => __('Spacing (px)', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'range',
-            'input_attrs' => [
-                    'min' => 0,
-                    'max' => 100,
-                    'step' => 1,
-            ],
-    ]);
-
-    // Headline Hyphens Checkbox
-    $wp_customize->add_setting('theme_headline_hyphens', [
-            'type' => 'option',
-            'default' => '',
+            'default' => 'yes', // standardmäßig angeklickt
             'transport' => 'refresh',
             'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
     ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_headline_hyphens', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_headline_hyphens', [
-            'label' => __('Headlines Hyphens Auto', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
-    ]);
-
-    // Text Hyphens Checkbox
-    $wp_customize->add_setting('theme_text_hyphens', [
-            'type' => 'option',
-            'default' => '',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_text_hyphens', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_text_hyphens', [
-            'label' => __('Text Hyphens Auto', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
-    ]);
-
-    // Header Fixed Checkbox
-    $wp_customize->add_setting('theme_header_fixed', [
-            'type' => 'option',
-            'default' => '',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_header_fixed', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_header_fixed', [
-            'label' => __('Header Fixed', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
-    ]);
-
-    // Header Compact Checkbox
-    $wp_customize->add_setting('theme_header_compact', [
-            'type' => 'option',
-            'default' => '',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_header_compact', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_header_compact', [
-            'label' => __('Header Compact', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
-    ]);
-
-    // Show Shadows Checkbox
-    $wp_customize->add_setting('theme_show_shadows', [
-            'type' => 'option',
-            'default' => 'yes',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter the value for the control to be boolean
-    add_filter('customize_value_theme_show_shadows', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_show_shadows', [
-            'label' => __('Show Shadows', 'jadotheme'),
+    // Filter für korrekte Checkbox-Anzeige (true/false)
+    add_filter('customize_value_theme_show_copyright', 'jado_customize_value_checkbox');
+    $wp_customize->add_control('theme_show_copyright', [
+            'label' => __('Show Copyright in Footer', 'jadotheme'),
             'section' => 'jado_section_design',
             'type' => 'checkbox',
     ]);
@@ -789,9 +813,9 @@ function jado_settings_fields(): void
             'color_dark' => __('Active Menu Background', 'jadotheme'),
             'color_light' => __('Active Menu Text', 'jadotheme'),
             'color_line' => __('Outline Menu', 'jadotheme'),
+            'theme_headline_color' => __('Headline Color', 'jadotheme'),
             'color_main' => __('Bullet & Quote', 'jadotheme'),
             'theme_content_bg' => __('Content Background', 'jadotheme'),
-            'theme_headline_color' => __('Headline Color', 'jadotheme'),
             'theme_content_text' => __('Content Text', 'jadotheme'),
             'theme_footer_bg' => __('Footer Background', 'jadotheme'),
             'theme_footer_text' => __('Footer Text', 'jadotheme'),
@@ -814,39 +838,91 @@ function jado_settings_fields(): void
                         'name' => $option
                 ]
         );
+
+        // TopNav Outline hinter Outline Menu (color_line)
+        if ($option === 'color_line') {
+            register_setting($option_group, 'theme_topnav_outline', ['sanitize_callback' => 'jado_sanitize_checkbox']);
+            add_settings_field(
+                    'theme_topnav_outline',
+                    __('TopNav Links Outline', 'jadotheme'),
+                    'jado_checkbox_field',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_topnav_outline',
+                            'name' => 'theme_topnav_outline'
+                    ]
+            );
+        }
+
+        // Headline Hyphens hinter Headline Color
+        if ($option === 'theme_headline_color') {
+            register_setting($option_group, 'theme_headline_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
+            add_settings_field(
+                    'theme_headline_hyphens',
+                    __('Headlines Hyphens Auto', 'jadotheme'),
+                    'jado_checkbox_field',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_headline_hyphens',
+                            'name' => 'theme_headline_hyphens'
+                    ]
+            );
+        }
+
+        // Spacing hinter Content Background
+        if ($option === 'theme_content_bg') {
+            register_setting($option_group, 'theme_margin_bottom', ['sanitize_callback' => 'absint']);
+            add_settings_field(
+                    'theme_margin_bottom',
+                    __('Spacing (px)', 'jadotheme'),
+                    'jado_range_field_callback',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_margin_bottom',
+                            'name' => 'theme_margin_bottom',
+                            'min' => 0,
+                            'max' => 100
+                    ]
+            );
+        }
+
+        // Text Hyphens hinter Content Text
+        if ($option === 'theme_content_text') {
+            register_setting($option_group, 'theme_text_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
+            add_settings_field(
+                    'theme_text_hyphens',
+                    __('Text Hyphens Auto', 'jadotheme'),
+                    'jado_checkbox_field',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_text_hyphens',
+                            'name' => 'theme_text_hyphens'
+                    ]
+            );
+        }
+
+        // Border Radius hinter Button Background
+        if ($option === 'theme_button_bg') {
+            register_setting($option_group, 'theme_border_radius', ['sanitize_callback' => 'absint']);
+            add_settings_field(
+                    'theme_border_radius',
+                    __('Border Radius (px)', 'jadotheme'),
+                    'jado_range_field_callback',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_border_radius',
+                            'name' => 'theme_border_radius',
+                            'min' => 0,
+                            'max' => 50
+                    ]
+            );
+        }
     }
-
-    // Border Radius Range
-    register_setting($option_group, 'theme_border_radius', ['sanitize_callback' => 'absint']);
-    add_settings_field(
-            'theme_border_radius',
-            __('Border Radius (px)', 'jadotheme'),
-            'jado_range_field_callback',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_border_radius',
-                    'name' => 'theme_border_radius',
-                    'min' => 0,
-                    'max' => 50
-            ]
-    );
-
-    // Margin Bottom Range
-    register_setting($option_group, 'theme_margin_bottom', ['sanitize_callback' => 'absint']);
-    add_settings_field(
-            'theme_margin_bottom',
-            __('Spacing (px)', 'jadotheme'),
-            'jado_range_field_callback',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_margin_bottom',
-                    'name' => 'theme_margin_bottom',
-                    'min' => 0,
-                    'max' => 100
-            ]
-    );
 
     // Site Content max-width Range
     register_setting($option_group, 'theme_wrap_max_width', ['sanitize_callback' => 'absint']);
@@ -862,48 +938,6 @@ function jado_settings_fields(): void
                     'min' => 320,
                     'max' => 2560,
                     'step' => 20
-            ]
-    );
-
-    // TopNav Outline
-    register_setting($option_group, 'theme_topnav_outline', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_topnav_outline',
-            __('TopNav Links Outline', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_topnav_outline',
-                    'name' => 'theme_topnav_outline'
-            ]
-    );
-
-    // Headline Hyphens
-    register_setting($option_group, 'theme_headline_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_headline_hyphens',
-            __('Headlines Hyphens Auto', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_headline_hyphens',
-                    'name' => 'theme_headline_hyphens'
-            ]
-    );
-
-    // Text Hyphens
-    register_setting($option_group, 'theme_text_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_text_hyphens',
-            __('Text Hyphens Auto', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_text_hyphens',
-                    'name' => 'theme_text_hyphens'
             ]
     );
 

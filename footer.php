@@ -1,5 +1,12 @@
 <footer id="footer" class="footer">
     <div id="inner-footer" class="wrap">
+        <?php
+        $show_copyright_opt = get_option('theme_show_copyright');
+        $show_copyright = ($show_copyright_opt === '' || $show_copyright_opt === false || $show_copyright_opt === null)
+            ? true
+            : in_array($show_copyright_opt, ['yes', '1', 1, true], true);
+        if ($show_copyright) {
+        ?>
         <p class="copyright">
             &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> –
             <span class="powered"><a class="jado" href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank"
@@ -21,6 +28,7 @@
     </g>
 </svg></span></a></span>
         </p>
+        <?php } ?>
         <?php
         if (get_option('business_show_social_footer') === 'yes') {
             echo '<div class="socialmediaicons">';

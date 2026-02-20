@@ -387,6 +387,9 @@ Stylesheet: Tablet - Desktop
 
       #widgetarea {
         margin-right: - 0.5em;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   }

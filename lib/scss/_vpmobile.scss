@@ -456,7 +456,7 @@ Stylesheet: Base Mobile - Tablet
 
   ul.wp-block-list {
     list-style-type: none;
-    margin-bottom: $mobile-blockGap;
+    margin: 0 0 $mobile-blockGap 0;
 
     &.wp-block-latest-posts__list {
       display: flex;
@@ -1010,6 +1010,17 @@ Stylesheet: Base Mobile - Tablet
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+
+      #widgetarea{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .wp-block-image{
+          margin-bottom: 0 !important;
+        }
+      }
     }
 
     .copyright {
