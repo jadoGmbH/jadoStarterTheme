@@ -85,13 +85,19 @@ function jado_output_design_custom_properties(): void
         // Apply Footer Colors to Widget Area in Backend
         if (is_admin()) {
             echo "/* Footer Design in Widgets Area Backend */\n";
-            echo ".widgets-php .wp-block-widget-area__inner-blocks, .widgets-php .block-editor-writing-flow { background-color: var(--theme-footer-bg) !important; color: var(--theme-footer-text) !important; padding: 20px; }\n";
+            echo ".widgets-php .wp-block-widget-area__inner-blocks { background-color: var(--theme-footer-bg) !important; color: var(--theme-footer-text) !important; padding: 20px; }\n";
             // Nur Inhalts-Blöcke (wp-block) auf Footer-Textfarbe setzen – UI bleibt unberührt
             echo ".widgets-php .wp-block, .widgets-php .wp-block * { color: var(--theme-footer-text) !important; }\n";
+            // Buttons in Widgets: Farben aus Design-Variablen übernehmen
+            echo ".widgets-php .wp-block .wp-block-button__link, .widgets-php .wp-block .wp-element-button { color: var(--theme-button-text) !important; background-color: var(--theme-button-bg) !important; }\n";
+            echo ".widgets-php .wp-block input[type='submit'], .widgets-php .wp-block button[type='submit'] { color: var(--theme-button-text) !important; background-color: var(--theme-button-bg) !important; }\n";
             // WordPress UI-Elemente explizit auf Standard zurücksetzen
             echo ".widgets-php .wp-block-widget-area__inner-blocks :is([class*='components-'], .block-editor-block-contextual-toolbar, .block-editor-block-list__block-edit *) { color: initial !important; }\n";
-            echo ".widgets-php .block-editor-block-list__layout, .widgets-php .editor-styles-wrapper { background-color: var(--theme-footer-bg) !important; }\n";
+            echo ".widgets-php .editor-styles-wrapper { background-color: var(--theme-footer-bg) !important; }\n";
             echo ".widgets-php .wp-block-widget-area__inner-blocks a { color: var(--theme-footer-text) !important; text-decoration-color: var(--theme-footer-text) !important; }\n";
+            // WP UI Buttons (nicht Inhalt): immer Schwarz setzen, nicht Link-Farbe (außer im Header)
+            echo ".widgets-php .components-button:not(.edit-widgets-header *), .widgets-php a.components-button:not(.edit-widgets-header *) { color: #1e1e1e !important; }\n";
+            echo ".widgets-php .components-button:not(.edit-widgets-header *) svg { fill: #1e1e1e !important; color: #1e1e1e !important; }\n";
             echo ".widgets-php .block-editor-block-contextual-toolbar * { color: initial !important; }\n";
         }
 
