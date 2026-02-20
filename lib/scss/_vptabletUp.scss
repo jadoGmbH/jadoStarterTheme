@@ -399,7 +399,7 @@ Stylesheet: Tablet - Desktop
 
   .wp-block-details {
     margin: 0 0 $tablet-blockGap 0;
-    border: 1px solid $outline;
+    border: 1px solid var(--theme-button-outline, var(--color-line));
     border-radius: $borderRadius;
     background-color: $buttonBackground;
     color: var(--theme-button-text);

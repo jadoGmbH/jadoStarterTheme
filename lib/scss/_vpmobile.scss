@@ -848,6 +848,7 @@ Stylesheet: Base Mobile - Tablet
   .wp-block-button__link, .button, .wc-block-components-button {
     padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
     font-family: $copy;
+    border: 1px solid var(--theme-button-outline, var(--color-line));
     border-radius: $borderRadius;
     background-color: $buttonBackground;
     color: $buttonColor !important;
@@ -860,7 +861,8 @@ Stylesheet: Base Mobile - Tablet
     @include transition(all 150ms ease-out);
 
     &:hover {
-      background-color: $linkColor;
+      background-color: var(--theme-button-hover, $linkColor);
+      border-color: var(--theme-button-hover, $linkColor);
       color: $buttonColor !important;
       top: 1px;
     }
@@ -868,6 +870,20 @@ Stylesheet: Base Mobile - Tablet
     &.back {
       margin-bottom: 2em;
     }
+  }
+
+  // Outline-Variante der Gutenberg-Buttons auf Theme-Variable mappen
+  .wp-block-button.is-style-outline > .wp-block-button__link,
+  .wp-block-button .wp-block-button__link.is-style-outline {
+    background: transparent;
+    border: 2px solid var(--theme-button-outline, var(--color-line));
+    color: var(--theme-button-outline, var(--color-line)) !important;
+  }
+
+  .wp-block-button.is-style-outline > .wp-block-button__link:hover,
+  .wp-block-button .wp-block-button__link.is-style-outline:hover {
+    background: var(--theme-button-outline, var(--color-line));
+    color: var(--theme-button-text) !important;
   }
 
 
@@ -1067,7 +1083,7 @@ Stylesheet: Base Mobile - Tablet
 
   .wp-block-details {
     margin: 0 0 $mobile-blockGap 0;
-    border: 1px solid $outline;
+    border: 1px solid var(--theme-button-outline, var(--color-line));
     border-radius: $borderRadius;
     background-color: $buttonBackground;
     color: var(--theme-button-text);
@@ -1116,6 +1132,10 @@ Stylesheet: Base Mobile - Tablet
       summary:after {
         transform: rotate(0deg);
       }
+    }
+
+    &:hover {
+      background-color: var(--theme-button-hover, $linkColor);
     }
   }
 
