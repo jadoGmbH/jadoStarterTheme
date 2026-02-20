@@ -198,7 +198,7 @@ function jado_customize_register($wp_customize)
                     'transport' => 'refresh',
             ]);
             $wp_customize->add_control('theme_wrap_max_width', [
-                    'label' => __('Site Content max-width (px)', 'jadotheme'),
+                    'label' => __('Site Content max-width', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'range',
                     'input_attrs' => [
@@ -279,7 +279,7 @@ function jado_customize_register($wp_customize)
                     'transport' => 'refresh',
             ]);
             $wp_customize->add_control('theme_margin_bottom', [
-                    'label' => __('Spacing (px)', 'jadotheme'),
+                    'label' => __('Spacing', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'range',
                     'input_attrs' => [
@@ -315,7 +315,7 @@ function jado_customize_register($wp_customize)
                     'transport' => 'refresh',
             ]);
             $wp_customize->add_control('theme_border_radius', [
-                    'label' => __('Border Radius (px)', 'jadotheme'),
+                    'label' => __('Border Radius', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'range',
                     'input_attrs' => [
@@ -414,70 +414,49 @@ add_action('customize_register', 'jado_customize_site_identity_logo', 11);
  */
 function jado_customize_dynamic_labels_script(): void
 {
-    // Hinweis: Kein vorzeitiges Return per is_admin().
-    // In einigen Setups kann is_admin() im Customizer-Controls-Frame unerwartet false sein.
-    // Der folgende Inline-Script-Block prüft selbst auf wp.customize und arbeitet nur dort.
+    // Dieser Script-Block läuft im Customizer-Controls-Frame.
     ?>
     <script>
-        (function () {
-            // Wartet, bis das Customizer-Controls-DOM bereit ist
-            function onReady(fn){
-                if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                    setTimeout(fn, 0);
-                } else {
-                    document.addEventListener('DOMContentLoaded', fn);
+        (function (wp) {
+            if (!wp || !wp.customize) return;
+
+            var targets = {
+                'theme_border_radius': 'px',
+                'theme_margin_bottom': 'px',
+                'theme_wrap_max_width': 'px'
+            };
+
+            function updateTitle(control, value) {
+                var titleEl = control.container.find('.customize-control-title');
+                if (!titleEl.length) return;
+
+                var unit = targets[control.id] || '';
+
+                // Basis-Titel nur einmal merken
+                if (!titleEl.data('baseTitle')) {
+                    var currentText = titleEl.text() || '';
+                    titleEl.data('baseTitle', currentText.replace(/\s*\(.*\)\s*$/, '').trim());
                 }
+
+                var base = titleEl.data('baseTitle');
+                titleEl.text(base + ' (' + value + unit + ')');
             }
 
-            onReady(function(){
-                // Nur im Customizer-Controls-Fenster ausführen
-                if (!(window.wp && wp.customize)) return;
-                var targets = [
-                    { id: 'theme_border_radius', unit: 'px' },
-                    { id: 'theme_margin_bottom', unit: 'px' },
-                    { id: 'theme_wrap_max_width', unit: 'px' }
-                ];
-
-                function updateTitle(titleEl, value, unit){
-                    if (!titleEl) return;
-                    // Basis-Titel nur einmal merken (ohne evtl. vorhandene Klammern)
-                    if (!titleEl.dataset.baseTitle) {
-                        titleEl.dataset.baseTitle = (titleEl.textContent || '')
-                            .replace(/\s*\(.*\)\s*$/, '')
-                            .trim();
-                    }
-                    var base = titleEl.dataset.baseTitle || '';
-                    titleEl.textContent = base + ' (' + value + ' ' + unit + ')';
-                }
-
-                function wireControl(target){
-                    var wrap = document.getElementById('customize-control-' + target.id);
-                    if (!wrap) return;
-                    var input = wrap.querySelector('input[type="range"]');
-                    var titleEl = wrap.querySelector('.customize-control-title');
-                    if (!input || !titleEl) return;
-
-                    // Initial setzen
-                    updateTitle(titleEl, input.value, target.unit);
-
-                    // Beim Schieben aktualisieren
-                    input.addEventListener('input', function(ev){
-                        updateTitle(titleEl, ev.target.value, target.unit);
+            // Funktion für jeden Control-Typ registrieren
+            Object.keys(targets).forEach(function (controlId) {
+                wp.customize.control(controlId, function (control) {
+                    // Initial setzen, wenn das Control bereit ist
+                    control.deferred.embedded.done(function () {
+                        updateTitle(control, control.setting.get());
                     });
 
-                    // Auch auf programmatische Änderungen durch den Customizer reagieren
-                    if (window.wp && wp.customize) {
-                        wp.customize(target.id, function(setting){
-                            setting.bind(function(val){
-                                updateTitle(titleEl, val, target.unit);
-                            });
-                        });
-                    }
-                }
-
-                targets.forEach(wireControl);
+                    // Bei Änderungen am Wert aktualisieren
+                    control.setting.bind(function (newVal) {
+                        updateTitle(control, newVal);
+                    });
+                });
             });
-        })();
+        })(window.wp);
     </script>
     <?php
 }
@@ -518,6 +497,30 @@ function jado_options_page_callback(): void
                 const input = row.querySelector('input, select, textarea');
                 if (input) {
                     row.classList.add(input.name);
+                }
+
+                // Dynamische Labels für Range-Slider in den Backend-Settings
+                const rangeInput = row.querySelector('.jado-range-input');
+                const labelEl = row.querySelector('th label') || row.querySelector('th');
+                if (rangeInput && labelEl) {
+                    const unit = rangeInput.dataset.unit || 'px';
+
+                    function updateBackendLabel() {
+                        if (!labelEl.dataset.baseTitle) {
+                            labelEl.dataset.baseTitle = (labelEl.innerText || labelEl.textContent || '')
+                                .replace(/\s*\(.*\)\s*$/, '')
+                                .trim();
+                        }
+                        const base = labelEl.dataset.baseTitle;
+                        if (labelEl.querySelector('label')) {
+                            labelEl.querySelector('label').textContent = base + ' (' + rangeInput.value + unit + ')';
+                        } else {
+                            labelEl.textContent = base + ' (' + rangeInput.value + unit + ')';
+                        }
+                    }
+
+                    updateBackendLabel();
+                    rangeInput.addEventListener('input', updateBackendLabel);
                 }
             });
         });
@@ -802,7 +805,7 @@ function jado_settings_fields(): void
     // Section 6: Webdesign Settings
     add_settings_section(
             'jado_section_design',
-            __('Design', 'jadotheme') . ' – <a href="' . admin_url('customize.php?autofocus[section]=jado_section_design') . '">' . __('Live-Vorschau im Customizer', 'jadotheme') . '</a>',
+            __('Design', 'jadotheme') . ' – <a href="' . admin_url('customize.php?autofocus[section]=jado_section_design') . '">' . __('Live Preview at Customizer', 'jadotheme') . '</a>',
             '',
             'jado_options'
     );
@@ -876,7 +879,7 @@ function jado_settings_fields(): void
             register_setting($option_group, 'theme_margin_bottom', ['sanitize_callback' => 'absint']);
             add_settings_field(
                     'theme_margin_bottom',
-                    __('Spacing (px)', 'jadotheme'),
+                    __('Spacing', 'jadotheme'),
                     'jado_range_field_callback',
                     'jado_options',
                     'jado_section_design',
@@ -910,7 +913,7 @@ function jado_settings_fields(): void
             register_setting($option_group, 'theme_border_radius', ['sanitize_callback' => 'absint']);
             add_settings_field(
                     'theme_border_radius',
-                    __('Border Radius (px)', 'jadotheme'),
+                    __('Border Radius', 'jadotheme'),
                     'jado_range_field_callback',
                     'jado_options',
                     'jado_section_design',
@@ -928,7 +931,7 @@ function jado_settings_fields(): void
     register_setting($option_group, 'theme_wrap_max_width', ['sanitize_callback' => 'absint']);
     add_settings_field(
             'theme_wrap_max_width',
-            __('Site Content max-width (px)', 'jadotheme'),
+            __('Site Content max-width', 'jadotheme'),
             'jado_range_field_callback',
             'jado_options',
             'jado_section_design',
@@ -1022,7 +1025,7 @@ function jado_range_field_callback($args): void
     $max = isset($args['max']) ? $args['max'] : 100;
     $step = isset($args['step']) ? $args['step'] : 1;
     printf(
-            '<input type="range" id="%1$s" name="%1$s" value="%2$s" min="%3$s" max="%4$s" step="%5$s" oninput="this.nextElementSibling.value = this.value" /> <output>%2$s</output> px',
+            '<input type="range" id="%1$s" name="%1$s" value="%2$s" min="%3$s" max="%4$s" step="%5$s" class="jado-range-input" data-unit="px" />',
             $args['name'],
             $value,
             $min,
