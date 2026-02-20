@@ -81,6 +81,20 @@ function jado_output_design_custom_properties(): void
         echo ".nav.top-nav li a { border: var(--theme-topnav-outline) !important; }\n";
         // Apply shadows
         echo ".header, #content, .block-editor-iframe__body, .wp-block-details, .wp-block-table { box-shadow: var(--theme-show-shadows) !important; }\n";
+
+        // Apply Footer Colors to Widget Area in Backend
+        if (is_admin()) {
+            echo "/* Footer Design in Widgets Area Backend */\n";
+            echo ".widgets-php .wp-block-widget-area__inner-blocks, .widgets-php .block-editor-writing-flow { background-color: var(--theme-footer-bg) !important; color: var(--theme-footer-text) !important; padding: 20px; }\n";
+            // Nur Inhalts-Blöcke (wp-block) auf Footer-Textfarbe setzen – UI bleibt unberührt
+            echo ".widgets-php .wp-block, .widgets-php .wp-block * { color: var(--theme-footer-text) !important; }\n";
+            // WordPress UI-Elemente explizit auf Standard zurücksetzen
+            echo ".widgets-php .wp-block-widget-area__inner-blocks :is([class*='components-'], .block-editor-block-contextual-toolbar, .block-editor-block-list__block-edit *) { color: initial !important; }\n";
+            echo ".widgets-php .block-editor-block-list__layout, .widgets-php .editor-styles-wrapper { background-color: var(--theme-footer-bg) !important; }\n";
+            echo ".widgets-php .wp-block-widget-area__inner-blocks a { color: var(--theme-footer-text) !important; text-decoration-color: var(--theme-footer-text) !important; }\n";
+            echo ".widgets-php .block-editor-block-contextual-toolbar * { color: initial !important; }\n";
+        }
+
         // Apply global margin-bottom
         echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
         // Apply global gap for columns
