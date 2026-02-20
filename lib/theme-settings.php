@@ -30,20 +30,28 @@ function jado_output_design_custom_properties(): void
             'theme_margin_bottom' => '--theme-margin-bottom',
             // Neue Variable für die Seiten-Maximalbreite
             'theme_wrap_max_width' => '--theme-wrap-max-width',
+            'jado_logo_size' => '--jado-logo-size',
+            'jado_logo_size_mobile' => '--jado-logo-size-mobile',
     ];
 
     $styles = "";
     foreach ($design_fields as $option => $css_var) {
         $value = get_option($option);
 
-        if ($option === 'theme_border_radius' || $option === 'theme_margin_bottom' || $option === 'theme_wrap_max_width') {
+        if ($option === 'theme_border_radius' || $option === 'theme_margin_bottom' || $option === 'theme_wrap_max_width' || $option === 'jado_logo_size' || $option === 'jado_logo_size_mobile') {
             // Defaults für px-basierte Variablen
             if ($option === 'theme_border_radius') {
                 $default = '0';
             } elseif ($option === 'theme_margin_bottom') {
                 $default = '20';
-            } else { // theme_wrap_max_width
+            } elseif ($option === 'theme_wrap_max_width') {
                 $default = '1280';
+            } elseif ($option === 'jado_logo_size') {
+                $default = '150';
+            } else { // jado_logo_size_mobile
+                $logo_size = get_option('jado_logo_size', '150');
+                $logo_size = ($logo_size === '') ? '150' : $logo_size;
+                $default = round($logo_size * 0.65);
             }
             $value = ($value === false || $value === '' || $value === null) ? $default : $value;
             $styles .= "  {$css_var}: {$value}px !important;\n";
@@ -84,6 +92,10 @@ function jado_output_design_custom_properties(): void
         }
         // Start CSS variables block
         echo ":root, .editor-styles-wrapper {\n{$styles}}\n";
+
+        // Media Query for Tablet/Desktop Logo Size
+        echo "@media (min-width: 768px) {\n  :root, .editor-styles-wrapper {\n    --jado-logo-size-mobile: var(--jado-logo-size) !important;\n  }\n}\n";
+
         // Apply heading font-family if selected
         if ($has_font) {
             $family = esc_attr($chosen_font);
@@ -149,6 +161,8 @@ function jado_output_design_custom_properties(): void
         echo ".wp-block-columns { gap: var(--theme-margin-bottom) !important; }\n";
         // Maximalbreite der Seite (Wrapper)
         echo ".wrap { max-width: var(--theme-wrap-max-width) !important; }\n";
+        // Logo-Größe
+        echo "#logo img { height: var(--jado-logo-size) !important; width: auto !important; }\n";
         // Fixed Header Reset if Option is enabled
         if (jado_get_checkbox_state('theme_header_fixed')) {
             echo "body.scrollDown #fixedHeader.header, body.scrollUp #fixedHeader.header { transform: translate3d(0, 0, 0) !important; transition: none !important; }\n";
@@ -487,6 +501,24 @@ function jado_customize_site_identity_logo($wp_customize): void
             'section' => 'title_tagline',
             'type' => 'checkbox',
     ]);
+
+    // Slider: Logo-Größe
+    $wp_customize->add_setting('jado_logo_size', [
+            'type' => 'option',
+            'default' => '150',
+            'sanitize_callback' => 'absint',
+            'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('jado_logo_size', [
+            'label' => __('Logo Size', 'jadotheme'),
+            'section' => 'title_tagline',
+            'type' => 'range',
+            'input_attrs' => [
+                    'min' => 20,
+                    'max' => 800,
+                    'step' => 5,
+            ],
+    ]);
 }
 // Etwas später als die Core-Registrierung ausführen, damit die Section sicher vorhanden ist
 add_action('customize_register', 'jado_customize_site_identity_logo', 11);
@@ -507,7 +539,8 @@ function jado_customize_dynamic_labels_script(): void
             var targets = {
                 'theme_border_radius': 'px',
                 'theme_margin_bottom': 'px',
-                'theme_wrap_max_width': 'px'
+                'theme_wrap_max_width': 'px',
+                'jado_logo_size': 'px'
             };
 
             function updateTitle(control, value) {
