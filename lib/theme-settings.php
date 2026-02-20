@@ -305,7 +305,7 @@ function jado_customize_register($wp_customize)
                     'sanitize_callback' => 'jado_sanitize_font_family',
             ]);
             $wp_customize->add_control('theme_heading_font', [
-                    'label' => __('Heading Font (self-hosted – Google Fonts family name)', 'jadotheme'),
+                    'label' => __('Heading Font', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'text',
                     'input_attrs' => [
@@ -361,7 +361,7 @@ function jado_customize_register($wp_customize)
                     'sanitize_callback' => 'jado_sanitize_font_family',
             ]);
             $wp_customize->add_control('theme_text_font', [
-                    'label' => __('Text Font (self-hosted – Google Fonts family name)', 'jadotheme'),
+                    'label' => __('Text Font', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'text',
                     'input_attrs' => [
@@ -587,7 +587,7 @@ function jado_options_page_callback(): void
                 // Wir prüfen ob eine Font-Erfolgsmeldung da ist oder ob wir gerade von einem Font-Save kommen
                 const notice = document.getElementById('jado-font-notice');
                 const isFontSave = !!notice; // any font install notice triggers reload
-                
+
                 if (isFontSave && !window.name.includes('jado_font_reloaded')) {
                     window.name += '_jado_font_reloaded';
                     window.location.reload();
