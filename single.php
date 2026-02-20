@@ -1,12 +1,17 @@
 <?php get_header(); ?>
     <main id="content">
-        <?php $hasMedia = has_post_thumbnail() || jado_get_featured_video_id(get_the_ID());
-        if ($hasMedia) {
+        <?php if (has_post_thumbnail()) {
             echo '<div class="featuredImage">';
-            echo jado_render_featured_media(get_the_ID(), 'featuredImage');
+            the_post_thumbnail('featuredImage');
             echo '</div>';
         } ?>
-        <div id="inner-content" class="wrap <?php if ($hasMedia) { if (class_exists('WooCommerce')) { if (!is_product()) { echo 'hasThumb'; } } } ?>">
+        <div id="inner-content" class="wrap <?php if (has_post_thumbnail()) {
+            if (class_exists('WooCommerce')) {
+                if (!is_product()) {
+                    echo 'hasThumb';
+                }
+            }
+        } ?>">
             <div class="entry-content">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

@@ -1,604 +1,5 @@
 <?php
 // Menu and Options Page setup
-function jado_output_design_custom_properties(): void
-{
-    $design_fields = [
-            'color_dark' => '--color-dark',
-            'color_light' => '--color-light',
-            'color_main' => '--color-main',
-            'color_line' => '--color-line',
-            'theme_header_bg' => '--theme-header-bg',
-            'theme_header_text' => '--theme-header-text',
-            'theme_headline_color' => '--theme-headline-color',
-            'theme_content_bg' => '--theme-content-bg',
-            'theme_content_text' => '--theme-content-text',
-            'theme_footer_bg' => '--theme-footer-bg',
-            'theme_footer_text' => '--theme-footer-text',
-            'theme_button_bg' => '--theme-button-bg',
-            'theme_button_hover' => '--theme-button-hover',
-            'theme_button_text' => '--theme-button-text',
-            'theme_button_outline' => '--theme-button-outline',
-            'color_link' => '--color-link',
-            'color_linkHover' => '--color-linkHover',
-            'theme_border_radius' => '--theme-border-radius',
-            'theme_topnav_outline' => '--theme-topnav-outline',
-            'theme_headline_hyphens' => '--theme-headline-hyphens',
-            'theme_text_hyphens' => '--theme-text-hyphens',
-            'theme_header_fixed' => '--theme-header-fixed',
-            'theme_header_compact' => '--theme-header-compact',
-            'theme_show_shadows' => '--theme-show-shadows',
-            'theme_margin_bottom' => '--theme-margin-bottom',
-            // Neue Variable für die Seiten-Maximalbreite
-            'theme_wrap_max_width' => '--theme-wrap-max-width',
-            'jado_logo_size' => '--jado-logo-size',
-            'jado_logo_size_mobile' => '--jado-logo-size-mobile',
-    ];
-
-    $styles = "";
-    foreach ($design_fields as $option => $css_var) {
-        $value = get_option($option);
-
-        if ($option === 'theme_border_radius' || $option === 'theme_margin_bottom' || $option === 'theme_wrap_max_width' || $option === 'jado_logo_size' || $option === 'jado_logo_size_mobile') {
-            // Defaults für px-basierte Variablen
-            if ($option === 'theme_border_radius') {
-                $default = '0';
-            } elseif ($option === 'theme_margin_bottom') {
-                $default = '20';
-            } elseif ($option === 'theme_wrap_max_width') {
-                $default = '1280';
-            } elseif ($option === 'jado_logo_size') {
-                $default = '150';
-            } else { // jado_logo_size_mobile
-                $logo_size = get_option('jado_logo_size', '150');
-                $logo_size = ($logo_size === '') ? '150' : $logo_size;
-                $default = round($logo_size * 0.65);
-            }
-            $value = ($value === false || $value === '' || $value === null) ? $default : $value;
-            $styles .= "  {$css_var}: {$value}px !important;\n";
-        } elseif ($option === 'theme_topnav_outline' || $option === 'theme_headline_hyphens' || $option === 'theme_text_hyphens' || $option === 'theme_header_fixed' || $option === 'theme_header_compact' || $option === 'theme_show_shadows') {
-            $is_checked = jado_get_checkbox_state($option);
-
-            if ($option === 'theme_topnav_outline') {
-                $styles .= "  {$css_var}: " . ($is_checked ? '1px solid var(--color-line)' : 'none') . " !important;\n";
-            } elseif ($option === 'theme_header_fixed') {
-                $styles .= "  {$css_var}: " . ($is_checked ? 'fixed' : 'scroll') . " !important;\n";
-            } elseif ($option === 'theme_header_compact') {
-                $styles .= "  {$css_var}: " . ($is_checked ? 'compact' : 'stacked') . " !important;\n";
-            } elseif ($option === 'theme_show_shadows') {
-                $styles .= "  {$css_var}: " . ($is_checked ? 'rgba(0,0,0,0.1) 0 4px 25px, rgba(0,0,0,0.1) 0 2px 5px' : 'none') . " !important;\n";
-            } else {
-                $styles .= "  {$css_var}: " . ($is_checked ? 'auto' : 'none') . " !important;\n";
-            }
-        } elseif ($value !== false && $value !== '' && $value !== null) {
-            $styles .= "  {$css_var}: {$value} !important;\n";
-        }
-    }
-
-    if ($styles !== "" || true) { // Always output if we have defaults
-        // Self-hosted heading font CSS (if any)
-        $font_css = (string) get_option('theme_heading_font_css', '');
-        $chosen_font = get_option('theme_heading_font', '');
-        $has_font = ($chosen_font && $chosen_font !== 'system');
-        echo "\n<style id='jado-design-custom-properties'>\n";
-        if (!empty($font_css)) {
-            echo $font_css . "\n";
-        }
-        // Self-hosted text/body font CSS (if any)
-        $text_font_css = (string) get_option('theme_text_font_css', '');
-        $chosen_text_font = get_option('theme_text_font', '');
-        $has_text_font = ($chosen_text_font && $chosen_text_font !== 'system');
-        if (!empty($text_font_css)) {
-            echo $text_font_css . "\n";
-        }
-        // Start CSS variables block
-        echo ":root, .editor-styles-wrapper {\n{$styles}}\n";
-
-        // Media Query for Tablet/Desktop Logo Size
-        echo "@media (min-width: 768px) {\n  :root, .editor-styles-wrapper {\n    --jado-logo-size-mobile: var(--jado-logo-size) !important;\n  }\n}\n";
-
-        // Apply heading font-family if selected
-        if ($has_font) {
-            $family = esc_attr($chosen_font);
-            $h_selectors = "h1, h2, h3, h4, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4";
-            if (is_admin()) {
-                echo ".editor-styles-wrapper :is({$h_selectors}) { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-            } else {
-                echo ":is(.header, .footer, #content) :is({$h_selectors}) { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-            }
-        }
-        // Apply text/body font-family if selected
-        if ($has_text_font) {
-            $text_family = esc_attr($chosen_text_font);
-            $t_selectors = "body, p, li, strong, em, small, a, p a, li a, .entry-content, .entry-content p, .entry-content li, .entry-content strong, .entry-content em, .entry-content a";
-            if (is_admin()) {
-                echo ".editor-styles-wrapper, .editor-styles-wrapper :is(p, li, strong, em, small, a) { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-            } else {
-                echo ":is(.header, .footer, #content) :is({$t_selectors}) { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-                // Body fallback for the very base if not caught by wrapper classes
-                echo "body { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }\n";
-            }
-        }
-        // Apply hyphens to specific elements based on the variables
-        echo "h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a, h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5 { hyphens: var(--theme-headline-hyphens) !important; -webkit-hyphens: var(--theme-headline-hyphens) !important; }\n";
-        echo "p, li, strong, .entry-content p, .entry-content li { hyphens: var(--theme-text-hyphens) !important; -webkit-hyphens: var(--theme-text-hyphens) !important; }\n";
-        // Force border-radius on elements that might have high specificity or be missed
-        if (is_admin()) {
-            // Im Backend nur innerhalb des Editors anwenden, um WP-UI Elemente nicht zu beeinflussen
-            echo ".editor-styles-wrapper img, .editor-styles-wrapper .wp-block-button__link, .editor-styles-wrapper .wp-block-code, .editor-styles-wrapper .wp-block-verse, .editor-styles-wrapper .wp-block-details, .editor-styles-wrapper .wp-block-table { border-radius: var(--theme-border-radius) !important; }\n";
-        } else {
-            // Im Frontend auf alle relevanten Elemente anwenden
-            echo "#content img, .entry-content img, .nav:not(.top-nav):not(.meta-nav) li, .nav:not(.top-nav):not(.meta-nav) li a, button:not(.header *):not(.footer *), .button:not(.header *):not(.footer *), .wp-block-button__link:not(.header *):not(.footer *), input:not(.header *):not(.footer *), textarea:not(.header *):not(.footer *), .wp-block-code, .wp-block-verse, .post, .cpt, .wp-block-details, .wp-block-table { border-radius: var(--theme-border-radius) !important; }\n";
-        }
-        // Force TopNav outline/border
-        echo ".nav.top-nav li a { border: var(--theme-topnav-outline) !important; }\n";
-        // Apply shadows
-        echo ".header, #content, .block-editor-iframe__body, .wp-block-details, .wp-block-table { box-shadow: var(--theme-show-shadows) !important; }\n";
-
-        // Apply Footer Colors to Widget Area in Backend
-        if (is_admin()) {
-            echo "/* Footer Design in Widgets Area Backend */\n";
-            echo ".widgets-php .wp-block-widget-area__inner-blocks { background-color: var(--theme-footer-bg) !important; color: var(--theme-footer-text) !important; padding: 20px; }\n";
-            // Nur Inhalts-Blöcke (wp-block) auf Footer-Textfarbe setzen – UI bleibt unberührt
-            echo ".widgets-php .wp-block, .widgets-php .wp-block * { color: var(--theme-footer-text) !important; }\n";
-            // Buttons in Widgets: Farben aus Design-Variablen übernehmen
-            echo ".widgets-php .wp-block .wp-block-button__link, .widgets-php .wp-block .wp-element-button { color: var(--theme-button-text) !important; background-color: var(--theme-button-bg) !important; }\n";
-            echo ".widgets-php .wp-block input[type='submit'], .widgets-php .wp-block button[type='submit'] { color: var(--theme-button-text) !important; background-color: var(--theme-button-bg) !important; }\n";
-            // WordPress UI-Elemente explizit auf Standard zurücksetzen
-            echo ".widgets-php .wp-block-widget-area__inner-blocks :is([class*='components-'], .block-editor-block-contextual-toolbar, .block-editor-block-list__block-edit *) { color: initial !important; }\n";
-            echo ".widgets-php .editor-styles-wrapper { background-color: var(--theme-footer-bg) !important; }\n";
-            echo ".widgets-php .wp-block-widget-area__inner-blocks a { color: var(--theme-footer-text) !important; text-decoration-color: var(--theme-footer-text) !important; }\n";
-            // WP UI Buttons (nicht Inhalt): immer Schwarz setzen, nicht Link-Farbe (außer im Header)
-            echo ".widgets-php .components-button:not(.edit-widgets-header *), .widgets-php a.components-button:not(.edit-widgets-header *) { color: #1e1e1e !important; }\n";
-            echo ".widgets-php .components-button:not(.edit-widgets-header *) svg { fill: #1e1e1e !important; color: #1e1e1e !important; }\n";
-            echo ".widgets-php .block-editor-block-contextual-toolbar * { color: initial !important; }\n";
-            // .wrap im Backend (z.B. jST Settings) auf 100% Breite halten, nicht durch Frontend-Max-Width begrenzen
-            echo "#wpbody-content .wrap { width: 100% !important; max-width: none !important; }\n";
-        }
-
-        // Apply global margin-bottom
-        echo "#content h1, #content h2, #content h3, #content h4, #content h5, #content p, #content ul, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content p, .entry-content ul, .wp-block-columns, .wp-block-image, .wp-block-group, .wp-block-gallery, .wp-block-table, .wp-block-code, .wp-block-verse, .wp-block-details, #content .wp-block-quote, .wp-block-pullquote, .wp-block-cover, .wp-block-media-text { margin-bottom: var(--theme-margin-bottom) !important; }\n";
-        // Apply global gap for columns
-        echo ".wp-block-columns { gap: var(--theme-margin-bottom) !important; }\n";
-        // Maximalbreite der Seite (Wrapper)
-        echo ".wrap { max-width: var(--theme-wrap-max-width) !important; }\n";
-        // Logo-Größe
-        echo "#logo img { height: var(--jado-logo-size) !important; width: auto !important; }\n";
-        // Fixed Header Reset if Option is enabled
-        if (jado_get_checkbox_state('theme_header_fixed')) {
-            echo "body.scrollDown #fixedHeader.header, body.scrollUp #fixedHeader.header { transform: translate3d(0, 0, 0) !important; transition: none !important; }\n";
-        }
-        if (jado_get_checkbox_state('theme_header_compact')) {
-            echo "@media only screen and (min-width: 768px) {\n";
-            echo "  #inner-header { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }\n";
-            echo "  #inner-header .flex { width: auto !important; margin: 0 !important; }\n";
-            echo "  #site-navigation { width: auto !important; max-height: none !important; overflow: visible !important; margin: 0 !important; }\n";
-            echo "  .nav.top-nav { padding-top: 0 !important; margin-top: 0 !important; }\n";
-            echo "  .nav.top-nav ul { justify-content: flex-end !important; }\n";
-            echo "  #burger { display: none !important; }\n";
-            echo "}\n";
-        }
-        echo "</style>\n";
-    }
-}
-add_action('wp_head', 'jado_output_design_custom_properties');
-add_action('admin_head', 'jado_output_design_custom_properties');
-
-/**
- * Register Webdesign settings in Customizer
- */
-function jado_customize_register($wp_customize)
-{
-    // Add Section Webdesign under Website-Informationen (title_tagline)
-    $wp_customize->add_section('jado_section_design', [
-            'title' => __('Design', 'jadotheme'),
-            'priority' => 30, // Default for title_tagline is 20
-            'description' => __('Design Settings (also in jST Settings - without live preview)', 'jadotheme'),
-    ]);
-
-    $design_fields = [
-            'theme_header_bg' => __('Header Background', 'jadotheme'),
-            'theme_header_text' => __('Header Text', 'jadotheme'),
-            'color_dark' => __('Active Menu Background', 'jadotheme'),
-            'color_light' => __('Active Menu Text', 'jadotheme'),
-            'color_line' => __('Outline Menu', 'jadotheme'),
-            'theme_content_bg' => __('Content Background', 'jadotheme'),
-            'theme_headline_color' => __('Headline', 'jadotheme'),
-            'theme_content_text' => __('Content Text', 'jadotheme'),
-            'color_link' => __('Link Color', 'jadotheme'),
-            'color_linkHover' => __('Link Hover Color', 'jadotheme'),
-            'theme_button_bg' => __('Button Background', 'jadotheme'),
-            'theme_button_hover' => __('Button Hover Color', 'jadotheme'),
-            'theme_button_text' => __('Button Text', 'jadotheme'),
-            'theme_button_outline' => __('Outline Button', 'jadotheme'),
-            'color_main' => __('Bullet & Quote', 'jadotheme'),
-            'theme_footer_bg' => __('Footer Background', 'jadotheme'),
-            'theme_footer_text' => __('Footer Text', 'jadotheme'),
-
-    ];
-
-    foreach ($design_fields as $id => $label) {
-        $wp_customize->add_setting($id, [
-                'type' => 'option', // Save to wp_options to maintain compatibility with existing settings page
-                'default' => '',
-                'sanitize_callback' => 'sanitize_hex_color',
-                'transport' => 'refresh',
-        ]);
-
-        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $id, [
-                'label' => $label,
-                'section' => 'jado_section_design',
-                'settings' => $id,
-        ]));
-
-        // Wenn das aktuelle Feld "Outline Menu" (color_line) ist, füge die gewünschten Felder danach ein
-        if ($id === 'color_line') {
-
-            // TopNav Outline Checkbox
-            $wp_customize->add_setting('theme_topnav_outline', [
-                    'type' => 'option',
-                    'default' => '',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            // Filter the value for the control to be boolean
-            add_filter('customize_value_theme_topnav_outline', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_topnav_outline', [
-                    'label' => __('TopNav Links Outline', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-
-            // Wrapper Max-Width Range Control
-            $wp_customize->add_setting('theme_wrap_max_width', [
-                    'type' => 'option',
-                    'default' => '1280',
-                    'sanitize_callback' => 'absint',
-                    'transport' => 'refresh',
-            ]);
-            $wp_customize->add_control('theme_wrap_max_width', [
-                    'label' => __('Site Content max-width', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'range',
-                    'input_attrs' => [
-                            'min' => 320,
-                            'max' => 2560,
-                            'step' => 20,
-                    ],
-            ]);
-
-            // Header Fixed Checkbox
-            $wp_customize->add_setting('theme_header_fixed', [
-                    'type' => 'option',
-                    'default' => '',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            // Filter the value for the control to be boolean
-            add_filter('customize_value_theme_header_fixed', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_header_fixed', [
-                    'label' => __('Header Fixed', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-
-            // Header Compact Checkbox
-            $wp_customize->add_setting('theme_header_compact', [
-                    'type' => 'option',
-                    'default' => '',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            // Filter the value for the control to be boolean
-            add_filter('customize_value_theme_header_compact', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_header_compact', [
-                    'label' => __('Header Compact', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-
-            // Show Shadows Checkbox
-            $wp_customize->add_setting('theme_show_shadows', [
-                    'type' => 'option',
-                    'default' => 'yes',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            // Filter the value for the control to be boolean
-            add_filter('customize_value_theme_show_shadows', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_show_shadows', [
-                    'label' => __('Show Shadows', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-        }
-
-        // Heading Font (self-hosted Google Font) – freie Eingabe
-        if ($id === 'theme_headline_color') {
-            $wp_customize->add_setting('theme_headline_hyphens', [
-                    'type' => 'option',
-                    'default' => '',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            add_filter('customize_value_theme_headline_hyphens', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_headline_hyphens', [
-                    'label' => __('Headlines Hyphens Auto', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-
-            // Heading Font (self-hosted Google Font) – freie Eingabe (alle Google Fonts möglich)
-            $wp_customize->add_setting('theme_heading_font', [
-                    'type' => 'option',
-                    'default' => 'system',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_font_family',
-            ]);
-            $wp_customize->add_control('theme_heading_font', [
-                    'label' => __('Heading Font', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'text',
-                    'input_attrs' => [
-                        'placeholder' => __('e.g. Inter, Roboto, Montserrat …', 'jadotheme')
-                    ],
-                    'description' => sprintf(
-                        __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
-                        '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'
-                    )
-            ]);
-        }
-
-        // Spacing (px) hinter Content Background
-        if ($id === 'theme_content_bg') {
-            $wp_customize->add_setting('theme_margin_bottom', [
-                    'type' => 'option',
-                    'default' => '20',
-                    'sanitize_callback' => 'absint',
-                    'transport' => 'refresh',
-            ]);
-            $wp_customize->add_control('theme_margin_bottom', [
-                    'label' => __('Spacing', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'range',
-                    'input_attrs' => [
-                            'min' => 0,
-                            'max' => 100,
-                            'step' => 1,
-                    ],
-            ]);
-        }
-
-        // Text Hyphens Auto hinter Content Text
-        if ($id === 'theme_content_text') {
-            $wp_customize->add_setting('theme_text_hyphens', [
-                    'type' => 'option',
-                    'default' => '',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            ]);
-            add_filter('customize_value_theme_text_hyphens', 'jado_customize_value_checkbox');
-            $wp_customize->add_control('theme_text_hyphens', [
-                    'label' => __('Text Hyphens Auto', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'checkbox',
-            ]);
-
-            // Text Font (self-hosted Google Font) – freie Eingabe (alle Google Fonts möglich)
-            $wp_customize->add_setting('theme_text_font', [
-                    'type' => 'option',
-                    'default' => 'system',
-                    'transport' => 'refresh',
-                    'sanitize_callback' => 'jado_sanitize_font_family',
-            ]);
-            $wp_customize->add_control('theme_text_font', [
-                    'label' => __('Text Font', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'text',
-                    'input_attrs' => [
-                        'placeholder' => __('e.g. Inter, Noto Sans, Lato …', 'jadotheme')
-                    ],
-                    'description' => sprintf(
-                        __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
-                        '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'
-                    )
-            ]);
-        }
-
-        // Border Radius (px) hinter Button Background
-        if ($id === 'theme_button_bg') {
-            $wp_customize->add_setting('theme_border_radius', [
-                    'type' => 'option',
-                    'default' => '0',
-                    'sanitize_callback' => 'absint',
-                    'transport' => 'refresh',
-            ]);
-            $wp_customize->add_control('theme_border_radius', [
-                    'label' => __('Border Radius', 'jadotheme'),
-                    'section' => 'jado_section_design',
-                    'type' => 'range',
-                    'input_attrs' => [
-                            'min' => 0,
-                            'max' => 50,
-                            'step' => 1,
-                    ],
-            ]);
-        }
-    }
-
-    // Footer: Copyright anzeigen (Standard: aktiv)
-    $wp_customize->add_setting('theme_show_copyright', [
-            'type' => 'option',
-            'default' => 'yes', // standardmäßig angeklickt
-            'transport' => 'refresh',
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-    ]);
-    // Filter für korrekte Checkbox-Anzeige (true/false)
-    add_filter('customize_value_theme_show_copyright', 'jado_customize_value_checkbox');
-    $wp_customize->add_control('theme_show_copyright', [
-            'label' => __('Show Copyright in Footer', 'jadotheme'),
-            'section' => 'jado_section_design',
-            'type' => 'checkbox',
-    ]);
-}
-add_action('customize_register', 'jado_customize_register');
-
-/**
- * Zusatz: Logo-Upload in "Website-Informationen" (Site Identity)
- * – getrennt vom Favicon und NICHT unter "Webdesign".
- *
- * Speichert die Bild-URL als Option 'jado_site_logo'.
- */
-function jado_customize_site_identity_logo($wp_customize): void
-{
-    // Setting für Logo (URL)
-    $wp_customize->add_setting('jado_site_logo', [
-            'type' => 'option',
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-            'transport' => 'refresh',
-    ]);
-
-    // Image-Control in der Standard-Section "Website-Informationen" (title_tagline)
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'jado_site_logo', [
-            'label' => __('Logo', 'jadotheme'),
-            'description' => __('Upload Logo', 'jadotheme'),
-            'section' => 'title_tagline',
-            'settings' => 'jado_site_logo',
-    ]));
-
-    // Checkbox: Site Title anzeigen (Standard: aktiv)
-    $wp_customize->add_setting('jado_keep_site_title', [
-            'type' => 'option',
-            'default' => 'yes', // standardmäßig angeklickt
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            'transport' => 'refresh',
-    ]);
-
-    // Damit der Haken im Customizer korrekt angezeigt wird (true/false)
-    add_filter('customize_value_jado_keep_site_title', 'jado_customize_value_checkbox');
-
-    $wp_customize->add_control('jado_keep_site_title', [
-            'label' => __('Show Site Title', 'jadotheme'),
-            //'description' => __('If deactivated, site title is hidden', 'jadotheme'),
-            'section' => 'title_tagline',
-            'type' => 'checkbox',
-    ]);
-
-    // Checkbox: Site Description anzeigen (Standard: aktiv)
-    $wp_customize->add_setting('jado_show_description', [
-            'type' => 'option',
-            'default' => 'yes', // standardmäßig angeklickt
-            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
-            'transport' => 'refresh',
-    ]);
-
-    // Damit der Haken im Customizer korrekt angezeigt wird (true/false)
-    add_filter('customize_value_jado_show_description', 'jado_customize_value_checkbox');
-
-    $wp_customize->add_control('jado_show_description', [
-            'label' => __('Show Description title', 'jadotheme'),
-            //'description' => __('If deactivated, site description is hidden', 'jadotheme'),
-            'section' => 'title_tagline',
-            'type' => 'checkbox',
-    ]);
-
-    // Slider: Logo-Größe
-    $wp_customize->add_setting('jado_logo_size', [
-            'type' => 'option',
-            'default' => '150',
-            'sanitize_callback' => 'absint',
-            'transport' => 'refresh',
-    ]);
-    $wp_customize->add_control('jado_logo_size', [
-            'label' => __('Logo Size', 'jadotheme'),
-            'section' => 'title_tagline',
-            'type' => 'range',
-            'input_attrs' => [
-                    'min' => 20,
-                    'max' => 800,
-                    'step' => 5,
-            ],
-    ]);
-}
-// Etwas später als die Core-Registrierung ausführen, damit die Section sicher vorhanden ist
-add_action('customize_register', 'jado_customize_site_identity_logo', 11);
-
-/**
- * Zeigt die aktuellen Werte der Range-Slider direkt im Label in Klammern an (z. B. "(1280 px)").
- * Gilt für: Border Radius, Spacing, Site Content max-width.
- * Läuft ausschließlich im Customizer-Controls-Frame.
- */
-function jado_customize_dynamic_labels_script(): void
-{
-    // Dieser Script-Block läuft im Customizer-Controls-Frame.
-    ?>
-    <script>
-        (function (wp) {
-            if (!wp || !wp.customize) return;
-
-            var targets = {
-                'theme_border_radius': 'px',
-                'theme_margin_bottom': 'px',
-                'theme_wrap_max_width': 'px',
-                'jado_logo_size': 'px'
-            };
-
-            function updateTitle(control, value) {
-                var titleEl = control.container.find('.customize-control-title');
-                if (!titleEl.length) return;
-
-                var unit = targets[control.id] || '';
-
-                // Basis-Titel nur einmal merken
-                if (!titleEl.data('baseTitle')) {
-                    var currentText = titleEl.text() || '';
-                    titleEl.data('baseTitle', currentText.replace(/\s*\(.*\)\s*$/, '').trim());
-                }
-
-                var base = titleEl.data('baseTitle');
-                titleEl.text(base + ' (' + value + unit + ')');
-            }
-
-            // Funktion für jeden Control-Typ registrieren
-            Object.keys(targets).forEach(function (controlId) {
-                wp.customize.control(controlId, function (control) {
-                    // Initial setzen, wenn das Control bereit ist
-                    control.deferred.embedded.done(function () {
-                        updateTitle(control, control.setting.get());
-                    });
-
-                    // Bei Änderungen am Wert aktualisieren
-                    control.setting.bind(function (newVal) {
-                        updateTitle(control, newVal);
-                    });
-                });
-            });
-
-            // Wenn im Customizer gespeichert ("Publish") wird, prüfen ob ein Font-Wechsel stattfand
-            wp.customize.bind('saved', function () {
-                var headingFont = wp.customize('theme_heading_font');
-                var textFont = wp.customize('theme_text_font');
-                var needsReload = false;
-                if (headingFont && headingFont.get() && headingFont.get() !== 'system') needsReload = true;
-                if (textFont && textFont.get() && textFont.get() !== 'system') needsReload = true;
-                if (needsReload && !window.name.includes('jado_font_reloaded')) {
-                    window.name += '_jado_font_reloaded';
-                    window.location.reload();
-                }
-            });
-
-            // Falls wir gerade neu geladen haben, Flag nach einer Weile zurücksetzen
-            if (window.name.includes('jado_font_reloaded')) {
-                setTimeout(function() {
-                    window.name = window.name.replace('_jado_font_reloaded', '');
-                }, 1000);
-            }
-        })(window.wp);
-    </script>
-    <?php
-}
-add_action('customize_controls_print_footer_scripts', 'jado_customize_dynamic_labels_script');
-
 function jado_top_lvl_menu(): void
 {
     add_menu_page(
@@ -616,6 +17,9 @@ add_action('admin_menu', 'jado_top_lvl_menu');
 
 function jado_options_page_callback(): void
 {
+    // Initializing the options
+    jado_initialize_options();
+
     ?>
     <div class="wrap">
         <h1><?php echo get_admin_page_title() ?></h1>
@@ -629,52 +33,11 @@ function jado_options_page_callback(): void
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Falls gerade gespeichert wurde und ein Font installiert wurde, Seite ggf. nochmal neu laden
-            // (Wordpress leitet nach options.php Speicherung mit ?settings-updated=true zurück)
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('settings-updated') === 'true') {
-                // Wir prüfen ob eine Font-Erfolgsmeldung da ist oder ob wir gerade von einem Font-Save kommen
-                const notice = document.getElementById('jado-font-notice');
-                const isFontSave = !!notice; // any font install notice triggers reload
-
-                if (isFontSave && !window.name.includes('jado_font_reloaded')) {
-                    window.name += '_jado_font_reloaded';
-                    window.location.reload();
-                }
-            } else {
-                // Reset flag if not updated
-                window.name = window.name.replace('_jado_font_reloaded', '');
-            }
-
             const rows = document.querySelectorAll('.form-table tr');
             rows.forEach(row => {
                 const input = row.querySelector('input, select, textarea');
                 if (input) {
                     row.classList.add(input.name);
-                }
-
-                // Dynamische Labels für Range-Slider in den Backend-Settings
-                const rangeInput = row.querySelector('.jado-range-input');
-                const labelEl = row.querySelector('th label') || row.querySelector('th');
-                if (rangeInput && labelEl) {
-                    const unit = rangeInput.dataset.unit || 'px';
-
-                    function updateBackendLabel() {
-                        if (!labelEl.dataset.baseTitle) {
-                            labelEl.dataset.baseTitle = (labelEl.innerText || labelEl.textContent || '')
-                                .replace(/\s*\(.*\)\s*$/, '')
-                                .trim();
-                        }
-                        const base = labelEl.dataset.baseTitle;
-                        if (labelEl.querySelector('label')) {
-                            labelEl.querySelector('label').textContent = base + ' (' + rangeInput.value + unit + ')';
-                        } else {
-                            labelEl.textContent = base + ' (' + rangeInput.value + unit + ')';
-                        }
-                    }
-
-                    updateBackendLabel();
-                    rangeInput.addEventListener('input', updateBackendLabel);
                 }
             });
         });
@@ -682,6 +45,7 @@ function jado_options_page_callback(): void
     <?php
 }
 
+// Function to initialize options if not set
 function jado_initialize_options(): void
 {
 
@@ -704,56 +68,11 @@ function jado_initialize_options(): void
             'business_facebook',
             'business_instagram',
             'business_googlemaps',
-            'business_show_social_footer',
     ];
 
-    $design_options = [
-            'color_dark',
-            'color_light',
-            'color_main',
-            'color_line',
-            'theme_header_bg',
-            'theme_header_text',
-            'theme_content_bg',
-            'theme_headline_color',
-            'theme_content_text',
-            'theme_footer_bg',
-            'theme_footer_text',
-            'theme_button_bg',
-            'theme_button_text',
-            'color_link',
-            'color_linkHover',
-            'theme_border_radius',
-            'theme_wrap_max_width',
-            'theme_topnav_outline',
-            'theme_headline_hyphens',
-            'theme_text_hyphens',
-            'theme_header_fixed',
-            'theme_header_compact',
-            'theme_show_shadows',
-            'theme_margin_bottom',
-            'theme_heading_font',
-            'theme_heading_font_css',
-            'theme_text_font',
-            'theme_text_font_css'
-    ];
-
-    $all_options = array_merge($business_info_options, $design_options);
-
-    foreach ($all_options as $option) {
-        $default = '';
-        if ($option === 'theme_border_radius') {
-            $default = '0';
-        } elseif ($option === 'theme_margin_bottom') {
-            $default = '20';
-        } elseif ($option === 'theme_wrap_max_width') {
-            $default = '1280';
-        } elseif ($option === 'theme_show_shadows') {
-            $default = 'yes';
-        }
-
+    foreach ($business_info_options as $option) {
         if (get_option($option) === false) {
-            add_option($option, $default);
+            add_option($option, '');
         }
     }
 
@@ -788,19 +107,19 @@ function jado_initialize_options(): void
             'baguettebox',
             'pageExcerpts',
             'maintenanceMode',
+        //'deactivateXMLSitemap',
             'disableAdminBarFrontend',
             'activateJquery',
             'editor_role_menu'
     ];
 
     foreach ($options as $option) {
-        $default_value = ($option === 'imgQuality') ? 74 : 'no';
         if (get_option($option) === false) {
+            $default_value = ($option === 'imgQuality') ? 74 : 'no';
             add_option($option, $default_value);
         }
     }
 }
-add_action('after_setup_theme', 'jado_initialize_options');
 
 // Register settings and fields
 function jado_settings_fields(): void
@@ -875,7 +194,6 @@ function jado_settings_fields(): void
             'strictTransportSecurity' => __('Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)', 'jadotheme'),
             'delayLoginAttempts' => __('Delay login attempts (30s)', 'jadotheme'),
             'cacheControlHeader' => __('Set cache for 1 day (not for logged in users)', 'jadotheme'),
-            'htaccessCaching' => __('Add Browser Caching (Apache .htaccess) for common file types (svg, js, css, webp, jpg, png, woff2)', 'jadotheme'),
     ];
 
     foreach ($seo_options as $option => $label) {
@@ -932,11 +250,11 @@ function jado_settings_fields(): void
             'business_googlemaps' => __('Google Maps (URL)', 'jadotheme'),
     ];
 
-    register_setting($option_group, 'business_show_social_footer', ['sanitize_callback' => 'jado_sanitize_checkbox']);
+    register_setting($option_group, 'business_show_social_footer', ['sanitize_callback' => 'absint']);
     add_settings_field(
             'business_show_social_footer',
             __('Show Social Media Icons in Footer', 'jadotheme'),
-            'jado_checkbox_field',
+            'jado_checkbox_field_callback',
             'jado_options',
             'jado_section_business',
             [
@@ -961,227 +279,12 @@ function jado_settings_fields(): void
         );
     }
 
-    // Section 6: Webdesign Settings
-    add_settings_section(
-            'jado_section_design',
-            __('Design', 'jadotheme') . ' – <a href="' . admin_url('customize.php?autofocus[section]=jado_section_design') . '">' . __('Live Preview at Customizer', 'jadotheme') . '</a>',
-            '',
-            'jado_options'
-    );
-
-    $design_fields = [
-            'theme_header_bg' => __('Header Background', 'jadotheme'),
-            'theme_header_text' => __('Header Text', 'jadotheme'),
-            'color_dark' => __('Active Menu Background', 'jadotheme'),
-            'color_light' => __('Active Menu Text', 'jadotheme'),
-            'color_line' => __('Outline Menu', 'jadotheme'),
-            'theme_headline_color' => __('Headline Color', 'jadotheme'),
-            'color_main' => __('Bullet & Quote', 'jadotheme'),
-            'theme_content_bg' => __('Content Background', 'jadotheme'),
-            'theme_content_text' => __('Content Text', 'jadotheme'),
-            'theme_footer_bg' => __('Footer Background', 'jadotheme'),
-            'theme_footer_text' => __('Footer Text', 'jadotheme'),
-            'theme_button_bg' => __('Button Background', 'jadotheme'),
-            'theme_button_hover' => __('Button Hover Color', 'jadotheme'),
-            'theme_button_text' => __('Button Text', 'jadotheme'),
-            'theme_button_outline' => __('Outline Button', 'jadotheme'),
-            'color_link' => __('Link Color', 'jadotheme'),
-            'color_linkHover' => __('Link Hover Color', 'jadotheme'),
-    ];
-
-    foreach ($design_fields as $option => $label) {
-        register_setting($option_group, $option, ['sanitize_callback' => 'sanitize_hex_color']);
-        add_settings_field(
-                $option,
-                $label,
-                'jado_color_field_callback',
-                'jado_options',
-                'jado_section_design',
-                [
-                        'label_for' => $option,
-                        'name' => $option
-                ]
-        );
-
-        // TopNav Outline hinter Outline Menu (color_line)
-        if ($option === 'color_line') {
-            register_setting($option_group, 'theme_topnav_outline', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-            add_settings_field(
-                    'theme_topnav_outline',
-                    __('TopNav Links Outline', 'jadotheme'),
-                    'jado_checkbox_field',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_topnav_outline',
-                            'name' => 'theme_topnav_outline'
-                    ]
-            );
-        }
-
-        // Headline Hyphens hinter Headline Color
-        if ($option === 'theme_headline_color') {
-            register_setting($option_group, 'theme_headline_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-            add_settings_field(
-                    'theme_headline_hyphens',
-                    __('Headlines Hyphens Auto', 'jadotheme'),
-                    'jado_checkbox_field',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_headline_hyphens',
-                            'name' => 'theme_headline_hyphens'
-                    ]
-            );
-
-            // Heading Font (self-hosted Google Font) – freie Eingabe
-            register_setting($option_group, 'theme_heading_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
-            add_settings_field(
-                    'theme_heading_font',
-                    sprintf(__('Heading Font (self-hosted %s. Insert font name)', 'jadotheme'), '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'),
-                    'jado_text_field_callback',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_heading_font',
-                            'name' => 'theme_heading_font',
-                    ]
-            );
-        }
-
-        // Spacing hinter Content Background
-        if ($option === 'theme_content_bg') {
-            register_setting($option_group, 'theme_margin_bottom', ['sanitize_callback' => 'absint']);
-            add_settings_field(
-                    'theme_margin_bottom',
-                    __('Spacing', 'jadotheme'),
-                    'jado_range_field_callback',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_margin_bottom',
-                            'name' => 'theme_margin_bottom',
-                            'min' => 0,
-                            'max' => 100
-                    ]
-            );
-        }
-
-        // Text Hyphens hinter Content Text
-        if ($option === 'theme_content_text') {
-            register_setting($option_group, 'theme_text_hyphens', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-            add_settings_field(
-                    'theme_text_hyphens',
-                    __('Text Hyphens Auto', 'jadotheme'),
-                    'jado_checkbox_field',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_text_hyphens',
-                            'name' => 'theme_text_hyphens'
-                    ]
-            );
-
-            // Text Font (self-hosted – Google Fonts family)
-            register_setting($option_group, 'theme_text_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
-            add_settings_field(
-                    'theme_text_font',
-                    sprintf(__('Text Font (self-hosted %s. Insert font name)', 'jadotheme'), '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'),
-                    'jado_text_field_callback',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_text_font',
-                            'name' => 'theme_text_font'
-                    ]
-            );
-        }
-
-        // Border Radius hinter Button Background
-        if ($option === 'theme_button_bg') {
-            register_setting($option_group, 'theme_border_radius', ['sanitize_callback' => 'absint']);
-            add_settings_field(
-                    'theme_border_radius',
-                    __('Border Radius', 'jadotheme'),
-                    'jado_range_field_callback',
-                    'jado_options',
-                    'jado_section_design',
-                    [
-                            'label_for' => 'theme_border_radius',
-                            'name' => 'theme_border_radius',
-                            'min' => 0,
-                            'max' => 50
-                    ]
-            );
-        }
-    }
-
-    // Site Content max-width Range
-    register_setting($option_group, 'theme_wrap_max_width', ['sanitize_callback' => 'absint']);
-    add_settings_field(
-            'theme_wrap_max_width',
-            __('Site Content max-width', 'jadotheme'),
-            'jado_range_field_callback',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_wrap_max_width',
-                    'name' => 'theme_wrap_max_width',
-                    'min' => 320,
-                    'max' => 2560,
-                    'step' => 20
-            ]
-    );
-
-    // Header Fixed
-    register_setting($option_group, 'theme_header_fixed', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_header_fixed',
-            __('Header Fixed', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_header_fixed',
-                    'name' => 'theme_header_fixed'
-            ]
-    );
-
-    // Header Compact
-    register_setting($option_group, 'theme_header_compact', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_header_compact',
-            __('Header Compact', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_header_compact',
-                    'name' => 'theme_header_compact'
-            ]
-    );
-
-    // Show Shadows
-    register_setting($option_group, 'theme_show_shadows', ['sanitize_callback' => 'jado_sanitize_checkbox']);
-    add_settings_field(
-            'theme_show_shadows',
-            __('Show Shadows', 'jadotheme'),
-            'jado_checkbox_field',
-            'jado_options',
-            'jado_section_design',
-            [
-                    'label_for' => 'theme_show_shadows',
-                    'name' => 'theme_show_shadows'
-            ]
-    );
-
     function jado_checkbox_field_callback($args)
     {
-        $option = get_option($args['name'], '');
-        $is_checked = ($option === '1' || $option === 'yes' || $option === 1 || $option === true);
+        $option = get_option($args['name']);
         ?>
         <input type="checkbox" id="<?php echo esc_attr($args['name']); ?>" name="<?php echo esc_attr($args['name']); ?>"
-               value="1" <?php checked($is_checked, true); ?> />
+               value="1" <?php checked(1, $option); ?> />
         <label for="<?php echo esc_attr($args['name']); ?>"><?php esc_html_e('Yes', 'jadotheme'); ?></label>
         <?php
     }
@@ -1194,32 +297,6 @@ function jado_text_field_callback($args): void
             '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="regular-text" />',
             $args['name'],
             $value
-    );
-}
-
-function jado_color_field_callback($args): void
-{
-    $value = esc_attr(get_option($args['name'], ''));
-    printf(
-            '<input type="text" id="%1$s" name="%1$s" value="%2$s" class="jado-color-field" />',
-            $args['name'],
-            $value
-    );
-}
-
-function jado_range_field_callback($args): void
-{
-    $value = get_option($args['name'], 0);
-    $min = isset($args['min']) ? $args['min'] : 0;
-    $max = isset($args['max']) ? $args['max'] : 100;
-    $step = isset($args['step']) ? $args['step'] : 1;
-    printf(
-            '<input type="range" id="%1$s" name="%1$s" value="%2$s" min="%3$s" max="%4$s" step="%5$s" class="jado-range-input" data-unit="px" />',
-            $args['name'],
-            $value,
-            $min,
-            $max,
-            $step
     );
 }
 
@@ -1250,59 +327,17 @@ function jado_add_settings_field($option_group, $section_id, $option, $label)
 // Sanitize checkbox values
 function jado_sanitize_checkbox($value): string
 {
-    if ($value === '1' || $value === 1 || $value === 'on' || $value === true || $value === 'yes') {
-        return 'yes';
-    }
-    return 'no';
-}
-
-/**
- * Sanitize checkbox for Customizer
- * Customizer checkbox expects a boolean or 1/0, but we store 'yes'/'no' for consistency
- */
-function jado_sanitize_customizer_checkbox($value)
-{
-    return ($value === true || $value === '1' || $value === 1 || $value === 'yes') ? 'yes' : 'no';
-}
-
-/**
- * Ensures that checkboxes in the Customizer show the correct state
- */
-function jado_customize_value_checkbox($value)
-{
-    // Special handling for theme_show_shadows which is true by default
-    if (($value === '' || $value === false || $value === null) && str_contains(current_filter(), 'theme_show_shadows')) {
-        return true;
-    }
-    return ($value === 'yes' || $value === '1' || $value === 1 || $value === true) ? true : false;
-}
-
-/**
- * Ensures that checkboxes show the correct state
- */
-function jado_get_checkbox_state($option_name)
-{
-    $value = get_option($option_name);
-
-    // Default states
-    if ($value === false || $value === '' || $value === null) {
-        if ($option_name === 'theme_show_shadows') {
-            return true;
-        }
-        return false;
-    }
-
-    return ($value === 'yes' || $value === '1' || $value === 1 || $value === true);
+    return 'on' === $value ? 'yes' : 'no';
 }
 
 // Field Callback functions
 function jado_checkbox_field($args): void
 {
-    $is_checked = jado_get_checkbox_state($args['name']);
+    $value = get_option($args['name'], 'no');
     ?>
     <label>
         <input type="checkbox"
-               name="<?php echo esc_attr($args['name']); ?>" value="1" <?php checked($is_checked, true) ?> /> <?php echo __('Yes', 'jadotheme'); ?>
+               name="<?php echo $args['name']; ?>" <?php checked($value, 'yes') ?> /> <?php echo __('Yes', 'jadotheme'); ?>
     </label>
 
     <?php
@@ -1470,11 +505,6 @@ function jado_cacheControlHeader_field($args): void
     jado_checkbox_field($args);
 }
 
-function jado_htaccessCaching_field($args): void
-{
-    jado_checkbox_field($args);
-}
-
 
 function jado_maintenanceMode_field($args): void
 {
@@ -1520,7 +550,8 @@ function jado_apply_settings(): void
 {
 
     /**  Gutenberg full width alignfull */
-    if (jado_get_checkbox_state('gutenberg_full_width')) {
+    $gutenbergFullWidth = get_option('gutenberg_full_width', 'no');
+    if ($gutenbergFullWidth === 'yes') {
         add_theme_support('align-wide');
     }
 
@@ -1528,7 +559,7 @@ function jado_apply_settings(): void
     /** Theeme Full Site Editor */
 
 
-    $gutenbergFullSiteEditing = get_option('gutenbergFullSiteEditing', '');
+    $gutenbergFullSiteEditing = get_option('gutenbergFullSiteEditing', 'no');
     if ($gutenbergFullSiteEditing === 'yes') {
         function jst_theme_setup()
         {
@@ -1541,7 +572,8 @@ function jado_apply_settings(): void
 
 
     /**  Give editor role menu access  */
-    if (jado_get_checkbox_state('editor_role_menu')) {
+    $editorRoleMenu = get_option('editor_role_menu', 'no');
+    if ($editorRoleMenu == 'yes') {
         $role_object = get_role('editor');
         $role_object->add_cap('edit_theme_options');
         function hide_menu(): void
@@ -1556,7 +588,8 @@ function jado_apply_settings(): void
     }
 
     /** disable Emoji  */
-    if (jado_get_checkbox_state('disableEmoji')) {
+    $disableEmoji = get_option('disableEmoji', 'no');
+    if ($disableEmoji == 'yes') {
         function disable_emojis()
         {
             remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -1583,7 +616,8 @@ function jado_apply_settings(): void
 
 
     /** Enable Admin Post Thumbnail on backend  */
-    if (jado_get_checkbox_state('AdminPostThumbnail')) {
+    $AdminPostThumbnail = get_option('AdminPostThumbnail', 'no');
+    if ($AdminPostThumbnail == 'yes') {
         add_image_size('adminFeaturedImage', 120, 120, false);
         add_filter('manage_posts_columns', 'jado_add_post_admin_thumbnail_column', 2);
         add_filter('manage_pages_columns', 'jado_add_post_admin_thumbnail_column', 2);
@@ -1609,7 +643,8 @@ function jado_apply_settings(): void
     }
 
     /** disable XMLRPC */
-    if (jado_get_checkbox_state('removeXMLRPC')) {
+    $removeXMLRPC = get_option('removeXMLRPC', 'no');
+    if ($removeXMLRPC == 'yes') {
         function remove_xmlrpc_methods($methods): array
         {
             return array();
@@ -1620,7 +655,8 @@ function jado_apply_settings(): void
 
 
     /** disable admin fullscreen mode default */
-    if (jado_get_checkbox_state('disableEditorFullscreenDefault')) {
+    $disableEditorFullscreenDefault = get_option('disableEditorFullscreenDefault', 'no');
+    if ($disableEditorFullscreenDefault == 'yes') {
         function jado_disable_editor_fullscreen(): void
         {
             $script = "window.onload = function() { const isFullscreenMode = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fullscreenMode' ); if ( isFullscreenMode ) { wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fullscreenMode' ); } }";
@@ -1631,7 +667,8 @@ function jado_apply_settings(): void
     }
 
     /** enable SVG upload  */
-    if (jado_get_checkbox_state('enableSVGUploads')) {
+    $enableSVGUploads = get_option('enableSVGUploads', 'no');
+    if ($enableSVGUploads == 'yes') {
         function ja_myme_types($mime_types)
         {
             $mime_types['svg'] = 'image/svg+xml';
@@ -1642,13 +679,15 @@ function jado_apply_settings(): void
     }
 
     /** disable admin bar frontend */
-    if (jado_get_checkbox_state('disableAdminBarFrontend')) {
+    $disableAdminBarFrontend = get_option('disableAdminBarFrontend', 'no');
+    if ($disableAdminBarFrontend == 'yes') {
         add_filter('show_admin_bar', '__return_false');
     }
 
 
     /** disable embeds  */
-    if (jado_get_checkbox_state('disableEmbedsFrontend')) {
+    $disableEmbedsFrontend = get_option('disableEmbedsFrontend', 'no');
+    if ($disableEmbedsFrontend == 'yes') {
         function disable_embeds_code_init(): void
         {
             remove_action('rest_api_init', 'wp_oembed_register_route');
@@ -1679,7 +718,8 @@ function jado_apply_settings(): void
     }
 
     /** disable gutenberg frontend custom styles  */
-    if (jado_get_checkbox_state('disableGutenbergCustomStyle')) {
+    $disableGutenbergCustomStyle = get_option('disableGutenbergCustomStyle', 'no');
+    if ($disableGutenbergCustomStyle == 'yes') {
         function disable_gutenberg_custom_enqueue_scripts(): void
         {
             wp_dequeue_style('global-styles');
@@ -1692,7 +732,8 @@ function jado_apply_settings(): void
 
 
     /** Set alt-attr on upload image */
-    if (jado_get_checkbox_state('setAltAttrImage')) {
+    $setAltAttrImage = get_option('setAltAttrImage', 'no');
+    if ($setAltAttrImage == 'yes') {
         function set_image_alt_on_image_upload($post_ID): void
         {
             if (wp_attachment_is_image($post_ID)) {
@@ -1715,7 +756,8 @@ function jado_apply_settings(): void
 
 
     /** disable comments and pingbacks  */
-    if (jado_get_checkbox_state('disableComments')) {
+    $disableComments = get_option('disableComments', 'no');
+    if ($disableComments == 'yes') {
         function disable_comments_status(): bool
         {
             return false;
@@ -1759,7 +801,8 @@ function jado_apply_settings(): void
 
 
     /** Emails encode Shortcode! */
-    if (jado_get_checkbox_state('encodeEmails')) {
+    $encodeEmails = get_option('encodeEmails', 'no');
+    if ($encodeEmails == 'yes') {
         function jado_hide_email_shortcode($atts, $content = null)
         {
             if (!is_email($content)) {
@@ -1773,7 +816,8 @@ function jado_apply_settings(): void
 
 
     /** deactivate heartbeat - auto save etc. */
-    if (jado_get_checkbox_state('heartbeat')) {
+    $heartbeat = get_option('heartbeat', 'no');
+    if ($heartbeat == 'yes') {
         add_action('init', 'stop_heartbeat', 1);
         function stop_heartbeat(): void
         {
@@ -1782,7 +826,8 @@ function jado_apply_settings(): void
     }
 
     /** activate jQuery */
-    if (jado_get_checkbox_state('activateJquery')) {
+    $activateJquery = get_option('activateJquery', 'no');
+    if ($activateJquery == 'yes') {
         function load_scripts(): void
         {
             wp_enqueue_script('jquery');
@@ -1793,7 +838,8 @@ function jado_apply_settings(): void
 
 
     /** excerpt for pages */
-    if (jado_get_checkbox_state('pageExcerpts')) {
+    $pageExcerpts = get_option('pageExcerpts', 'no');
+    if ($pageExcerpts == 'yes') {
         add_action('init', 'jado_add_excerpts_to_pages');
         function jado_add_excerpts_to_pages()
         {
@@ -1803,7 +849,8 @@ function jado_apply_settings(): void
 
 
     /** Hide WP Users  */
-    if (jado_get_checkbox_state('hideWPUser')) {
+    $hideWPUser = get_option('hideWPUser', 'no');
+    if ($hideWPUser == 'yes') {
         function block_author_enumeration()
         {
             if (is_admin()) {
@@ -1833,51 +880,51 @@ function jado_apply_settings(): void
     function register_custom_security_headers()
     {
 
+        /** Permission-Policy-Header */
+        if (get_option('permissionPolicyHeader', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_permissions_policy_header');
+        }
+
+        /** Referrer-Header-Policy */
+        if (get_option('referrerHeaderPolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_referrer_policy');
+        }
+
+        /** Cross-Origin-Resource-Policy */
+        if (get_option('crossOriginRessourcePolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_corp_header');
+        }
+
+        /** Cross-Origin-Open-Policy */
+        if (get_option('crossOriginOpenPolicy', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_coop_header');
+            add_filter('wp_headers', 'set_coep_header');
+        }
+
+        /** X-Frame-Options-Header */
+        if (get_option('xFrameOptionsHeader', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_frame_options');
+        }
+
+        /** X-XSS-Protection */
+        if (get_option('xxssProtection', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_xss_protection');
+        }
+
+        /** X-Content-Type-Options */
+        if (get_option('xContentTypeOptions', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_x_content_type_options');
+        }
+
+        /** Strict-Transport-Security */
+        if (get_option('strictTransportSecurity', 'no') === 'yes') {
+            add_filter('wp_headers', 'set_hsts_header');
+        }
+    }
+
+
     /** Permission-Policy-Header */
-    if (get_option('permissionPolicyHeader', '') === 'yes') {
-        add_filter('wp_headers', 'set_permissions_policy_header');
-    }
-
-    /** Referrer-Header-Policy */
-    if (get_option('referrerHeaderPolicy', '') === 'yes') {
-        add_filter('wp_headers', 'set_referrer_policy');
-    }
-
-    /** Cross-Origin-Resource-Policy */
-    if (get_option('crossOriginRessourcePolicy', '') === 'yes') {
-        add_filter('wp_headers', 'set_corp_header');
-    }
-
-    /** Cross-Origin-Open-Policy */
-    if (get_option('crossOriginOpenPolicy', '') === 'yes') {
-        add_filter('wp_headers', 'set_coop_header');
-        add_filter('wp_headers', 'set_coep_header');
-    }
-
-    /** X-Frame-Options-Header */
-    if (get_option('xFrameOptionsHeader', '') === 'yes') {
-        add_filter('wp_headers', 'set_x_frame_options');
-    }
-
-    /** X-XSS-Protection */
-    if (get_option('xxssProtection', '') === 'yes') {
-        add_filter('wp_headers', 'set_x_xss_protection');
-    }
-
-    /** X-Content-Type-Options */
-    if (get_option('xContentTypeOptions', '') === 'yes') {
-        add_filter('wp_headers', 'set_x_content_type_options');
-    }
-
-    /** Strict-Transport-Security */
-    if (get_option('strictTransportSecurity', '') === 'yes') {
-        add_filter('wp_headers', 'set_hsts_header');
-    }
-    }
-
-
-    /** Permission-Policy-Header */
-    $permissionPolicyHeader = get_option('permissionPolicyHeader', '');
+    $permissionPolicyHeader = get_option('permissionPolicyHeader', 'no');
     if ($permissionPolicyHeader == 'yes') {
         function set_permissions_policy_header($headers)
         {
@@ -1888,7 +935,7 @@ function jado_apply_settings(): void
 
 
     /** Referrer-Header-Policy */
-    $referrerHeaderPolicy = get_option('referrerHeaderPolicy', '');
+    $referrerHeaderPolicy = get_option('referrerHeaderPolicy', 'no');
     if ($referrerHeaderPolicy == 'yes') {
         function set_referrer_policy($headers)
         {
@@ -1898,7 +945,7 @@ function jado_apply_settings(): void
     }
 
     /** Cross-Origin-Resource-Policy */
-    $crossOriginRessourcePolicy = get_option('crossOriginRessourcePolicy', '');
+    $crossOriginRessourcePolicy = get_option('crossOriginRessourcePolicy', 'no');
     if ($crossOriginRessourcePolicy == 'yes') {
         function set_corp_header($headers)
         {
@@ -1908,7 +955,7 @@ function jado_apply_settings(): void
     }
 
     /** Cross-Origin-Open-Policy */
-    $crossOriginOpenPolicy = get_option('crossOriginOpenPolicy', '');
+    $crossOriginOpenPolicy = get_option('crossOriginOpenPolicy', 'no');
     if ($crossOriginOpenPolicy == 'yes') {
         function set_coop_header($headers)
         {
@@ -1925,7 +972,7 @@ function jado_apply_settings(): void
 
 
     /** X-Frame-Options-Header - iFrames on other Sites */
-    $xFrameOptionsHeader = get_option('xFrameOptionsHeader', '');
+    $xFrameOptionsHeader = get_option('xFrameOptionsHeader', 'no');
     if ($xFrameOptionsHeader == 'yes') {
         function set_x_frame_options($headers)
         {
@@ -1935,7 +982,7 @@ function jado_apply_settings(): void
     }
 
     /** X-XSS-Protection */
-    $xxssProtection = get_option('xxssProtection', '');
+    $xxssProtection = get_option('xxssProtection', 'no');
     if ($xxssProtection == 'yes') {
         function set_x_xss_protection($headers)
         {
@@ -1945,7 +992,7 @@ function jado_apply_settings(): void
     }
 
     /** X-Content-Type-Options */
-    $xContentTypeOptions = get_option('xContentTypeOptions', '');
+    $xContentTypeOptions = get_option('xContentTypeOptions', 'no');
     if ($xContentTypeOptions == 'yes') {
         function set_x_content_type_options($headers)
         {
@@ -1955,7 +1002,7 @@ function jado_apply_settings(): void
     }
 
     /** Strict-Transport-Security */
-    $strictTransportSecurity = get_option('strictTransportSecurity', '');
+    $strictTransportSecurity = get_option('strictTransportSecurity', 'no');
     if ($strictTransportSecurity == 'yes') {
         function set_hsts_header($headers)
         {
@@ -1967,7 +1014,7 @@ function jado_apply_settings(): void
     }
 
     /** Delay between login attempts */
-    $delayLoginAttempts = get_option('delayLoginAttempts', '');
+    $delayLoginAttempts = get_option('delayLoginAttempts', 'no');
     if ($delayLoginAttempts == 'yes') {
         function custom_login_delay()
         {
@@ -1979,7 +1026,7 @@ function jado_apply_settings(): void
 
 
     /** Cache Control Header  */
-    $cacheControlHeader = get_option('cacheControlHeader', '');
+    $cacheControlHeader = get_option('cacheControlHeader', 'no');
     if ($cacheControlHeader == 'yes') {
         add_action('send_headers', 'custom_cache_control_header');
         function custom_cache_control_header()
@@ -2001,8 +1048,9 @@ function jado_apply_settings(): void
     }
 
 
-    /** maintenance mode  */
-    if (jado_get_checkbox_state('maintenanceMode')) {
+    /** Maintenance Mode **/
+    $maintenance = get_option('maintenanceMode', 'no');
+    if ($maintenance == 'yes') {
         add_action('template_redirect', 'maintenance_mode');
         function maintenance_mode()
         {
@@ -2015,7 +1063,8 @@ function jado_apply_settings(): void
 
 
     /** Script style W3C-Correct */
-    if (jado_get_checkbox_state('scriptW3C')) {
+    $scriptW3C = get_option('scriptW3C', 'no');
+    if ($scriptW3C == 'yes') {
         add_action(
                 'after_setup_theme',
                 function () {
@@ -2057,7 +1106,8 @@ function jado_apply_settings(): void
 
     /** Swiper JS Plugin */
 
-    if (jado_get_checkbox_state('swiperjs')) {
+    $swiperjs = get_option('swiperjs', 'no');
+    if ($swiperjs == 'yes') {
         function register_settings()
         {
             register_setting('gallery_swiperjs_options', 'gallery_swiperjs_speed');
@@ -2332,10 +1382,6 @@ function jado_apply_settings(): void
         add_action('wp_enqueue_scripts', __NAMESPACE__ . '\register_assets');
         function admin_enqueue_scripts($hook)
         {
-            if ($hook === 'toplevel_page_jado_options') {
-                wp_enqueue_style('wp-color-picker');
-                wp_enqueue_script('jado-admin-script', get_template_directory_uri() . '/lib/js/admin-script.js', array('wp-color-picker'), false, true);
-            }
             if ($hook === 'toplevel_page_gallery-swiperjs-settings') {
                 wp_enqueue_style('wp-color-picker');
                 wp_enqueue_script('custom-script', get_template_directory_uri() . '/lib/js/admin-script.js', array('wp-color-picker'), false, true);
@@ -2382,7 +1428,9 @@ function jado_apply_settings(): void
 
 
     /** Baguettebox */
-    if (jado_get_checkbox_state('baguettebox')) {
+
+    $baguettebox = get_option('baguettebox', 'no');
+    if ($baguettebox == 'yes') {
         function register_b_assets()
         {
             wp_register_style('baguettebox-css', get_template_directory_uri() . '/lib/css/baguetteBox-min.css', [], '1.12.0');
@@ -2422,7 +1470,7 @@ function jado_apply_settings(): void
 
 
     /** Better Gutenberg Styles Admin */
-    $customAdminStyle = get_option('customAdminStyle', '');
+    $customAdminStyle = get_option('customAdminStyle', 'no');
     if ($customAdminStyle == 'yes') {
         add_theme_support('editor-styles');
         add_editor_style('lib/css/style.css');
@@ -2431,309 +1479,3 @@ function jado_apply_settings(): void
 }
 
 add_action('after_setup_theme', 'jado_apply_settings');
-
-
-// ===== Heading Fonts (self-hosted Google Fonts) =====
-
-/**
- * Whitelist der auswählbaren Überschriften-Schriften.
- * Key und Value sind identisch (Font Family Name, wie bei Google Fonts CSS2 API),
- * aber als Array, damit es einfach in Controls verwendet werden kann.
- */
-function jado_get_allowed_heading_fonts(): array
-{
-    return [
-        'system' => __('System Default', 'jadotheme'),
-        'Inter' => 'Inter',
-        'Roboto' => 'Roboto',
-        'Montserrat' => 'Montserrat',
-        'Poppins' => 'Poppins',
-        'Open Sans' => 'Open Sans',
-        'Lora' => 'Lora',
-        'Playfair Display' => 'Playfair Display',
-        'Source Serif 4' => 'Source Serif 4',
-        'Raleway' => 'Raleway',
-    ];
-}
-
-/** Sanitize: nur erlaubte Fonts zulassen */
-function jado_sanitize_select_font($value): string
-{
-    $choices = jado_get_allowed_heading_fonts();
-    if (isset($choices[$value])) {
-        return $value;
-    }
-    return 'system';
-}
-
-/** Sanitize arbitrary Google Font family name (for text/body). Allows letters, numbers, spaces, plus, and dashes. */
-function jado_sanitize_font_family($value): string
-{
-    $value = is_string($value) ? trim($value) : '';
-    if ($value === '' || strtolower($value) === 'system') {
-        return 'system';
-    }
-    // Basic cleanup: remove disallowed characters
-    $clean = preg_replace('/[^A-Za-z0-9 \-\+]/', '', $value);
-    return $clean !== '' ? $clean : 'system';
-}
-
-/** Feld-Callback für <select> */
-function jado_select_field_callback($args): void
-{
-    $name = esc_attr($args['name']);
-    $value = get_option($args['name'], 'system');
-    $choices = isset($args['choices']) && is_array($args['choices']) ? $args['choices'] : jado_get_allowed_heading_fonts();
-    echo '<select id="' . $name . '" name="' . $name . '">';
-    foreach ($choices as $key => $label) {
-        echo '<option value="' . esc_attr($key) . '"' . selected($value, $key, false) . '>' . esc_html($label) . '</option>';
-    }
-    echo '</select>';
-}
-
-/**
- * Option-Update Hook: Lädt die gewählten Google-Fonts (woff2) herunter und erzeugt lokales @font-face CSS.
- */
-function jado_install_heading_font($old_value, $value, $option): void
-{
-    // Wir erlauben das erneute Herunterladen, auch wenn der Wert gleich geblieben ist,
-    // falls z.B. das CSS-Feld leer ist (manuelle Korrekturmöglichkeit).
-    // Aber Customizer sendet oft den gleichen Wert bei jedem 'Save'.
-    $current_css = get_option('theme_heading_font_css', '');
-    if ($old_value === $value && !empty($current_css)) {
-        return;
-    }
-
-    // Bei System-Default: CSS leeren und fertig
-    if (empty($value) || $value === 'system') {
-        update_option('theme_heading_font_css', '');
-        return;
-    }
-
-    $family = $value; // exakter Name gemäß Google Fonts
-    $weights = [400, 700];
-
-    // CSS2-URL vorbereiten, nur latin subset, wght 400;700
-    $family_query = rawurlencode($family) . ':wght@' . implode(';', $weights);
-    $css_url = 'https://fonts.googleapis.com/css2?family=' . $family_query . '&display=swap';
-
-    $resp = wp_remote_get($css_url, [
-        'timeout' => 15,
-        'headers' => [
-            'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        ],
-    ]);
-    if (is_wp_error($resp) || wp_remote_retrieve_response_code($resp) !== 200) {
-        $error_msg = is_wp_error($resp) ? $resp->get_error_message() : 'HTTP Code ' . wp_remote_retrieve_response_code($resp);
-        set_transient('jado_heading_font_notice', __('Font download failed (CSS): ', 'jadotheme') . $error_msg, 30);
-        return;
-    }
-
-    $css = wp_remote_retrieve_body($resp);
-
-    // WOFF2-URLs samt Style/Weight aus dem Google-CSS parsen
-    $faces = [];
-    $pattern = '/@font-face\s*{[^}]*}/i';
-    if (preg_match_all($pattern, $css, $blocks)) {
-        foreach ($blocks[0] as $block) {
-            // Prüfen ob die gewählte Family in diesem Block vorkommt (flexibleres Matching)
-            if (!preg_match("/font-family\s*:\s*['\"]?" . preg_quote($family, '/') . "['\"]?\s*;/i", $block)) {
-                continue;
-            }
-            $style = (preg_match('/font-style:\s*(normal|italic)/i', $block, $m) ? strtolower($m[1]) : 'normal');
-            $weight = (preg_match('/font-weight:\s*(\d{3})/i', $block, $m) ? intval($m[1]) : 400);
-            if (!in_array($weight, $weights, true)) continue;
-            if (!preg_match("/src\s*:\s*.*url\s*\(([^)]+\.woff2)\)/i", $block, $m)) continue;
-            $url = trim($m[1], '"\'');
-            $faces[] = [
-                'style' => $style,
-                'weight' => $weight,
-                'url' => $url,
-            ];
-        }
-    }
-
-    if (empty($faces)) {
-        set_transient('jado_heading_font_notice', __('Font download failed (no woff2 found).', 'jadotheme'), 30);
-        return;
-    }
-
-    // Dateien speichern
-    $upload = wp_upload_dir();
-    $base_dir = trailingslashit($upload['basedir']) . 'jado_fonts/' . sanitize_title($family) . '/';
-    $base_url = trailingslashit($upload['baseurl']) . 'jado_fonts/' . sanitize_title($family) . '/';
-
-    // WordPress Filesystem verwenden – mit robustem Fallback auf PHP/WordPress-Funktionen
-    require_once(ABSPATH . 'wp-admin/includes/file.php');
-    WP_Filesystem();
-    global $wp_filesystem;
-    $fs = (isset($wp_filesystem) && $wp_filesystem) ? $wp_filesystem : null;
-
-    $dir_exists = $fs ? $fs->is_dir($base_dir) : is_dir($base_dir);
-    if (!$dir_exists) {
-        $made = $fs ? $fs->mkdir($base_dir, FS_CHMOD_DIR) : wp_mkdir_p($base_dir);
-        if (!$made) {
-            set_transient('jado_heading_font_notice', __('Cannot create upload folder for fonts.', 'jadotheme'), 30);
-            return;
-        }
-    }
-
-    $local_faces = [];
-    foreach ($faces as $f) {
-        $file = strtolower(str_replace(' ', '', $family)) . '-' . $f['weight'] . '-' . $f['style'] . '.woff2';
-        $target = $base_dir . $file;
-        $binary = wp_remote_get($f['url'], ['timeout' => 20]);
-        if (is_wp_error($binary) || wp_remote_retrieve_response_code($binary) !== 200) {
-            continue;
-        }
-        $body = wp_remote_retrieve_body($binary);
-
-        // Datei schreiben – zuerst über $wp_filesystem, ansonsten Fallback
-        $written = false;
-        if (isset($wp_filesystem) && $wp_filesystem) {
-            $written = $wp_filesystem->put_contents($target, $body, FS_CHMOD_FILE);
-        }
-        if (!$written) {
-            if (false === file_put_contents($target, $body)) {
-                continue;
-            }
-        }
-        $local_faces[] = [
-            'style' => $f['style'],
-            'weight' => $f['weight'],
-            'url' => $base_url . $file,
-        ];
-    }
-
-    if (empty($local_faces)) {
-        set_transient('jado_heading_font_notice', __('Font download failed (save).', 'jadotheme'), 30);
-        return;
-    }
-
-    // Lokales @font-face CSS erzeugen
-    $out = "/* jST Local Heading Font: {$family} */\n";
-    foreach ($local_faces as $lf) {
-        $out .= "@font-face{font-family:'{$family}';font-style:{$lf['style']};font-weight:{$lf['weight']};font-display:swap;src:url('{$lf['url']}') format('woff2');}\n";
-    }
-
-    update_option('theme_heading_font_css', $out);
-    set_transient('jado_heading_font_notice', sprintf(__('Installed heading font: %s', 'jadotheme'), $family), 30);
-}
-add_action('update_option_theme_heading_font', 'jado_install_heading_font', 10, 3);
-
-/** Install text/body font similarly to heading font (self-hosted Google Fonts) */
-function jado_install_text_font($old_value, $value, $option): void
-{
-    $current_css = get_option('theme_text_font_css', '');
-    if ($old_value === $value && !empty($current_css)) {
-        return;
-    }
-    if (empty($value) || $value === 'system') {
-        update_option('theme_text_font_css', '');
-        return;
-    }
-    $family = $value;
-    $weights = [400, 700];
-    $family_query = rawurlencode($family) . ':wght@' . implode(';', $weights);
-    $css_url = 'https://fonts.googleapis.com/css2?family=' . $family_query . '&display=swap';
-    $resp = wp_remote_get($css_url, [
-        'timeout' => 15,
-        'headers' => [
-            'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        ],
-    ]);
-    if (is_wp_error($resp) || wp_remote_retrieve_response_code($resp) !== 200) {
-        $error_msg = is_wp_error($resp) ? $resp->get_error_message() : 'HTTP Code ' . wp_remote_retrieve_response_code($resp);
-        set_transient('jado_text_font_notice', __('Font download failed (CSS): ', 'jadotheme') . $error_msg, 30);
-        return;
-    }
-    $css = wp_remote_retrieve_body($resp);
-    $faces = [];
-    $pattern = '/@font-face\s*{[^}]*}/i';
-    if (preg_match_all($pattern, $css, $blocks)) {
-        foreach ($blocks[0] as $block) {
-            if (!preg_match("/font-family\s*:\s*['\"]?" . preg_quote($family, '/') . "['\"]?\s*;/i", $block)) {
-                continue;
-            }
-            $style = (preg_match('/font-style:\s*(normal|italic)/i', $block, $m) ? strtolower($m[1]) : 'normal');
-            $weight = (preg_match('/font-weight:\s*(\d{3})/i', $block, $m) ? intval($m[1]) : 400);
-            if (!in_array($weight, $weights, true)) continue;
-            if (!preg_match("/src\s*:\s*.*url\s*\(([^)]+\.woff2)\)/i", $block, $m)) continue;
-            $url = trim($m[1], "'\"");
-            $faces[] = [
-                'style' => $style,
-                'weight' => $weight,
-                'url' => $url,
-            ];
-        }
-    }
-    if (empty($faces)) {
-        set_transient('jado_text_font_notice', __('Font download failed (no woff2 found).', 'jadotheme'), 30);
-        return;
-    }
-    $upload = wp_upload_dir();
-    $base_dir = trailingslashit($upload['basedir']) . 'jado_fonts/' . sanitize_title($family) . '/';
-    $base_url = trailingslashit($upload['baseurl']) . 'jado_fonts/' . sanitize_title($family) . '/';
-    require_once(ABSPATH . 'wp-admin/includes/file.php');
-    WP_Filesystem();
-    global $wp_filesystem;
-    $fs = (isset($wp_filesystem) && $wp_filesystem) ? $wp_filesystem : null;
-    $dir_exists = $fs ? $fs->is_dir($base_dir) : is_dir($base_dir);
-    if (!$dir_exists) {
-        $made = $fs ? $fs->mkdir($base_dir, FS_CHMOD_DIR) : wp_mkdir_p($base_dir);
-        if (!$made) {
-            set_transient('jado_text_font_notice', __('Cannot create upload folder for fonts.', 'jadotheme'), 30);
-            return;
-        }
-    }
-    $local_faces = [];
-    foreach ($faces as $f) {
-        $file = strtolower(str_replace(' ', '', $family)) . '-' . $f['weight'] . '-' . $f['style'] . '.woff2';
-        $target = $base_dir . $file;
-        $binary = wp_remote_get($f['url'], ['timeout' => 20]);
-        if (is_wp_error($binary) || wp_remote_retrieve_response_code($binary) !== 200) {
-            continue;
-        }
-        $body = wp_remote_retrieve_body($binary);
-        $written = false;
-        if (isset($wp_filesystem) && $wp_filesystem) {
-            $written = $wp_filesystem->put_contents($target, $body, FS_CHMOD_FILE);
-        }
-        if (!$written) {
-            if (false === file_put_contents($target, $body)) {
-                continue;
-            }
-        }
-        $local_faces[] = [
-            'style' => $f['style'],
-            'weight' => $f['weight'],
-            'url' => $base_url . $file,
-        ];
-    }
-    if (empty($local_faces)) {
-        set_transient('jado_text_font_notice', __('Font download failed (save).', 'jadotheme'), 30);
-        return;
-    }
-    $out = "/* jST Local Text Font: {$family} */\n";
-    foreach ($local_faces as $lf) {
-        $out .= "@font-face{font-family:'{$family}';font-style:{$lf['style']};font-weight:{$lf['weight']};font-display:swap;src:url('{$lf['url']}') format('woff2');}\n";
-    }
-    update_option('theme_text_font_css', $out);
-    set_transient('jado_text_font_notice', sprintf(__('Installed text font: %s', 'jadotheme'), $family), 30);
-}
-add_action('update_option_theme_text_font', 'jado_install_text_font', 10, 3);
-
-/** Admin Notice nach Installation/Fehler anzeigen */
-function jado_heading_font_admin_notice(): void
-{
-    if (!is_admin()) return;
-    $msg1 = get_transient('jado_heading_font_notice');
-    $msg2 = get_transient('jado_text_font_notice');
-    if ($msg1 || $msg2) {
-        if ($msg1) delete_transient('jado_heading_font_notice');
-        if ($msg2) delete_transient('jado_text_font_notice');
-        $full = trim(($msg1 ? $msg1 : '') . ' ' . ($msg2 ? $msg2 : ''));
-        echo '<div id="jado-font-notice" class="notice notice-info is-dismissible"><p>' . esc_html($full) . '</p></div>';
-    }
-}
-add_action('admin_notices', 'jado_heading_font_admin_notice');

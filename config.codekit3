@@ -17,12 +17,6 @@
       "oAP" : "\/.gitignore",
       "oF" : 0
     },
-    "\/.idea" : {
-      "ft" : 65536,
-      "oA" : 1,
-      "oAP" : "\/.idea",
-      "oF" : 0
-    },
     "\/404.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -177,6 +171,22 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/lib\/custom-post-types.php",
+      "oF" : 0
+    },
+    "\/lib\/fonts\/albert-sans-v1-latin-700.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-700.woff2",
+      "oF" : 0
+    },
+    "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2",
       "oF" : 0
     },
     "\/lib\/fonts\/star.eot" : {
@@ -2037,17 +2047,6 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/lib\/js\/admin-script-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/lib\/js\/admin-script-min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
     "\/lib\/js\/admin-script.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -2121,7 +2120,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_gutenbergblocks.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_index.scss" : {
@@ -2134,7 +2133,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_index.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_print.scss" : {
@@ -2147,7 +2146,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_print.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_variables.scss" : {
@@ -2160,7 +2159,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_variables.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_vpdesktopUp.scss" : {
@@ -2173,7 +2172,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_vpdesktopUp.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_vpmobile.scss" : {
@@ -2186,7 +2185,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_vpmobile.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_vptabletUp.scss" : {
@@ -2199,7 +2198,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_vptabletUp.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_woocommerce.scss" : {
@@ -2212,7 +2211,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_woocommerce.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/_woocommerceCustom.scss" : {
@@ -2225,7 +2224,7 @@
       "oA" : 1,
       "oAP" : "\/lib\/css\/_woocommerceCustom.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/scss\/.sass-cache\/1a0200b025b9b2107677740112fbea94d5d9e582\/admin.scssc" : {
@@ -2542,7 +2541,7 @@
       "oA" : 0,
       "oAP" : "\/lib\/css\/style.css",
       "oF" : 0,
-      "oS" : 3,
+      "oS" : 0,
       "pg" : 0
     },
     "\/lib\/theme-settings.php" : {
@@ -2583,8 +2582,8 @@
       "oA" : 0,
       "oAP" : "\/screenshot.png",
       "oF" : 0,
-      "oIPL" : 1,
-      "opt" : 1,
+      "oIPL" : 0,
+      "opt" : 0,
       "oT" : 1,
       "ou" : "lpckwebp-none",
       "q" : 90,
@@ -2629,6 +2628,18 @@
       "oA" : 0,
       "oAP" : "\/single.php",
       "oF" : 0
+    },
+    "\/style-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/style-min-min.css",
+      "oF" : 0,
+      "pg" : 0
     },
     "\/style.css" : {
       "aP" : 1,
@@ -3913,7 +3924,7 @@
       }
     },
     "esLintSourceType" : 0,
-    "externalServerAddress" : "https:\/\/bones.local",
+    "externalServerAddress" : "http:\/\/bones.local",
     "gitIgnoreBuildFolder" : 1,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
@@ -4098,7 +4109,7 @@
       "autoOutputPathStyle" : 2,
       "cssoStyle" : 0,
       "emitCharset" : 1,
-      "outputStyle" : 3,
+      "outputStyle" : 0,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 0,
       "shouldRunBless" : 0,
@@ -4544,7 +4555,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : "bones.local"
+    "websiteRelativeRoot" : ""
   },
   "settingsFileVersion" : "3"
 }

@@ -10,10 +10,11 @@ Stylesheet: Tablet - Desktop
 
 
   body {
+    font-size: 100%;
   }
 
   #logo {
-    font-size: calc(#{$fluid-headlineSize} * 0.9);
+    font-size: $tablet-headlineSize - 1.4;
     margin-right: 0;
   }
 
@@ -26,10 +27,8 @@ Stylesheet: Tablet - Desktop
   }
 
   .header {
-    box-shadow: $showShadows;
+    box-shadow: $tablet-boxShadow;
     padding: 3vw 0;
-    display: flex;
-    align-items: center;
 
     #inner-header {
       display: flex;
@@ -43,8 +42,6 @@ Stylesheet: Tablet - Desktop
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 0.8rem;
-        flex-wrap: wrap;
       }
     }
   }
@@ -55,11 +52,8 @@ Stylesheet: Tablet - Desktop
   }
 
   #description {
-    display: inline-block;
+    font-size: $tablet-copySize;
     margin-top: 0;
-    margin-left: 0.6em;
-    align-self: center;
-    white-space: nowrap;
   }
 
   .nav {
@@ -73,21 +67,15 @@ Stylesheet: Tablet - Desktop
       position: relative;
 
       a {
-        font-size: $fluid-copySize;
+        font-size: $tablet-copySize;
         padding: 0.3rem 1rem;
-        border-radius: $borderRadius;
+        border-radius: $tablet-borderRadius;
         margin: 0 0 0 1em;
       }
     }
 
     &.top-nav {
       padding-top: 0;
-      flex-direction: row;
-      gap: 0.1rem;
-
-      li a {
-        border: var(--theme-topnav-outline) !important;
-      }
 
       ul {
         margin: 0;
@@ -114,7 +102,7 @@ Stylesheet: Tablet - Desktop
               }
             }
 
-            &.current-menu-item, &.current_page_item {
+            &.current-menu-item {
               a {
                 color: $contrast;
               }
@@ -157,19 +145,19 @@ Stylesheet: Tablet - Desktop
 
   figure.wp-block-image {
     figcaption {
-      font-size: calc(#{$fluid-copySize} - 0.3px);
+      font-size: $tablet-copySize - 0.3;
     }
   }
 
   #content {
-    box-shadow: $showShadows;
+    box-shadow: $tablet-boxShadow;
   }
 
 
   button.button {
     padding: 0.8em 1.5em;
     margin: 0;
-    border-radius: $borderRadius;
+    border-radius: $tablet-borderRadius;
   }
 
 
@@ -178,12 +166,15 @@ Stylesheet: Tablet - Desktop
   }
 
   h1, h1 a, h1 strong {
+    font-size: $tablet-headlineSize;
   }
 
   h2, h2 a, h2 strong {
+    font-size: $tablet-headlineSize - 0.4;
   }
 
   h3, h4, h3 a, h4 a, h3 strong, h4 strong {
+    font-size: $tablet-headlineSize - 1;
   }
 
   ul.wp-block-list {
@@ -197,7 +188,7 @@ Stylesheet: Tablet - Desktop
         justify-content: space-between;
 
         li {
-          border-radius: $borderRadius;
+          border-radius: $tablet-borderRadius;
         }
       }
     }
@@ -215,17 +206,18 @@ Stylesheet: Tablet - Desktop
 
 
   p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
+    font-size: $tablet-copySize;
   }
 
   time {
-    font-size: calc(#{$fluid-copySize} - 0.3px);
+    font-size: $tablet-copySize - 0.3;
   }
 
   p {
     margin: 0 0 $tablet-innerContentGap 0;
 
     a {
-      font-size: $fluid-copySize;
+      font-size: $tablet-copySize;
     }
   }
 
@@ -242,7 +234,7 @@ Stylesheet: Tablet - Desktop
     margin-bottom: $tablet-blockGap;
 
     p {
-      font-size: $fluid-headlineSize;
+      font-size: $tablet-headlineSize;
       margin-bottom: calc($tablet-innerContentGap / 2);
     }
   }
@@ -252,23 +244,31 @@ Stylesheet: Tablet - Desktop
   }
 
   .wp-block-code {
-    border-radius: $borderRadius;
+    border-radius: $tablet-borderRadius;
     padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
-    font-size: $fluid-copySize;
+    font-size: $tablet-copySize;
   }
 
   .wp-block-verse {
     padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
-    font-size: $fluid-copySize;
-    border-radius: $borderRadius;
+    font-size: $tablet-copySize;
+    border-radius: $tablet-borderRadius;
   }
 
 
   h2 {
     a {
-      font-size: calc(#{$fluid-headlineSize} - 2.6px);
+      font-size: $tablet-headlineSize - 2.6;
       padding: $tablet-innerPostGap;
 
+    }
+  }
+
+
+
+  .wp-block-image{
+    img {
+      margin: 0 0 $tablet-innerContentGap 0;
     }
   }
 
@@ -278,17 +278,17 @@ Stylesheet: Tablet - Desktop
     flex-wrap: wrap;
 
     h2 {
-      font-size: calc(#{$fluid-headlineSize} - 1px);
+      font-size: $tablet-headlineSize - 1;
     }
 
     .cpt, .post {
       flex: 0 0 31%;
-      border-radius: $borderRadius;
+      border-radius: $tablet-borderRadius;
     }
 
     .cptimg, .postimg {
-      border-top-left-radius: $borderRadius;
-      border-top-right-radius: $borderRadius;
+      border-top-left-radius: $tablet-borderRadius;
+      border-top-right-radius: $tablet-borderRadius;
     }
 
     .postcontent, .cptcontent {
@@ -312,12 +312,12 @@ Stylesheet: Tablet - Desktop
 
 
   a, a:visited {
-    font-size: $fluid-copySize;
+    font-size: $tablet-copySize;
   }
 
   .wp-block-button__link, .button {
     padding: calc($tablet-innerContentGap / 4) calc($tablet-innerContentGap / 2);
-    border-radius: $borderRadius;
+    border-radius: $tablet-borderRadius;
   }
 
 
@@ -328,9 +328,8 @@ Stylesheet: Tablet - Desktop
     .widget {
       margin: 0 0.5em;
 
-
-      ul, p, .wp-block-image {
-        margin: 0;
+      ul, p {
+        margin-top: 0;
       }
 
       ol {
@@ -338,7 +337,7 @@ Stylesheet: Tablet - Desktop
       }
 
       h2, h3 {
-        font-size: calc(#{$fluid-copySize} + 0.3px);
+        font-size: $tablet-copySize + 0.3;
         margin-bottom: 0.4em;
       }
     }
@@ -356,6 +355,10 @@ Stylesheet: Tablet - Desktop
 
   .socialmediaicons {
     margin-bottom: 0;
+
+    a {
+      border-radius: $tablet-borderRadius;
+    }
   }
 
 
@@ -371,14 +374,14 @@ Stylesheet: Tablet - Desktop
     }
 
     .copyright, .copyright a {
-      font-size: calc(#{$fluid-copySize} - 0.25px);
+      font-size: $tablet-copySize - 0.25;
     }
 
     a {
-      font-size: calc(#{$fluid-copySize} - 0.25px);
+      font-size: $tablet-copySize - 0.25;
 
       &.wp-block-button__link {
-        font-size: calc(#{$fluid-copySize} - 0.25px);
+        font-size: $tablet-copySize - 0.25;
       }
     }
 
@@ -389,30 +392,23 @@ Stylesheet: Tablet - Desktop
 
       #widgetarea {
         margin-right: - 0.5em;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
       }
     }
   }
 
 
-  .wp-block-buttons {
-    margin-bottom: var(--theme-margin-bottom);
-  }
-
   .wp-block-details {
     margin: 0 0 $tablet-blockGap 0;
-    border: 1px solid var(--theme-button-outline, var(--color-line));
-    border-radius: $borderRadius;
-    background-color: $buttonBackground;
-    color: var(--theme-button-text);
-    box-shadow: $showShadows;
+    border: 1px solid $line;
+    border-radius: $tablet-borderRadius;
+    background: $white;
+    color: $contentText;
+    box-shadow: $tablet-boxShadow;
 
     summary {
       gap: 0.7em;
       padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
-      font-size: calc(#{$fluid-headlineSize} - 0.8px);
+      font-size: $tablet-headlineSize - 0.8;
 
       &:after {
         font-size: 1.1em;
@@ -426,8 +422,8 @@ Stylesheet: Tablet - Desktop
 
   .wp-block-table {
     overflow: hidden;
-    border-radius: $borderRadius;
-    box-shadow: $showShadows;
+    border-radius: $tablet-borderRadius;
+    box-shadow: $tablet-boxShadow;
     margin: 0 0 $tablet-blockGap 0;
 
     table {
@@ -435,13 +431,13 @@ Stylesheet: Tablet - Desktop
     }
 
     thead th {
-      background-color: var(--theme-table-header-tablet);
-      font-size: $fluid-copySize;
+      background-color: color.scale($line, $lightness: 40%);
+      font-size: $tablet-copySize;
     }
 
     th, td {
       padding: calc($tablet-innerContentGap / 2) $tablet-innerContentGap;
-      font-size: $fluid-copySize;
+      font-size: $tablet-copySize;
     }
   }
 }

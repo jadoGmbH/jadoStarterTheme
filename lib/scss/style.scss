@@ -8,10 +8,6 @@ Stylesheet: Main Stylesheet
 @use "print" as print;
 @use "index" as viewports;
 @use "gutenbergblocks"; // Version 6.8.2
-@use "variables" as *;
-
-// Initialize Spacing Utilities
-@include generate-spacing-utilities();
 
 @include gutenbergblocks.gutenbergblocks();
 @include vpmobile.mobile();

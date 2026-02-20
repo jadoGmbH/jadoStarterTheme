@@ -103,17 +103,8 @@
     </script>
         <?php
     }
-    // OpenGraph: image or video
     if (has_post_thumbnail()) {
             echo '<meta property="og:image" content="' . get_the_post_thumbnail_url(null, 'ogimage'). '">';
-    }
-    $fv = function_exists('jado_get_featured_video_id') ? jado_get_featured_video_id(get_the_ID()) : 0;
-    if ($fv) {
-            $vurl = wp_get_attachment_url($fv);
-            if ($vurl) {
-                echo '<meta property="og:video" content="' . esc_url($vurl) . '">';
-                echo '<meta property="og:video:type" content="video/mp4">';
-            }
     }
     if (is_singular() && pings_open(get_queried_object())) : ?>
     <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
@@ -140,31 +131,16 @@
                 <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>">
                     <?php
                     echo '<div id="logo">';
-                    $jado_site_logo = get_option('jado_site_logo');
-                    if (!empty($jado_site_logo)) {
-                        echo '<img style="width: var(--jado-logo-size-mobile) !important; height: auto !important;" alt="' . esc_attr(get_bloginfo('name')) . ' Logo" src="' . esc_url($jado_site_logo) . '">';
-                    } elseif ($icon_url) {
-                        echo '<img style="width: var(--jado-logo-size-mobile) !important; height: auto !important;" alt="' . esc_attr(get_bloginfo('name')) . ' Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
+                    if ($icon_url) {
+                    echo '<img alt="' . esc_attr(get_bloginfo('name')) . ' Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
                     }
-                    $keep_title_opt = get_option('jado_keep_site_title');
-                    $show_site_title = ($keep_title_opt === '' || $keep_title_opt === false || $keep_title_opt === null)
-                        ? true
-                        : in_array($keep_title_opt, ['yes', '1', 1, true], true);
-                    if ($show_site_title) {
-                        bloginfo('name');
-                    }
+                    bloginfo('name');
                     echo '</div>'; ?>
                 </a>
                 <?php if (get_bloginfo('description')) {
-                    $show_description_opt = get_option('jado_show_description');
-                    $show_description = ($show_description_opt === '' || $show_description_opt === false || $show_description_opt === null)
-                        ? true
-                        : in_array($show_description_opt, ['yes', '1', 1, true], true);
-                    if ($show_description) {
-                        echo '<span id="description">';
-                        bloginfo('description');
-                        echo '</span>';
-                    }
+                echo '<span id="description">';
+                bloginfo('description');
+                echo '</span>';
                 } ?>
                 <button id="burger" class="burger" aria-expanded="false" aria-controls="site-navigation"
                         aria-label="Open Menu">

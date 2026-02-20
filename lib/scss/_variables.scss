@@ -3,159 +3,6 @@ Stylesheet: Variables
 ******************************************************************/
 
 @use "sass:color";
-@use "sass:map";
-@use "sass:math";
-@use "sass:meta";
-
-/******************************************************************
-Design Tokens & Configuration
-******************************************************************/
-
-// 1. Colors Map
-$colors: (
-  "dark":       #222525,
-  "white":      #ffffff,
-  "main":       #77660e,
-  "line":       #bcbcbc,
-  "contrast":   #b9c62a,
-  "link":       #a7b32d,
-  "linkHover":  #a7b32d,
-  "woo-green":  #429e0e,
-  "woo-red":    #bc0427,
-  "woo-yellow": #a18b0b,
-  "woo-blue":   #07468f
-);
-
-// Computed Colors (For Sass functions that don't support CSS variables)
-$color-line-light: color.scale(map.get($colors, "line"), $lightness: 45%);
-$color-line-darker: color.scale(map.get($colors, "line"), $lightness: 40%);
-$color-line-darkest: color.scale(map.get($colors, "line"), $lightness: 35%);
-$color-contrast-light: color.scale(map.get($colors, "contrast"), $lightness: 88%);
-
-// 2. Component Colors Map
-$theme-config: (
-  "header-bg":    map.get($colors, "white"),
-  "header-text":  map.get($colors, "dark"),
-  "content-bg":   #dcdcd6,
-  "content-text": #2b2913,
-  "footer-bg":    map.get($colors, "dark"),
-  "footer-text":  map.get($colors, "white"),
-  "button-bg":    map.get($colors, "main"),
-  "button-text":  map.get($colors, "white"),
-  "table-header": $color-line-light,
-  "table-header-tablet": $color-line-darker,
-  "table-header-desktop": $color-line-darkest,
-  "table-hover":  $color-contrast-light
-);
-
-// 3. Spacing & Radius Map (Systematisch)
-$spacing: (
-  "none": 0,
-  "xs":   0.5rem,
-  "sm":   1rem,
-  "md":   1.5rem,
-  "lg":   3rem,
-  "xl":   5rem,
-  "xxl":  7rem
-);
-
-$radius: (
-  "none": 0,
-  "sm":   0.3rem,
-  "md":   0.4em,
-  "lg":   0.8em
-);
-
-/******************************************************************
-CSS Custom Properties (Runtime Editing)
-******************************************************************/
-:root {
-  // Map Colors to CSS Variables
-  @each $name, $value in $colors {
-    --color-#{$name}: #{$value};
-  }
-
-  // Map Theme Config to CSS Variables
-  @each $name, $value in $theme-config {
-    --theme-#{$name}: #{$value};
-  }
-
-  // Map Spacing to CSS Variables
-  @each $name, $value in $spacing {
-    --spacing-#{$name}: #{$value};
-  }
-
-  // Viewport-independent Layout Variables
-  --content-max-width: 1000px;
-  --border-radius: #{map.get($radius, "md")};
-  --box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
-}
-
-/******************************************************************
-Spacing & Utility Helpers
-******************************************************************/
-
-// Function to get spacing from map/variable
-@function space($size) {
-  @return var(--spacing-#{$size});
-}
-
-// Spacing Utilities (Optional but helpful for "fast" editing)
-// Generates: .m-sm, .p-lg, .mt-none, etc.
-@mixin generate-spacing-utilities() {
-  $sides: (top: "t", right: "r", bottom: "b", left: "l");
-
-  @each $name, $value in $spacing {
-    .m-#{$name} { margin: space($name) !important; }
-    .p-#{$name} { padding: space($name) !important; }
-
-    @each $side, $alias in $sides {
-      .m#{$alias}-#{$name} { margin-#{$side}: space($name) !important; }
-      .p#{$alias}-#{$name} { padding-#{$side}: space($name) !important; }
-    }
-  }
-}
-// @include generate-spacing-utilities(); // Uncomment if you want classes like .mt-md
-
-/******************************************************************
-SCSS Variables (for Backward Compatibility & Mixins)
-******************************************************************/
-
-/* Legacy Color Variables pointing to CSS Vars */
-$dark:                var(--color-dark);
-$white:               var(--color-light);
-$mainColor:           var(--color-main);
-$outline:             var(--color-line);
-$contrast:            var(--color-contrast);
-
-$headerBackground:    var(--theme-header-bg);
-$headerText:          var(--theme-header-text);
-$contentBackground:   var(--theme-content-bg);
-$contentText:         var(--theme-content-text);
-$headlineColor:       var(--theme-headline-color);
-$footerBackground:    var(--theme-footer-bg);
-$footerText:          var(--theme-footer-text);
-
-$buttonBackground:    var(--theme-button-bg);
-$buttonColor:         var(--theme-button-text);
-
-$linkColor:           var(--color-link);
-$linkHover:           var(--color-linkHover);
-$borderRadius:        var(--theme-border-radius);
-$topnavOutline:       var(--theme-topnav-outline);
-$headlineHyphens:     var(--theme-headline-hyphens);
-$textHyphens:         var(--theme-text-hyphens);
-$showShadows:         var(--theme-show-shadows);
-
-/* Woocommerce Colors */
-$wooGreen:            var(--color-woo-green);
-$wooRed:              var(--color-woo-red);
-$wooYellow:           var(--color-woo-yellow);
-$wooBlue:             var(--color-woo-blue);
-
-/******************************************************************
-Mixins
-******************************************************************/
 
 /* @include transition(opacity 100ms ease-out); */
 @mixin transition($transition...) {
@@ -168,112 +15,131 @@ Mixins
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
   background-color: $to;
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
   background-image: linear-gradient(to bottom, $from, $to);
 }
 
+/* Colors */
+$dark:                #222525;
+$white:               #ffffff;
+$mainColor: #77660e;
+$line:                #bcbcbc;
+$contrast:            #b9c62a;
+
+$headerBackground:    $white;
+$headerText:          $dark;
+
+$contentBackground:   #dcdcd6;
+$contentText:         #2b2913;
+
+$footerBackground:    $dark;
+$footerText:          $white;
+
+$buttonBackground:    $mainColor;
+$buttonColor:         $white;
+
+$linkColor:           #a7b32d;
+$linkHover:           $linkColor;
+
+/* Woocommerce Colors */
+$wooGreen:  #429e0e;
+$wooRed:    #bc0427;
+$wooYellow: #a18b0b;
+$wooBlue:   #07468f;
 
 
-$copy: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headline: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Fonts */
+
+//please integrate google webfonts with the webfont helper:  https://gwfh.mranftl.com/fonts
+
+@font-face {
+  font-display: swap;
+  font-family: 'Albert Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/albert-sans-v1-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Albert Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/albert-sans-v1-latin-700.woff2') format('woff2');
+}
+
+$copy: "Helvetica Neue", sans-serif;
+$headline: "Albert Sans", sans-serif;
 
 h1, h2, h3, h4, p, li {
   -ms-word-wrap: normal;
   word-break: normal;
   word-wrap: normal;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3; // minimum word chars + before line breaks + minimum after break
+  -ms-hyphenate-limit-chars: 6 3 3;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
 }
 
-/******************************************************************
-Viewport Variables (Mobile First / Responsive Design)
-******************************************************************/
 
-// Breakpoints from style.scss
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1100px;
 
-// Helper to strip units
-@function strip-unit($number) {
-  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
-    @return math.div($number, ($number * 0 + 1));
-  }
-  @return $number;
-}
 
-// Fluid Typography Function (returns clamp value)
-@function fluid-clamp($min-size, $max-size, $min-breakpoint: 320px, $max-breakpoint: 1200px) {
-  $min-size-rem: $min-size;
-  @if math.unit($min-size) == "px" {
-    $min-size-rem: math.div($min-size, 16px) * 1rem;
-  }
-
-  $max-size-rem: $max-size;
-  @if math.unit($max-size) == "px" {
-    $max-size-rem: math.div($max-size, 16px) * 1rem;
-  }
-
-  $min-bp-rem: $min-breakpoint;
-  @if math.unit($min-breakpoint) == "px" {
-    $min-bp-rem: math.div($min-breakpoint, 16px) * 1rem;
-  }
-
-  $max-bp-rem: $max-breakpoint;
-  @if math.unit($max-breakpoint) == "px" {
-    $max-bp-rem: math.div($max-breakpoint, 16px) * 1rem;
-  }
-
-  $slope: math.div((strip-unit($max-size-rem) - strip-unit($min-size-rem)), (strip-unit($max-bp-rem) - strip-unit($min-bp-rem)));
-  $y-axis-intersection: -1 * strip-unit($min-bp-rem) * $slope + strip-unit($min-size-rem);
-
-  @return clamp(#{$min-size}, #{$y-axis-intersection * 1rem} + #{$slope * 100vw}, #{$max-size});
-}
-
-// Type Scaling Mixin (Legacy support)
-@mixin fluid-type($min-size, $max-size, $min-breakpoint: 320px, $max-breakpoint: 1200px) {
-  font-size: fluid-clamp($min-size, $max-size, $min-breakpoint, $max-breakpoint);
-}
-
+// Viewports default variables
 
 /* Mobile Viewport */
+
 $mobile-contentWidth: 84%;
-$mobile-blockGap: space(md);
-$mobile-innerContentGap: space(sm);
-$mobile-contentGapTop: space(lg);
+
+$mobile-blockGap: 1.5em;
+$mobile-innerContentGap: 1rem;
+$mobile-contentGapTop: 2em;
 $mobile-innerPostGap: 3vw;
-$mobile-copySize: 16px; // Base mobile size
-$mobile-headlineSize: 32px; // Base mobile size
-$mobile-borderRadius: $borderRadius;
-$mobile-boxShadow:    $showShadows;
+
+$mobile-copySize: 4.1vw;
+$mobile-headlineSize: 8.5vw;
+
+$mobile-borderRadius: 0.4em;
+$mobile-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
 
 /* Tablet Viewport */
+
 $tablet-contentWidth: 90%;
-$tablet-blockGap: space(xl);
-$tablet-innerContentGap: space(md);
+
+$tablet-blockGap: 3em;
+$tablet-innerContentGap: 1.6rem;
 $tablet-innerPostGap: 2vw;
-$tablet-contentGapTop: space(lg);
+$tablet-contentGapTop: 2em;
+
 $tablet-copySize: 1.6vw;
 $tablet-headlineSize: 4vw;
-$tablet-borderRadius: $borderRadius;
-$tablet-boxShadow: $showShadows;
+
+$tablet-borderRadius: 0.3rem;
+$tablet-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
 
 /* Desktop up Viewport */
+
 $desktop-contentWidth: 80%;
-$desktop-maxContentWidth: var(--content-max-width);
-$desktop-blockGap: space(xl);
-$desktop-innerContentGap: space(lg);
+$desktop-maxContentWidth: 1000px; // max content width
+
+$desktop-blockGap: 50px;
+$desktop-innerContentGap: 2.2rem;
 $desktop-innerPostGap: 20px;
-$desktop-contentGapTop: space(lg);
+$desktop-contentGapTop: 2em;
+
 $desktop-copySize: 18px;
 $desktop-headlineSize: 40px;
-$desktop-borderRadius: $borderRadius;
-$desktop-boxShadow: $showShadows;
 
-// Fluid Variables
-$fluid-copySize: fluid-clamp($mobile-copySize, $desktop-copySize, 320px, $breakpoint-desktop);
-$fluid-headlineSize: fluid-clamp($mobile-headlineSize, $desktop-headlineSize, 320px, $breakpoint-desktop);
+$desktop-borderRadius: 0.3rem;
+$desktop-boxShadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 
-// Small helpers based on fluid values
-$fluid-copySize-sm: calc(#{$fluid-copySize} - 4px);
-$fluid-headlineSize-h2: calc(#{$fluid-headlineSize} * 0.9);
-$fluid-headlineSize-h3: calc(#{$fluid-headlineSize} * 0.8);

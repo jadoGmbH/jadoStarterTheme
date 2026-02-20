@@ -6,13 +6,14 @@
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <a rel="bookmark" href="<?php echo get_the_permalink(); ?>">
-                            <?php $hasMedia = has_post_thumbnail() || jado_get_featured_video_id(get_the_ID());
-                            if ($hasMedia) {
+                            <?php if (has_post_thumbnail()) {
                                 echo '<div class="postimg">';
-                                echo jado_render_featured_media(get_the_ID(), 'medium');
+                                the_post_thumbnail('medium');
                                 echo '</div>';
                             } ?>
-                            <div class="postcontent <?php if (!$hasMedia) { echo 'noimg'; } ?>">
+                            <div class="postcontent <?php if (!has_post_thumbnail()) {
+                                echo 'noimg';
+                            } ?>">
                                 <h2 class="h2 entry-title">
                                     <?php the_title(); ?>
                                 </h2>

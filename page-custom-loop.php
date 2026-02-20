@@ -15,18 +15,17 @@ get_header(); ?>
                         $loop = new WP_Query(array('post_type' => 'custom_type'));
                         if ($loop->have_posts()) :
                             while ($loop->have_posts()) : $loop->the_post();
-                                $hasMedia = has_post_thumbnail() || jado_get_featured_video_id(get_the_ID());
                                 ?>
                                 <div class="cpt <?php if (has_term('sold', 'custom_cat')) { // custom categories
                                     echo 'sold';
                                 } ?>">
                                     <a rel="bookmark" href="<?php echo get_the_permalink(); ?>">
-                                        <?php if ($hasMedia) {
+                                        <?php if (has_post_thumbnail()) {
                                             echo '<div class="cptimg">';
-                                            echo jado_render_featured_media(get_the_ID(), 'medium');
+                                            the_post_thumbnail('medium');
                                             echo '</div>';
                                         } ?>
-                                        <div class="cptcontent <?php if (!$hasMedia) {
+                                        <div class="cptcontent <?php if (!has_post_thumbnail()) {
                                             echo 'noimg';
                                         } ?>">
                                             <h2><?php echo get_the_title(); ?></h2>

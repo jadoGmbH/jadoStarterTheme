@@ -1,12 +1,5 @@
 <footer id="footer" class="footer">
     <div id="inner-footer" class="wrap">
-        <?php
-        $show_copyright_opt = get_option('theme_show_copyright');
-        $show_copyright = ($show_copyright_opt === '' || $show_copyright_opt === false || $show_copyright_opt === null)
-            ? true
-            : in_array($show_copyright_opt, ['yes', '1', 1, true], true);
-        if ($show_copyright) {
-        ?>
         <p class="copyright">
             &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> –
             <span class="powered"><a class="jado" href="https://github.com/jadoGmbH/jadoStarterTheme" target="_blank"
@@ -28,50 +21,49 @@
     </g>
 </svg></span></a></span>
         </p>
-        <?php } ?>
         <?php
-        if (get_option('business_show_social_footer') === 'yes') {
+        if (get_option('business_show_social_footer')) {
             echo '<div class="socialmediaicons">';
             if ($link = get_option('business_facebook')) {
-                echo '<a target="_blank" aria-label="Facebook Link" class="facebook" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="facebook" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_facebook.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_youtube')) {
-                echo '<a target="_blank" aria-label="Youtube Link" class="youtube" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="youtube" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_youtube.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_instagram')) {
-                echo '<a target="_blank" aria-label="Instagram Link" class="instagram" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="instagram" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_instagram.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_linkedin')) {
-                echo '<a target="_blank" aria-label="LinkedIn Link" class="linkedin" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="linkedin" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_linkedin.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_bluesky')) {
-                echo '<a target="_blank" aria-label="Bluesky Link" class="bluesky" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="bluesky" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_bluesky.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_mastodon')) {
-                echo '<a target="_blank" aria-label="Mastodon Link" class="mastodon" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="mastodon" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_mastodon.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_telephone')) {
                 $tel_clean = preg_replace('/[^\d+]/', '', $link);
-                echo '<a target="_blank" aria-label="Telephone Link" class="telephone" href="tel:' . esc_attr($tel_clean) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="telephone" href="tel:' . esc_attr($tel_clean) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_phone.svg');
                 echo '</a>';
             }
             if ($link = get_option('business_whatsapp')) {
                 $wa_clean = preg_replace('/\D+/', '', $link);
                 if (!empty($wa_clean)) {
-                    echo '<a target="_blank" aria-label="Whatsapp Link" class="whatsapp" href="https://wa.me/' . esc_attr($wa_clean) . '" rel="noopener">';
+                    echo '<a target="_blank" class="whatsapp" href="https://wa.me/' . esc_attr($wa_clean) . '" rel="noopener">';
                     echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_whatsapp.svg');
                     echo '</a>';
                 }
@@ -79,13 +71,13 @@
             if ($link = get_option('business_email')) {
                 $email_clean = sanitize_email($link);
                 if (!empty($email_clean)) {
-                    echo '<a target="_blank" aria-label="Email Link" class="email" href="mailto:' . esc_attr($email_clean) . '" rel="noopener">';
+                    echo '<a target="_blank" class="email" href="mailto:' . esc_attr($email_clean) . '" rel="noopener">';
                     echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_mail.svg');
                     echo '</a>';
                 }
             }
             if ($link = get_option('business_googlemaps')) {
-                echo '<a target="_blank" aria-label="Google Maps Link" class="telephone" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
+                echo '<a target="_blank" class="telephone" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
                 echo file_get_contents(get_template_directory() . '/lib/img/social-media-icon_location.svg');
                 echo '</a>';
             }
@@ -158,15 +150,15 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         if (innerContent && header) {
             innerContent.style.paddingTop = `${header.offsetHeight + 30}px`;
         }
+        if (burger && header) {
+            burger.style.height = `${header.offsetHeight}px`;
+        }
         let lastScroll = 0;
         const scrollUp = "scrollUp";
         const scrollDown = "scrollDown";
         const body = document.body;
         let ticking = false;
-        const headerFixed = "<?php echo get_option('theme_header_fixed', ''); ?>";
-
         function handleScroll() {
-            if (headerFixed === 'yes') return;
             const currentScroll = window.scrollY;
             const scrollPosition = window.scrollY + window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
@@ -183,15 +175,12 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
             lastScroll = currentScroll;
             ticking = false;
         }
-
-        if (headerFixed !== 'yes') {
-            window.addEventListener("scroll", () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(handleScroll);
-                    ticking = true;
-                }
-            }, {passive: true});
-        }
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScroll);
+                ticking = true;
+            }
+        }, {passive: true});
     });
 </script>
 </body>
