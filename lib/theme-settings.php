@@ -152,12 +152,14 @@ function jado_output_design_custom_properties(): void
             echo "body.scrollDown #fixedHeader.header, body.scrollUp #fixedHeader.header { transform: translate3d(0, 0, 0) !important; transition: none !important; }\n";
         }
         if (jado_get_checkbox_state('theme_header_compact')) {
-            echo "#inner-header { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }\n";
-            echo "#inner-header .flex { width: auto !important; margin: 0 !important; }\n";
-            echo "#site-navigation { width: auto !important; max-height: none !important; overflow: visible !important; margin: 0 !important; }\n";
-            echo ".nav.top-nav { padding-top: 0 !important; margin-top: 0 !important; }\n";
-            echo ".nav.top-nav ul { justify-content: flex-end !important; }\n";
-            echo "#burger { display: none !important; }\n";
+            echo "@media only screen and (min-width: 768px) {\n";
+            echo "  #inner-header { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }\n";
+            echo "  #inner-header .flex { width: auto !important; margin: 0 !important; }\n";
+            echo "  #site-navigation { width: auto !important; max-height: none !important; overflow: visible !important; margin: 0 !important; }\n";
+            echo "  .nav.top-nav { padding-top: 0 !important; margin-top: 0 !important; }\n";
+            echo "  .nav.top-nav ul { justify-content: flex-end !important; }\n";
+            echo "  #burger { display: none !important; }\n";
+            echo "}\n";
         }
         echo "</style>\n";
     }
@@ -836,6 +838,7 @@ function jado_settings_fields(): void
             'strictTransportSecurity' => __('Strict-Transport-Security (max-age=31536000; includeSubDomains; preload)', 'jadotheme'),
             'delayLoginAttempts' => __('Delay login attempts (30s)', 'jadotheme'),
             'cacheControlHeader' => __('Set cache for 1 day (not for logged in users)', 'jadotheme'),
+            'htaccessCaching' => __('Add Browser Caching (Apache .htaccess) for common file types (svg, js, css, webp, jpg, png, woff2)', 'jadotheme'),
     ];
 
     foreach ($seo_options as $option => $label) {
@@ -1424,6 +1427,11 @@ function jado_delayLoginAttempts_field($args): void
 }
 
 function jado_cacheControlHeader_field($args): void
+{
+    jado_checkbox_field($args);
+}
+
+function jado_htaccessCaching_field($args): void
 {
     jado_checkbox_field($args);
 }

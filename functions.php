@@ -420,4 +420,87 @@ function jado_render_featured_media($post_id = null, $size = 'featuredImage'){
     return '';
 }
 
-/* DON'T DELETE THIS CLOSING TAG */ ?>
+
+/**
+ * Apache .htaccess Browser Caching (svg, js, css, webp, jpg, png, woff2)
+ * - Adds/removes a marker block in .htaccess using WordPress insert_with_markers
+ * - Controlled via option 'htaccessCaching' (checkbox in SEO/Performance section)
+ */
+if (!function_exists('jado_is_apache')) {
+    function jado_is_apache(): bool
+    {
+        if (function_exists('apache_get_version')) {
+            return true;
+        }
+        $sw = isset($_SERVER['SERVER_SOFTWARE']) ? strtolower((string) $_SERVER['SERVER_SOFTWARE']) : '';
+        return strpos($sw, 'apache') !== false;
+    }
+}
+
+if (!function_exists('jado_write_htaccess_caching')) {
+    function jado_write_htaccess_caching(bool $enable): bool
+    {
+        if (!jado_is_apache()) {
+            return false; // Only for Apache
+        }
+        $htaccess = ABSPATH . '.htaccess';
+
+        // Ensure file exists or can be created
+        if (!file_exists($htaccess)) {
+            if (!is_writable(ABSPATH)) {
+                return false;
+            }
+            @touch($htaccess);
+        }
+        if (!is_writable($htaccess)) {
+            return false;
+        }
+
+        if (!function_exists('insert_with_markers')) {
+            require_once ABSPATH . 'wp-admin/includes/misc.php';
+        }
+
+        $marker = 'jST Caching';
+        $lines = [];
+        if ($enable) {
+            $lines = [
+                '<IfModule mod_expires.c>',
+                'ExpiresActive On',
+                'ExpiresDefault "access plus 1 month"',
+                'ExpiresByType image/svg+xml "access plus 1 year"',
+                'ExpiresByType image/webp "access plus 1 year"',
+                'ExpiresByType image/jpeg "access plus 1 year"',
+                'ExpiresByType image/png "access plus 1 year"',
+                'ExpiresByType font/woff2 "access plus 1 year"',
+                'ExpiresByType text/css "access plus 1 year"',
+                'ExpiresByType application/javascript "access plus 1 year"',
+                '</IfModule>',
+                '<IfModule mod_headers.c>',
+                'FileETag None',
+                '<FilesMatch "\.(?:svg|js|css|webp|jpe?g|png|woff2)$">',
+                'Header set Cache-Control "public, max-age=31536000, immutable"',
+                '</FilesMatch>',
+                '</IfModule>',
+            ];
+        }
+
+        return (bool) insert_with_markers($htaccess, $marker, $lines);
+    }
+}
+
+// Apply when option toggles
+function jado_update_option_htaccess_caching($old_value, $value, $option): void
+{
+    $enable = ($value === '1' || $value === 'yes' || $value === 1 || $value === true);
+    jado_write_htaccess_caching($enable);
+}
+add_action('update_option_htaccessCaching', 'jado_update_option_htaccess_caching', 10, 3);
+
+// Also try to enforce on admin init (e.g., after theme activation)
+add_action('admin_init', function () {
+    $val = get_option('htaccessCaching', '');
+    if ($val !== '' && $val !== null) {
+        $enable = ($val === '1' || $val === 'yes' || $val === 1 || $val === true);
+        jado_write_htaccess_caching($enable);
+    }
+});

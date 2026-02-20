@@ -140,15 +140,12 @@
                 <a class="logolink" aria-label="<?php echo the_title(); ?>" href="<?php echo home_url(); ?>">
                     <?php
                     echo '<div id="logo">';
-                    // Bevorzugt: im Customizer gesetztes Logo (jado_site_logo)
                     $jado_site_logo = get_option('jado_site_logo');
                     if (!empty($jado_site_logo)) {
                         echo '<img alt="' . esc_attr(get_bloginfo('name')) . ' Logo" src="' . esc_url($jado_site_logo) . '">';
                     } elseif ($icon_url) {
-                        // Fallback: Site Icon
                         echo '<img alt="' . esc_attr(get_bloginfo('name')) . ' Logo" width="100" height="100" src="' . esc_url($icon_url) . '">';
                     }
-                    // Site Title nur anzeigen, wenn Option aktiviert ist (Default: an)
                     $keep_title_opt = get_option('jado_keep_site_title');
                     $show_site_title = ($keep_title_opt === '' || $keep_title_opt === false || $keep_title_opt === null)
                         ? true

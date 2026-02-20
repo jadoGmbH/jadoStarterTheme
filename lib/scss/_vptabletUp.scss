@@ -82,6 +82,8 @@ Stylesheet: Tablet - Desktop
 
     &.top-nav {
       padding-top: 0;
+      flex-direction: row;
+      gap: 0.1rem;
 
       li a {
         border: var(--theme-topnav-outline) !important;
