@@ -85,14 +85,24 @@ function jado_output_design_custom_properties(): void
         // Apply heading font-family if selected
         if ($has_font) {
             $family = esc_attr($chosen_font);
-            echo "h1, h2, h3, h4, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-            echo ".editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4 { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            $h_selectors = "h1, h2, h3, h4, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4";
+            if (is_admin()) {
+                echo ".editor-styles-wrapper :is({$h_selectors}) { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            } else {
+                echo ":is(.header, .footer, #content) :is({$h_selectors}) { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            }
         }
         // Apply text/body font-family if selected
         if ($has_text_font) {
             $text_family = esc_attr($chosen_text_font);
-            echo "body, p, li, strong, em, small, a, p a, li a, .entry-content, .entry-content p, .entry-content li, .entry-content strong, .entry-content em, .entry-content a { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
-            echo ".editor-styles-wrapper, .editor-styles-wrapper p, .editor-styles-wrapper li, .editor-styles-wrapper a { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            $t_selectors = "body, p, li, strong, em, small, a, p a, li a, .entry-content, .entry-content p, .entry-content li, .entry-content strong, .entry-content em, .entry-content a";
+            if (is_admin()) {
+                echo ".editor-styles-wrapper, .editor-styles-wrapper :is(p, li, strong, em, small, a) { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            } else {
+                echo ":is(.header, .footer, #content) :is({$t_selectors}) { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+                // Body fallback for the very base if not caught by wrapper classes
+                echo "body { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }\n";
+            }
         }
         // Apply hyphens to specific elements based on the variables
         echo "h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a, h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5 { hyphens: var(--theme-headline-hyphens) !important; -webkit-hyphens: var(--theme-headline-hyphens) !important; }\n";
@@ -313,7 +323,7 @@ function jado_customize_register($wp_customize)
                     ],
                     'description' => sprintf(
                         __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
-                        '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'
+                        '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'
                     )
             ]);
         }
@@ -369,7 +379,7 @@ function jado_customize_register($wp_customize)
                     ],
                     'description' => sprintf(
                         __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
-                        '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'
+                        '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'
                     )
             ]);
         }
@@ -986,7 +996,7 @@ function jado_settings_fields(): void
             register_setting($option_group, 'theme_heading_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
             add_settings_field(
                     'theme_heading_font',
-                    sprintf(__('Heading Font (self-hosted %s family name)', 'jadotheme'), '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'),
+                    sprintf(__('Heading Font (self-hosted %s. Insert font name)', 'jadotheme'), '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'),
                     'jado_text_field_callback',
                     'jado_options',
                     'jado_section_design',
@@ -1034,7 +1044,7 @@ function jado_settings_fields(): void
             register_setting($option_group, 'theme_text_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
             add_settings_field(
                     'theme_text_font',
-                    sprintf(__('Text Font (self-hosted %s family name)', 'jadotheme'), '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'),
+                    sprintf(__('Text Font (self-hosted %s. Insert font name)', 'jadotheme'), '<strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong>'),
                     'jado_text_field_callback',
                     'jado_options',
                     'jado_section_design',
