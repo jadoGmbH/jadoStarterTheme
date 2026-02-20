@@ -150,9 +150,15 @@
                     echo '</div>'; ?>
                 </a>
                 <?php if (get_bloginfo('description')) {
-                echo '<span id="description">';
-                bloginfo('description');
-                echo '</span>';
+                    $show_description_opt = get_option('jado_show_description');
+                    $show_description = ($show_description_opt === '' || $show_description_opt === false || $show_description_opt === null)
+                        ? true
+                        : in_array($show_description_opt, ['yes', '1', 1, true], true);
+                    if ($show_description) {
+                        echo '<span id="description">';
+                        bloginfo('description');
+                        echo '</span>';
+                    }
                 } ?>
                 <button id="burger" class="burger" aria-expanded="false" aria-controls="site-navigation"
                         aria-label="Open Menu">

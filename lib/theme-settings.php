@@ -320,7 +320,7 @@ function jado_customize_site_identity_logo($wp_customize): void
             'settings' => 'jado_site_logo',
     ]));
 
-    // Checkbox: Site Title behalten (Standard: aktiv)
+    // Checkbox: Site Title anzeigen (Standard: aktiv)
     $wp_customize->add_setting('jado_keep_site_title', [
             'type' => 'option',
             'default' => 'yes', // standardmäßig angeklickt
@@ -332,8 +332,26 @@ function jado_customize_site_identity_logo($wp_customize): void
     add_filter('customize_value_jado_keep_site_title', 'jado_customize_value_checkbox');
 
     $wp_customize->add_control('jado_keep_site_title', [
-            'label' => __('Keep Site Title', 'jadotheme'),
-            'description' => __('If deactivated, site title is hidden', 'jadotheme'),
+            'label' => __('Show Site Title', 'jadotheme'),
+            //'description' => __('If deactivated, site title is hidden', 'jadotheme'),
+            'section' => 'title_tagline',
+            'type' => 'checkbox',
+    ]);
+
+    // Checkbox: Site Description anzeigen (Standard: aktiv)
+    $wp_customize->add_setting('jado_show_description', [
+            'type' => 'option',
+            'default' => 'yes', // standardmäßig angeklickt
+            'sanitize_callback' => 'jado_sanitize_customizer_checkbox',
+            'transport' => 'refresh',
+    ]);
+
+    // Damit der Haken im Customizer korrekt angezeigt wird (true/false)
+    add_filter('customize_value_jado_show_description', 'jado_customize_value_checkbox');
+
+    $wp_customize->add_control('jado_show_description', [
+            'label' => __('Show Description title', 'jadotheme'),
+            //'description' => __('If deactivated, site description is hidden', 'jadotheme'),
             'section' => 'title_tagline',
             'type' => 'checkbox',
     ]);

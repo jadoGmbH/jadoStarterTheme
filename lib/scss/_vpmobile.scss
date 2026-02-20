@@ -317,7 +317,7 @@ Stylesheet: Base Mobile - Tablet
         }
       }
 
-      &.current-menu-item {
+      &.current-menu-item, &.current_page_item {
         a {
           color: $white;
           background-color: $dark;
@@ -340,7 +340,7 @@ Stylesheet: Base Mobile - Tablet
             padding: 3vw 10vw;
           }
 
-          &.current-menu-item {
+          &.current-menu-item, &.current_page_item {
             a {
               color: $contrast;
             }

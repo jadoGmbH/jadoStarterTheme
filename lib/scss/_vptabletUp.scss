@@ -112,7 +112,7 @@ Stylesheet: Tablet - Desktop
               }
             }
 
-            &.current-menu-item {
+            &.current-menu-item, &.current_page_item {
               a {
                 color: $contrast;
               }
