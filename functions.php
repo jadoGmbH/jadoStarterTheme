@@ -119,7 +119,7 @@ function jado_login_css()
         }
 
         #login h1:after{
-            content: 'Starter Theme';
+            content: 'Premium Theme';
             position: absolute;
             top: 100%;
             left: 0.5em;
