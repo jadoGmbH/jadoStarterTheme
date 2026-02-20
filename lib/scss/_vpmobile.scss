@@ -1069,8 +1069,8 @@ Stylesheet: Base Mobile - Tablet
     margin: 0 0 $mobile-blockGap 0;
     border: 1px solid $outline;
     border-radius: $borderRadius;
-    background: $white;
-    color: $contentText;
+    background-color: $buttonBackground;
+    color: var(--theme-button-text);
     box-shadow: $showShadows;
     overflow: hidden;
 
@@ -1086,7 +1086,7 @@ Stylesheet: Base Mobile - Tablet
       cursor: pointer;
       list-style: none;
       position: relative;
-      color: $contentText;
+      color: var(--theme-button-text);
       transition: color 0.2ms ease-out;
 
 
@@ -1104,7 +1104,7 @@ Stylesheet: Base Mobile - Tablet
       }
 
       &:hover {
-        color: $mainColor;
+        color: inherit;
       }
     }
 

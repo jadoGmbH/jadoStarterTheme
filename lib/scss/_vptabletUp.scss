@@ -401,8 +401,8 @@ Stylesheet: Tablet - Desktop
     margin: 0 0 $tablet-blockGap 0;
     border: 1px solid $outline;
     border-radius: $borderRadius;
-    background: $white;
-    color: $contentText;
+    background-color: $buttonBackground;
+    color: var(--theme-button-text);
     box-shadow: $showShadows;
 
     summary {
