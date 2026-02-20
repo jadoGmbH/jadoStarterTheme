@@ -65,7 +65,35 @@ function jado_output_design_custom_properties(): void
     }
 
     if ($styles !== "" || true) { // Always output if we have defaults
-        echo "\n<style id='jado-design-custom-properties'>\n:root, .editor-styles-wrapper {\n{$styles}}\n";
+        // Self-hosted heading font CSS (if any)
+        $font_css = (string) get_option('theme_heading_font_css', '');
+        $chosen_font = get_option('theme_heading_font', '');
+        $has_font = ($chosen_font && $chosen_font !== 'system');
+        echo "\n<style id='jado-design-custom-properties'>\n";
+        if (!empty($font_css)) {
+            echo $font_css . "\n";
+        }
+        // Self-hosted text/body font CSS (if any)
+        $text_font_css = (string) get_option('theme_text_font_css', '');
+        $chosen_text_font = get_option('theme_text_font', '');
+        $has_text_font = ($chosen_text_font && $chosen_text_font !== 'system');
+        if (!empty($text_font_css)) {
+            echo $text_font_css . "\n";
+        }
+        // Start CSS variables block
+        echo ":root, .editor-styles-wrapper {\n{$styles}}\n";
+        // Apply heading font-family if selected
+        if ($has_font) {
+            $family = esc_attr($chosen_font);
+            echo "h1, h2, h3, h4, .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            echo ".editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4 { font-family: '" . $family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+        }
+        // Apply text/body font-family if selected
+        if ($has_text_font) {
+            $text_family = esc_attr($chosen_text_font);
+            echo "body, p, li, strong, em, small, a, p a, li a, .entry-content, .entry-content p, .entry-content li, .entry-content strong, .entry-content em, .entry-content a { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+            echo ".editor-styles-wrapper, .editor-styles-wrapper p, .editor-styles-wrapper li, .editor-styles-wrapper a { font-family: '" . $text_family . "', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }\n";
+        }
         // Apply hyphens to specific elements based on the variables
         echo "h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a, h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5 { hyphens: var(--theme-headline-hyphens) !important; -webkit-hyphens: var(--theme-headline-hyphens) !important; }\n";
         echo "p, li, strong, .entry-content p, .entry-content li { hyphens: var(--theme-text-hyphens) !important; -webkit-hyphens: var(--theme-text-hyphens) !important; }\n";
@@ -254,7 +282,7 @@ function jado_customize_register($wp_customize)
             ]);
         }
 
-        // Headlines Hyphens Auto hinter Headline
+        // Heading Font (self-hosted Google Font) – freie Eingabe
         if ($id === 'theme_headline_color') {
             $wp_customize->add_setting('theme_headline_hyphens', [
                     'type' => 'option',
@@ -267,6 +295,26 @@ function jado_customize_register($wp_customize)
                     'label' => __('Headlines Hyphens Auto', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'checkbox',
+            ]);
+
+            // Heading Font (self-hosted Google Font) – freie Eingabe (alle Google Fonts möglich)
+            $wp_customize->add_setting('theme_heading_font', [
+                    'type' => 'option',
+                    'default' => 'system',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_font_family',
+            ]);
+            $wp_customize->add_control('theme_heading_font', [
+                    'label' => __('Heading Font (self-hosted – Google Fonts family name)', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'text',
+                    'input_attrs' => [
+                        'placeholder' => __('e.g. Inter, Roboto, Montserrat …', 'jadotheme')
+                    ],
+                    'description' => sprintf(
+                        __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
+                        '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'
+                    )
             ]);
         }
 
@@ -303,6 +351,26 @@ function jado_customize_register($wp_customize)
                     'label' => __('Text Hyphens Auto', 'jadotheme'),
                     'section' => 'jado_section_design',
                     'type' => 'checkbox',
+            ]);
+
+            // Text Font (self-hosted Google Font) – freie Eingabe (alle Google Fonts möglich)
+            $wp_customize->add_setting('theme_text_font', [
+                    'type' => 'option',
+                    'default' => 'system',
+                    'transport' => 'refresh',
+                    'sanitize_callback' => 'jado_sanitize_font_family',
+            ]);
+            $wp_customize->add_control('theme_text_font', [
+                    'label' => __('Text Font (self-hosted – Google Fonts family name)', 'jadotheme'),
+                    'section' => 'jado_section_design',
+                    'type' => 'text',
+                    'input_attrs' => [
+                        'placeholder' => __('e.g. Inter, Noto Sans, Lato …', 'jadotheme')
+                    ],
+                    'description' => sprintf(
+                        __('Enter the exact %s family name. WOFF2 files will be downloaded and hosted locally. Use "system" for default.', 'jadotheme'),
+                        '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'
+                    )
             ]);
         }
 
@@ -456,6 +524,26 @@ function jado_customize_dynamic_labels_script(): void
                     });
                 });
             });
+
+            // Wenn im Customizer gespeichert ("Publish") wird, prüfen ob ein Font-Wechsel stattfand
+            wp.customize.bind('saved', function () {
+                var headingFont = wp.customize('theme_heading_font');
+                var textFont = wp.customize('theme_text_font');
+                var needsReload = false;
+                if (headingFont && headingFont.get() && headingFont.get() !== 'system') needsReload = true;
+                if (textFont && textFont.get() && textFont.get() !== 'system') needsReload = true;
+                if (needsReload && !window.name.includes('jado_font_reloaded')) {
+                    window.name += '_jado_font_reloaded';
+                    window.location.reload();
+                }
+            });
+
+            // Falls wir gerade neu geladen haben, Flag nach einer Weile zurücksetzen
+            if (window.name.includes('jado_font_reloaded')) {
+                setTimeout(function() {
+                    window.name = window.name.replace('_jado_font_reloaded', '');
+                }, 1000);
+            }
         })(window.wp);
     </script>
     <?php
@@ -492,6 +580,23 @@ function jado_options_page_callback(): void
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Falls gerade gespeichert wurde und ein Font installiert wurde, Seite ggf. nochmal neu laden
+            // (Wordpress leitet nach options.php Speicherung mit ?settings-updated=true zurück)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('settings-updated') === 'true') {
+                // Wir prüfen ob eine Font-Erfolgsmeldung da ist oder ob wir gerade von einem Font-Save kommen
+                const notice = document.getElementById('jado-font-notice');
+                const isFontSave = !!notice; // any font install notice triggers reload
+                
+                if (isFontSave && !window.name.includes('jado_font_reloaded')) {
+                    window.name += '_jado_font_reloaded';
+                    window.location.reload();
+                }
+            } else {
+                // Reset flag if not updated
+                window.name = window.name.replace('_jado_font_reloaded', '');
+            }
+
             const rows = document.querySelectorAll('.form-table tr');
             rows.forEach(row => {
                 const input = row.querySelector('input, select, textarea');
@@ -577,7 +682,11 @@ function jado_initialize_options(): void
             'theme_header_fixed',
             'theme_header_compact',
             'theme_show_shadows',
-            'theme_margin_bottom'
+            'theme_margin_bottom',
+            'theme_heading_font',
+            'theme_heading_font_css',
+            'theme_text_font',
+            'theme_text_font_css'
     ];
 
     $all_options = array_merge($business_info_options, $design_options);
@@ -872,6 +981,20 @@ function jado_settings_fields(): void
                             'name' => 'theme_headline_hyphens'
                     ]
             );
+
+            // Heading Font (self-hosted Google Font) – freie Eingabe
+            register_setting($option_group, 'theme_heading_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
+            add_settings_field(
+                    'theme_heading_font',
+                    sprintf(__('Heading Font (self-hosted %s family name)', 'jadotheme'), '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'),
+                    'jado_text_field_callback',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_heading_font',
+                            'name' => 'theme_heading_font',
+                    ]
+            );
         }
 
         // Spacing hinter Content Background
@@ -904,6 +1027,20 @@ function jado_settings_fields(): void
                     [
                             'label_for' => 'theme_text_hyphens',
                             'name' => 'theme_text_hyphens'
+                    ]
+            );
+
+            // Text Font (self-hosted – Google Fonts family)
+            register_setting($option_group, 'theme_text_font', ['sanitize_callback' => 'jado_sanitize_font_family']);
+            add_settings_field(
+                    'theme_text_font',
+                    sprintf(__('Text Font (self-hosted %s family name)', 'jadotheme'), '<a href="https://fonts.google.com" target="_blank">Google Fonts</a>'),
+                    'jado_text_field_callback',
+                    'jado_options',
+                    'jado_section_design',
+                    [
+                            'label_for' => 'theme_text_font',
+                            'name' => 'theme_text_font'
                     ]
             );
         }
@@ -2237,3 +2374,309 @@ function jado_apply_settings(): void
 }
 
 add_action('after_setup_theme', 'jado_apply_settings');
+
+
+// ===== Heading Fonts (self-hosted Google Fonts) =====
+
+/**
+ * Whitelist der auswählbaren Überschriften-Schriften.
+ * Key und Value sind identisch (Font Family Name, wie bei Google Fonts CSS2 API),
+ * aber als Array, damit es einfach in Controls verwendet werden kann.
+ */
+function jado_get_allowed_heading_fonts(): array
+{
+    return [
+        'system' => __('System Default', 'jadotheme'),
+        'Inter' => 'Inter',
+        'Roboto' => 'Roboto',
+        'Montserrat' => 'Montserrat',
+        'Poppins' => 'Poppins',
+        'Open Sans' => 'Open Sans',
+        'Lora' => 'Lora',
+        'Playfair Display' => 'Playfair Display',
+        'Source Serif 4' => 'Source Serif 4',
+        'Raleway' => 'Raleway',
+    ];
+}
+
+/** Sanitize: nur erlaubte Fonts zulassen */
+function jado_sanitize_select_font($value): string
+{
+    $choices = jado_get_allowed_heading_fonts();
+    if (isset($choices[$value])) {
+        return $value;
+    }
+    return 'system';
+}
+
+/** Sanitize arbitrary Google Font family name (for text/body). Allows letters, numbers, spaces, plus, and dashes. */
+function jado_sanitize_font_family($value): string
+{
+    $value = is_string($value) ? trim($value) : '';
+    if ($value === '' || strtolower($value) === 'system') {
+        return 'system';
+    }
+    // Basic cleanup: remove disallowed characters
+    $clean = preg_replace('/[^A-Za-z0-9 \-\+]/', '', $value);
+    return $clean !== '' ? $clean : 'system';
+}
+
+/** Feld-Callback für <select> */
+function jado_select_field_callback($args): void
+{
+    $name = esc_attr($args['name']);
+    $value = get_option($args['name'], 'system');
+    $choices = isset($args['choices']) && is_array($args['choices']) ? $args['choices'] : jado_get_allowed_heading_fonts();
+    echo '<select id="' . $name . '" name="' . $name . '">';
+    foreach ($choices as $key => $label) {
+        echo '<option value="' . esc_attr($key) . '"' . selected($value, $key, false) . '>' . esc_html($label) . '</option>';
+    }
+    echo '</select>';
+}
+
+/**
+ * Option-Update Hook: Lädt die gewählten Google-Fonts (woff2) herunter und erzeugt lokales @font-face CSS.
+ */
+function jado_install_heading_font($old_value, $value, $option): void
+{
+    // Wir erlauben das erneute Herunterladen, auch wenn der Wert gleich geblieben ist,
+    // falls z.B. das CSS-Feld leer ist (manuelle Korrekturmöglichkeit).
+    // Aber Customizer sendet oft den gleichen Wert bei jedem 'Save'.
+    $current_css = get_option('theme_heading_font_css', '');
+    if ($old_value === $value && !empty($current_css)) {
+        return;
+    }
+
+    // Bei System-Default: CSS leeren und fertig
+    if (empty($value) || $value === 'system') {
+        update_option('theme_heading_font_css', '');
+        return;
+    }
+
+    $family = $value; // exakter Name gemäß Google Fonts
+    $weights = [400, 700];
+
+    // CSS2-URL vorbereiten, nur latin subset, wght 400;700
+    $family_query = rawurlencode($family) . ':wght@' . implode(';', $weights);
+    $css_url = 'https://fonts.googleapis.com/css2?family=' . $family_query . '&display=swap';
+
+    $resp = wp_remote_get($css_url, [
+        'timeout' => 15,
+        'headers' => [
+            'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        ],
+    ]);
+    if (is_wp_error($resp) || wp_remote_retrieve_response_code($resp) !== 200) {
+        $error_msg = is_wp_error($resp) ? $resp->get_error_message() : 'HTTP Code ' . wp_remote_retrieve_response_code($resp);
+        set_transient('jado_heading_font_notice', __('Font download failed (CSS): ', 'jadotheme') . $error_msg, 30);
+        return;
+    }
+
+    $css = wp_remote_retrieve_body($resp);
+
+    // WOFF2-URLs samt Style/Weight aus dem Google-CSS parsen
+    $faces = [];
+    $pattern = '/@font-face\s*{[^}]*}/i';
+    if (preg_match_all($pattern, $css, $blocks)) {
+        foreach ($blocks[0] as $block) {
+            // Prüfen ob die gewählte Family in diesem Block vorkommt (flexibleres Matching)
+            if (!preg_match("/font-family\s*:\s*['\"]?" . preg_quote($family, '/') . "['\"]?\s*;/i", $block)) {
+                continue;
+            }
+            $style = (preg_match('/font-style:\s*(normal|italic)/i', $block, $m) ? strtolower($m[1]) : 'normal');
+            $weight = (preg_match('/font-weight:\s*(\d{3})/i', $block, $m) ? intval($m[1]) : 400);
+            if (!in_array($weight, $weights, true)) continue;
+            if (!preg_match("/src\s*:\s*.*url\s*\(([^)]+\.woff2)\)/i", $block, $m)) continue;
+            $url = trim($m[1], '"\'');
+            $faces[] = [
+                'style' => $style,
+                'weight' => $weight,
+                'url' => $url,
+            ];
+        }
+    }
+
+    if (empty($faces)) {
+        set_transient('jado_heading_font_notice', __('Font download failed (no woff2 found).', 'jadotheme'), 30);
+        return;
+    }
+
+    // Dateien speichern
+    $upload = wp_upload_dir();
+    $base_dir = trailingslashit($upload['basedir']) . 'jado_fonts/' . sanitize_title($family) . '/';
+    $base_url = trailingslashit($upload['baseurl']) . 'jado_fonts/' . sanitize_title($family) . '/';
+
+    // WordPress Filesystem verwenden – mit robustem Fallback auf PHP/WordPress-Funktionen
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    WP_Filesystem();
+    global $wp_filesystem;
+    $fs = (isset($wp_filesystem) && $wp_filesystem) ? $wp_filesystem : null;
+
+    $dir_exists = $fs ? $fs->is_dir($base_dir) : is_dir($base_dir);
+    if (!$dir_exists) {
+        $made = $fs ? $fs->mkdir($base_dir, FS_CHMOD_DIR) : wp_mkdir_p($base_dir);
+        if (!$made) {
+            set_transient('jado_heading_font_notice', __('Cannot create upload folder for fonts.', 'jadotheme'), 30);
+            return;
+        }
+    }
+
+    $local_faces = [];
+    foreach ($faces as $f) {
+        $file = strtolower(str_replace(' ', '', $family)) . '-' . $f['weight'] . '-' . $f['style'] . '.woff2';
+        $target = $base_dir . $file;
+        $binary = wp_remote_get($f['url'], ['timeout' => 20]);
+        if (is_wp_error($binary) || wp_remote_retrieve_response_code($binary) !== 200) {
+            continue;
+        }
+        $body = wp_remote_retrieve_body($binary);
+
+        // Datei schreiben – zuerst über $wp_filesystem, ansonsten Fallback
+        $written = false;
+        if (isset($wp_filesystem) && $wp_filesystem) {
+            $written = $wp_filesystem->put_contents($target, $body, FS_CHMOD_FILE);
+        }
+        if (!$written) {
+            if (false === file_put_contents($target, $body)) {
+                continue;
+            }
+        }
+        $local_faces[] = [
+            'style' => $f['style'],
+            'weight' => $f['weight'],
+            'url' => $base_url . $file,
+        ];
+    }
+
+    if (empty($local_faces)) {
+        set_transient('jado_heading_font_notice', __('Font download failed (save).', 'jadotheme'), 30);
+        return;
+    }
+
+    // Lokales @font-face CSS erzeugen
+    $out = "/* jST Local Heading Font: {$family} */\n";
+    foreach ($local_faces as $lf) {
+        $out .= "@font-face{font-family:'{$family}';font-style:{$lf['style']};font-weight:{$lf['weight']};font-display:swap;src:url('{$lf['url']}') format('woff2');}\n";
+    }
+
+    update_option('theme_heading_font_css', $out);
+    set_transient('jado_heading_font_notice', sprintf(__('Installed heading font: %s', 'jadotheme'), $family), 30);
+}
+add_action('update_option_theme_heading_font', 'jado_install_heading_font', 10, 3);
+
+/** Install text/body font similarly to heading font (self-hosted Google Fonts) */
+function jado_install_text_font($old_value, $value, $option): void
+{
+    $current_css = get_option('theme_text_font_css', '');
+    if ($old_value === $value && !empty($current_css)) {
+        return;
+    }
+    if (empty($value) || $value === 'system') {
+        update_option('theme_text_font_css', '');
+        return;
+    }
+    $family = $value;
+    $weights = [400, 700];
+    $family_query = rawurlencode($family) . ':wght@' . implode(';', $weights);
+    $css_url = 'https://fonts.googleapis.com/css2?family=' . $family_query . '&display=swap';
+    $resp = wp_remote_get($css_url, [
+        'timeout' => 15,
+        'headers' => [
+            'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        ],
+    ]);
+    if (is_wp_error($resp) || wp_remote_retrieve_response_code($resp) !== 200) {
+        $error_msg = is_wp_error($resp) ? $resp->get_error_message() : 'HTTP Code ' . wp_remote_retrieve_response_code($resp);
+        set_transient('jado_text_font_notice', __('Font download failed (CSS): ', 'jadotheme') . $error_msg, 30);
+        return;
+    }
+    $css = wp_remote_retrieve_body($resp);
+    $faces = [];
+    $pattern = '/@font-face\s*{[^}]*}/i';
+    if (preg_match_all($pattern, $css, $blocks)) {
+        foreach ($blocks[0] as $block) {
+            if (!preg_match("/font-family\s*:\s*['\"]?" . preg_quote($family, '/') . "['\"]?\s*;/i", $block)) {
+                continue;
+            }
+            $style = (preg_match('/font-style:\s*(normal|italic)/i', $block, $m) ? strtolower($m[1]) : 'normal');
+            $weight = (preg_match('/font-weight:\s*(\d{3})/i', $block, $m) ? intval($m[1]) : 400);
+            if (!in_array($weight, $weights, true)) continue;
+            if (!preg_match("/src\s*:\s*.*url\s*\(([^)]+\.woff2)\)/i", $block, $m)) continue;
+            $url = trim($m[1], "'\"");
+            $faces[] = [
+                'style' => $style,
+                'weight' => $weight,
+                'url' => $url,
+            ];
+        }
+    }
+    if (empty($faces)) {
+        set_transient('jado_text_font_notice', __('Font download failed (no woff2 found).', 'jadotheme'), 30);
+        return;
+    }
+    $upload = wp_upload_dir();
+    $base_dir = trailingslashit($upload['basedir']) . 'jado_fonts/' . sanitize_title($family) . '/';
+    $base_url = trailingslashit($upload['baseurl']) . 'jado_fonts/' . sanitize_title($family) . '/';
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    WP_Filesystem();
+    global $wp_filesystem;
+    $fs = (isset($wp_filesystem) && $wp_filesystem) ? $wp_filesystem : null;
+    $dir_exists = $fs ? $fs->is_dir($base_dir) : is_dir($base_dir);
+    if (!$dir_exists) {
+        $made = $fs ? $fs->mkdir($base_dir, FS_CHMOD_DIR) : wp_mkdir_p($base_dir);
+        if (!$made) {
+            set_transient('jado_text_font_notice', __('Cannot create upload folder for fonts.', 'jadotheme'), 30);
+            return;
+        }
+    }
+    $local_faces = [];
+    foreach ($faces as $f) {
+        $file = strtolower(str_replace(' ', '', $family)) . '-' . $f['weight'] . '-' . $f['style'] . '.woff2';
+        $target = $base_dir . $file;
+        $binary = wp_remote_get($f['url'], ['timeout' => 20]);
+        if (is_wp_error($binary) || wp_remote_retrieve_response_code($binary) !== 200) {
+            continue;
+        }
+        $body = wp_remote_retrieve_body($binary);
+        $written = false;
+        if (isset($wp_filesystem) && $wp_filesystem) {
+            $written = $wp_filesystem->put_contents($target, $body, FS_CHMOD_FILE);
+        }
+        if (!$written) {
+            if (false === file_put_contents($target, $body)) {
+                continue;
+            }
+        }
+        $local_faces[] = [
+            'style' => $f['style'],
+            'weight' => $f['weight'],
+            'url' => $base_url . $file,
+        ];
+    }
+    if (empty($local_faces)) {
+        set_transient('jado_text_font_notice', __('Font download failed (save).', 'jadotheme'), 30);
+        return;
+    }
+    $out = "/* jST Local Text Font: {$family} */\n";
+    foreach ($local_faces as $lf) {
+        $out .= "@font-face{font-family:'{$family}';font-style:{$lf['style']};font-weight:{$lf['weight']};font-display:swap;src:url('{$lf['url']}') format('woff2');}\n";
+    }
+    update_option('theme_text_font_css', $out);
+    set_transient('jado_text_font_notice', sprintf(__('Installed text font: %s', 'jadotheme'), $family), 30);
+}
+add_action('update_option_theme_text_font', 'jado_install_text_font', 10, 3);
+
+/** Admin Notice nach Installation/Fehler anzeigen */
+function jado_heading_font_admin_notice(): void
+{
+    if (!is_admin()) return;
+    $msg1 = get_transient('jado_heading_font_notice');
+    $msg2 = get_transient('jado_text_font_notice');
+    if ($msg1 || $msg2) {
+        if ($msg1) delete_transient('jado_heading_font_notice');
+        if ($msg2) delete_transient('jado_text_font_notice');
+        $full = trim(($msg1 ? $msg1 : '') . ' ' . ($msg2 ? $msg2 : ''));
+        echo '<div id="jado-font-notice" class="notice notice-info is-dismissible"><p>' . esc_html($full) . '</p></div>';
+    }
+}
+add_action('admin_notices', 'jado_heading_font_admin_notice');

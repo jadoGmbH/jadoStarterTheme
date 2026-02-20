@@ -179,22 +179,6 @@
       "oAP" : "\/lib\/custom-post-types.php",
       "oF" : 0
     },
-    "\/lib\/fonts\/albert-sans-v1-latin-700.woff2" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-700.woff2",
-      "oF" : 0
-    },
-    "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/lib\/fonts\/albert-sans-v1-latin-regular.woff2",
-      "oF" : 0
-    },
     "\/lib\/fonts\/star.eot" : {
       "cB" : 0,
       "ft" : 8192,
