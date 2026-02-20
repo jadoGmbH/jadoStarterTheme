@@ -9,7 +9,6 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 @mixin desktopUp() {
 
   body {
-    font-size: 100%;
   }
 
   .wrap {
@@ -19,23 +18,35 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
   .header {
     padding: 2em 0;
-    box-shadow: $desktop-boxShadow;
+    box-shadow: $showShadows;
+    display: flex;
+    align-items: center;
   }
 
+
   #logo {
-    font-size: $desktop-headlineSize - 8;
+    font-size: calc(#{$fluid-headlineSize} - 8px);
+    img {
+      height: 1.6em;
+      width: auto;
+      display: inline-block;
+    }
   }
 
   #description {
-    font-size: $desktop-copySize;
+    font-size: $fluid-copySize;
+    display: inline-block;
+    margin-left: 0.6em;
+    align-self: center;
+    white-space: nowrap;
   }
 
   .nav {
     li {
       a {
-        font-size: $desktop-copySize;
+        font-size: $fluid-copySize;
         padding: 0.3rem 1rem;
-        border-radius: $desktop-borderRadius;
+        border-radius: $borderRadius;
       }
     }
 
@@ -57,19 +68,18 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
   figure.wp-block-image {
     figcaption {
-      font-size: $desktop-copySize - 4;
+      font-size: calc(#{$fluid-copySize} - 4px);
     }
   }
 
   #content {
-    box-shadow: $desktop-boxShadow;
+    box-shadow: $showShadows;
   }
 
 
   .hentry {
-
     header {
-      padding: 2em 0;
+      padding: 2em 0 0 0;
     }
   }
 
@@ -79,15 +89,12 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   h1, h1 a, h1 strong {
-    font-size: $desktop-headlineSize;
   }
 
   h2, h2 a, h2 strong {
-    font-size: $desktop-headlineSize - 10;
   }
 
   h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-    font-size: $desktop-headlineSize - 12;
   }
 
   ul.wp-block-list {
@@ -97,7 +104,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
       &.is-grid {
         li {
-          border-radius: $desktop-borderRadius;
+          border-radius: $borderRadius;
         }
       }
     }
@@ -114,23 +121,22 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   h2 a {
-    font-size: $desktop-headlineSize - 15;
+    font-size: calc(#{$fluid-headlineSize} - 15px);
     padding: $desktop-innerPostGap;
   }
 
   p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-    font-size: $desktop-copySize;
   }
 
   time {
-    font-size: $desktop-copySize - 4;
+    font-size: calc(#{$fluid-copySize} - 4px);
   }
 
   p {
     margin: 0 0 $desktop-innerContentGap 0;
 
     a {
-      font-size: $desktop-copySize;
+      font-size: $fluid-copySize;
     }
   }
 
@@ -149,7 +155,7 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     padding: $desktop-innerContentGap 0;
 
     p {
-      font-size: $desktop-headlineSize;
+      font-size: $fluid-headlineSize;
       margin-bottom: calc($desktop-innerContentGap / 2);
     }
   }
@@ -159,15 +165,15 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   }
 
   .wp-block-code {
-    border-radius: $desktop-borderRadius;
-    font-size: $desktop-copySize;
+    border-radius: $borderRadius;
+    font-size: $fluid-copySize;
     padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
   }
 
   .wp-block-verse {
-    border-radius: $desktop-borderRadius;
+    border-radius: $borderRadius;
     padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
-    font-size: $desktop-copySize;
+    font-size: $fluid-copySize;
   }
 
   .wp-block-image{
@@ -181,16 +187,16 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
   .cpt-container, .posts {
 
     h2 {
-      font-size: $desktop-headlineSize - 6;
+      font-size: calc(#{$fluid-headlineSize} - 6px);
     }
 
     .cpt, .post {
-      border-radius: $desktop-borderRadius;
+      border-radius: $borderRadius;
     }
 
     .cptimg, .postimg {
-      border-top-left-radius: $desktop-borderRadius;
-      border-top-right-radius: $desktop-borderRadius;
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
     }
 
     .postcontent, .cptcontent {
@@ -204,19 +210,19 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
 
   a, a:visited {
-    font-size: $desktop-copySize;
+    font-size: $fluid-copySize;
   }
 
   .wp-block-button__link, .button {
     padding: calc($desktop-innerContentGap / 4) calc($desktop-innerContentGap / 2);
-    border-radius: $desktop-borderRadius;
+    border-radius: $borderRadius;
   }
 
 
   #widgetarea {
     .widget {
       h2, h3 {
-        font-size: $desktop-copySize + 4;
+        font-size: calc(#{$fluid-copySize} + 4px);
       }
     }
   }
@@ -226,36 +232,30 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     padding: $desktop-innerContentGap 0;
 
     .copyright, .copyright a {
-      font-size: $desktop-copySize - 4;
+      font-size: calc(#{$fluid-copySize} - 4px);
     }
 
     a {
-      font-size: $desktop-copySize - 4;
+      font-size: calc(#{$fluid-copySize} - 4px);
 
       &.wp-block-button__link {
-        font-size: $desktop-copySize - 4;
+        font-size: calc(#{$fluid-copySize} - 4px);
       }
-    }
-  }
-
-  .socialmediaicons {
-    a {
-      border-radius: $desktop-borderRadius;
     }
   }
 
   .wp-block-details {
     margin: 0 0 $desktop-blockGap 0;
-    border: 1px solid $line;
-    border-radius: $desktop-borderRadius;
+    border: 1px solid $outline;
+    border-radius: $borderRadius;
     background: $white;
     color: $contentText;
-    box-shadow: $desktop-boxShadow;
+    box-shadow: $showShadows;
 
     summary {
       gap: 0.8em;
       padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
-      font-size: $desktop-headlineSize - 4;
+      font-size: calc(#{$fluid-headlineSize} - 4px);
 
       &:after {
         font-size: 1.1em;
@@ -269,8 +269,8 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
 
   .wp-block-table {
     overflow: hidden;
-    border-radius: $desktop-borderRadius;
-    box-shadow: $desktop-boxShadow;
+    border-radius: $borderRadius;
+    box-shadow: $showShadows;
     margin: 0 0 $desktop-blockGap 0;
 
     table {
@@ -278,13 +278,13 @@ Stylesheet: Desktop – Stop // deactivate in style.scss for fluid layouts
     }
 
     thead th {
-      background-color: color.scale($line, $lightness: 35%);
-      font-size: $desktop-copySize;
+      background-color: var(--theme-table-header-desktop);
+      font-size: $fluid-copySize;
     }
 
     th, td {
       padding: calc($desktop-innerContentGap / 2) $desktop-innerContentGap;
-      font-size: $desktop-copySize;
+      font-size: $fluid-copySize;
     }
   }
 }

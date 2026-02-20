@@ -5,10 +5,11 @@ Super fast & slim Starter Template (Theme for WordPress for developing individua
 Gutenberg enabled, Woocommerce enabled (if you want) - integrated in style.css and fully responsive.
 jQuery is deactivated per default and two minimal functions are integrated in pure JavaScript (footer.php) to get the burger-menu and the header behavior to work (sticky header wich appears after scroll up).
 
-⚠️ Important: If you have modified SCSS files, do not upgrade to the new version 6.1 (because of fundamental structure changes in SCSS since Version 6.0)!!!
+⚠️ Important: If you have modified SCSS files, do not upgrade to the new version 7.0 (because of fundamental structure changes in SCSS since Version 7.0)!!!
 
 | Version | Features & Optimizations |
 | ------- | ------- |
+| 7.0 | New Design and SCSS structure!!! Added options for some design settings |
 | 6.1 | New SCSS structure!!! Added an option to load the CSS in the backend |
 | 6.0 | New SCSS structure!!! Added hash-url as option to the swiperjs-slider, added whats-app and mail-icon to the footer, added better print support (CSS) |
 | 5.1 | added more security settings for \<head\> |

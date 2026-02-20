@@ -21,9 +21,7 @@ Stylesheet: Base Mobile - Tablet
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    position: relative !important;
-    top: 0;
-    font-size: $mobile-copySize;
+    font-size: $fluid-copySize;
 
     &.scrollDown #fixedHeader.header {
       transform: translate3d(0, -100%, 0);
@@ -36,8 +34,11 @@ Stylesheet: Base Mobile - Tablet
     }
   }
 
+  p, li, strong {
+  }
+
   a, a:visited {
-    color: $contentText;
+    color: $linkColor;
     text-decoration: none;
     @include transition(all 200ms ease-out);
 
@@ -94,6 +95,7 @@ Stylesheet: Base Mobile - Tablet
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 10;
     }
 
     a {
@@ -108,7 +110,7 @@ Stylesheet: Base Mobile - Tablet
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: $mobile-borderRadius;
+        border-radius: $borderRadius;
 
         &:hover {
           background: $contrast url(../img/user.svg) no-repeat center;
@@ -125,7 +127,7 @@ Stylesheet: Base Mobile - Tablet
         justify-content: center;
         position: relative;
         align-items: center;
-        border-radius: $mobile-borderRadius;
+        border-radius: $borderRadius;
 
         &:hover {
           background: $contrast url(../img/cart.svg) no-repeat center;
@@ -142,11 +144,18 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .header {
-    box-shadow: $mobile-boxShadow;
+    box-shadow: $showShadows;
     background-color: $headerBackground;
     z-index: 9999;
     position: relative;
     padding: 5vw 0;
+    min-height: 4rem;
+
+    #inner-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     &#fixedHeader {
       position: fixed;
@@ -155,12 +164,18 @@ Stylesheet: Base Mobile - Tablet
 
     .flex {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
       color: $headerText;
+      position: relative;
+      width: 100%;
     }
   }
 
   .logolink {
+    display: flex;
+    align-items: center;
     #logo {
       opacity: 1;
       display: flex;
@@ -168,6 +183,12 @@ Stylesheet: Base Mobile - Tablet
       align-items: center;
       gap: 0.6em;
       @include transition(opacity 300ms ease-out);
+
+      img {
+        height: 1.6em;
+        width: auto;
+        display: inline-block;
+      }
     }
 
     &:hover {
@@ -180,14 +201,14 @@ Stylesheet: Base Mobile - Tablet
 
   #logo {
     display: inline-block;
-    font-size: $mobile-headlineSize - 2;
+    font-size: calc(#{$fluid-headlineSize} - 2px);
     line-height: 1.2;
     width: auto;
     font-family: $copy;
     position: relative;
     color: $headerText;
     font-weight: normal;
-    margin: 0 12vw 0 0;
+    margin: 0;
 
     a {
       color: $white;
@@ -196,10 +217,10 @@ Stylesheet: Base Mobile - Tablet
   }
 
   #description {
-    display: block;
+    display: none;
     font-weight: normal;
-    color: $dark;
-    font-size: $mobile-copySize;
+    color: $headerText;
+    font-size: $fluid-copySize;
     margin-top: 1em;
 
     &:empty {
@@ -209,11 +230,10 @@ Stylesheet: Base Mobile - Tablet
 
 
   #burger {
-    position: absolute;
-    right: 2rem;
-    top: 0;
-    width: 5rem;
-    height: 5rem;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    z-index: 100;
     border: none;
     background: none;
     cursor: pointer;
@@ -223,7 +243,8 @@ Stylesheet: Base Mobile - Tablet
     justify-content: center;
     text-align: center;
     padding: 0;
-    gap: 1rem;
+    gap: 0.3rem;
+    border-radius: $borderRadius;
 
     .c1, .c2, .c3 {
       display: block;
@@ -235,9 +256,9 @@ Stylesheet: Base Mobile - Tablet
 
     .cheese {
       width: 100%;
-      height: 0.6rem;
+      height: 0.3rem;
       border-radius: 1rem;
-      background: $white;
+      background: $dark;
     }
 
     &.burgerToggledOn {
@@ -248,13 +269,13 @@ Stylesheet: Base Mobile - Tablet
       .c1 {
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
-        top: 1rem;
+        top: 0.3rem;
       }
 
       .c3 {
         -ms-transform: rotate(-45deg);
         transform: rotate(-45deg);
-        top: -0.5rem;
+        top: -0.3rem;
       }
     }
   }
@@ -263,6 +284,7 @@ Stylesheet: Base Mobile - Tablet
   #site-navigation {
     max-height: 0;
     overflow: hidden;
+    width: 100%;
     @include transition(max-height 300ms linear);
 
     &.burgerToggledOn {
@@ -272,19 +294,22 @@ Stylesheet: Base Mobile - Tablet
 
   .nav {
     margin: 4vw 0 0 0;
+    width: 100%;
 
     li {
+      border-radius: $borderRadius;
+
       a {
         font-family: $copy;
         font-weight: normal;
         display: block;
         color: $headerText;
-        margin: 0 0 0.5em 0;
+        margin: 0;
         text-decoration: none;
         padding: 3vw 5vw;
-        border: 1px solid $line;
-        font-size: $mobile-copySize;
-        border-radius: $mobile-borderRadius;
+        border: 1px solid $outline;
+        font-size: $fluid-copySize;
+        border-radius: $borderRadius;
 
         &:hover {
           background-color: $dark;
@@ -357,6 +382,11 @@ Stylesheet: Base Mobile - Tablet
 
     &.top-nav {
       padding-top: 8vw;
+
+      li a {
+        border: var(--theme-topnav-outline) !important;
+        border-radius: $borderRadius;
+      }
     }
 
     &.meta-nav {
@@ -378,11 +408,15 @@ Stylesheet: Base Mobile - Tablet
     white-space: unset;
   }
 
+  .has-background{
+    border-radius: $borderRadius;
+  }
+
   #content, .block-editor-iframe__body {
     position: relative;
     z-index: 2;
     background-color: $contentBackground;
-    box-shadow: $mobile-boxShadow;
+    box-shadow: $showShadows;
     min-height: 100vh;
   }
 
@@ -396,24 +430,28 @@ Stylesheet: Base Mobile - Tablet
   }
 
 
-  h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, h1 strong, h2 strong, h3 strong, h4 strong {
+  h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a, h1 strong, h2 strong, h3 strong, h4 strong, h5 strong {
     text-rendering: optimizelegibility;
     font-family: $headline;
     line-height: 1.2;
     margin: 0 0 $mobile-blockGap 0;
     font-weight: bold;
+    color: $headlineColor;
+    font-size: $fluid-headlineSize;
   }
 
   h1, h1 a, h1 strong {
-    font-size: $mobile-headlineSize;
   }
 
   h2, h2 a, h2 strong {
-    font-size: $mobile-headlineSize - 0.4;
+    font-size: $fluid-headlineSize-h2;
   }
 
-  h3, h4, h3 a, h4 a, h3 strong, h4 strong {
-    font-size: $mobile-headlineSize - 1;
+  h3, h4, h5, h3 a, h4 a, h5 a, h3 strong, h4 strong, h5 strong {
+    font-size: $fluid-headlineSize-h3;
+  }
+
+  p, li, strong {
   }
 
   ul.wp-block-list {
@@ -443,7 +481,7 @@ Stylesheet: Base Mobile - Tablet
 
         li {
           background: $white;
-          border-radius: $mobile-borderRadius;
+          border-radius: $borderRadius;
           padding: 1em;
           position: relative;
           margin: 0 0 1em 0;
@@ -477,7 +515,7 @@ Stylesheet: Base Mobile - Tablet
 
     p {
       font-family: $headline;
-      font-size: $mobile-headlineSize;
+      font-size: $fluid-headlineSize;
       margin-bottom: calc($mobile-innerContentGap / 2);
     }
 
@@ -494,10 +532,10 @@ Stylesheet: Base Mobile - Tablet
   }
 
   .wp-block-code {
-    border-radius: $mobile-borderRadius;
+    border-radius: $borderRadius;
     background-color: $contentText;
     color: $white;
-    font-size: $mobile-copySize;
+    font-size: $fluid-copySize;
     margin-bottom: $mobile-blockGap;
     padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
   }
@@ -506,8 +544,8 @@ Stylesheet: Base Mobile - Tablet
     margin-bottom: $mobile-blockGap;
     font-style: italic;
     background-color: $headerBackground;
-    border-radius: $mobile-borderRadius;
-    font-size: $mobile-copySize;
+    border-radius: $borderRadius;
+    font-size: $fluid-copySize;
     padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
   }
 
@@ -544,8 +582,8 @@ Stylesheet: Base Mobile - Tablet
       display: flex;
       margin-bottom: 0.5em;
       overflow: hidden;
-      border-top-left-radius: $mobile-borderRadius;
-      border-top-right-radius: $mobile-borderRadius;
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
 
       img {
         margin-bottom: 0;
@@ -572,7 +610,7 @@ Stylesheet: Base Mobile - Tablet
       position: relative;
       flex: 0 0 100%;
       background-color: $white;
-      border-radius: $mobile-borderRadius;
+      border-radius: $borderRadius;
       @include transition(background-color 200ms linear);
 
       &:hover {
@@ -638,8 +676,8 @@ Stylesheet: Base Mobile - Tablet
 
   .summary, p, .woocommerce-cart-form {
     a, a:visited {
-      color: $contentText;
-      font-size: $mobile-copySize;
+      color: $linkColor;
+      font-size: $fluid-copySize;
       padding: 0 0 0.2em 0;
       @include transition(all 200ms ease-out);
       position: relative;
@@ -649,6 +687,7 @@ Stylesheet: Base Mobile - Tablet
       text-underline-offset: 2px;
 
       &:hover, &:focus {
+        color: $linkHover;
         text-decoration-color: $contrast;
       }
 
@@ -663,9 +702,9 @@ Stylesheet: Base Mobile - Tablet
     font-family: $copy;
     outline: none;
     border: none;
-    background-color: $buttonColor;
-    color: $white;
-    border-radius: $mobile-borderRadius;
+    background-color: $buttonBackground;
+    color: $buttonColor !important;
+    border-radius: $borderRadius;
     margin: 0;
     line-height: 1.5;
     display: block;
@@ -676,12 +715,13 @@ Stylesheet: Base Mobile - Tablet
     &:hover {
       cursor: pointer;
       background-color: $contrast;
+      color: $buttonColor !important;
     }
   }
 
   h2 {
     a {
-      font-size: $mobile-headlineSize;
+      font-size: $fluid-headlineSize;
       line-height: 1.2;
       display: block;
 
@@ -717,7 +757,6 @@ Stylesheet: Base Mobile - Tablet
   }
 
   p, ul, li, a, pre, time, input, span, tr, th, td, textarea, strong, button {
-    font-size: $mobile-copySize;
   }
 
   textarea {
@@ -726,7 +765,7 @@ Stylesheet: Base Mobile - Tablet
   }
 
   time {
-    font-size: $mobile-copySize - 1;
+    font-size: $fluid-copySize-sm;
     color: $dark;
     font-weight: bold;
   }
@@ -736,7 +775,6 @@ Stylesheet: Base Mobile - Tablet
 
     a {
       font-weight: bold;
-      font-size: $mobile-copySize;
       font-family: $copy;
     }
   }
@@ -754,8 +792,8 @@ Stylesheet: Base Mobile - Tablet
 
   input {
     padding: 0.4em 0.8em;
-    border-radius: $mobile-borderRadius;
-    border: 1px solid $line;
+    border-radius: $borderRadius;
+    border: 1px solid $outline;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 
     &:hover {
@@ -778,7 +816,7 @@ Stylesheet: Base Mobile - Tablet
     border: none;
     right: -2.2rem;
     top: 0.15rem;
-    border-radius: $mobile-borderRadius;
+    border-radius: $borderRadius;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -806,9 +844,9 @@ Stylesheet: Base Mobile - Tablet
   .wp-block-button__link, .button, .wc-block-components-button {
     padding: calc($mobile-innerContentGap / 4) calc($mobile-innerContentGap / 2);
     font-family: $copy;
-    border-radius: $mobile-borderRadius;
+    border-radius: $borderRadius;
     background-color: $buttonBackground;
-    color: $buttonColor;
+    color: $buttonColor !important;
     margin: 0;
     top: 0;
     position: relative;
@@ -819,6 +857,7 @@ Stylesheet: Base Mobile - Tablet
 
     &:hover {
       background-color: $linkColor;
+      color: $buttonColor !important;
       top: 1px;
     }
 
@@ -855,7 +894,7 @@ Stylesheet: Base Mobile - Tablet
     figcaption {
       margin-top: 0;
       text-align: center;
-      font-size: $mobile-copySize - 1;
+      font-size: $fluid-copySize-sm;
       font-style: italic;
     }
   }
@@ -888,23 +927,43 @@ Stylesheet: Base Mobile - Tablet
     a {
       width: 2rem;
       height: 2rem;
-      border-radius: $mobile-borderRadius;
+      border-radius: $borderRadius;
       overflow: hidden;
+      color: var(--theme-footer-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       svg {
-        fill: currentColor;
+        fill: currentColor !important;
+        stroke: currentColor !important;
 
         path {
-          fill: currentColor;
+          fill: currentColor !important;
+          stroke: currentColor !important;
+        }
+
+        rect, circle, polygon, line, polyline {
+          fill: currentColor !important;
+          stroke: currentColor !important;
         }
       }
 
       &:hover {
+        color: $contrast;
+
         svg {
-          fill: $contrast;
+          fill: currentColor !important;
+          stroke: currentColor !important;
 
           path {
-            fill: $contrast !important;
+            fill: currentColor !important;
+            stroke: currentColor !important;
+          }
+
+          rect, circle, polygon, line, polyline {
+            fill: currentColor !important;
+            stroke: currentColor !important;
           }
         }
       }
@@ -919,6 +978,11 @@ Stylesheet: Base Mobile - Tablet
     bottom: 0;
     z-index: 1;
     padding: $mobile-innerContentGap 0 calc($mobile-innerContentGap * 2) 0;
+
+    a {
+      color: $footerText;
+      text-decoration-color: $footerText !important;
+    }
 
     a.jado {
       display: flex;
@@ -948,16 +1012,17 @@ Stylesheet: Base Mobile - Tablet
     .copyright {
       font-weight: normal;
       color: $footerText;
-      font-size: $mobile-copySize - 0.75;
+      font-size: $fluid-copySize-sm;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       gap: 0.35rem;
+      margin-bottom: 0;
 
       a {
         color: $footerText;
-        font-size: $mobile-copySize - 0.75;
+        font-size: $fluid-copySize-sm;
 
         &:hover {
           color: $contrast
@@ -969,7 +1034,7 @@ Stylesheet: Base Mobile - Tablet
       text-decoration: underline;
 
       &.wp-block-button__link {
-        font-size: $mobile-copySize - 0.75;
+        font-size: $fluid-copySize-sm;
       }
     }
   }
@@ -985,11 +1050,11 @@ Stylesheet: Base Mobile - Tablet
 
   .wp-block-details {
     margin: 0 0 $mobile-blockGap 0;
-    border: 1px solid $line;
-    border-radius: $mobile-borderRadius;
+    border: 1px solid $outline;
+    border-radius: $borderRadius;
     background: $white;
     color: $contentText;
-    box-shadow: $mobile-boxShadow;
+    box-shadow: $showShadows;
     overflow: hidden;
 
     summary {
@@ -999,7 +1064,7 @@ Stylesheet: Base Mobile - Tablet
       padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
       font-family: $headline;
       font-weight: 700;
-      font-size: $mobile-headlineSize - 2;
+      font-size: calc(#{$fluid-headlineSize} - 2px);
       line-height: 1.2;
       cursor: pointer;
       list-style: none;
@@ -1042,9 +1107,9 @@ Stylesheet: Base Mobile - Tablet
     overflow-x: auto;
     margin: 0 0 $mobile-blockGap 0;
     -webkit-overflow-scrolling: touch;
-    border-radius: $mobile-borderRadius;
+    border-radius: $borderRadius;
     background: $white;
-    box-shadow: $mobile-boxShadow;
+    box-shadow: $showShadows;
 
     table {
       width: 100%;
@@ -1063,7 +1128,7 @@ Stylesheet: Base Mobile - Tablet
     }
 
     thead th {
-      background-color: color.scale($line, $lightness: 45%);
+      background-color: var(--theme-table-header);
       color: $contentText;
       text-align: left;
       font-weight: 700;
@@ -1074,7 +1139,7 @@ Stylesheet: Base Mobile - Tablet
       border: 0;
       vertical-align: top;
       padding: calc($mobile-innerContentGap / 2) $mobile-innerContentGap;
-      font-size: $mobile-copySize;
+      font-size: $fluid-copySize;
     }
 
     tr {
@@ -1101,7 +1166,7 @@ Stylesheet: Base Mobile - Tablet
     }
 
     tbody tr:hover {
-      background-color: color.scale($contrast, $lightness: 88%);
+      background-color: var(--theme-table-hover);
     }
 
     .has-fixed-layout table {

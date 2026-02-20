@@ -22,7 +22,7 @@
 </svg></span></a></span>
         </p>
         <?php
-        if (get_option('business_show_social_footer')) {
+        if (get_option('business_show_social_footer') === 'yes') {
             echo '<div class="socialmediaicons">';
             if ($link = get_option('business_facebook')) {
                 echo '<a target="_blank" class="facebook" href="' . esc_url($link) . '" target="_blank" rel="noopener">';
@@ -150,15 +150,15 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
         if (innerContent && header) {
             innerContent.style.paddingTop = `${header.offsetHeight + 30}px`;
         }
-        if (burger && header) {
-            burger.style.height = `${header.offsetHeight}px`;
-        }
         let lastScroll = 0;
         const scrollUp = "scrollUp";
         const scrollDown = "scrollDown";
         const body = document.body;
         let ticking = false;
+        const headerFixed = "<?php echo get_option('theme_header_fixed', ''); ?>";
+
         function handleScroll() {
+            if (headerFixed === 'yes') return;
             const currentScroll = window.scrollY;
             const scrollPosition = window.scrollY + window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
@@ -175,12 +175,15 @@ if (str_contains($_SERVER["HTTP_HOST"], 'local') !== false) {
             lastScroll = currentScroll;
             ticking = false;
         }
-        window.addEventListener("scroll", () => {
-            if (!ticking) {
-                window.requestAnimationFrame(handleScroll);
-                ticking = true;
-            }
-        }, {passive: true});
+
+        if (headerFixed !== 'yes') {
+            window.addEventListener("scroll", () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(handleScroll);
+                    ticking = true;
+                }
+            }, {passive: true});
+        }
     });
 </script>
 </body>
