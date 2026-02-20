@@ -103,8 +103,17 @@
     </script>
         <?php
     }
+    // OpenGraph: image or video
     if (has_post_thumbnail()) {
             echo '<meta property="og:image" content="' . get_the_post_thumbnail_url(null, 'ogimage'). '">';
+    }
+    $fv = function_exists('jado_get_featured_video_id') ? jado_get_featured_video_id(get_the_ID()) : 0;
+    if ($fv) {
+            $vurl = wp_get_attachment_url($fv);
+            if ($vurl) {
+                echo '<meta property="og:video" content="' . esc_url($vurl) . '">';
+                echo '<meta property="og:video:type" content="video/mp4">';
+            }
     }
     if (is_singular() && pings_open(get_queried_object())) : ?>
     <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">

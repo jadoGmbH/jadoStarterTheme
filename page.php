@@ -1,14 +1,14 @@
 <?php get_header();
-$hasThumb = has_post_thumbnail();
-$showThumb = $hasThumb && (!class_exists('WooCommerce') || !is_product());
+$hasMedia = has_post_thumbnail() || jado_get_featured_video_id(get_the_ID());
+$showMedia = $hasMedia && (!class_exists('WooCommerce') || !is_product());
 ?>
     <main id="content">
-        <?php if ($hasThumb): ?>
+        <?php if ($hasMedia): ?>
             <div class="featuredImage">
-                <?php the_post_thumbnail('featuredImage'); ?>
+                <?php echo jado_render_featured_media(get_the_ID(), 'featuredImage'); ?>
             </div>
         <?php endif; ?>
-        <div id="inner-content" class="wrap<?php echo $showThumb ? ' hasThumb' : ''; ?>">
+        <div id="inner-content" class="wrap<?php echo $showMedia ? ' hasThumb' : ''; ?>">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('entry-content page'); ?>>
                     <header>
